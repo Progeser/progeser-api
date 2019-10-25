@@ -21,6 +21,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # An OAuth 2 provider for Rails and Grape
 gem 'doorkeeper', '~> 5.2.0'
 
+# Travis CI client
+gem 'travis', '~> 1.8', '>= 1.8.8'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -31,6 +34,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'rubocop', '~> 0.75.0', require: false
+  gem 'rubocop-rails', '~> 2.3.0'
+  gem 'rubocop-performance', '~> 1.5.0'
+  gem 'brakeman'
+  gem 'bundler-audit'
 end
 
 group :test do
