@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2019_10_20_214232) do
     t.string "last_name"
     t.string "first_name"
     t.string "type"
+    t.string "laboratory"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email"

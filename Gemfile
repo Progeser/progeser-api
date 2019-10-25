@@ -39,6 +39,7 @@ group :development do
   gem 'rubocop-performance', '~> 1.5.0'
   gem 'brakeman'
   gem 'bundler-audit'
+  gem 'annotate'
 end
 
 group :test do
