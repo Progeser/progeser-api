@@ -9,12 +9,18 @@ addons:
 
 stages:
   - lint
-  # TODO: - security
+  - security
   # TODO: - test
 
 jobs:
   include:
     - stage: lint
-    - script:
+      script:
       - gem install rubocop
       - bundle exec rubocop
+    - stage: security
+      script:
+      - gem install brakeman
+      - brakeman
+      - gem install bundler-audit
+      - bundle audit check --update
