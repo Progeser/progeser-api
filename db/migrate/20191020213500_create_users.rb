@@ -10,6 +10,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :last_name
       t.string :first_name
       t.string :type
+      t.string :laboratory
 
       t.timestamps
     end
