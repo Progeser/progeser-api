@@ -1,0 +1,26 @@
+language: ruby
+cache: bundler
+
+rvm:
+  - 2.6.5
+
+addons:
+  postgresql: 11
+
+stages:
+  - lint
+  - security
+  # TODO: - test
+
+jobs:
+  include:
+    - stage: lint
+      script:
+      - gem install rubocop
+      - bundle exec rubocop
+    - stage: security
+      script:
+      - gem install brakeman
+      - brakeman
+      - gem install bundler-audit
+      - bundle audit check --update
