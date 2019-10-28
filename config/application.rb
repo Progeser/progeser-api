@@ -19,5 +19,15 @@ module ProgeserApi
     # I18n
     I18n.config.available_locales = %i[fr en]
     config.i18n.default_locale = :fr
+
+    # Sidekiq
+    config.active_job.queue_adapter = :sidekiq
+
+    # Action Mailer
+    config.action_mailer.raise_delivery_errors = false
+    config.action_mailer.perform_caching = false
+    config.action_mailer.delivery_method = :mailjet_api
+    config.action_mailer.perform_deliveries = true
+
   end
 end
