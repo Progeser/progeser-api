@@ -1,6 +1,27 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  # Enumerize
+  extend Enumerize
+  enumerize :role,
+            in: %i[requester grower]
+
+  # Validations
+  validates :email,
+            presence: true,
+            uniqueness: true,
+            email: {message: :email_invalid}
+
+  # Associations
+  has_many :access_grants,
+           class_name: 'Doorkeeper::AccessGrant',
+           foreign_key: :resource_owner_id,
+           dependent: :destroy
+
+  has_many :access_tokens,
+           class_name: 'Doorkeeper::AccessToken',
+           foreign_key: :resource_owner_id,
+           dependent: :destroy
 end
 
 # == Schema Information
