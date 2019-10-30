@@ -57,3 +57,6 @@ Metrics/BlockLength:
 Metrics/CyclomaticComplexity:
   Enabled: true
   Max: 10
+
+Rails/InverseOf:
+  Enabled: false

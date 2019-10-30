@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :email,
             presence: true,
             uniqueness: true,
-            email: {message: :email_invalid}
+            email: { message: :email_invalid }
 
   # Associations
   has_many :access_grants,
