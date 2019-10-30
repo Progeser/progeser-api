@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  # Clearance
+  include Clearance::User
+
   # Enumerize
   extend Enumerize
   enumerize :role,
@@ -11,6 +14,19 @@ class User < ApplicationRecord
             presence: true,
             uniqueness: true,
             email: { message: :email_invalid }
+
+  validates :password,
+            presence: true,
+            confirmation: true,
+            on: :create
+
+  validates :password_confirmation,
+            presence: true,
+            on: :create
+
+  validates :first_name,
+            :last_name,
+            presence: true
 
   # Associations
   has_many :access_grants,

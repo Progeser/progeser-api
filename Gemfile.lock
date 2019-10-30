@@ -57,6 +57,7 @@ GEM
     arel (9.0.0)
     ast (2.4.0)
     backports (3.15.0)
+    bcrypt (3.1.13)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
     brakeman (4.7.0)
@@ -65,6 +66,14 @@ GEM
       bundler (>= 1.2.0, < 3)
       thor (~> 0.18)
     byebug (11.0.1)
+    clearance (1.17.0)
+      actionmailer (>= 3.1)
+      activemodel (>= 3.1)
+      activerecord (>= 3.1)
+      bcrypt
+      email_validator (~> 1.4)
+      railties (>= 3.1)
+    coderay (1.1.2)
     concurrent-ruby (1.1.5)
     countries (3.0.0)
       i18n_data (~> 0.8.0)
@@ -74,11 +83,14 @@ GEM
     credit_card_validations (3.5.0)
       activemodel (>= 3, <= 6)
       activesupport (>= 3, <= 6)
+    database_cleaner (1.7.0)
     date_validator (0.9.0)
       activemodel
       activesupport
     doorkeeper (5.2.1)
       railties (>= 5)
+    email_validator (1.6.0)
+      activemodel
     enumerize (2.3.1)
       activesupport (>= 3.2)
     erubi (1.9.0)
@@ -136,6 +148,11 @@ GEM
       ast (~> 2.4.0)
     pg (1.1.4)
     phony (2.18.8)
+    pry (0.12.2)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
     puma (3.12.1)
     pusher-client (0.6.2)
       json
@@ -247,10 +264,13 @@ DEPENDENCIES
   brakeman
   bundler-audit
   byebug
+  clearance (~> 1.17)
+  database_cleaner
   doorkeeper (~> 5.2.0)
   enumerize (~> 2.3)
   listen (>= 3.0.5, < 3.2)
   pg (~> 1.1, >= 1.1.4)
+  pry-rails (~> 0.3.9)
   puma (~> 3.11)
   rails (~> 5.2.3)
   rubocop (~> 0.75.0)
