@@ -1,0 +1,6 @@
+fr:
+  enumerize:
+    user:
+      role:
+        requester: Demandeur
+        grower: Serriste
