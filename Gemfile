@@ -30,9 +30,13 @@ gem 'activevalidators', '~> 5.1'
 # Enumerated attributes with I18n and ActiveRecord/Mongoid support
 gem 'enumerize', '~> 2.3'
 
+# Rails authentication with email & password
+gem 'clearance', '~> 1.17'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'pry-rails', '~> 0.3.9'
 end
 
 group :development do
@@ -49,6 +53,7 @@ group :development do
 end
 
 group :test do
+  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
