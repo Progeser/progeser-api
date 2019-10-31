@@ -20,7 +20,13 @@ class Api::V1::MeController < ApiController
   end
 
   def destroy
-    # TODO: soft delete
+    authorize current_user
+
+    if current_user.discard
+      head :no_content
+    else
+      render_validation_error(current_user)
+    end
   end
 
   private

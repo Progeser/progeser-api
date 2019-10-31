@@ -9,6 +9,25 @@ RSpec.describe 'Api/V1/Me', type: :request do
     { 'Authorization': "Bearer #{token.token}" }
   end
 
+  describe 'GET api/v1/me' do
+    context '404' do
+      let!(:discarded_user) { users(:user_3) }
+      let!(:discarded_user_token)  do
+        Doorkeeper::AccessToken.create!(resource_owner_id: discarded_user.id)
+      end
+      let!(:discarded_user_header) do
+        { 'Authorization': "Bearer #{discarded_user_token.token}" }
+      end
+
+      it 'can\'t get a discarded user' do
+        get('/api/v1/me', headers: discarded_user_header)
+
+        expect(status).to eq(404)
+        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+      end
+    end
+  end
+
   describe 'PUT api/v1/me' do
     context '200' do
       it 'can\'t update `laboratory` param for a grower' do
@@ -40,8 +59,20 @@ RSpec.describe 'Api/V1/Me', type: :request do
 
         expect(status).to eq(422)
 
-        expect(JSON.parse(response.body).dig('error', 'messages')).not_to be_blank
+        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
       end
+    end
+  end
+
+  describe 'DELETE api/v1/me' do
+    it 'fails to soft delete user' do
+      allow_any_instance_of(User).to receive(:discard).and_return(false)
+
+      delete('/api/v1/me', headers: header)
+
+      expect(status).to eq(422)
+
+      expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
     end
   end
 end

@@ -9,12 +9,15 @@ class ApiController < ActionController::API
   after_action :verify_authorized
   after_action :verify_policy_scoped
 
+  # Rescued errors
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+
   protected
 
   def current_user
     return if doorkeeper_token.blank?
 
-    @current_user = User.find(doorkeeper_token.resource_owner_id)
+    @current_user = User.kept.find(doorkeeper_token.resource_owner_id)
   end
 
   def render_error(model_or_message, code: 400)
@@ -25,16 +28,16 @@ class ApiController < ActionController::API
       }
     }
 
-    error[:error].merge!(error_messages_and_details(model_or_message))
+    error[:error].merge!(error_message_and_detail(model_or_message))
 
     Rails.logger.warn(error)
     render json: error, status: code
   end
 
-  def error_messages_and_details(model_or_message)
+  def error_message_and_detail(model_or_message)
     if model_or_message.is_a?(ActiveRecord::Base)
       model = model_or_message
-      return { messages: model.errors.messages, details: model.errors.details }
+      return { message: model.errors.messages, detail: model.errors.details }
     end
 
     message = model_or_message
@@ -45,5 +48,9 @@ class ApiController < ActionController::API
     model.errors.add(:validate, message: 'an unknown error occured') if model.errors.empty?
 
     render_error(model, code: 422)
+  end
+
+  def not_found(exception)
+    render_error(exception.message, code: 404)
   end
 end

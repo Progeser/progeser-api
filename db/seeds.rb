@@ -31,4 +31,14 @@ if Rails.env.development?
     first_name: 'Grower',
     last_name: 'ProGeSer'
   )
+
+  discarded_user = Users::Requester.create!(
+    role: :requester,
+    email: 'discarded_requester@progeser.com',
+    password: 'password',
+    password_confirmation: 'password',
+    first_name: 'Discarded',
+    last_name: 'User'
+  )
+  discarded_user.discard
 end
