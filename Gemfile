@@ -24,9 +24,30 @@ gem 'doorkeeper', '~> 5.2.0'
 # Travis CI client
 gem 'travis', '~> 1.8', '>= 1.8.8'
 
+# A collection of off-the-shelf and tested ActiveModel/ActiveRecord validations
+gem 'activevalidators', '~> 5.1'
+
+# Enumerated attributes with I18n and ActiveRecord/Mongoid support
+gem 'enumerize', '~> 2.3'
+
+# Rails authentication with email & password
+gem 'clearance', '~> 1.17'
+
+# Minimal authorization through OO design and pure Ruby classes
+gem 'pundit', '~> 2.1'
+
+# Simple, Fast, and Declarative Serialization Library for Ruby
+gem 'blueprinter', '~> 0.20'
+
+# Soft deletes for ActiveRecord
+gem 'discard', '~> 1.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'pry-rails', '~> 0.3.9'
+  gem 'rspec-rails', '~> 3.8'
+  gem 'rspec_api_documentation', '~> 6.1'
 end
 
 group :development do
@@ -43,6 +64,7 @@ group :development do
 end
 
 group :test do
+  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
