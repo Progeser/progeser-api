@@ -1,0 +1,146 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "OpenAPI Specification",
+    "description": "This is a sample server Petstore server.",
+    "termsOfService": "http://open-api.io/terms/",
+    "contact": {
+      "name": "API Support",
+      "url": "http://www.open-api.io/support",
+      "email": "support@open-api.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "paths": {
+    "/api/v1/oauth/token": {
+      "post": {
+        "tags": [
+          "OAuth Token"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "formData",
+            "description": "Doorkeeper::Application client_id\nEg, `mTNA0rylw2wZSCwekFogjhvD6Zb2V1uN7QbPSO5TEV0`",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "grant_type",
+            "in": "formData",
+            "description": "Oauth grant type",
+            "required": false,
+            "type": "string",
+            "default": "password"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "User email\nEg, `dev+requester@progeser.com`",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "User password\nEg, `password`",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get new token",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "private, no-store"
+              },
+              "Pragma": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "no-cache"
+              },
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json; charset=utf-8"
+              },
+              "ETag": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "W/\"be583d91dfada1634d6393452ce5b0b3\""
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "ce122e63-c05d-4330-bb79-239464239c60"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.354427"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "188"
+              }
+            },
+            "examples": {
+              "application/json": {
+                "access_token": "UX5VH4xQ7pqt9Djg1iMlzHDAI4_hAjtMyAW_WF4jSrU",
+                "token_type": "Bearer",
+                "expires_in": 7200,
+                "refresh_token": "RjvKlM2zxXouR1V7IwN8_s-UEKrRnDGpI7BmzldsvEQ",
+                "created_at": 1572479912
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "OAuth Token",
+      "description": "Doorkeeper Token resource"
+    }
+  ]
+}
