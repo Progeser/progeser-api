@@ -18,6 +18,7 @@ AllCops:
     - Rakefile
     - Gemfile
     - 'config/**/*'
+    - 'spec/**/*'
     - 'test/**/*'
     - 'db/**/*'
     - 'bin/*'
@@ -57,3 +58,6 @@ Metrics/BlockLength:
 Metrics/CyclomaticComplexity:
   Enabled: true
   Max: 10
+
+Rails/InverseOf:
+  Enabled: false

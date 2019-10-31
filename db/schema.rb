@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_20_214232) do
+ActiveRecord::Schema.define(version: 2019_10_31_151337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2019_10_20_214232) do
 
   create_table "oauth_access_tokens", force: :cascade do |t|
     t.bigint "resource_owner_id"
-    t.bigint "application_id", null: false
+    t.bigint "application_id"
     t.string "token", null: false
     t.string "refresh_token"
     t.integer "expires_in"
@@ -69,6 +69,8 @@ ActiveRecord::Schema.define(version: 2019_10_20_214232) do
     t.string "laboratory"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_users_on_discarded_at"
     t.index ["email"], name: "index_users_on_email"
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end

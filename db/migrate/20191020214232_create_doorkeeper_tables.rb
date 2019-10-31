@@ -39,7 +39,7 @@ class CreateDoorkeeperTables < ActiveRecord::Migration[5.2]
 
       # Remove `null: false` if you are planning to use Password
       # Credentials Grant flow that doesn't require an application.
-      t.references :application,    null: false
+      t.references :application
 
       # If you use a custom token generator you may need to change this column
       # from string to text, so that it accepts tokens larger than 255

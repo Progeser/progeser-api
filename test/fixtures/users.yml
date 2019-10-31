@@ -1,14 +1,70 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+user_2:
+  id: 2
+  email: dev+grower@progeser.com
+  encrypted_password: "$2a$12$/1.8Kj10CXryn3VCJea3WuXjxYQTELbrSSfsYrzzIpWGMk73y.Pqi"
+  confirmation_token: 
+  remember_token: 5bf6d687b34c92ec9473c212bdc335a3477e7fe9
+  role: grower
+  last_name: ProGeSer
+  first_name: Grower
+  type: Users::Grower
+  laboratory: 
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2019-10-30 16:57:33.569980000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2019-10-30 16:57:33.569980000 Z
+    zone: *2
+    time: *3
+
+user_1:
+  id: 1
+  email: dev+requester@progeser.com
+  encrypted_password: "$2a$12$ogAZLpfd7v6dDablqAc.QefwbWLO/AHj/P.4OtrQUz3w4dUJxWCHy"
+  confirmation_token: 
+  remember_token: b65a042d9bbbdc77243c27b1cff7d4ecb5badf6e
+  role: requester
+  last_name: ProGeSer
+  first_name: Requester
+  type: Users::Requester
+  laboratory: My test lab
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2019-10-30 16:57:33.316242000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2019-10-30 16:57:33.316242000 Z
+    zone: *2
+    time: *3
+
+user_3:
+  id: 3
+  email: anonymized3
+  encrypted_password: anonymized
+  confirmation_token: 
+  remember_token: anonymized
+  role: requester
+  last_name: 
+  first_name: 
+  type: Users::Requester
+  laboratory: 
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2019-10-31 15:40:41.545001000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2019-10-31 15:45:14.278657000 Z
+    zone: *2
+    time: *3
+  discarded_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &4 2019-10-31 15:45:14.277774000 Z
+    zone: *2
+    time: *4
 
 # == Schema Information
 #
@@ -26,9 +82,11 @@ two: {}
 #  laboratory         :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  discarded_at       :datetime
 #
 # Indexes
 #
+#  index_users_on_discarded_at    (discarded_at)
 #  index_users_on_email           (email)
 #  index_users_on_remember_token  (remember_token)
 #
