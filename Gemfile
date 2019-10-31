@@ -33,6 +33,12 @@ gem 'enumerize', '~> 2.3'
 # Rails authentication with email & password
 gem 'clearance', '~> 1.17'
 
+# Minimal authorization through OO design and pure Ruby classes
+gem 'pundit', '~> 2.1'
+
+# Simple, Fast, and Declarative Serialization Library for Ruby
+gem 'blueprinter', '~> 0.20'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

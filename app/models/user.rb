@@ -38,6 +38,11 @@ class User < ApplicationRecord
            class_name: 'Doorkeeper::AccessToken',
            foreign_key: :resource_owner_id,
            dependent: :destroy
+
+  # Delegate
+  delegate :requester?,
+           :grower?,
+           to: :role
 end
 
 # == Schema Information

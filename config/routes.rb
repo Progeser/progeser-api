@@ -4,4 +4,10 @@ Rails.application.routes.draw do
       use_doorkeeper
     end
   end
+
+  namespace :api do
+    namespace :v1 do
+      resource :me, controller: 'me', only: %i[show update]
+    end
+  end
 end
