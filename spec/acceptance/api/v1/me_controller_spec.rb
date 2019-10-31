@@ -49,4 +49,22 @@ resource 'Me' do
       expect(user.laboratory).to eq(laboratory)
     end
   end
+
+  delete '/api/v1/me' do
+    example 'Soft deleting current user & anonymize his data' do
+      authentication :basic, "Bearer #{user_token.token}"
+
+      do_request
+
+      expect(status).to eq(204)
+      
+      user.reload
+      expect(user.discarded?).to be true
+      expect(user.email).to eq('anonymized_1')
+      expect(user.encrypted_password).to eq('anonymized')
+      expect(user.first_name).to be_nil
+      expect(user.last_name).to be_nil
+      expect(user.laboratory).to be_nil
+    end
+  end
 end

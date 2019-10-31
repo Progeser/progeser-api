@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resource :me, controller: 'me', only: %i[show update]
+      resource :me, controller: 'me', only: %i[show update destroy]
     end
   end
 end

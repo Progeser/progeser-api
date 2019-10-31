@@ -41,6 +41,31 @@ user_1:
     zone: *2
     time: *3
 
+user_3:
+  id: 3
+  email: anonymized3
+  encrypted_password: anonymized
+  confirmation_token: 
+  remember_token: anonymized
+  role: requester
+  last_name: 
+  first_name: 
+  type: Users::Requester
+  laboratory: 
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2019-10-31 15:40:41.545001000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2019-10-31 15:45:14.278657000 Z
+    zone: *2
+    time: *3
+  discarded_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &4 2019-10-31 15:45:14.277774000 Z
+    zone: *2
+    time: *4
+
 # == Schema Information
 #
 # Table name: users
@@ -57,9 +82,11 @@ user_1:
 #  laboratory         :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  discarded_at       :datetime
 #
 # Indexes
 #
+#  index_users_on_discarded_at    (discarded_at)
 #  index_users_on_email           (email)
 #  index_users_on_remember_token  (remember_token)
 #

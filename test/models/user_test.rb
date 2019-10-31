@@ -22,9 +22,11 @@ end
 #  laboratory         :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  discarded_at       :datetime
 #
 # Indexes
 #
+#  index_users_on_discarded_at    (discarded_at)
 #  index_users_on_email           (email)
 #  index_users_on_remember_token  (remember_token)
 #

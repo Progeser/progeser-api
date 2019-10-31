@@ -46,6 +46,12 @@ class Users::GrowerTest < ActiveSupport::TestCase
     assert_not @user.valid?
     assert_not_empty @user.errors[:last_name]
   end
+
+  # Delegate
+  test 'delegated methods' do
+    assert @user.grower?
+    assert_not @user.requester?
+  end
 end
 
 # == Schema Information
@@ -64,9 +70,11 @@ end
 #  laboratory         :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  discarded_at       :datetime
 #
 # Indexes
 #
+#  index_users_on_discarded_at    (discarded_at)
 #  index_users_on_email           (email)
 #  index_users_on_remember_token  (remember_token)
 #
