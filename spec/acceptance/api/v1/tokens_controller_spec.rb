@@ -12,10 +12,6 @@ resource 'OAuth Token' do
   let!(:oauth_application) { oauth_applications(:oauth_application_1) }
 
   post '/api/v1/oauth/token' do
-    parameter :client_id,
-              'Doorkeeper::Application client_id',
-              required: true,
-              with_example: true
     parameter :grant_type,
               'Oauth grant type',
               default: 'password'
@@ -28,7 +24,6 @@ resource 'OAuth Token' do
               required: true,
               with_example: true
 
-    let(:client_id)  { oauth_application.uid }
     let(:grant_type) { 'password' }
     let(:email)      { user.email }
     let(:password)   { 'password' }
