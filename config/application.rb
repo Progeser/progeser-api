@@ -15,5 +15,9 @@ module ProgeserApi
     Rails.application.routes.default_url_options = {host: ENV['BASE_URL']}
     config.default_url_options = {host: ENV['BASE_URL']}
     config.action_mailer.default_url_options = {host: ENV['BASE_URL']}
+
+    # I18n
+    I18n.config.available_locales = %i[fr en]
+    config.i18n.default_locale = :fr
   end
 end
