@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Users::Requester < User
+  # Validations
+  validates :laboratory,
+            presence: true
 end
 
 # == Schema Information

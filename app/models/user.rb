@@ -27,7 +27,8 @@ class User < ApplicationRecord
             presence: true,
             on: :create
 
-  validates :first_name,
+  validates :role,
+            :first_name,
             :last_name,
             presence: true
 
