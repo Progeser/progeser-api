@@ -38,7 +38,8 @@ if Rails.env.development?
     password: 'password',
     password_confirmation: 'password',
     first_name: 'Discarded',
-    last_name: 'User'
+    last_name: 'User',
+    laboratory: 'My test lab'
   )
   discarded_user.discard
 

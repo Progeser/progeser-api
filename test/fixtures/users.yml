@@ -51,7 +51,7 @@ user_3:
   last_name: 
   first_name: 
   type: Users::Requester
-  laboratory: 
+  laboratory: My test lab
   created_at: !ruby/object:ActiveSupport::TimeWithZone
     utc: &1 2019-10-31 15:40:41.545001000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone
