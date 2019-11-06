@@ -35,6 +35,12 @@ class Users::GrowerTest < ActiveSupport::TestCase
     assert_not_empty @user.errors[:password]
   end
 
+  test 'invalid without role' do
+    @user.role = nil
+    assert_not @user.valid?
+    assert_not_empty @user.errors[:role]
+  end
+
   test 'invalid without first_name' do
     @user.first_name = nil
     assert_not @user.valid?
@@ -45,6 +51,18 @@ class Users::GrowerTest < ActiveSupport::TestCase
     @user.last_name = nil
     assert_not @user.valid?
     assert_not_empty @user.errors[:last_name]
+  end
+
+  test 'valid without laboratory' do
+    @user.laboratory = nil
+    assert @user.valid?
+  end
+
+  # Enumerize
+  test 'invalid with incorrect role value' do
+    @user.role = 'foo'
+    assert_not @user.valid?
+    assert_not_empty @user.errors[:role]
   end
 
   # Delegate

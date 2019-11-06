@@ -41,4 +41,20 @@ if Rails.env.development?
     last_name: 'User'
   )
   discarded_user.discard
+
+  # Invites
+  Invite.create!(
+    role: :requester,
+    email: 'invite+requester@progeser.com',
+    first_name: 'Requester',
+    last_name: 'Invite',
+    laboratory: 'My test lab'
+  )
+
+  Invite.create!(
+    role: :grower,
+    email: 'invite+grower@progeser.com',
+    first_name: 'Grower',
+    last_name: 'Invite'
+  )
 end
