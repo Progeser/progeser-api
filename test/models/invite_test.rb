@@ -52,8 +52,14 @@ class InviteTest < ActiveSupport::TestCase
     assert invites(:invite_2).valid?
   end
 
-  # Delegate
-  test 'delegated methods' do
+  # Enumerize
+  test 'invalid with incorrect role value' do
+    @invite.role = 'foo'
+    assert_not @invite.valid?
+    assert_not_empty @invite.errors[:role]
+  end
+
+  test 'predicate methods' do
     assert @invite.requester?
     assert_not @invite.grower?
   end

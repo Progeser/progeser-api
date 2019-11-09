@@ -65,8 +65,7 @@ class Users::GrowerTest < ActiveSupport::TestCase
     assert_not_empty @user.errors[:role]
   end
 
-  # Delegate
-  test 'delegated methods' do
+  test 'predicate methods' do
     assert @user.grower?
     assert_not @user.requester?
   end
