@@ -6,7 +6,8 @@ class Invite < ApplicationRecord
   # Enumerize
   extend Enumerize
   enumerize :role,
-            in: User.role.values.map(&:to_sym)
+            in: User.role.values.map(&:to_sym),
+            predicates: true
 
   # Validations
   validates :email,
@@ -22,11 +23,6 @@ class Invite < ApplicationRecord
   validates :laboratory,
             presence: true,
             if: :requester?
-
-  # Delegate
-  delegate :requester?,
-           :grower?,
-           to: :role
 end
 
 # == Schema Information

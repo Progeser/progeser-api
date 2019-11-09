@@ -10,7 +10,8 @@ class User < ApplicationRecord
   # Enumerize
   extend Enumerize
   enumerize :role,
-            in: %i[requester grower]
+            in: %i[requester grower],
+            predicates: true
 
   # Validations
   validates :email,
@@ -45,11 +46,6 @@ class User < ApplicationRecord
 
   # Callbacks
   after_discard :anonymize
-
-  # Delegate
-  delegate :requester?,
-           :grower?,
-           to: :role
 
   # Private instance methods
   private

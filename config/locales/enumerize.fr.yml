@@ -4,3 +4,7 @@ fr:
       role:
         requester: Demandeur
         grower: Serriste
+    invite:
+      role:
+        requester: Demandeur
+        grower: Serriste
