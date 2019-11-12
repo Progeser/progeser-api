@@ -41,6 +41,12 @@ class Users::RequesterTest < ActiveSupport::TestCase
     assert_not_empty @user.errors[:role]
   end
 
+  test 'invalid without type' do
+    @user.type = nil
+    assert_not @user.valid?
+    assert_not_empty @user.errors[:type]
+  end
+
   test 'invalid without first_name' do
     @user.first_name = nil
     assert_not @user.valid?
