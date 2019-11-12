@@ -1,0 +1,18 @@
+
+oauth_application_1:
+  id: 1
+  name: Doorkeeper Application
+  uid: mTNA0rylw2wZSCwekFogjhvD6Zb2V1uN7QbPSO5TEV0
+  secret: KwxeD5tvIrl5FXhBGKtxSwLXAwdkcFjsAYjqqRR2Xx4
+  redirect_uri: urn:ietf:wg:oauth:2.0:oob
+  scopes: ''
+  confidential: false
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2019-10-30 16:57:33.037885000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2019-10-30 16:57:33.037885000 Z
+    zone: *2
+    time: *3

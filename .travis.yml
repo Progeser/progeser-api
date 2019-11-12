@@ -1,0 +1,36 @@
+language: ruby
+cache: bundler
+
+rvm:
+  - 2.6.5
+
+services:
+  - postgresql
+
+addons:
+  postgresql: 10
+
+stages:
+  - lint
+  - security
+  - test
+
+jobs:
+  include:
+    - stage: lint
+      script:
+      - gem install rubocop
+      - bundle exec rubocop
+    - stage: security
+      script:
+      - gem install brakeman
+      - brakeman
+      - gem install bundler-audit
+      - bundle audit check --update
+    - stage: test
+      before_script:
+      - psql -c 'create database travis_ci_test;' -U postgres
+      script:
+      - bundle exec rails db:reset db:setup db:migrate RAILS_ENV=test
+      - bundle exec rake test
+      - bundle exec rake spec
