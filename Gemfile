@@ -42,6 +42,17 @@ gem 'blueprinter', '~> 0.20'
 # Soft deletes for ActiveRecord
 gem 'discard', '~> 1.0'
 
+# Mailjet Ruby wrapper
+gem 'mailjet', '~> 1.5', '>= 1.5.4'
+
+# Simple, efficient background processing for Ruby
+gem 'sidekiq', '~> 6.0', '>= 6.0.3'
+
+# Business Transaction DSL
+gem 'dry-transaction', '~> 0.13.0'
+# Validation library with type-safe schemas and rules
+gem 'dry-validation', '~> 1.3'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

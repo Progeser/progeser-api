@@ -58,7 +58,6 @@ RSpec.describe 'Api/V1/Me', type: :request do
         put('/api/v1/me', headers: header)
 
         expect(status).to eq(422)
-
         expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
       end
     end
@@ -71,7 +70,6 @@ RSpec.describe 'Api/V1/Me', type: :request do
       delete('/api/v1/me', headers: header)
 
       expect(status).to eq(422)
-
       expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
     end
   end

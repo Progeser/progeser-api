@@ -1,0 +1,56 @@
+
+invite_1:
+  id: 1
+  email: invite+requester@progeser.com
+  invitation_token: CyF6A6R7t47cjpth4GHdvfaq
+  role: requester
+  first_name: Requester
+  last_name: Invite
+  laboratory: My test lab
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2019-11-06 00:42:46.777606000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2019-11-06 00:42:46.777606000 Z
+    zone: *2
+    time: *3
+
+invite_2:
+  id: 2
+  email: invite+grower@progeser.com
+  invitation_token: T8kze4NacBFaSzTBJdGEhTnJ
+  role: grower
+  first_name: Grower
+  last_name: Invite
+  laboratory: 
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2019-11-06 00:44:31.912239000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2019-11-06 00:44:31.912239000 Z
+    zone: *2
+    time: *3
+
+# == Schema Information
+#
+# Table name: invites
+#
+#  id               :bigint           not null, primary key
+#  email            :string           not null
+#  invitation_token :string           not null
+#  role             :string
+#  first_name       :string
+#  last_name        :string
+#  laboratory       :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+# Indexes
+#
+#  index_invites_on_email             (email) UNIQUE
+#  index_invites_on_invitation_token  (invitation_token) UNIQUE
+#

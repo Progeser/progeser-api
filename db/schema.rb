@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_31_151337) do
+ActiveRecord::Schema.define(version: 2019_11_05_233037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "invites", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "invitation_token", null: false
+    t.string "role"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "laboratory"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_invites_on_email", unique: true
+    t.index ["invitation_token"], name: "index_invites_on_invitation_token", unique: true
+  end
 
   create_table "oauth_access_grants", force: :cascade do |t|
     t.bigint "resource_owner_id", null: false
@@ -63,8 +76,8 @@ ActiveRecord::Schema.define(version: 2019_10_31_151337) do
     t.string "confirmation_token", limit: 128
     t.string "remember_token", limit: 128, null: false
     t.string "role"
-    t.string "last_name"
     t.string "first_name"
+    t.string "last_name"
     t.string "type"
     t.string "laboratory"
     t.datetime "created_at", null: false
