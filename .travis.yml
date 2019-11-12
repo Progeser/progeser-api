@@ -7,6 +7,10 @@ rvm:
 services:
   - postgresql
 
+env:
+  global:
+    - CC_TEST_REPORTER_ID=c5fd8cd3e724b985885a522e2d5868567584983188d1b6230af994d47d82eb68
+
 addons:
   postgresql: 10
 
@@ -30,7 +34,12 @@ jobs:
     - stage: test
       before_script:
       - psql -c 'create database travis_ci_test;' -U postgres
+      - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+      - chmod +x ./cc-test-reporter
+      - ./cc-test-reporter before-build
       script:
       - bundle exec rails db:reset db:setup db:migrate RAILS_ENV=test
       - bundle exec rake test
       - bundle exec rake spec
+      after_script:
+      - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
