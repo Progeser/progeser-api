@@ -1,0 +1,381 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "OpenAPI Specification",
+    "description": "This is a sample server Petstore server.",
+    "termsOfService": "http://open-api.io/terms/",
+    "contact": {
+      "name": "API Support",
+      "url": "http://www.open-api.io/support",
+      "email": "support@open-api.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "paths": {
+    "/api/v1/me": {
+      "get": {
+        "tags": [
+          "Me"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "Getting current user informations",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json; charset=utf-8"
+              },
+              "ETag": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "W/\"d7359413bdc4a3c82f30f82d54c26f97\""
+              },
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "max-age=0, private, must-revalidate"
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "c925ef78-303b-48a6-bba5-858045867c7a"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.051135"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "217"
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "created_at": "2019-10-30 16:57:33 UTC",
+                "email": "dev+requester@progeser.com",
+                "first_name": "Requester",
+                "laboratory": "My test lab",
+                "last_name": "ProGeSer",
+                "role": "requester",
+                "updated_at": "2019-10-30 16:57:33 UTC"
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "Authorization": [
+
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Me"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "first_name",
+            "in": "formData",
+            "description": "The new first name\nEg, `Updated first name`",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "last_name",
+            "in": "formData",
+            "description": "The new last name\nEg, `Updated last name`",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "laboratory",
+            "in": "formData",
+            "description": "The new laboratory (only for a requester)\nEg, `Updated laboratory`",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updating current user",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json; charset=utf-8"
+              },
+              "ETag": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "W/\"c46e1a09f84ee24b02ae17fca2aa02c3\""
+              },
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "max-age=0, private, must-revalidate"
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "4a524c4e-ae27-468c-93af-7818444686fd"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.018971"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "242"
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "created_at": "2019-10-30 16:57:33 UTC",
+                "email": "dev+requester@progeser.com",
+                "first_name": "Updated first name",
+                "laboratory": "Updated laboratory",
+                "last_name": "Updated last name",
+                "role": "requester",
+                "updated_at": "2019-10-31 16:22:16 UTC"
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "Authorization": [
+
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Me"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "204": {
+            "description": "Soft deleting current user & anonymize his data",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "no-cache"
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "a053f07d-ab33-4332-b707-07459559b3d0"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.016794"
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "Authorization": [
+
+            ]
+          }
+        ]
+      }
+    },
+    "/api/v1/oauth/token": {
+      "post": {
+        "tags": [
+          "OAuth Token"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "grant_type",
+            "in": "formData",
+            "description": "Oauth grant type",
+            "required": false,
+            "type": "string",
+            "default": "password"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "User email\nEg, `dev+requester@progeser.com`",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "User password\nEg, `password`",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get new token",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "private, no-store"
+              },
+              "Pragma": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "no-cache"
+              },
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json; charset=utf-8"
+              },
+              "ETag": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "W/\"4c1428e4823bcbdde2f955019721e897\""
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "374b0a41-525d-43fb-8b9b-1ab39b4ba9f6"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.262921"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "188"
+              }
+            },
+            "examples": {
+              "application/json": {
+                "access_token": "M-KD1ndoGoJY8_Q6yLx2Tlkds17ZQSj9O_i45TU-yHY",
+                "token_type": "Bearer",
+                "expires_in": 7200,
+                "refresh_token": "JuhxLx6lt6t2puX5dXshQRfoD79XmtK6VQjLGgiwM6Q",
+                "created_at": 1572538937
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "Authorization": {
+      "type": "basic",
+      "description": ""
+    }
+  },
+  "tags": [
+    {
+      "name": "Me",
+      "description": "Me resource"
+    },
+    {
+      "name": "OAuth Token",
+      "description": "Doorkeeper Token resource"
+    }
+  ]
+}

@@ -11,9 +11,23 @@ module ProgeserApi
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration can go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded after loading
-    # the framework and any gems in your application.
+    # URLs
+    Rails.application.routes.default_url_options = {host: ENV['BASE_URL']}
+    config.default_url_options = {host: ENV['BASE_URL']}
+    config.action_mailer.default_url_options = {host: ENV['BASE_URL']}
+
+    # I18n
+    I18n.config.available_locales = %i[fr en]
+    config.i18n.default_locale = :fr
+
+    # Sidekiq
+    config.active_job.queue_adapter = :sidekiq
+
+    # Action Mailer
+    config.action_mailer.raise_delivery_errors = false
+    config.action_mailer.perform_caching = false
+    config.action_mailer.delivery_method = :mailjet_api
+    config.action_mailer.perform_deliveries = true
+
   end
 end
