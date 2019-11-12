@@ -3,12 +3,12 @@
 class Invites::Create < ApplicationInteractor
   input do
     schema do
-      required(:email).filled
-      required(:role).filled
-      required(:first_name).filled
-      required(:last_name).filled
+      required(:email).filled(:string)
+      required(:role).filled(:string)
+      required(:first_name).filled(:string)
+      required(:last_name).filled(:string)
 
-      optional(:laboratory)
+      optional(:laboratory).filled(:string)
     end
   end
 
@@ -20,11 +20,13 @@ class Invites::Create < ApplicationInteractor
 
   def create_invite!(invite_params)
     invite = Invite.create!(invite_params)
+
     invite
   end
 
   def send_mail(invite)
     ClearanceMailer.invite(invite.id).deliver_later
+
     invite
   end
 end

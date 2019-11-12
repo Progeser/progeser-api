@@ -13,6 +13,8 @@ class ApplicationInteractor
     @input_schema = Class.new(Dry::Validation::Contract, &block).new
   end
 
+  # Call the interactor with its arguments.
+  #
   def self.call(*args)
     new.call(*args)
   end

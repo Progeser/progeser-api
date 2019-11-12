@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Api/V1/Me', type: :request do
+RSpec.describe 'Api/V1/Invites', type: :request do
   let!(:user)   { users(:user_2) }
   let!(:token)  { Doorkeeper::AccessToken.create!(resource_owner_id: user.id) }
   let!(:header) do

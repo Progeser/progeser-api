@@ -26,7 +26,7 @@ class ApiController < ActionController::API
   def render_interactor_result(result, status: :ok)
     return render json: result.success.to_blueprint, status: status if result.success?
 
-    if result.failure.is_a?(ActiveRecord::RecordInvalid)
+    if result.failure.is_a?(ActiveRecord::ActiveRecordError)
       render_error(result.failure.message, code: 422)
     else
       render_error(result.failure.errors)
