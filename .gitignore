@@ -30,5 +30,8 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-# System Files
+# Ignore system files
 .DS_Store
+
+# Ignore local environment variables
+.env

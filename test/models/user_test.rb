@@ -10,14 +10,14 @@ end
 #
 # Table name: users
 #
-#  id                 :integer          not null, primary key
+#  id                 :bigint           not null, primary key
 #  email              :string           not null
 #  encrypted_password :string(128)      not null
 #  confirmation_token :string(128)
 #  remember_token     :string(128)      not null
 #  role               :string
-#  last_name          :string
 #  first_name         :string
+#  last_name          :string
 #  type               :string
 #  laboratory         :string
 #  created_at         :datetime         not null

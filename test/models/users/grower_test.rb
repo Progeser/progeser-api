@@ -35,6 +35,18 @@ class Users::GrowerTest < ActiveSupport::TestCase
     assert_not_empty @user.errors[:password]
   end
 
+  test 'invalid without role' do
+    @user.role = nil
+    assert_not @user.valid?
+    assert_not_empty @user.errors[:role]
+  end
+
+  test 'invalid without type' do
+    @user.type = nil
+    assert_not @user.valid?
+    assert_not_empty @user.errors[:type]
+  end
+
   test 'invalid without first_name' do
     @user.first_name = nil
     assert_not @user.valid?
@@ -47,8 +59,19 @@ class Users::GrowerTest < ActiveSupport::TestCase
     assert_not_empty @user.errors[:last_name]
   end
 
-  # Delegate
-  test 'delegated methods' do
+  test 'valid without laboratory' do
+    @user.laboratory = nil
+    assert @user.valid?
+  end
+
+  # Enumerize
+  test 'invalid with incorrect role value' do
+    @user.role = 'foo'
+    assert_not @user.valid?
+    assert_not_empty @user.errors[:role]
+  end
+
+  test 'predicate methods' do
     assert @user.grower?
     assert_not @user.requester?
   end
@@ -58,14 +81,14 @@ end
 #
 # Table name: users
 #
-#  id                 :integer          not null, primary key
+#  id                 :bigint           not null, primary key
 #  email              :string           not null
 #  encrypted_password :string(128)      not null
 #  confirmation_token :string(128)
 #  remember_token     :string(128)      not null
 #  role               :string
-#  last_name          :string
 #  first_name         :string
+#  last_name          :string
 #  type               :string
 #  laboratory         :string
 #  created_at         :datetime         not null

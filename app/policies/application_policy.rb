@@ -3,6 +3,8 @@
 class ApplicationPolicy
   attr_reader :user, :record
 
+  delegate :requester?, :grower?, to: :user
+
   def initialize(user, record)
     @user = user
     @record = record
@@ -30,6 +32,8 @@ class ApplicationPolicy
 
   class Scope
     attr_reader :user, :scope
+
+    delegate :requester?, :grower?, to: :user
 
     def initialize(user, scope)
       @user = user

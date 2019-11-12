@@ -7,10 +7,13 @@ class ApiController < ActionController::API
   # Pundit
   include Pundit
   after_action :verify_authorized
-  after_action :verify_policy_scoped
+  after_action :verify_policy_scoped, except: :create
 
   # Rescued errors
+  rescue_from Pundit::NotAuthorizedError, with: :unauthorized
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
+
+  def create; end
 
   protected
 
@@ -18,6 +21,16 @@ class ApiController < ActionController::API
     return if doorkeeper_token.blank?
 
     @current_user = User.kept.find(doorkeeper_token.resource_owner_id)
+  end
+
+  def render_interactor_result(result, status: :ok)
+    return render json: result.success.to_blueprint, status: status if result.success?
+
+    if result.failure.is_a?(ActiveRecord::ActiveRecordError)
+      render_error(result.failure.message, code: 422)
+    else
+      render_error(result.failure.errors)
+    end
   end
 
   def render_error(model_or_message, code: 400)
@@ -48,6 +61,10 @@ class ApiController < ActionController::API
     model.errors.add(:validate, message: 'an unknown error occured') if model.errors.empty?
 
     render_error(model, code: 422)
+  end
+
+  def unauthorized(exception)
+    render_error(exception.message, code: 403)
   end
 
   def not_found(exception)
