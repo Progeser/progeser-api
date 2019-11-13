@@ -15,6 +15,10 @@ fr:
           attributes:
             email:
               email_invalid: format d'email invalide
+        account_request:
+          attributes:
+            email:
+              email_invalid: format d'email invalide
   date:
     abbr_day_names:
     - dim

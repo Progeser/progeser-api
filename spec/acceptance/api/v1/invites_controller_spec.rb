@@ -2,8 +2,8 @@
 
 require 'acceptance_helper'
 
-resource 'Me' do
-  explanation 'Me resource'
+resource 'Invites' do
+  explanation 'Invites resource'
 
   header 'Accept',       'application/json'
   header 'Content-Type', 'application/json'
@@ -23,8 +23,8 @@ resource 'Me' do
     parameter :last_name, 'Last name of the user to invite',  with_example: true
     parameter :laboratory, 'Laboratory of the user to invite (only for a requester)', with_example: true
 
-    let(:email) { 'requester_to_invite@progeser.com' }
-    let(:role) { 'requester' }
+    let(:email)      { 'requester_to_invite@progeser.com' }
+    let(:role)       { 'requester' }
     let(:first_name) { 'invite first name' }
     let(:last_name)  { 'invite last name' }
     let(:laboratory) { 'invite laboratory' }

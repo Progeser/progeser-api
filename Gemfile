@@ -63,6 +63,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.8'
   gem 'rspec_api_documentation', '~> 6.1'
   gem 'simplecov', '~> 0.17.1', require: false
+  gem 'faker', '~> 2.7'
 end
 
 group :development do

@@ -2,8 +2,8 @@
 
 require 'acceptance_helper'
 
-resource 'OAuth Token' do
-  explanation 'Doorkeeper Token resource'
+resource 'OAuth Tokens' do
+  explanation 'Doorkeeper Tokens resource'
 
   header 'Accept',       'application/json'
   header 'Content-Type', 'application/json'
