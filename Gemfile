@@ -36,6 +36,9 @@ gem 'clearance', '~> 1.17'
 # Minimal authorization through OO design and pure Ruby classes
 gem 'pundit', '~> 2.1'
 
+# Optimized JSON
+gem 'oj', '~> 3.9'
+
 # Simple, Fast, and Declarative Serialization Library for Ruby
 gem 'blueprinter', '~> 0.20'
 
