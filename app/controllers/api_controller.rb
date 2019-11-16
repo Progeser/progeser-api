@@ -23,8 +23,8 @@ class ApiController < ActionController::API
     @current_user = User.kept.find(doorkeeper_token.resource_owner_id)
   end
 
-  def render_interactor_result(result, status: :ok)
-    return render json: result.success.to_blueprint, status: status if result.success?
+  def render_interactor_result(result, status: :ok, opts: {})
+    return render json: result.success.to_blueprint(opts), status: status if result.success?
 
     if result.failure.is_a?(ActiveRecord::ActiveRecordError)
       render_error(result.failure.message, code: 422)

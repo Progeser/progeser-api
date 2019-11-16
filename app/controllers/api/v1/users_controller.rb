@@ -11,7 +11,8 @@ class Api::V1::UsersController < ApiController
 
     render_interactor_result(
       Users::CreateFromInvite.call(user_params: user_params.to_h, invite: invite),
-      status: :created
+      status: :created,
+      opts: { view: :with_token }
     )
   end
 
