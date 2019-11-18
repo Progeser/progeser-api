@@ -9,7 +9,6 @@ resource 'OAuth Token' do
   header 'Content-Type', 'application/json'
 
   let!(:user) { users(:user_1) }
-  let!(:oauth_application) { oauth_applications(:oauth_application_1) }
 
   post '/api/v1/oauth/token' do
     parameter :grant_type,
