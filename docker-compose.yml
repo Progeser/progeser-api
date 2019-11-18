@@ -2,29 +2,14 @@ version: '3.6'
 
 services:
   db:
-    restart: unless-stopped
-    networks:
-      - test-network
     image: postgres:latest
 
   web:
-    restart: unless-stopped
-    networks:
-      - test-network
     build: .
     command: bash -c "bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/myapp
     ports:
       - "3000:3000"
-    env_file: .env
-    environment:
-        RAILS_ENV: development
     depends_on:
       - db
-
-networks:
-  test-network:
-    driver: bridge
-
-
