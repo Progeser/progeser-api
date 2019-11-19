@@ -8,10 +8,8 @@ resource 'Me' do
   header 'Accept',       'application/json'
   header 'Content-Type', 'application/json'
 
-  let!(:user) { users(:user_1) }
-  let!(:user_token) do
-    Doorkeeper::AccessToken.create!(resource_owner_id: user.id)
-  end
+  let!(:user)       { users(:user_1) }
+  let!(:user_token) { Doorkeeper::AccessToken.create!(resource_owner_id: user.id) }
 
   get '/api/v1/me' do
     example 'Getting current user informations' do
