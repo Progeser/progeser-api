@@ -11,17 +11,9 @@ resource 'OAuth Tokens' do
   let!(:user) { users(:user_1) }
 
   post '/api/v1/oauth/token' do
-    parameter :grant_type,
-              'Oauth grant type',
-              default: 'password'
-    parameter :email,
-              'User email',
-              required: true,
-              with_example: true
-    parameter :password,
-              'User password',
-              required: true,
-              with_example: true
+    parameter :grant_type, 'Oauth grant type', with_example: true
+    parameter :email, 'User email', with_example: true
+    parameter :password, 'User password', with_example: true
 
     let(:grant_type) { 'password' }
     let(:email)      { user.email }

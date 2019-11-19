@@ -8,10 +8,8 @@ resource 'Invites' do
   header 'Accept',       'application/json'
   header 'Content-Type', 'application/json'
 
-  let!(:user) { users(:user_2) }
-  let!(:user_token) do
-    Doorkeeper::AccessToken.create!(resource_owner_id: user.id)
-  end
+  let!(:user)       { users(:user_2) }
+  let!(:user_token) { Doorkeeper::AccessToken.create!(resource_owner_id: user.id) }
 
   let!(:invite) { invites(:invite_1) }
   let!(:id)     { invite.id }
