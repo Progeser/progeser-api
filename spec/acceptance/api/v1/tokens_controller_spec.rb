@@ -33,8 +33,10 @@ resource 'OAuth Token' do
       do_request
 
       expect(status).to eq(200)
-      expect(JSON.parse(response_body).dig('access_token')).not_to be_blank
-      expect(JSON.parse(response_body).dig('refresh_token')).not_to be_blank
+
+      response = JSON.parse(response_body)
+      expect(response.dig('access_token')).not_to be_blank
+      expect(response.dig('refresh_token')).not_to be_blank
     end
   end
 end
