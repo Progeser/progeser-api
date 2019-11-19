@@ -25,12 +25,16 @@ resource 'Users' do
 
       expect(status).to eq(201)
 
-      expect(response_body).to eq(User.last.to_blueprint)
-      expect(JSON.parse(response_body).dig('email')).to eq(invite.email)
-      expect(JSON.parse(response_body).dig('role')).to eq(invite.role)
-      expect(JSON.parse(response_body).dig('first_name')).to eq(invite.first_name)
-      expect(JSON.parse(response_body).dig('last_name')).to eq(invite.last_name)
-      expect(JSON.parse(response_body).dig('laboratory')).to eq(invite.laboratory)
+      expect(response_body).to eq(User.last.to_blueprint(view: :with_token))
+
+      response = JSON.parse(response_body)
+      expect(response.dig('email')).to eq(invite.email)
+      expect(response.dig('role')).to eq(invite.role)
+      expect(response.dig('first_name')).to eq(invite.first_name)
+      expect(response.dig('last_name')).to eq(invite.last_name)
+      expect(response.dig('laboratory')).to eq(invite.laboratory)
+      expect(response.dig('token', 'access_token')).not_to be_blank
+      expect(response.dig('token', 'refresh_token')).not_to be_blank
       
       expect{invite.reload}.to raise_exception(ActiveRecord::RecordNotFound)
     end

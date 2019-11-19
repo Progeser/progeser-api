@@ -5,13 +5,6 @@ if Rails.env.development?
   DatabaseCleaner.strategy = :truncation
   DatabaseCleaner.clean
 
-  # Doorkepper::Applications
-  Doorkeeper::Application.create!(
-    name: 'Doorkeeper Application',
-    redirect_uri: 'urn:ietf:wg:oauth:2.0:oob',
-    confidential: false
-  )
-
   # Users
   Users::Requester.create!(
     role: :requester,

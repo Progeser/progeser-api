@@ -16,6 +16,7 @@ class Users::CreateFromInvite < ApplicationInteractor
 
   try :create_user!, catch: ActiveRecord::RecordInvalid
   try :destroy_invite!, catch: ActiveRecord::RecordNotDestroyed
+  try :create_token!, catch: ActiveRecord::RecordInvalid
 
   def create_user!(user_params:, invite:)
     user = User.create!(
@@ -34,6 +35,16 @@ class Users::CreateFromInvite < ApplicationInteractor
 
   def destroy_invite!(user:, invite:)
     invite.destroy!
+
+    user
+  end
+
+  def create_token!(user)
+    Doorkeeper::AccessToken.create!(
+      resource_owner_id: user.id,
+      use_refresh_token: true,
+      expires_in: Doorkeeper.configuration.access_token_expires_in
+    )
 
     user
   end
