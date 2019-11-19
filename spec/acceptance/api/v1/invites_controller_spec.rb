@@ -40,11 +40,12 @@ resource 'Me' do
 
       expect(status).to eq(201)
 
-      expect(JSON.parse(response_body).dig('email')).to eq(email)
-      expect(JSON.parse(response_body).dig('role')).to eq(role)
-      expect(JSON.parse(response_body).dig('first_name')).to eq(first_name)
-      expect(JSON.parse(response_body).dig('last_name')).to eq(last_name)
-      expect(JSON.parse(response_body).dig('laboratory')).to eq(laboratory)
+      response = JSON.parse(response_body)
+      expect(response.dig('email')).to eq(email)
+      expect(response.dig('role')).to eq(role)
+      expect(response.dig('first_name')).to eq(first_name)
+      expect(response.dig('last_name')).to eq(last_name)
+      expect(response.dig('laboratory')).to eq(laboratory)
     end
   end
 
