@@ -57,7 +57,7 @@ resource 'Me' do
       expect(status).to eq(204)
       
       user.reload
-      expect(user.discarded?).to be true
+      expect(user.discarded?).to eq(true)
       expect(user.email).to eq('anonymized_1')
       expect(user.encrypted_password).to eq('anonymized')
       expect(user.first_name).to be_nil

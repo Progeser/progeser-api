@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# This class contains empty methods to force redefining them whenever they are required
+#
 class ApplicationPolicy
   attr_reader :user, :record
 
@@ -30,8 +32,6 @@ class ApplicationPolicy
       @scope = scope
     end
 
-    def resolve
-      scope.all
-    end
+    def resolve; end
   end
 end
