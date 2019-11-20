@@ -77,7 +77,8 @@ group :development do
   gem 'rubocop-performance', '~> 1.5.0'
   gem 'brakeman'
   gem 'bundler-audit'
-  gem 'annotate'
+  gem 'annotate', '~> 3.0'
+  gem 'rails-erd', '~> 1.6'
 end
 
 group :test do
