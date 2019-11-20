@@ -29,10 +29,261 @@
     "application/xml"
   ],
   "paths": {
+    "/api/v1/account_requests": {
+      "post": {
+        "tags": [
+          "Account Requests"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "Email of the requested account\nEg, `jenise.gottlieb@boehmleffler.org`",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "first_name",
+            "in": "formData",
+            "description": "First name of the requested account\nEg, `Nicolas`",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "last_name",
+            "in": "formData",
+            "description": "Last name of the requested account\nEg, `Nicolas`",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "comment",
+            "in": "formData",
+            "description": "(Optional) Free comment to give additional information\nEg, `Our story begins, as these stories often do, with a young up-and-coming politician. He's a deeply religious man and a member of the conservative party. He is completely single-minded convictions and has no regard for the political process. Eventually, his party launches a special project in the name of 'national security'. At first, it is believed to be a search for biological weapons and it is pursued regardless of its cost. However, the true goal of the project is power, complete and total hegemonic domination. The project, however, ends violently... but the efforts of those involved are not in vain, for a new ability to wage war is born from the blood of one of their victims. Imagine a virus - the most terrifying virus you can, and then imagine that you and you alone have the cure. But if your ultimate goal is power, how best to use such a weapon? It is at this point in our story that along comes a spider. He is a man seemingly without a conscience; for whom the ends always justify the means and it is he who suggests that their target should not be an enemy of the country but rather the country itself. Three targets are chosen to maximize the effect of the attack: a school, a tube station, and a water-treatment plant. Several hundred die within the first few weeks. Until at last the true goal comes into view. Before the St. Mary's crisis, no one would have predicted the outcome of the elections. No one. But after the election, lo and behold, a miracle. Some believed that it was the work of God himself, but it was a pharmaceutical company controlled by certain party members made them all obscenely rich. But the true genius of the plan was the fear. A year later, several extremists are tried, found guilty, and executed while a memorial is built to canonize their victims. Fear became the ultimate tool of this government. And through it our politician was ultimately appointed to the newly created position of High Chancellor. The rest, as they say, is history.`",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create an account request",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json; charset=utf-8"
+              },
+              "ETag": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "W/\"b76d56857974b102c9b1034087014d3e\""
+              },
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "max-age=0, private, must-revalidate"
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "6dfe170c-e7d8-4ea9-807c-42d13c0f51f7"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.017243"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "2198"
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 3,
+                "accepted": false,
+                "comment": "Our story begins, as these stories often do, with a young up-and-coming politician. He's a deeply religious man and a member of the conservative party. He is completely single-minded convictions and has no regard for the political process. Eventually, his party launches a special project in the name of 'national security'. At first, it is believed to be a search for biological weapons and it is pursued regardless of its cost. However, the true goal of the project is power, complete and total hegemonic domination. The project, however, ends violently... but the efforts of those involved are not in vain, for a new ability to wage war is born from the blood of one of their victims. Imagine a virus - the most terrifying virus you can, and then imagine that you and you alone have the cure. But if your ultimate goal is power, how best to use such a weapon? It is at this point in our story that along comes a spider. He is a man seemingly without a conscience; for whom the ends always justify the means and it is he who suggests that their target should not be an enemy of the country but rather the country itself. Three targets are chosen to maximize the effect of the attack: a school, a tube station, and a water-treatment plant. Several hundred die within the first few weeks. Until at last the true goal comes into view. Before the St. Mary's crisis, no one would have predicted the outcome of the elections. No one. But after the election, lo and behold, a miracle. Some believed that it was the work of God himself, but it was a pharmaceutical company controlled by certain party members made them all obscenely rich. But the true genius of the plan was the fear. A year later, several extremists are tried, found guilty, and executed while a memorial is built to canonize their victims. Fear became the ultimate tool of this government. And through it our politician was ultimately appointed to the newly created position of High Chancellor. The rest, as they say, is history.",
+                "created_at": "2019-11-20T15:29:18.862Z",
+                "email": "jenise.gottlieb@boehmleffler.org",
+                "first_name": "Nicolas",
+                "last_name": "Nicolas",
+                "updated_at": "2019-11-20T15:29:18.862Z"
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+
+        ]
+      }
+    },
+    "/api/v1/account_requests/{id}/accept": {
+      "post": {
+        "tags": [
+          "Account Requests"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Accept an account request and send an email",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json; charset=utf-8"
+              },
+              "ETag": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "W/\"4c6561b39d1e66ef5e44fbbcf3d45c26\""
+              },
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "max-age=0, private, must-revalidate"
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "39bd90dc-4240-4081-be56-1a1a648c9ee7"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.020070"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "2875"
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "accepted": true,
+                "comment": "Good evening, London. Allow me first to apologize for this interruption. I do, like many of you, appreciate the comforts of every day routine- the security of the familiar, the tranquility of repetition. I enjoy them as much as any bloke. But in the spirit of commemoration, whereby those important events of the past, usually associated with someone's death or the end of some awful bloody struggle, a celebration of a nice holiday, I thought we could mark this November the 5th, a day that is sadly no longer remembered, by taking some time out of our daily lives to sit down and have a little chat. There are of course those who do not want us to speak. I suspect even now, orders are being shouted into telephones, and men with guns will soon be on their way. Why? Because while the truncheon may be used in lieu of conversation, words will always retain their power. Words offer the means to meaning, and for those who will listen, the enunciation of truth. And the truth is, there is something terribly wrong with this country, isn't there? Cruelty and injustice, intolerance and oppression. And where once you had the freedom to object, to think and speak as you saw fit, you now have censors and systems of surveillance coercing your conformity and soliciting your submission. How did this happen? Who's to blame? Well certainly there are those more responsible than others, and they will be held accountable, but again truth be told, if you're looking for the guilty, you need only look into a mirror. I know why you did it. I know you were afraid. Who wouldn't be? War, terror, disease. There were a myriad of problems which conspired to corrupt your reason and rob you of your common sense. Fear got the best of you, and in your panic you turned to the now high chancellor, Adam Sutler. He promised you order, he promised you peace, and all he demanded in return was your silent, obedient consent. Last night I sought to end that silence. Last night I destroyed the Old Bailey, to remind this country of what it has forgotten. More than four hundred years ago a great citizen wished to embed the fifth of November forever in our memory. His hope was to remind the world that fairness, justice, and freedom are more than words, they are perspectives. So if you've seen nothing, if the crimes of this government remain unknown to you, then I would suggest you allow the fifth of November to pass unmarked. But if you see what I see, if you feel as I feel, and if you would seek as I seek, then I ask you to stand beside me one year from tonight, outside the gates of Parliament, and together we shall give them a fifth of November that shall never, ever be forgot.",
+                "created_at": "2019-11-13T19:30:49.632Z",
+                "email": "tyler.kautzer@beierhegmann.net",
+                "first_name": "Manon",
+                "last_name": "Rousseau",
+                "updated_at": "2019-11-20T15:29:18.898Z"
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "Authorization": [
+
+            ]
+          }
+        ]
+      }
+    },
+    "/api/v1/account_requests/{id}": {
+      "delete": {
+        "tags": [
+          "Account Requests"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Refuse an account request and delete it",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "no-cache"
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "4795d886-b155-468d-85ae-6d8320639ec2"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.006229"
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "Authorization": [
+
+            ]
+          }
+        ]
+      }
+    },
     "/api/v1/invites": {
       "post": {
         "tags": [
-          "Me"
+          "Invites"
         ],
         "summary": "",
         "description": "",
@@ -85,7 +336,7 @@
         ],
         "responses": {
           "201": {
-            "description": "Creating an invite and send an email",
+            "description": "Create an invite and send an email",
             "schema": {
               "description": "",
               "type": "object",
@@ -101,7 +352,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"52a0c373183b2942a94d71789a4f6d50\""
+                "x-example-value": "W/\"f227306df592fe6e36e4ba433e130c91\""
               },
               "Cache-Control": {
                 "description": "",
@@ -111,12 +362,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "1e3b3ba4-3cca-4e31-a5f7-f791f8f544df"
+                "x-example-value": "5327139e-7298-47e3-a293-2eae3e49275f"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.140245"
+                "x-example-value": "0.018249"
               },
               "Content-Length": {
                 "description": "",
@@ -127,13 +378,13 @@
             "examples": {
               "application/json": {
                 "id": 3,
-                "created_at": "2019-11-13T01:03:35.023Z",
+                "created_at": "2019-11-20T15:29:18.947Z",
                 "email": "requester_to_invite@progeser.com",
                 "first_name": "invite first name",
                 "laboratory": "invite laboratory",
                 "last_name": "invite last name",
                 "role": "requester",
-                "updated_at": "2019-11-13T01:03:35.023Z"
+                "updated_at": "2019-11-20T15:29:18.947Z"
               }
             }
           }
@@ -151,7 +402,7 @@
     "/api/v1/invites/{id}/retry": {
       "post": {
         "tags": [
-          "Me"
+          "Invites"
         ],
         "summary": "",
         "description": "",
@@ -188,12 +439,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "141b3fbf-dba1-45fc-8abf-e923148daac1"
+                "x-example-value": "1c11250a-15d2-4526-97ab-3f5f57f7a24b"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.011097"
+                "x-example-value": "0.007153"
               }
             }
           }
@@ -211,7 +462,7 @@
     "/api/v1/invites/{id}": {
       "delete": {
         "tags": [
-          "Me"
+          "Invites"
         ],
         "summary": "",
         "description": "",
@@ -232,7 +483,7 @@
         ],
         "responses": {
           "204": {
-            "description": "Deleting an invite",
+            "description": "Delete an invite",
             "schema": {
               "description": "",
               "type": "object",
@@ -248,12 +499,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "a7f9e031-4783-4369-ad81-1f7b93934f7b"
+                "x-example-value": "2852d75f-5b6b-455f-a75e-8195d2755e4c"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.011600"
+                "x-example-value": "0.006792"
               }
             }
           }
@@ -286,7 +537,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Getting current user informations",
+            "description": "Get current user informations",
             "schema": {
               "description": "",
               "type": "object",
@@ -312,12 +563,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "755d58d7-763e-4cc0-8d8b-b36a05f2c465"
+                "x-example-value": "b2d61066-bc04-4f6c-a7df-2b4bda4a05e9"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.034335"
+                "x-example-value": "0.012684"
               },
               "Content-Length": {
                 "description": "",
@@ -385,7 +636,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Updating current user",
+            "description": "Update current user",
             "schema": {
               "description": "",
               "type": "object",
@@ -401,7 +652,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"18f4f58b97fbef4f7ce4ba94177d2ab3\""
+                "x-example-value": "W/\"14d704562ec64e0564c0b5255e4d8116\""
               },
               "Cache-Control": {
                 "description": "",
@@ -411,12 +662,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "672ad033-63e8-46c3-acab-46a8c43bce52"
+                "x-example-value": "751817f9-33e5-491e-9913-bd8022f1c16f"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.018908"
+                "x-example-value": "0.009589"
               },
               "Content-Length": {
                 "description": "",
@@ -433,7 +684,7 @@
                 "laboratory": "Updated laboratory",
                 "last_name": "Updated last name",
                 "role": "requester",
-                "updated_at": "2019-11-13T01:03:35.225Z"
+                "updated_at": "2019-11-20T15:29:19.017Z"
               }
             }
           }
@@ -464,7 +715,7 @@
         ],
         "responses": {
           "204": {
-            "description": "Soft deleting current user & anonymize his data",
+            "description": "Soft delete current user & anonymize his data",
             "schema": {
               "description": "",
               "type": "object",
@@ -480,12 +731,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0aeb765c-78b8-4d42-96bc-8964bcc3f79e"
+                "x-example-value": "87bfd611-b222-4652-9e73-d33d3f635b56"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.014966"
+                "x-example-value": "0.007623"
               }
             }
           }
@@ -503,7 +754,7 @@
     "/api/v1/oauth/token": {
       "post": {
         "tags": [
-          "OAuth Token"
+          "OAuth Tokens"
         ],
         "summary": "",
         "description": "",
@@ -517,29 +768,28 @@
           {
             "name": "grant_type",
             "in": "formData",
-            "description": "Oauth grant type",
+            "description": "Oauth grant type\nEg, `password`",
             "required": false,
-            "type": "string",
-            "default": "password"
+            "type": "string"
           },
           {
             "name": "email",
             "in": "formData",
             "description": "User email\nEg, `dev+requester@progeser.com`",
-            "required": true,
+            "required": false,
             "type": "string"
           },
           {
             "name": "password",
             "in": "formData",
             "description": "User password\nEg, `password`",
-            "required": true,
+            "required": false,
             "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "Get new token",
+            "description": "Get a new token",
             "schema": {
               "description": "",
               "type": "object",
@@ -565,17 +815,17 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"b726b0b1616bc9ee0655450619f558f4\""
+                "x-example-value": "W/\"8ed1000884f3436b72ce948dc69fe268\""
               },
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "1cae49e8-d473-4097-8e16-08586a22bedd"
+                "x-example-value": "08eab28d-ce61-4cad-b337-07159e3241ef"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.261662"
+                "x-example-value": "0.207924"
               },
               "Content-Length": {
                 "description": "",
@@ -585,11 +835,11 @@
             },
             "examples": {
               "application/json": {
-                "access_token": "64MkOHkvr40qfaJteCEpUak7roVEgguhGsLz76YVVmA",
+                "access_token": "tg9DcjY92Mv1GXUt_xMgyACB4mQ2jSJB_-eu42pA_jg",
                 "token_type": "Bearer",
                 "expires_in": 7200,
-                "refresh_token": "GqcOoy_ZG607mLFt5SNUpfMqEqkvbxxbMuwKARxqsMc",
-                "created_at": 1573607015
+                "refresh_token": "qIAYtGeOO3Zd3_ON2KS0qdb7_TfAru_eTxrrSwy4eZs",
+                "created_at": 1574263759
               }
             }
           }
@@ -638,7 +888,7 @@
         ],
         "responses": {
           "201": {
-            "description": "Creating a user from an invite and destroy it",
+            "description": "Create a user from an invite and destroy it",
             "schema": {
               "description": "",
               "type": "object",
@@ -654,7 +904,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"d54b8aad71bc619300a0a6faa3af6b90\""
+                "x-example-value": "W/\"2682d739ed6a0d3b8ea30051d4bed445\""
               },
               "Cache-Control": {
                 "description": "",
@@ -664,29 +914,37 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "1adc46db-9618-4f3c-bc3a-c9ff64001b81"
+                "x-example-value": "d76f6b71-724a-4288-9868-9981f7d00061"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.027352"
+                "x-example-value": "0.023626"
               },
               "Content-Length": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "220"
+                "x-example-value": "441"
               }
             },
             "examples": {
               "application/json": {
                 "id": 4,
-                "created_at": "2019-11-13T01:03:35.566Z",
+                "created_at": "2019-11-20T15:29:19.263Z",
                 "email": "invite+requester@progeser.com",
                 "first_name": "Requester",
                 "laboratory": "My test lab",
                 "last_name": "Invite",
                 "role": "requester",
-                "updated_at": "2019-11-13T01:03:35.566Z"
+                "token": {
+                  "id": 11,
+                  "access_token": "gK2OOdxZA7UMX_CPVO6zca3pn9AxK85bK5NRcZ7aoog",
+                  "created_at": "2019-11-20T15:29:19.264Z",
+                  "expires_in": 7200,
+                  "refresh_token": "ykuVxgW_izaIGoe2R0-gYXkrl_geC2COwnwltfuxXg0",
+                  "token_type": "Bearer"
+                },
+                "updated_at": "2019-11-20T15:29:19.263Z"
               }
             }
           }
@@ -706,12 +964,20 @@
   },
   "tags": [
     {
+      "name": "Account Requests",
+      "description": "Account Requests resource"
+    },
+    {
+      "name": "Invites",
+      "description": "Invites resource"
+    },
+    {
       "name": "Me",
       "description": "Me resource"
     },
     {
-      "name": "OAuth Token",
-      "description": "Doorkeeper Token resource"
+      "name": "OAuth Tokens",
+      "description": "Doorkeeper Tokens resource"
     },
     {
       "name": "Users",

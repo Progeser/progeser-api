@@ -13,6 +13,10 @@ Rails.application.routes.draw do
         post :retry, on: :member
       end
 
+      resources :account_requests, only: %i[create destroy] do
+        post :accept, on: :member
+      end
+
       post '/users/:invitation_token/create_from_invite', to: 'users#create_from_invite'
     end
   end

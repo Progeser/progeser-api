@@ -10,3 +10,7 @@ en:
           attributes:
             email:
               email_invalid: invalid email format
+        account_request:
+          attributes:
+            email:
+              email_invalid: invalid email format

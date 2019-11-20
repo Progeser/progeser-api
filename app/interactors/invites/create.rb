@@ -25,8 +25,6 @@ class Invites::Create < ApplicationInteractor
   end
 
   def send_mail(invite)
-    ClearanceMailer.invite(invite.id).deliver_later
-
-    invite
+    UserMailer.invite(invite.id).deliver_later
   end
 end

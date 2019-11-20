@@ -2,5 +2,8 @@ fr:
   mailers:
     clearance_mailer:
       invite:
-        path: /validate-my-account/
+        path: /create-my-account/
         subject: Vous avez été invité à rejoindre ProGeSer
+      account_request:
+        path: /validate-my-account/
+        subject: Finaliser votre inscription sur ProGeSer
