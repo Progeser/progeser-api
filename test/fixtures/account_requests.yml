@@ -1,0 +1,125 @@
+
+account_request_1:
+  id: 1
+  email: tyler.kautzer@beierhegmann.net
+  creation_token: WjhB23fxsMKKzfL1w6CyyVe5
+  first_name: Manon
+  last_name: Rousseau
+  comment: Good evening, London. Allow me first to apologize for this interruption.
+    I do, like many of you, appreciate the comforts of every day routine- the security
+    of the familiar, the tranquility of repetition. I enjoy them as much as any bloke.
+    But in the spirit of commemoration, whereby those important events of the past,
+    usually associated with someone's death or the end of some awful bloody struggle,
+    a celebration of a nice holiday, I thought we could mark this November the 5th,
+    a day that is sadly no longer remembered, by taking some time out of our daily
+    lives to sit down and have a little chat. There are of course those who do not
+    want us to speak. I suspect even now, orders are being shouted into telephones,
+    and men with guns will soon be on their way. Why? Because while the truncheon
+    may be used in lieu of conversation, words will always retain their power. Words
+    offer the means to meaning, and for those who will listen, the enunciation of
+    truth. And the truth is, there is something terribly wrong with this country,
+    isn't there? Cruelty and injustice, intolerance and oppression. And where once
+    you had the freedom to object, to think and speak as you saw fit, you now have
+    censors and systems of surveillance coercing your conformity and soliciting your
+    submission. How did this happen? Who's to blame? Well certainly there are those
+    more responsible than others, and they will be held accountable, but again truth
+    be told, if you're looking for the guilty, you need only look into a mirror. I
+    know why you did it. I know you were afraid. Who wouldn't be? War, terror, disease.
+    There were a myriad of problems which conspired to corrupt your reason and rob
+    you of your common sense. Fear got the best of you, and in your panic you turned
+    to the now high chancellor, Adam Sutler. He promised you order, he promised you
+    peace, and all he demanded in return was your silent, obedient consent. Last night
+    I sought to end that silence. Last night I destroyed the Old Bailey, to remind
+    this country of what it has forgotten. More than four hundred years ago a great
+    citizen wished to embed the fifth of November forever in our memory. His hope
+    was to remind the world that fairness, justice, and freedom are more than words,
+    they are perspectives. So if you've seen nothing, if the crimes of this government
+    remain unknown to you, then I would suggest you allow the fifth of November to
+    pass unmarked. But if you see what I see, if you feel as I feel, and if you would
+    seek as I seek, then I ask you to stand beside me one year from tonight, outside
+    the gates of Parliament, and together we shall give them a fifth of November that
+    shall never, ever be forgot.
+  accepted: false
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2019-11-13 19:30:49.632566000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2019-11-13 19:30:49.632566000 Z
+    zone: *2
+    time: *3
+
+account_request_2:
+  id: 2
+  email: deidre@ratkewyman.com
+  creation_token: TYFAtWNRLRWyYwAVWWPKtM1d
+  first_name: Nicolas
+  last_name: Lecomte
+  comment: I know there's no way I can convince you this is not one of their tricks,
+    but I don't care, I am me. My name is Valerie, I don't think I'll live much longer
+    and I wanted to tell someone about my life. This is the only autobiography I'll
+    ever write, and god, I'm writing it on toilet paper. I was born in Nottingham
+    in 1985, I don't remember much of those early years, but I do remember the rain.
+    My grandmother owned a farm in Tuttlebrook, and she use to tell me that god was
+    in the rain. I passed my 11th lesson into girl's grammar; it was at school that
+    I met my first girlfriend, her name was Sara. It was her wrists. They were beautiful.
+    I thought we would love each other forever. I remember our teacher telling us
+    that is was an adolescent phase people outgrew. Sara did, I didn't. In 2002, I
+    fell in love with a girl named Christina. That year I came out to my parents.
+    I couldn't have done it without Chris holding my hand. My father wouldn't look
+    at me, he told me to go and never come back. My mother said nothing. But I had
+    only told them the truth, was that so selfish? Our integrity sells for so little,
+    but it is all we really have. It is the very last inch of us, but within that
+    inch, we are free. I'd always known what I wanted to do with my life, and in 2015
+    I starred in my first film, 'The Salt Flats'. It was the most important role of
+    my life, not because of my career, but because that was how I met Ruth. The first
+    time we kissed, I knew I never wanted to kiss any other lips but hers again. We
+    moved to a small flat in London together. She grew Scarlet Carsons for me in our
+    window box, and our place always smelled of roses. Those were there best years
+    of my life. But America's war grew worse, and worse. And eventually came to London.
+    After that there were no roses anymore. Not for anyone. I remember how the meaning
+    of words began to change. How unfamiliar words like 'collateral' and 'rendition'
+    became frightening. While things like Norse Fire and The Articles of Allegiance
+    became powerful, I remember how different became dangerous. I still don't understand
+    it, why they hate us so much. They took Ruth while she was out buying food. I've
+    never cried so hard in my life. It wasn't long till they came for me. It seems
+    strange that my life should end in such a terrible place, but for three years,
+    I had roses, and apologized to no one. I shall die here. Every inch of me shall
+    perish. Every inch, but one. An Inch, it is small and it is fragile, but it is
+    the only thing the world worth having. We must never lose it or give it away.
+    We must never let them take it from us. I hope that whoever you are, you escape
+    this place. I hope that the world turns and that things get better. But what I
+    hope most of all is that you understand what I mean when I tell you that even
+    though I do not know you, and even though I may never meet you, laugh with you,
+    cry with you, or kiss you. I love you. With all my heart, I love you. -Valerie
+  accepted: false
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2019-11-13 19:31:05.133303000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2019-11-13 19:31:05.133303000 Z
+    zone: *2
+    time: *3
+
+# == Schema Information
+#
+# Table name: account_requests
+#
+#  id             :bigint           not null, primary key
+#  email          :string           not null
+#  creation_token :string           not null
+#  first_name     :string
+#  last_name      :string
+#  comment        :text
+#  accepted       :boolean          default(FALSE), not null
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+# Indexes
+#
+#  index_account_requests_on_creation_token  (creation_token) UNIQUE
+#  index_account_requests_on_email           (email) UNIQUE
+#

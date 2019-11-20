@@ -8,13 +8,11 @@ resource 'Me' do
   header 'Accept',       'application/json'
   header 'Content-Type', 'application/json'
 
-  let!(:user) { users(:user_1) }
-  let!(:user_token) do
-    Doorkeeper::AccessToken.create!(resource_owner_id: user.id)
-  end
+  let!(:user)       { users(:user_1) }
+  let!(:user_token) { Doorkeeper::AccessToken.create!(resource_owner_id: user.id) }
 
   get '/api/v1/me' do
-    example 'Getting current user informations' do
+    example 'Get current user informations' do
       authentication :basic, "Bearer #{user_token.token}"
 
       do_request
@@ -35,7 +33,7 @@ resource 'Me' do
 
     let(:raw_post) { params.to_json }
 
-    example 'Updating current user' do
+    example 'Update current user' do
       authentication :basic, "Bearer #{user_token.token}"
 
       do_request
@@ -51,7 +49,7 @@ resource 'Me' do
   end
 
   delete '/api/v1/me' do
-    example 'Soft deleting current user & anonymize his data' do
+    example 'Soft delete current user & anonymize his data' do
       authentication :basic, "Bearer #{user_token.token}"
 
       do_request
@@ -59,7 +57,7 @@ resource 'Me' do
       expect(status).to eq(204)
       
       user.reload
-      expect(user.discarded?).to be true
+      expect(user.discarded?).to eq(true)
       expect(user.email).to eq('anonymized_1')
       expect(user.encrypted_password).to eq('anonymized')
       expect(user.first_name).to be_nil

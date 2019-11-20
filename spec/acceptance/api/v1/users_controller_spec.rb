@@ -15,12 +15,12 @@ resource 'Users' do
     parameter :password, 'Password of the user',  with_example: true
     parameter :password_confirmation, 'Password confirmation of the user', with_example: true
 
-    let(:password)  { 'password' }
+    let(:password)              { 'password' }
     let(:password_confirmation) { 'password' }
 
     let(:raw_post) { params.to_json }
 
-    example 'Creating a user from an invite and destroy it' do
+    example 'Create a user from an invite and destroy it' do
       do_request
 
       expect(status).to eq(201)
