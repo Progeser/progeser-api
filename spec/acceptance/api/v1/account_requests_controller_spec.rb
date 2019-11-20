@@ -27,7 +27,7 @@ resource 'Account Requests' do
 
     let(:raw_post) { params.to_json }
 
-    example 'Creating an account request' do
+    example 'Create an account request' do
       do_request
 
       expect(status).to eq(201)
@@ -41,7 +41,7 @@ resource 'Account Requests' do
   end
 
   post '/api/v1/account_requests/:id/accept' do
-    example 'Accepting an account request and send an email' do
+    example 'Accept an account request and send an email' do
       authentication :basic, "Bearer #{user_token.token}"
 
       allow_any_instance_of(ApplicationMailer).to receive(:send_mail).and_return(false)
@@ -57,7 +57,7 @@ resource 'Account Requests' do
   end
 
   delete '/api/v1/account_requests/:id' do
-    example 'Refusing an account request and delete it' do
+    example 'Refuse an account request and delete it' do
       authentication :basic, "Bearer #{user_token.token}"
 
       do_request

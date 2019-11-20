@@ -21,7 +21,7 @@ resource 'OAuth Tokens' do
 
     let(:raw_post) { params.to_json }
 
-    example 'Get new token' do
+    example 'Get a new token' do
       do_request
 
       expect(status).to eq(200)

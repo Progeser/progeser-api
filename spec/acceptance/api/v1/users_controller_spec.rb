@@ -20,7 +20,7 @@ resource 'Users' do
 
     let(:raw_post) { params.to_json }
 
-    example 'Creating a user from an invite and destroy it' do
+    example 'Create a user from an invite and destroy it' do
       do_request
 
       expect(status).to eq(201)

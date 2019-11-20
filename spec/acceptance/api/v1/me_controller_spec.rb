@@ -12,7 +12,7 @@ resource 'Me' do
   let!(:user_token) { Doorkeeper::AccessToken.create!(resource_owner_id: user.id) }
 
   get '/api/v1/me' do
-    example 'Getting current user informations' do
+    example 'Get current user informations' do
       authentication :basic, "Bearer #{user_token.token}"
 
       do_request
@@ -33,7 +33,7 @@ resource 'Me' do
 
     let(:raw_post) { params.to_json }
 
-    example 'Updating current user' do
+    example 'Update current user' do
       authentication :basic, "Bearer #{user_token.token}"
 
       do_request
@@ -49,7 +49,7 @@ resource 'Me' do
   end
 
   delete '/api/v1/me' do
-    example 'Soft deleting current user & anonymize his data' do
+    example 'Soft delete current user & anonymize his data' do
       authentication :basic, "Bearer #{user_token.token}"
 
       do_request

@@ -29,7 +29,7 @@ resource 'Invites' do
 
     let(:raw_post) { params.to_json }
 
-    example 'Creating an invite and send an email' do
+    example 'Create an invite and send an email' do
       authentication :basic, "Bearer #{user_token.token}"
 
       allow_any_instance_of(ApplicationMailer).to receive(:send_mail).and_return(false)
@@ -60,7 +60,7 @@ resource 'Invites' do
   end
 
   delete '/api/v1/invites/:id' do
-    example 'Deleting an invite' do
+    example 'Delete an invite' do
       authentication :basic, "Bearer #{user_token.token}"
 
       do_request
