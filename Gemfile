@@ -20,6 +20,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # An OAuth 2 provider for Rails and Grape
 gem 'doorkeeper', '~> 5.2.0'
+gem 'doorkeeper-i18n', '~> 5.2.0'
 
 # Travis CI client
 gem 'travis', '~> 1.8', '>= 1.8.8'
