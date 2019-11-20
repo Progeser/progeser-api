@@ -12,6 +12,10 @@ class AccountRequest < ApplicationRecord
   validates :first_name,
             :last_name,
             presence: true
+
+  validates :accepted,
+            inclusion: { in: [true, false] },
+            default: false
 end
 
 # == Schema Information
@@ -24,6 +28,7 @@ end
 #  first_name     :string
 #  last_name      :string
 #  comment        :text
+#  accepted       :boolean          default(FALSE), not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #

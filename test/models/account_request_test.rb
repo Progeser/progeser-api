@@ -40,6 +40,12 @@ class AccountRequestTest < ActiveSupport::TestCase
     assert_not @account_request.valid?
     assert_not_empty @account_request.errors[:last_name]
   end
+
+  test 'invalid without accepted' do
+    @account_request.accepted = nil
+    assert_not @account_request.valid?
+    assert_not_empty @account_request.errors[:accepted]
+  end
 end
 
 # == Schema Information
@@ -52,6 +58,7 @@ end
 #  first_name     :string
 #  last_name      :string
 #  comment        :text
+#  accepted       :boolean          default(FALSE), not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #

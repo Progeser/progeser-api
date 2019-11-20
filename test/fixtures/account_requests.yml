@@ -39,6 +39,7 @@ account_request_1:
     seek as I seek, then I ask you to stand beside me one year from tonight, outside
     the gates of Parliament, and together we shall give them a fifth of November that
     shall never, ever be forgot.
+  accepted: false
   created_at: !ruby/object:ActiveSupport::TimeWithZone
     utc: &1 2019-11-13 19:30:49.632566000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone
@@ -92,6 +93,7 @@ account_request_2:
     hope most of all is that you understand what I mean when I tell you that even
     though I do not know you, and even though I may never meet you, laugh with you,
     cry with you, or kiss you. I love you. With all my heart, I love you. -Valerie
+  accepted: false
   created_at: !ruby/object:ActiveSupport::TimeWithZone
     utc: &1 2019-11-13 19:31:05.133303000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone
@@ -112,6 +114,7 @@ account_request_2:
 #  first_name     :string
 #  last_name      :string
 #  comment        :text
+#  accepted       :boolean          default(FALSE), not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #

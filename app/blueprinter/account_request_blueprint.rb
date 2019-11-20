@@ -2,5 +2,5 @@
 
 class AccountRequestBlueprint < Base
   # Fields
-  fields :email, :first_name, :last_name, :comment
+  fields :email, :first_name, :last_name, :comment, :accepted
 end

@@ -6,6 +6,7 @@ class CreateAccountRequests < ActiveRecord::Migration[5.2]
       t.string :first_name
       t.string :last_name
       t.text :comment
+      t.boolean :accepted, null: false, default: false
 
       t.timestamps
     end
