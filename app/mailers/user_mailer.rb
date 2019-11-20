@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ClearanceMailer < ApplicationMailer
+class UserMailer < ApplicationMailer
   def invite(invite_id)
     invite = Invite.find(invite_id)
 

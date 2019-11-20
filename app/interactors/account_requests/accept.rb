@@ -20,6 +20,6 @@ class AccountRequests::Accept < ApplicationInteractor
   end
 
   def send_mail(account_request)
-    ClearanceMailer.accept_account_request(account_request.id).deliver_later
+    UserMailer.accept_account_request(account_request.id).deliver_later
   end
 end

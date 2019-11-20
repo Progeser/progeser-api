@@ -13,7 +13,7 @@ class Api::V1::InvitesController < ApiController
   end
 
   def retry
-    ClearanceMailer.invite(@invite.id).deliver_later
+    UserMailer.invite(@invite.id).deliver_later
 
     head :no_content
   end
