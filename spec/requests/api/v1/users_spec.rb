@@ -68,6 +68,25 @@ RSpec.describe 'Api/V1/Users', type: :request do
         invite.reload
         expect(User.find_by(email: invite.email)).to be_nil
       end
+
+      it 'rollbacks the invite deletion & the user creation if the access token can\'t be created' do
+        allow(Doorkeeper::AccessToken).to receive(:create!).and_raise(ActiveRecord::RecordInvalid)
+
+        post(
+          "/api/v1/users/#{invitation_token}/create_from_invite",
+          params: {
+            password: 'password',
+            password_confirmation: 'password'
+          }
+        )
+
+        expect(status).to eq(422)
+        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+
+        invite.reload
+        expect(invite).to be_persisted
+        expect(User.find_by(email: invite.email)).to be_nil
+      end
     end
   end
 end
