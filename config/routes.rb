@@ -9,6 +9,11 @@ Rails.application.routes.draw do
     namespace :v1 do
       resource :me, controller: 'me', only: %i[show update destroy]
 
+      resource :passwords, only: %i[update] do
+        post '/forgot', action: :forgot
+        put '/:confirmation_token/reset', action: :reset
+      end
+
       resources :invites, only: %i[create destroy] do
         post :retry, on: :member
       end
