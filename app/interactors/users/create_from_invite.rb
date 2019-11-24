@@ -40,11 +40,7 @@ class Users::CreateFromInvite < ApplicationInteractor
   end
 
   def create_token!(user)
-    Doorkeeper::AccessToken.create!(
-      resource_owner_id: user.id,
-      use_refresh_token: true,
-      expires_in: Doorkeeper.configuration.access_token_expires_in
-    )
+    user.create_token!
 
     user
   end

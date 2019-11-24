@@ -7,3 +7,7 @@ fr:
       account_request:
         path: /validate-my-account/
         subject: Finaliser votre inscription sur ProGeSer
+    password_mailer:
+      reset_password:
+        path: /reset-my-password/
+        subject: Réinitialiser mon mot de passe

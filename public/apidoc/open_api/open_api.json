@@ -46,28 +46,28 @@
           {
             "name": "email",
             "in": "formData",
-            "description": "Email of the requested account\nEg, `jenise.gottlieb@boehmleffler.org`",
+            "description": "Email of the requested account\nEg, `lino_rolfson@west.name`",
             "required": false,
             "type": "string"
           },
           {
             "name": "first_name",
             "in": "formData",
-            "description": "First name of the requested account\nEg, `Nicolas`",
+            "description": "First name of the requested account\nEg, `Julien`",
             "required": false,
             "type": "string"
           },
           {
             "name": "last_name",
             "in": "formData",
-            "description": "Last name of the requested account\nEg, `Nicolas`",
+            "description": "Last name of the requested account\nEg, `Lévêque`",
             "required": false,
             "type": "string"
           },
           {
             "name": "comment",
             "in": "formData",
-            "description": "(Optional) Free comment to give additional information\nEg, `Our story begins, as these stories often do, with a young up-and-coming politician. He's a deeply religious man and a member of the conservative party. He is completely single-minded convictions and has no regard for the political process. Eventually, his party launches a special project in the name of 'national security'. At first, it is believed to be a search for biological weapons and it is pursued regardless of its cost. However, the true goal of the project is power, complete and total hegemonic domination. The project, however, ends violently... but the efforts of those involved are not in vain, for a new ability to wage war is born from the blood of one of their victims. Imagine a virus - the most terrifying virus you can, and then imagine that you and you alone have the cure. But if your ultimate goal is power, how best to use such a weapon? It is at this point in our story that along comes a spider. He is a man seemingly without a conscience; for whom the ends always justify the means and it is he who suggests that their target should not be an enemy of the country but rather the country itself. Three targets are chosen to maximize the effect of the attack: a school, a tube station, and a water-treatment plant. Several hundred die within the first few weeks. Until at last the true goal comes into view. Before the St. Mary's crisis, no one would have predicted the outcome of the elections. No one. But after the election, lo and behold, a miracle. Some believed that it was the work of God himself, but it was a pharmaceutical company controlled by certain party members made them all obscenely rich. But the true genius of the plan was the fear. A year later, several extremists are tried, found guilty, and executed while a memorial is built to canonize their victims. Fear became the ultimate tool of this government. And through it our politician was ultimately appointed to the newly created position of High Chancellor. The rest, as they say, is history.`",
+            "description": "(Optional) Free comment to give additional information\nEg, `Remember, remember, the Fifth of November, the Gunpowder Treason and Plot. I know of no reason why the Gunpowder Treason should ever be forgot... But what of the man? I know his name was Guy Fawkes and I know, in 1605, he attempted to blow up the Houses of Parliament. But who was he really? What was he like? We are told to remember the idea, not the man, because a man can fail. He can be caught, he can be killed and forgotten, but 400 years later, an idea can still change the world. I've witnessed first hand the power of ideas, I've seen people kill in the name of them, and die defending them... but you cannot kiss an idea, cannot touch it, or hold it... ideas do not bleed, they do not feel pain, they do not love... And it is not an idea that I miss, it is a man... A man that made me remember the Fifth of November. A man that I will never forget.`",
             "required": false,
             "type": "string"
           }
@@ -90,7 +90,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"b76d56857974b102c9b1034087014d3e\""
+                "x-example-value": "W/\"8c99ac029cb853f81a6e7036822e82aa\""
               },
               "Cache-Control": {
                 "description": "",
@@ -100,29 +100,29 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "6dfe170c-e7d8-4ea9-807c-42d13c0f51f7"
+                "x-example-value": "f00e1444-cc31-47a3-bfc4-9f1485754b52"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.017243"
+                "x-example-value": "0.016070"
               },
               "Content-Length": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "2198"
+                "x-example-value": "1055"
               }
             },
             "examples": {
               "application/json": {
                 "id": 3,
                 "accepted": false,
-                "comment": "Our story begins, as these stories often do, with a young up-and-coming politician. He's a deeply religious man and a member of the conservative party. He is completely single-minded convictions and has no regard for the political process. Eventually, his party launches a special project in the name of 'national security'. At first, it is believed to be a search for biological weapons and it is pursued regardless of its cost. However, the true goal of the project is power, complete and total hegemonic domination. The project, however, ends violently... but the efforts of those involved are not in vain, for a new ability to wage war is born from the blood of one of their victims. Imagine a virus - the most terrifying virus you can, and then imagine that you and you alone have the cure. But if your ultimate goal is power, how best to use such a weapon? It is at this point in our story that along comes a spider. He is a man seemingly without a conscience; for whom the ends always justify the means and it is he who suggests that their target should not be an enemy of the country but rather the country itself. Three targets are chosen to maximize the effect of the attack: a school, a tube station, and a water-treatment plant. Several hundred die within the first few weeks. Until at last the true goal comes into view. Before the St. Mary's crisis, no one would have predicted the outcome of the elections. No one. But after the election, lo and behold, a miracle. Some believed that it was the work of God himself, but it was a pharmaceutical company controlled by certain party members made them all obscenely rich. But the true genius of the plan was the fear. A year later, several extremists are tried, found guilty, and executed while a memorial is built to canonize their victims. Fear became the ultimate tool of this government. And through it our politician was ultimately appointed to the newly created position of High Chancellor. The rest, as they say, is history.",
-                "created_at": "2019-11-20T15:29:18.862Z",
-                "email": "jenise.gottlieb@boehmleffler.org",
-                "first_name": "Nicolas",
-                "last_name": "Nicolas",
-                "updated_at": "2019-11-20T15:29:18.862Z"
+                "comment": "Remember, remember, the Fifth of November, the Gunpowder Treason and Plot. I know of no reason why the Gunpowder Treason should ever be forgot... But what of the man? I know his name was Guy Fawkes and I know, in 1605, he attempted to blow up the Houses of Parliament. But who was he really? What was he like? We are told to remember the idea, not the man, because a man can fail. He can be caught, he can be killed and forgotten, but 400 years later, an idea can still change the world. I've witnessed first hand the power of ideas, I've seen people kill in the name of them, and die defending them... but you cannot kiss an idea, cannot touch it, or hold it... ideas do not bleed, they do not feel pain, they do not love... And it is not an idea that I miss, it is a man... A man that made me remember the Fifth of November. A man that I will never forget.",
+                "created_at": "2019-11-24T17:23:25.597Z",
+                "email": "lino_rolfson@west.name",
+                "first_name": "Julien",
+                "last_name": "Lévêque",
+                "updated_at": "2019-11-24T17:23:25.597Z"
               }
             }
           }
@@ -173,7 +173,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"4c6561b39d1e66ef5e44fbbcf3d45c26\""
+                "x-example-value": "W/\"b3a100afe563b83f50247d3b8a95c9db\""
               },
               "Cache-Control": {
                 "description": "",
@@ -183,12 +183,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "39bd90dc-4240-4081-be56-1a1a648c9ee7"
+                "x-example-value": "18c32eb9-c55f-4821-8682-79a10a51cbaf"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.020070"
+                "x-example-value": "0.019889"
               },
               "Content-Length": {
                 "description": "",
@@ -205,7 +205,7 @@
                 "email": "tyler.kautzer@beierhegmann.net",
                 "first_name": "Manon",
                 "last_name": "Rousseau",
-                "updated_at": "2019-11-20T15:29:18.898Z"
+                "updated_at": "2019-11-24T17:23:25.630Z"
               }
             }
           }
@@ -260,12 +260,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "4795d886-b155-468d-85ae-6d8320639ec2"
+                "x-example-value": "f8eb1594-0627-4112-97da-10cd8162da21"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.006229"
+                "x-example-value": "0.007125"
               }
             }
           }
@@ -352,7 +352,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"f227306df592fe6e36e4ba433e130c91\""
+                "x-example-value": "W/\"0afcc3177a5d9d7a17e91cf78fdd191c\""
               },
               "Cache-Control": {
                 "description": "",
@@ -362,12 +362,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "5327139e-7298-47e3-a293-2eae3e49275f"
+                "x-example-value": "ec3e0446-7385-4479-89f7-82c381835722"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.018249"
+                "x-example-value": "0.019436"
               },
               "Content-Length": {
                 "description": "",
@@ -378,13 +378,13 @@
             "examples": {
               "application/json": {
                 "id": 3,
-                "created_at": "2019-11-20T15:29:18.947Z",
+                "created_at": "2019-11-24T17:23:25.680Z",
                 "email": "requester_to_invite@progeser.com",
                 "first_name": "invite first name",
                 "laboratory": "invite laboratory",
                 "last_name": "invite last name",
                 "role": "requester",
-                "updated_at": "2019-11-20T15:29:18.947Z"
+                "updated_at": "2019-11-24T17:23:25.680Z"
               }
             }
           }
@@ -439,12 +439,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "1c11250a-15d2-4526-97ab-3f5f57f7a24b"
+                "x-example-value": "832232e3-94ca-401c-b21b-dc35e6e16baf"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.007153"
+                "x-example-value": "0.007855"
               }
             }
           }
@@ -499,12 +499,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "2852d75f-5b6b-455f-a75e-8195d2755e4c"
+                "x-example-value": "ed43fd86-7bd6-4376-a73e-9d2746df94ab"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.006792"
+                "x-example-value": "0.007334"
               }
             }
           }
@@ -563,12 +563,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "b2d61066-bc04-4f6c-a7df-2b4bda4a05e9"
+                "x-example-value": "def448b9-91ba-4991-adb8-0aeb997a9646"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.012684"
+                "x-example-value": "0.013815"
               },
               "Content-Length": {
                 "description": "",
@@ -652,7 +652,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"14d704562ec64e0564c0b5255e4d8116\""
+                "x-example-value": "W/\"ac395ef8dd6fad67ff627046b732e670\""
               },
               "Cache-Control": {
                 "description": "",
@@ -662,12 +662,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "751817f9-33e5-491e-9913-bd8022f1c16f"
+                "x-example-value": "38c25a44-b3f9-463b-bd1e-9e4b14621e1d"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.009589"
+                "x-example-value": "0.011611"
               },
               "Content-Length": {
                 "description": "",
@@ -684,7 +684,7 @@
                 "laboratory": "Updated laboratory",
                 "last_name": "Updated last name",
                 "role": "requester",
-                "updated_at": "2019-11-20T15:29:19.017Z"
+                "updated_at": "2019-11-24T17:23:25.759Z"
               }
             }
           }
@@ -731,12 +731,247 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "87bfd611-b222-4652-9e73-d33d3f635b56"
+                "x-example-value": "ddb43767-a061-4105-aebe-2e990a0e86b4"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.007623"
+                "x-example-value": "0.008399"
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "Authorization": [
+
+            ]
+          }
+        ]
+      }
+    },
+    "/api/v1/passwords/forgot": {
+      "post": {
+        "tags": [
+          "Passwords"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "Email associated to the forgotten password\nEg, `dev+requester@progeser.com`",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Send an email to reset user password",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "no-cache"
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "407b9888-d091-4adb-8ac2-02e7eb2ea842"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.015101"
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+
+        ]
+      }
+    },
+    "/api/v1/passwords/{confirmation_token}/reset": {
+      "put": {
+        "tags": [
+          "Passwords"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "confirmation_token",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "The new password\nEg, `foobar`",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "password_confirmation",
+            "in": "formData",
+            "description": "Confirmation of the new password\nEg, `foobar`",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Set new password",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json; charset=utf-8"
+              },
+              "ETag": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "W/\"185ed18c7173f8eb5676acf8ede1aa51\""
+              },
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "max-age=0, private, must-revalidate"
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "49d4e9d8-493b-4c6f-854e-1df474ba4a26"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.019830"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "440"
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "created_at": "2019-10-30T16:57:33.316Z",
+                "email": "dev+requester@progeser.com",
+                "first_name": "Requester",
+                "laboratory": "My test lab",
+                "last_name": "ProGeSer",
+                "role": "requester",
+                "token": {
+                  "id": 12,
+                  "access_token": "bJohfGcr5Ih2rVtvGgzEJW-gxiCKjlqFiIbzzceqB3E",
+                  "created_at": "2019-11-24T17:23:26.017Z",
+                  "expires_in": 7200,
+                  "refresh_token": "Cancrc1nWidF7oBs1p3I4Y0r6Xbse7gB7DlppyJsu5w",
+                  "token_type": "Bearer"
+                },
+                "updated_at": "2019-11-24T17:23:26.015Z"
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+
+        ]
+      }
+    },
+    "/api/v1/passwords": {
+      "put": {
+        "tags": [
+          "Passwords"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+
+        ],
+        "parameters": [
+          {
+            "name": "current_password",
+            "in": "formData",
+            "description": "The current password\nEg, `password`",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "The new password\nEg, `newPassword`",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "password_confirmation",
+            "in": "formData",
+            "description": "Confirmation of the new password\nEg, `newPassword`",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Update password for current user",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "no-cache"
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "84c9957b-d4a7-4324-8118-307ef00eabbe"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.218352"
               }
             }
           }
@@ -815,17 +1050,17 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"8ed1000884f3436b72ce948dc69fe268\""
+                "x-example-value": "W/\"d6010b5d03ba7e13059ebd8d5ab8c648\""
               },
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "08eab28d-ce61-4cad-b337-07159e3241ef"
+                "x-example-value": "1798ab31-e6f8-4302-a9e8-476a1111a76a"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.207924"
+                "x-example-value": "0.211451"
               },
               "Content-Length": {
                 "description": "",
@@ -835,11 +1070,11 @@
             },
             "examples": {
               "application/json": {
-                "access_token": "tg9DcjY92Mv1GXUt_xMgyACB4mQ2jSJB_-eu42pA_jg",
+                "access_token": "8F977KY7TOvi3f61-4NDxMDfqQY3uqLIB8CtVuj6uJs",
                 "token_type": "Bearer",
                 "expires_in": 7200,
-                "refresh_token": "qIAYtGeOO3Zd3_ON2KS0qdb7_TfAru_eTxrrSwy4eZs",
-                "created_at": 1574263759
+                "refresh_token": "V-NLMjH-BeRV-urAPG6r1w6qIPx-kabc_sBiUlco0z4",
+                "created_at": 1574616206
               }
             }
           }
@@ -904,7 +1139,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"2682d739ed6a0d3b8ea30051d4bed445\""
+                "x-example-value": "W/\"4c4fa6dc2fb5c339882aaddf1d527ee6\""
               },
               "Cache-Control": {
                 "description": "",
@@ -914,12 +1149,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "d76f6b71-724a-4288-9868-9981f7d00061"
+                "x-example-value": "38164ec6-90b9-46ad-aa55-3dc4f900a028"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.023626"
+                "x-example-value": "0.017017"
               },
               "Content-Length": {
                 "description": "",
@@ -930,21 +1165,21 @@
             "examples": {
               "application/json": {
                 "id": 4,
-                "created_at": "2019-11-20T15:29:19.263Z",
+                "created_at": "2019-11-24T17:23:26.675Z",
                 "email": "invite+requester@progeser.com",
                 "first_name": "Requester",
                 "laboratory": "My test lab",
                 "last_name": "Invite",
                 "role": "requester",
                 "token": {
-                  "id": 11,
-                  "access_token": "gK2OOdxZA7UMX_CPVO6zca3pn9AxK85bK5NRcZ7aoog",
-                  "created_at": "2019-11-20T15:29:19.264Z",
+                  "id": 15,
+                  "access_token": "SZPKBOieRZguUtzsQJLJh8Bh8RmCF4KM_jbQ_f2VOgQ",
+                  "created_at": "2019-11-24T17:23:26.676Z",
                   "expires_in": 7200,
-                  "refresh_token": "ykuVxgW_izaIGoe2R0-gYXkrl_geC2COwnwltfuxXg0",
+                  "refresh_token": "TFaxdMEBkGKmLu5PY-S3kdmL2QDR0__yMdG_ChGa-bE",
                   "token_type": "Bearer"
                 },
-                "updated_at": "2019-11-20T15:29:19.263Z"
+                "updated_at": "2019-11-24T17:23:26.675Z"
               }
             }
           }
@@ -974,6 +1209,10 @@
     {
       "name": "Me",
       "description": "Me resource"
+    },
+    {
+      "name": "Passwords",
+      "description": "Passwords resource"
     },
     {
       "name": "OAuth Tokens",
