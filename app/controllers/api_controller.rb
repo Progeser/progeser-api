@@ -58,12 +58,14 @@ class ApiController < ActionController::API
   end
 
   def render_validation_error(model)
-    model.errors.add(:validate, message: 'an unknown error occured') if model.errors.empty?
+    model.errors.add(:validate, 'an unknown error occured') if model.errors.empty?
 
     render_error(model, code: 422)
   end
 
   def unauthorized(exception)
+    return render_error(exception.record, code: 403) if exception.record.is_a?(ActiveRecord::Base)
+
     render_error(exception.message, code: 403)
   end
 

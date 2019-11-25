@@ -2,23 +2,54 @@
 
 class Api::V1::UsersController < ApiController
   skip_before_action :doorkeeper_authorize!
-  skip_after_action :verify_authorized
   skip_after_action :verify_policy_scoped
 
-  # Accept invite
+  # Accept an invite and create a user
+  #
   def create_from_invite
     invite = Invite.find_by!(invitation_token: params[:invitation_token])
 
+    authorize invite, policy_class: UserPolicy
+
+    render_invite_interactor_result(invite)
+  end
+
+  # Finalize user creation when an account request has been accepted
+  #
+  def create_from_account_request
+    account_request = AccountRequest.find_by!(creation_token: params[:creation_token])
+
+    authorize account_request, policy_class: UserPolicy
+
+    render_account_request_interactor_result(account_request)
+  end
+
+  private
+
+  def render_invite_interactor_result(invite)
     render_interactor_result(
-      Users::CreateFromInvite.call(user_params: user_params.to_h, invite: invite),
+      Users::CreateFromInvite.call(user_params: invite_params.to_h, invite: invite),
       status: :created,
       opts: { view: :with_token }
     )
   end
 
-  private
+  def render_account_request_interactor_result(account_request)
+    render_interactor_result(
+      Users::CreateFromAccountRequest.call(
+        user_params: account_request_params.to_h,
+        account_request: account_request
+      ),
+      status: :created,
+      opts: { view: :with_token }
+    )
+  end
 
-  def user_params
+  def invite_params
     params.permit(%i[password password_confirmation])
+  end
+
+  def account_request_params
+    params.permit(%i[laboratory password password_confirmation])
   end
 end
