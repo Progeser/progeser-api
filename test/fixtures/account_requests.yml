@@ -39,7 +39,7 @@ account_request_1:
     seek as I seek, then I ask you to stand beside me one year from tonight, outside
     the gates of Parliament, and together we shall give them a fifth of November that
     shall never, ever be forgot.
-  accepted: false
+  accepted: true
   created_at: !ruby/object:ActiveSupport::TimeWithZone
     utc: &1 2019-11-13 19:30:49.632566000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone

@@ -53,12 +53,18 @@ if Rails.env.development?
   )
 
   # AccountRequests
-  2.times do
-    AccountRequest.create!(
-      email: Faker::Internet.email,
-      first_name: Faker::Name.first_name,
-      last_name: Faker::Name.last_name,
-      comment: Faker::Movies::VForVendetta.speech
-    )
-  end
+  AccountRequest.create!(
+    email: Faker::Internet.email,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    comment: Faker::Movies::VForVendetta.speech,
+    accepted: true
+  )
+
+  AccountRequest.create!(
+    email: Faker::Internet.email,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    comment: Faker::Movies::VForVendetta.speech
+  )
 end
