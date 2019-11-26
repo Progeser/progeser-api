@@ -14,6 +14,45 @@ resource 'Invites' do
   let!(:invite) { invites(:invite_1) }
   let!(:id)     { invite.id }
 
+  get '/api/v1/invites' do
+    with_options scope: :page, with_example: true do
+      parameter :number,
+                "The number of the desired page (must be called in `page` scope)\n\n"\
+                "If used, additional information is returned in the response headers:\n"\
+                "`Pagination-Current-Page`: the current page number\n"\
+                "`Pagination-Per`: the number of records per page\n"\
+                "`Pagination-Total-Pages`: the total number of pages\n"\
+                '`Pagination-Total-Count`: the total number of records',
+                type: :integer
+      parameter :size,
+                'The number of elements in a page (must be called in `page` scope)',
+                type: :integer,
+                default: FetcheableOnApi.configuration.pagination_default_size
+    end
+
+    example 'Get all invites' do
+      authentication :basic, "Bearer #{user_token.token}"
+
+      do_request
+
+      expect(status).to eq(200)
+
+      expect(response_body).to eq(Invite.to_blueprint)
+      expect(JSON.parse(response_body).count).to eq(Invite.count)
+    end
+  end
+
+  get '/api/v1/invites/:id' do
+    example 'Get an invite' do
+      authentication :basic, "Bearer #{user_token.token}"
+
+      do_request
+
+      expect(status).to eq(200)
+      expect(response_body).to eq(invite.to_blueprint)
+    end
+  end
+
   post '/api/v1/invites' do
     parameter :email, 'Email of the user to invite', with_example: true
     parameter :role, 'Role of the user to invite', with_example: true, enum: %w[grower requester]

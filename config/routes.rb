@@ -14,7 +14,7 @@ Rails.application.routes.draw do
         put '/:confirmation_token/reset', action: :reset
       end
 
-      resources :invites, only: %i[create destroy] do
+      resources :invites, only: %i[index show create destroy] do
         post :retry, on: :member
       end
 

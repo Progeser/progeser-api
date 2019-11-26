@@ -57,6 +57,9 @@ gem 'dry-transaction', '~> 0.13.0'
 # Validation library with type-safe schemas and rules
 gem 'dry-validation', '~> 1.3'
 
+# A controller filters engine gem based on jsonapi spec
+gem 'fetcheable_on_api', '~> 0.3'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

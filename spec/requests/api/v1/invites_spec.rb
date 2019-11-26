@@ -18,6 +18,51 @@ RSpec.describe 'Api/V1/Invites', type: :request do
   let!(:invite) { invites(:invite_1) }
   let!(:id)     { invite.id }
 
+  describe 'GET api/v1/invites' do
+    context '200' do
+      it 'get invites with pagination params' do
+        get(
+          '/api/v1/invites',
+          headers: header,
+          params: {
+            page: {
+              number: 1,
+              size: 2
+            }
+          }
+        )
+
+        expect(status).to eq(200)
+
+        expect(JSON.parse(response.body).count).to eq(2)
+        expect(response.headers.dig('Pagination-Current-Page')).to eq(1)
+        expect(response.headers.dig('Pagination-Per')).to eq(2)
+        expect(response.headers.dig('Pagination-Total-Pages')).to eq(2)
+        expect(response.headers.dig('Pagination-Total-Count')).to eq(3)
+      end
+    end
+
+    context '403' do
+      it 'can\'t get invites as a requester' do
+        get('/api/v1/invites', headers: requester_header)
+
+        expect(status).to eq(403)
+        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+      end
+    end
+  end
+
+  describe 'GET api/v1/invites/:id' do
+    context '404' do
+      it 'can\'t get an invite as a requester' do
+        get("/api/v1/invites/#{id}", headers: requester_header)
+
+        expect(status).to eq(404)
+        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+      end
+    end
+  end
+
   describe 'POST api/v1/invites' do
     context '400' do
       it 'fails to create an invite with missing params' do
