@@ -35,6 +35,24 @@ invite_2:
     zone: *2
     time: *3
 
+invite_3:
+  id: 3
+  email: leena.ryan@ratke.com
+  invitation_token: JNVNmRthHJzce1Rf6z5mxA5S
+  role: grower
+  first_name: Noémie
+  last_name: Meunier
+  laboratory: 
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2019-11-06 00:44:32.912239000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2019-11-06 00:44:32.912239000 Z
+    zone: *2
+    time: *3
+
 # == Schema Information
 #
 # Table name: invites

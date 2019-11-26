@@ -1,7 +1,18 @@
 # frozen_string_literal: true
 
 class Api::V1::InvitesController < ApiController
-  before_action :set_invite, only: %i[retry destroy]
+  before_action :set_invite, except: %i[index create]
+
+  def index
+    invites = policy_scope(Invite)
+    authorize invites
+
+    render json: apply_fetcheable(invites).to_blueprint
+  end
+
+  def show
+    render json: @invite.to_blueprint
+  end
 
   def create
     authorize Invite
