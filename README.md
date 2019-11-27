@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/ProGeSer/progeser-api.svg?branch=master)](https://travis-ci.org/ProGeSer/progeser-api)
 [![Maintainability](https://api.codeclimate.com/v1/badges/908ab32e27c4371f4c5e/maintainability)](https://codeclimate.com/github/ProGeSer/progeser-api/maintainability)
 [![Coverage](https://api.codeclimate.com/v1/badges/908ab32e27c4371f4c5e/test_coverage)](https://codeclimate.com/github/ProGeSer/progeser-api/test_coverage)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
