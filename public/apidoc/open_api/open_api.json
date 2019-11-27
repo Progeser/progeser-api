@@ -30,6 +30,122 @@
   ],
   "paths": {
     "/api/v1/account_requests": {
+      "get": {
+        "tags": [
+          "Account Requests"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "page[number]",
+            "in": "query",
+            "description": "The number of the desired page\n\nIf used, additional information is returned in the response headers:\n`Pagination-Current-Page`: the current page number\n`Pagination-Per`: the number of records per page\n`Pagination-Total-Pages`: the total number of pages\n`Pagination-Total-Count`: the total number of records",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          },
+          {
+            "name": "page[size]",
+            "in": "query",
+            "description": "The number of elements in a page\n\nIf used, additional information is returned in the response headers:\n`Pagination-Current-Page`: the current page number\n`Pagination-Per`: the number of records per page\n`Pagination-Total-Pages`: the total number of pages\n`Pagination-Total-Count`: the total number of records",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get all account requests",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json; charset=utf-8"
+              },
+              "ETag": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "W/\"ac732c1f99f7404ca8f0ff0a9a3c2156\""
+              },
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "max-age=0, private, must-revalidate"
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "d533f4ea-efeb-43d1-9392-1d9e15278496"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.018759"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "6921"
+              }
+            },
+            "examples": {
+              "application/json": [
+                {
+                  "id": 1,
+                  "accepted": true,
+                  "comment": "Good evening, London. Allow me first to apologize for this interruption. I do, like many of you, appreciate the comforts of every day routine- the security of the familiar, the tranquility of repetition. I enjoy them as much as any bloke. But in the spirit of commemoration, whereby those important events of the past, usually associated with someone's death or the end of some awful bloody struggle, a celebration of a nice holiday, I thought we could mark this November the 5th, a day that is sadly no longer remembered, by taking some time out of our daily lives to sit down and have a little chat. There are of course those who do not want us to speak. I suspect even now, orders are being shouted into telephones, and men with guns will soon be on their way. Why? Because while the truncheon may be used in lieu of conversation, words will always retain their power. Words offer the means to meaning, and for those who will listen, the enunciation of truth. And the truth is, there is something terribly wrong with this country, isn't there? Cruelty and injustice, intolerance and oppression. And where once you had the freedom to object, to think and speak as you saw fit, you now have censors and systems of surveillance coercing your conformity and soliciting your submission. How did this happen? Who's to blame? Well certainly there are those more responsible than others, and they will be held accountable, but again truth be told, if you're looking for the guilty, you need only look into a mirror. I know why you did it. I know you were afraid. Who wouldn't be? War, terror, disease. There were a myriad of problems which conspired to corrupt your reason and rob you of your common sense. Fear got the best of you, and in your panic you turned to the now high chancellor, Adam Sutler. He promised you order, he promised you peace, and all he demanded in return was your silent, obedient consent. Last night I sought to end that silence. Last night I destroyed the Old Bailey, to remind this country of what it has forgotten. More than four hundred years ago a great citizen wished to embed the fifth of November forever in our memory. His hope was to remind the world that fairness, justice, and freedom are more than words, they are perspectives. So if you've seen nothing, if the crimes of this government remain unknown to you, then I would suggest you allow the fifth of November to pass unmarked. But if you see what I see, if you feel as I feel, and if you would seek as I seek, then I ask you to stand beside me one year from tonight, outside the gates of Parliament, and together we shall give them a fifth of November that shall never, ever be forgot.",
+                  "created_at": "2019-11-13T19:30:49.632Z",
+                  "email": "tyler.kautzer@beierhegmann.net",
+                  "first_name": "Manon",
+                  "last_name": "Rousseau",
+                  "updated_at": "2019-11-13T19:30:49.632Z"
+                },
+                {
+                  "id": 2,
+                  "accepted": false,
+                  "comment": "I know there's no way I can convince you this is not one of their tricks, but I don't care, I am me. My name is Valerie, I don't think I'll live much longer and I wanted to tell someone about my life. This is the only autobiography I'll ever write, and god, I'm writing it on toilet paper. I was born in Nottingham in 1985, I don't remember much of those early years, but I do remember the rain. My grandmother owned a farm in Tuttlebrook, and she use to tell me that god was in the rain. I passed my 11th lesson into girl's grammar; it was at school that I met my first girlfriend, her name was Sara. It was her wrists. They were beautiful. I thought we would love each other forever. I remember our teacher telling us that is was an adolescent phase people outgrew. Sara did, I didn't. In 2002, I fell in love with a girl named Christina. That year I came out to my parents. I couldn't have done it without Chris holding my hand. My father wouldn't look at me, he told me to go and never come back. My mother said nothing. But I had only told them the truth, was that so selfish? Our integrity sells for so little, but it is all we really have. It is the very last inch of us, but within that inch, we are free. I'd always known what I wanted to do with my life, and in 2015 I starred in my first film, 'The Salt Flats'. It was the most important role of my life, not because of my career, but because that was how I met Ruth. The first time we kissed, I knew I never wanted to kiss any other lips but hers again. We moved to a small flat in London together. She grew Scarlet Carsons for me in our window box, and our place always smelled of roses. Those were there best years of my life. But America's war grew worse, and worse. And eventually came to London. After that there were no roses anymore. Not for anyone. I remember how the meaning of words began to change. How unfamiliar words like 'collateral' and 'rendition' became frightening. While things like Norse Fire and The Articles of Allegiance became powerful, I remember how different became dangerous. I still don't understand it, why they hate us so much. They took Ruth while she was out buying food. I've never cried so hard in my life. It wasn't long till they came for me. It seems strange that my life should end in such a terrible place, but for three years, I had roses, and apologized to no one. I shall die here. Every inch of me shall perish. Every inch, but one. An Inch, it is small and it is fragile, but it is the only thing the world worth having. We must never lose it or give it away. We must never let them take it from us. I hope that whoever you are, you escape this place. I hope that the world turns and that things get better. But what I hope most of all is that you understand what I mean when I tell you that even though I do not know you, and even though I may never meet you, laugh with you, cry with you, or kiss you. I love you. With all my heart, I love you. -Valerie",
+                  "created_at": "2019-11-13T19:31:05.133Z",
+                  "email": "deidre@ratkewyman.com",
+                  "first_name": "Nicolas",
+                  "last_name": "Lecomte",
+                  "updated_at": "2019-11-13T19:31:05.133Z"
+                },
+                {
+                  "id": 3,
+                  "accepted": false,
+                  "comment": "My fellow Englishmen: tonight our country, that which we stand for, and all we hold dear, faces a grave and terrible threat. This violent and unparalleled assault on our security will not go undefended... or unpunished. Our enemy is an insidious one, seeking to divide us and destroy the very foundation of our great nation. Tonight, we must remain steadfast. We must remain determined. But most of all, we must remain united. Those caught tonight in violation of curfew will be considered in league with our enemy and prosecuted as a terrorist without leniency or exception. Tonight, I give you my most solemn vow: that justice will be swift, it will be righteous, and it will be without mercy.",
+                  "created_at": "2019-11-13T19:31:06.133Z",
+                  "email": "elma@mitchell.co",
+                  "first_name": "Adrien",
+                  "last_name": "Poirier",
+                  "updated_at": "2019-11-13T19:31:06.133Z"
+                }
+              ]
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "Authorization": [
+
+            ]
+          }
+        ]
+      },
       "post": {
         "tags": [
           "Account Requests"
@@ -46,21 +162,21 @@
           {
             "name": "email",
             "in": "formData",
-            "description": "Email of the requested account\nEg, `lino_rolfson@west.name`",
+            "description": "Email of the requested account\nEg, `weldon@durganbahringer.net`",
             "required": false,
             "type": "string"
           },
           {
             "name": "first_name",
             "in": "formData",
-            "description": "First name of the requested account\nEg, `Julien`",
+            "description": "First name of the requested account\nEg, `Paul`",
             "required": false,
             "type": "string"
           },
           {
             "name": "last_name",
             "in": "formData",
-            "description": "Last name of the requested account\nEg, `Lévêque`",
+            "description": "Last name of the requested account\nEg, `Bernard`",
             "required": false,
             "type": "string"
           },
@@ -90,7 +206,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"8c99ac029cb853f81a6e7036822e82aa\""
+                "x-example-value": "W/\"ce506139bbb050d789d9288487a1ecaa\""
               },
               "Cache-Control": {
                 "description": "",
@@ -100,12 +216,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "f00e1444-cc31-47a3-bfc4-9f1485754b52"
+                "x-example-value": "611cc18c-4360-4606-adad-4cddb094fda2"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.016070"
+                "x-example-value": "0.004602"
               },
               "Content-Length": {
                 "description": "",
@@ -115,14 +231,14 @@
             },
             "examples": {
               "application/json": {
-                "id": 3,
+                "id": 4,
                 "accepted": false,
                 "comment": "Remember, remember, the Fifth of November, the Gunpowder Treason and Plot. I know of no reason why the Gunpowder Treason should ever be forgot... But what of the man? I know his name was Guy Fawkes and I know, in 1605, he attempted to blow up the Houses of Parliament. But who was he really? What was he like? We are told to remember the idea, not the man, because a man can fail. He can be caught, he can be killed and forgotten, but 400 years later, an idea can still change the world. I've witnessed first hand the power of ideas, I've seen people kill in the name of them, and die defending them... but you cannot kiss an idea, cannot touch it, or hold it... ideas do not bleed, they do not feel pain, they do not love... And it is not an idea that I miss, it is a man... A man that made me remember the Fifth of November. A man that I will never forget.",
-                "created_at": "2019-11-24T17:23:25.597Z",
-                "email": "lino_rolfson@west.name",
-                "first_name": "Julien",
-                "last_name": "Lévêque",
-                "updated_at": "2019-11-24T17:23:25.597Z"
+                "created_at": "2019-11-27T19:29:59.449Z",
+                "email": "weldon@durganbahringer.net",
+                "first_name": "Paul",
+                "last_name": "Bernard",
+                "updated_at": "2019-11-27T19:29:59.449Z"
               }
             }
           }
@@ -130,6 +246,151 @@
         "deprecated": false,
         "security": [
 
+        ]
+      }
+    },
+    "/api/v1/account_requests/{id}": {
+      "get": {
+        "tags": [
+          "Account Requests"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get an account request",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json; charset=utf-8"
+              },
+              "ETag": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "W/\"984ed5f653bb77e495648ff80a7b79b5\""
+              },
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "max-age=0, private, must-revalidate"
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "650f5d38-a5a8-4dbe-8c88-f30bf986efab"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.005550"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "2875"
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "accepted": true,
+                "comment": "Good evening, London. Allow me first to apologize for this interruption. I do, like many of you, appreciate the comforts of every day routine- the security of the familiar, the tranquility of repetition. I enjoy them as much as any bloke. But in the spirit of commemoration, whereby those important events of the past, usually associated with someone's death or the end of some awful bloody struggle, a celebration of a nice holiday, I thought we could mark this November the 5th, a day that is sadly no longer remembered, by taking some time out of our daily lives to sit down and have a little chat. There are of course those who do not want us to speak. I suspect even now, orders are being shouted into telephones, and men with guns will soon be on their way. Why? Because while the truncheon may be used in lieu of conversation, words will always retain their power. Words offer the means to meaning, and for those who will listen, the enunciation of truth. And the truth is, there is something terribly wrong with this country, isn't there? Cruelty and injustice, intolerance and oppression. And where once you had the freedom to object, to think and speak as you saw fit, you now have censors and systems of surveillance coercing your conformity and soliciting your submission. How did this happen? Who's to blame? Well certainly there are those more responsible than others, and they will be held accountable, but again truth be told, if you're looking for the guilty, you need only look into a mirror. I know why you did it. I know you were afraid. Who wouldn't be? War, terror, disease. There were a myriad of problems which conspired to corrupt your reason and rob you of your common sense. Fear got the best of you, and in your panic you turned to the now high chancellor, Adam Sutler. He promised you order, he promised you peace, and all he demanded in return was your silent, obedient consent. Last night I sought to end that silence. Last night I destroyed the Old Bailey, to remind this country of what it has forgotten. More than four hundred years ago a great citizen wished to embed the fifth of November forever in our memory. His hope was to remind the world that fairness, justice, and freedom are more than words, they are perspectives. So if you've seen nothing, if the crimes of this government remain unknown to you, then I would suggest you allow the fifth of November to pass unmarked. But if you see what I see, if you feel as I feel, and if you would seek as I seek, then I ask you to stand beside me one year from tonight, outside the gates of Parliament, and together we shall give them a fifth of November that shall never, ever be forgot.",
+                "created_at": "2019-11-13T19:30:49.632Z",
+                "email": "tyler.kautzer@beierhegmann.net",
+                "first_name": "Manon",
+                "last_name": "Rousseau",
+                "updated_at": "2019-11-13T19:30:49.632Z"
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "Authorization": [
+
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Account Requests"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Refuse an account request and delete it",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "no-cache"
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "6239e2d6-6bab-47b8-b103-7f056b5a9ab8"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.006547"
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "Authorization": [
+
+            ]
+          }
         ]
       }
     },
@@ -173,7 +434,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"b3a100afe563b83f50247d3b8a95c9db\""
+                "x-example-value": "W/\"984ed5f653bb77e495648ff80a7b79b5\""
               },
               "Cache-Control": {
                 "description": "",
@@ -183,12 +444,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "18c32eb9-c55f-4821-8682-79a10a51cbaf"
+                "x-example-value": "b89a8de3-e85f-48ee-91a0-90abe0a1ad05"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.019889"
+                "x-example-value": "0.015663"
               },
               "Content-Length": {
                 "description": "",
@@ -205,67 +466,7 @@
                 "email": "tyler.kautzer@beierhegmann.net",
                 "first_name": "Manon",
                 "last_name": "Rousseau",
-                "updated_at": "2019-11-24T17:23:25.630Z"
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": [
-          {
-            "Authorization": [
-
-            ]
-          }
-        ]
-      }
-    },
-    "/api/v1/account_requests/{id}": {
-      "delete": {
-        "tags": [
-          "Account Requests"
-        ],
-        "summary": "",
-        "description": "",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "required": true,
-            "type": "integer"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Refuse an account request and delete it",
-            "schema": {
-              "description": "",
-              "type": "object",
-              "properties": {
-              }
-            },
-            "headers": {
-              "Cache-Control": {
-                "description": "",
-                "type": "string",
-                "x-example-value": "no-cache"
-              },
-              "X-Request-Id": {
-                "description": "",
-                "type": "string",
-                "x-example-value": "f8eb1594-0627-4112-97da-10cd8162da21"
-              },
-              "X-Runtime": {
-                "description": "",
-                "type": "string",
-                "x-example-value": "0.007125"
+                "updated_at": "2019-11-13T19:30:49.632Z"
               }
             }
           }
@@ -281,6 +482,122 @@
       }
     },
     "/api/v1/invites": {
+      "get": {
+        "tags": [
+          "Invites"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "page[number]",
+            "in": "query",
+            "description": "The number of the desired page\n\nIf used, additional information is returned in the response headers:\n`Pagination-Current-Page`: the current page number\n`Pagination-Per`: the number of records per page\n`Pagination-Total-Pages`: the total number of pages\n`Pagination-Total-Count`: the total number of records",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          },
+          {
+            "name": "page[size]",
+            "in": "query",
+            "description": "The number of elements in a page\n\nIf used, additional information is returned in the response headers:\n`Pagination-Current-Page`: the current page number\n`Pagination-Per`: the number of records per page\n`Pagination-Total-Pages`: the total number of pages\n`Pagination-Total-Count`: the total number of records",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get all invites",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json; charset=utf-8"
+              },
+              "ETag": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "W/\"c6e0400b795bb39fe0e7978fe5ef2baf\""
+              },
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "max-age=0, private, must-revalidate"
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "bb3eb818-12bd-4d4b-a226-61b0bc0c2c58"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.008351"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "624"
+              }
+            },
+            "examples": {
+              "application/json": [
+                {
+                  "id": 1,
+                  "created_at": "2019-11-06T00:42:46.777Z",
+                  "email": "invite+requester@progeser.com",
+                  "first_name": "Requester",
+                  "laboratory": "My test lab",
+                  "last_name": "Invite",
+                  "role": "requester",
+                  "updated_at": "2019-11-06T00:42:46.777Z"
+                },
+                {
+                  "id": 2,
+                  "created_at": "2019-11-06T00:44:31.912Z",
+                  "email": "invite+grower@progeser.com",
+                  "first_name": "Grower",
+                  "laboratory": null,
+                  "last_name": "Invite",
+                  "role": "grower",
+                  "updated_at": "2019-11-06T00:44:31.912Z"
+                },
+                {
+                  "id": 3,
+                  "created_at": "2019-11-06T00:44:32.912Z",
+                  "email": "leena.ryan@ratke.com",
+                  "first_name": "Noémie",
+                  "laboratory": null,
+                  "last_name": "Meunier",
+                  "role": "grower",
+                  "updated_at": "2019-11-06T00:44:32.912Z"
+                }
+              ]
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "Authorization": [
+
+            ]
+          }
+        ]
+      },
       "post": {
         "tags": [
           "Invites"
@@ -352,7 +669,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"0afcc3177a5d9d7a17e91cf78fdd191c\""
+                "x-example-value": "W/\"8f089ace97a97eca97672146ce86faa5\""
               },
               "Cache-Control": {
                 "description": "",
@@ -362,12 +679,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "ec3e0446-7385-4479-89f7-82c381835722"
+                "x-example-value": "128b8816-b0de-4713-9e2e-7f4574149f73"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.019436"
+                "x-example-value": "0.012817"
               },
               "Content-Length": {
                 "description": "",
@@ -377,14 +694,159 @@
             },
             "examples": {
               "application/json": {
-                "id": 3,
-                "created_at": "2019-11-24T17:23:25.680Z",
+                "id": 4,
+                "created_at": "2019-11-27T19:29:59.543Z",
                 "email": "requester_to_invite@progeser.com",
                 "first_name": "invite first name",
                 "laboratory": "invite laboratory",
                 "last_name": "invite last name",
                 "role": "requester",
-                "updated_at": "2019-11-24T17:23:25.680Z"
+                "updated_at": "2019-11-27T19:29:59.543Z"
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "Authorization": [
+
+            ]
+          }
+        ]
+      }
+    },
+    "/api/v1/invites/{id}": {
+      "get": {
+        "tags": [
+          "Invites"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get an invite",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json; charset=utf-8"
+              },
+              "ETag": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "W/\"d5e229a830e79ccd511417f558f09abb\""
+              },
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "max-age=0, private, must-revalidate"
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0c60be79-d997-45e9-9ccc-b40d3a25139d"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.005468"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "220"
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "created_at": "2019-11-06T00:42:46.777Z",
+                "email": "invite+requester@progeser.com",
+                "first_name": "Requester",
+                "laboratory": "My test lab",
+                "last_name": "Invite",
+                "role": "requester",
+                "updated_at": "2019-11-06T00:42:46.777Z"
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "Authorization": [
+
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Invites"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Delete an invite",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "no-cache"
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "febcd941-5ab1-43c1-be65-dd0de6b51352"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.005902"
               }
             }
           }
@@ -439,72 +901,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "832232e3-94ca-401c-b21b-dc35e6e16baf"
+                "x-example-value": "3ae5a5c0-e441-4800-bb8c-266dacde1fa8"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.007855"
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": [
-          {
-            "Authorization": [
-
-            ]
-          }
-        ]
-      }
-    },
-    "/api/v1/invites/{id}": {
-      "delete": {
-        "tags": [
-          "Invites"
-        ],
-        "summary": "",
-        "description": "",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "required": true,
-            "type": "integer"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Delete an invite",
-            "schema": {
-              "description": "",
-              "type": "object",
-              "properties": {
-              }
-            },
-            "headers": {
-              "Cache-Control": {
-                "description": "",
-                "type": "string",
-                "x-example-value": "no-cache"
-              },
-              "X-Request-Id": {
-                "description": "",
-                "type": "string",
-                "x-example-value": "ed43fd86-7bd6-4376-a73e-9d2746df94ab"
-              },
-              "X-Runtime": {
-                "description": "",
-                "type": "string",
-                "x-example-value": "0.007334"
+                "x-example-value": "0.006214"
               }
             }
           }
@@ -563,12 +965,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "def448b9-91ba-4991-adb8-0aeb997a9646"
+                "x-example-value": "6c98e869-d7e7-4c38-bb02-f32df4fb4c64"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.013815"
+                "x-example-value": "0.012590"
               },
               "Content-Length": {
                 "description": "",
@@ -652,7 +1054,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"ac395ef8dd6fad67ff627046b732e670\""
+                "x-example-value": "W/\"e6dcf8fda1e9c3f5927fc163c33b08f3\""
               },
               "Cache-Control": {
                 "description": "",
@@ -662,12 +1064,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "38c25a44-b3f9-463b-bd1e-9e4b14621e1d"
+                "x-example-value": "3e06a5a1-0818-4d2f-be82-33d320bdf5f0"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.011611"
+                "x-example-value": "0.009641"
               },
               "Content-Length": {
                 "description": "",
@@ -684,7 +1086,7 @@
                 "laboratory": "Updated laboratory",
                 "last_name": "Updated last name",
                 "role": "requester",
-                "updated_at": "2019-11-24T17:23:25.759Z"
+                "updated_at": "2019-11-27T19:29:59.609Z"
               }
             }
           }
@@ -731,12 +1133,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "ddb43767-a061-4105-aebe-2e990a0e86b4"
+                "x-example-value": "016876dd-e94f-4907-b834-91880eb3bd22"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.008399"
+                "x-example-value": "0.006956"
               }
             }
           }
@@ -791,12 +1193,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "407b9888-d091-4adb-8ac2-02e7eb2ea842"
+                "x-example-value": "12034d52-f4bd-40df-ada3-3949ece00f62"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.015101"
+                "x-example-value": "0.013030"
               }
             }
           }
@@ -861,7 +1263,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"185ed18c7173f8eb5676acf8ede1aa51\""
+                "x-example-value": "W/\"66c5a54db77ce131b7566b1afa4382e8\""
               },
               "Cache-Control": {
                 "description": "",
@@ -871,12 +1273,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "49d4e9d8-493b-4c6f-854e-1df474ba4a26"
+                "x-example-value": "d6095ec3-68a0-422a-b10b-5946f27db735"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.019830"
+                "x-example-value": "0.018212"
               },
               "Content-Length": {
                 "description": "",
@@ -894,14 +1296,14 @@
                 "last_name": "ProGeSer",
                 "role": "requester",
                 "token": {
-                  "id": 12,
-                  "access_token": "bJohfGcr5Ih2rVtvGgzEJW-gxiCKjlqFiIbzzceqB3E",
-                  "created_at": "2019-11-24T17:23:26.017Z",
+                  "id": 16,
+                  "access_token": "4S0CCtKeVJpvItBqU5St0IHDjaaPV4lA9IJkUbk-p5w",
+                  "created_at": "2019-11-27T19:29:59.850Z",
                   "expires_in": 7200,
-                  "refresh_token": "Cancrc1nWidF7oBs1p3I4Y0r6Xbse7gB7DlppyJsu5w",
+                  "refresh_token": "FMdLgy8RkwwRs1P8FACjexvEaKZsG5zKm9oAMecKMk0",
                   "token_type": "Bearer"
                 },
-                "updated_at": "2019-11-24T17:23:26.015Z"
+                "updated_at": "2019-11-27T19:29:59.849Z"
               }
             }
           }
@@ -966,12 +1368,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "84c9957b-d4a7-4324-8118-307ef00eabbe"
+                "x-example-value": "d8eee6ba-2ac5-42cc-8d18-3feefe0e4687"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.218352"
+                "x-example-value": "0.197684"
               }
             }
           }
@@ -1050,17 +1452,17 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"d6010b5d03ba7e13059ebd8d5ab8c648\""
+                "x-example-value": "W/\"50eb42778e76d2212e5efc2bd15d1f4a\""
               },
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "1798ab31-e6f8-4302-a9e8-476a1111a76a"
+                "x-example-value": "6e3e80bc-81d4-465a-bea5-9e94f0e547ec"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.211451"
+                "x-example-value": "0.196051"
               },
               "Content-Length": {
                 "description": "",
@@ -1070,11 +1472,11 @@
             },
             "examples": {
               "application/json": {
-                "access_token": "8F977KY7TOvi3f61-4NDxMDfqQY3uqLIB8CtVuj6uJs",
+                "access_token": "criXvIZzohcdaxOo-BBXvLhLgZRy4GQGXk_QvjT8OsM",
                 "token_type": "Bearer",
                 "expires_in": 7200,
-                "refresh_token": "V-NLMjH-BeRV-urAPG6r1w6qIPx-kabc_sBiUlco0z4",
-                "created_at": 1574616206
+                "refresh_token": "q6X2kuIQ1XxGbNGtxxFIpJd573w7J8tNToPN26vgSto",
+                "created_at": 1574883000
               }
             }
           }
@@ -1139,7 +1541,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"4c4fa6dc2fb5c339882aaddf1d527ee6\""
+                "x-example-value": "W/\"da002734dcc04c0359e18b835d281057\""
               },
               "Cache-Control": {
                 "description": "",
@@ -1149,12 +1551,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "38164ec6-90b9-46ad-aa55-3dc4f900a028"
+                "x-example-value": "3ce7a8ca-fc29-4e99-a302-a623f21664d2"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.017017"
+                "x-example-value": "0.015144"
               },
               "Content-Length": {
                 "description": "",
@@ -1165,21 +1567,133 @@
             "examples": {
               "application/json": {
                 "id": 4,
-                "created_at": "2019-11-24T17:23:26.675Z",
+                "created_at": "2019-11-27T19:30:00.464Z",
                 "email": "invite+requester@progeser.com",
                 "first_name": "Requester",
                 "laboratory": "My test lab",
                 "last_name": "Invite",
                 "role": "requester",
                 "token": {
-                  "id": 15,
-                  "access_token": "SZPKBOieRZguUtzsQJLJh8Bh8RmCF4KM_jbQ_f2VOgQ",
-                  "created_at": "2019-11-24T17:23:26.676Z",
+                  "id": 19,
+                  "access_token": "Fisn7s3K0NgII4gD8ZTSsT5vNKFhg_s0wsWsd_Ti-k8",
+                  "created_at": "2019-11-27T19:30:00.465Z",
                   "expires_in": 7200,
-                  "refresh_token": "TFaxdMEBkGKmLu5PY-S3kdmL2QDR0__yMdG_ChGa-bE",
+                  "refresh_token": "r_GsJazX6zT5JpUwifjorGysLXG5owTA4QRrKJHDtAI",
                   "token_type": "Bearer"
                 },
-                "updated_at": "2019-11-24T17:23:26.675Z"
+                "updated_at": "2019-11-27T19:30:00.464Z"
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+
+        ]
+      }
+    },
+    "/api/v1/users/{creation_token}/create_from_account_request": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "creation_token",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "laboratory",
+            "in": "formData",
+            "description": "Laboratory of the user\nEg, `my laboratory`",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "Password of the user\nEg, `password`",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "password_confirmation",
+            "in": "formData",
+            "description": "Password confirmation of the user\nEg, `password`",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create a user from an account_request and destroy it",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json; charset=utf-8"
+              },
+              "ETag": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "W/\"cfc7a573d53252dac2ac7c3914e6e191\""
+              },
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "max-age=0, private, must-revalidate"
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "63127497-a54b-4b83-a0d4-66866056f29e"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.015633"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "442"
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 5,
+                "created_at": "2019-11-27T19:30:00.485Z",
+                "email": "tyler.kautzer@beierhegmann.net",
+                "first_name": "Manon",
+                "laboratory": "my laboratory",
+                "last_name": "Rousseau",
+                "role": "requester",
+                "token": {
+                  "id": 20,
+                  "access_token": "AA7RN8NWOed7r_P9wW9onWOcF1__6H1YBtHVGz6TD4g",
+                  "created_at": "2019-11-27T19:30:00.487Z",
+                  "expires_in": 7200,
+                  "refresh_token": "byuJLJCmp5JXW86ITskEILJ2kzWRdmpw6LSvTCBzkYY",
+                  "token_type": "Bearer"
+                },
+                "updated_at": "2019-11-27T19:30:00.485Z"
               }
             }
           }
