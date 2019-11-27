@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
 class AccountRequestPolicy < ApplicationPolicy
+  def index?
+    grower?
+  end
+
+  def show?
+    grower?
+  end
+
   def accept?
     grower?
   end

@@ -14,6 +14,51 @@ resource 'Account Requests' do
   let!(:account_request) { account_requests(:account_request_1) }
   let!(:id)              { account_request.id }
 
+  get '/api/v1/account_requests' do
+    parameter :'page[number]',
+              "The number of the desired page\n\n"\
+              "If used, additional information is returned in the response headers:\n"\
+              "`Pagination-Current-Page`: the current page number\n"\
+              "`Pagination-Per`: the number of records per page\n"\
+              "`Pagination-Total-Pages`: the total number of pages\n"\
+              '`Pagination-Total-Count`: the total number of records',
+              with_example: true,
+              type: :integer,
+              default: 1
+    parameter :'page[size]',
+              "The number of elements in a page\n\n"\
+              "If used, additional information is returned in the response headers:\n"\
+              "`Pagination-Current-Page`: the current page number\n"\
+              "`Pagination-Per`: the number of records per page\n"\
+              "`Pagination-Total-Pages`: the total number of pages\n"\
+              '`Pagination-Total-Count`: the total number of records',
+              with_example: true,
+              type: :integer,
+              default: FetcheableOnApi.configuration.pagination_default_size
+
+    example 'Get all account requests' do
+      authentication :basic, "Bearer #{user_token.token}"
+
+      do_request
+
+      expect(status).to eq(200)
+
+      expect(response_body).to eq(AccountRequest.to_blueprint)
+      expect(JSON.parse(response_body).count).to eq(AccountRequest.count)
+    end
+  end
+
+  get '/api/v1/account_requests/:id' do
+    example 'Get an account request' do
+      authentication :basic, "Bearer #{user_token.token}"
+
+      do_request
+
+      expect(status).to eq(200)
+      expect(response_body).to eq(account_request.to_blueprint)
+    end
+  end
+
   post '/api/v1/account_requests' do
     parameter :email, 'Email of the requested account', with_example: true
     parameter :first_name, 'First name of the requested account', with_example: true
