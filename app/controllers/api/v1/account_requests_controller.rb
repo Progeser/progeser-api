@@ -4,7 +4,18 @@ class Api::V1::AccountRequestsController < ApiController
   skip_before_action :doorkeeper_authorize!, only: :create
   skip_after_action :verify_authorized, only: :create
 
-  before_action :set_account_request, only: %i[accept destroy]
+  before_action :set_account_request, except: %i[index create]
+
+  def index
+    account_requests = policy_scope(AccountRequest)
+    authorize account_requests
+
+    render json: apply_fetcheable(account_requests).to_blueprint
+  end
+
+  def show
+    render json: @account_request.to_blueprint
+  end
 
   def create
     account_request = AccountRequest.new(account_request_params)

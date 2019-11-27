@@ -18,7 +18,7 @@ Rails.application.routes.draw do
         post :retry, on: :member
       end
 
-      resources :account_requests, only: %i[create destroy] do
+      resources :account_requests, only: %i[index show create destroy] do
         post :accept, on: :member
       end
 
