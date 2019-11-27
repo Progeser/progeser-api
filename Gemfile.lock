@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:Tao-Galasse/fetcheable_on_api.git
+  remote: https://github.com/Tao-Galasse/fetcheable_on_api.git
   revision: eb900aa8df8e576c6c772a3f20748d4d2e5ae7da
   specs:
     fetcheable_on_api (0.3.1)
