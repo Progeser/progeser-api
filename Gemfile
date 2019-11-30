@@ -60,6 +60,9 @@ gem 'dry-validation', '~> 1.3'
 # A controller filters engine gem based on jsonapi spec
 gem 'fetcheable_on_api', git: 'https://github.com/Tao-Galasse/fetcheable_on_api.git'
 
+# Rack Middleware for handling Cross-Origin Resource Sharing (CORS)
+gem 'rack-cors', '~> 1.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
