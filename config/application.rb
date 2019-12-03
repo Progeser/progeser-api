@@ -19,6 +19,7 @@ module ProgeserApi
     # I18n
     I18n.config.available_locales = %i[fr en]
     config.i18n.default_locale = :fr
+    config.i18n.fallbacks = [I18n.default_locale]
 
     # Sidekiq
     config.active_job.queue_adapter = :sidekiq
