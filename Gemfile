@@ -38,7 +38,7 @@ gem 'clearance', '~> 1.17'
 gem 'pundit', '~> 2.1'
 
 # Optimized JSON
-gem 'oj', '~> 3.9'
+gem 'oj', '~> 3.10'
 
 # Simple, Fast, and Declarative Serialization Library for Ruby
 gem 'blueprinter', '~> 0.20'
