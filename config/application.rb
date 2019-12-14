@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module ProgeserApi
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.2
+    config.load_defaults 6.0
 
     # URLs
     Rails.application.routes.default_url_options = {host: ENV['BASE_URL']}
@@ -29,6 +29,5 @@ module ProgeserApi
     config.action_mailer.perform_caching = false
     config.action_mailer.delivery_method = :mailjet_api
     config.action_mailer.perform_deliveries = true
-
   end
 end
