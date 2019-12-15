@@ -31,13 +31,13 @@ Style/Documentation:
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
 
-Layout/AlignArguments:
+Layout/ArgumentAlignment:
   EnforcedStyle: with_first_argument
 
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 
-Layout/AlignHash:
+Layout/HashAlignment:
   EnforcedHashRocketStyle: table
 
 Metrics/LineLength:
