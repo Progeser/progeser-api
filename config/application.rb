@@ -10,6 +10,7 @@ module ProgeserApi
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
+    config.eager_load_paths << Rails.root.join('lib')
 
     # URLs
     Rails.application.routes.default_url_options = {host: ENV['BASE_URL']}

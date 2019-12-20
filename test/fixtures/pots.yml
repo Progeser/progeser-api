@@ -1,0 +1,87 @@
+
+pot_1:
+  id: 1
+  name: My square pot
+  shape: square
+  area: !ruby/object:BigDecimal 18:0.5e2
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2019-12-20 00:45:32.800302000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2019-12-20 00:45:32.800302000 Z
+    zone: *2
+    time: *3
+
+pot_2:
+  id: 2
+  name: My rectangular pot
+  shape: rectangle
+  area: !ruby/object:BigDecimal 18:0.8e2
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2019-12-20 00:45:32.818764000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2019-12-20 00:45:32.818764000 Z
+    zone: *2
+    time: *3
+
+pot_3:
+  id: 3
+  name: My circular pot
+  shape: circle
+  area: !ruby/object:BigDecimal 27:0.314159265358979e2
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2019-12-20 00:45:32.832102000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2019-12-20 00:45:32.832102000 Z
+    zone: *2
+    time: *3
+
+pot_4:
+  id: 4
+  name: My triangular pot
+  shape: triangle
+  area: !ruby/object:BigDecimal 18:0.105e3
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2019-12-20 00:45:32.845443000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2019-12-20 00:45:32.845443000 Z
+    zone: *2
+    time: *3
+
+pot_5:
+  id: 5
+  name: My other pot
+  shape: other
+  area: !ruby/object:BigDecimal 18:0.12e3
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2019-12-20 00:45:40.030081000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2019-12-20 00:45:40.030081000 Z
+    zone: *2
+    time: *3
+
+# == Schema Information
+#
+# Table name: pots
+#
+#  id         :bigint           not null, primary key
+#  name       :string           not null
+#  shape      :string           not null
+#  area       :decimal(, )      not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#

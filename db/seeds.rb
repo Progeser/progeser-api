@@ -67,4 +67,35 @@ if Rails.env.development?
     last_name: Faker::Name.last_name,
     comment: Faker::Movies::VForVendetta.speech
   )
+
+  # Pots
+  Pot.create!(
+    name: 'My square pot',
+    shape: :square,
+    area: 50
+  )
+
+  Pot.create!(
+    name: 'My rectangular pot',
+    shape: :rectangle,
+    area: 80
+  )
+
+  Pot.create!(
+    name: 'My circular pot',
+    shape: :circle,
+    area: 10 * Math::PI
+  )
+
+  Pot.create!(
+    name: 'My triangular pot',
+    shape: :triangle,
+    area: 105
+  )
+
+  Pot.create!(
+    name: 'My other pot',
+    shape: :other,
+    area: 120
+  )
 end

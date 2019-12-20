@@ -4,7 +4,7 @@ class UserBlueprint < Base
   # Fields
   fields :email, :role, :first_name, :last_name, :laboratory
 
-  # Associations
+  # Views
   view :with_token do
     association :access_tokens,
                 name: :token,

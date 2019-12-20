@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
       post '/users/:invitation_token/create_from_invite', to: 'users#create_from_invite'
       post '/users/:creation_token/create_from_account_request', to: 'users#create_from_account_request'
+
+      resources :pots, only: %i[create]
     end
   end
 end
