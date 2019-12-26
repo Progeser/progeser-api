@@ -1,13 +1,18 @@
 # frozen_string_literal: true
 
 class Api::V1::PotsController < ApiController
-  # def index
-  #   render json: apply_fetcheable(@pots).to_blueprint
-  # end
+  before_action :set_pot, except: %i[index create]
 
-  # def show
-  #   render json: @pot.to_blueprint
-  # end
+  def index
+    pots = policy_scope(Pot)
+    authorize pots
+
+    render json: apply_fetcheable(pots).to_blueprint
+  end
+
+  def show
+    render json: @pot.to_blueprint
+  end
 
   def create
     authorize Pot
@@ -18,7 +23,28 @@ class Api::V1::PotsController < ApiController
     )
   end
 
+  def update
+    authorize @pot
+
+    render_interactor_result(
+      Pots::Update.call(pot: @pot, params: pot_params.to_h)
+    )
+  end
+
+  def destroy
+    if @pot.destroy
+      head :no_content
+    else
+      render_validation_error(@pot)
+    end
+  end
+
   private
+
+  def set_pot
+    @pot = policy_scope(Pot).find(params[:id])
+    authorize(@pot)
+  end
 
   def pot_params
     params.permit(:name, :area, :shape, dimensions: [])

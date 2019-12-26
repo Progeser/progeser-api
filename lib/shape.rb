@@ -16,6 +16,17 @@ class Shape
     @shape.area(*dimensions)
   end
 
+  def self.format_params(params)
+    pot_params = { name: params[:name], shape: params[:shape] }
+
+    if params[:area]
+      pot_params.merge(area: params[:area])
+    else
+      area = Shape.new(params[:shape]).area(params[:dimensions])
+      pot_params.merge(area: area)
+    end
+  end
+
   class InvalidKind < ActiveRecord::ActiveRecordError
     def initialize(kind)
       message = "`#{kind}` value incorrect, type param should be in: #{Pot::SHAPE_KINDS}"

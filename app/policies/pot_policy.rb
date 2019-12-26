@@ -1,7 +1,23 @@
 # frozen_string_literal: true
 
 class PotPolicy < ApplicationPolicy
+  def index?
+    grower?
+  end
+
+  def show?
+    grower?
+  end
+
   def create?
+    grower?
+  end
+
+  def update?
+    grower?
+  end
+
+  def destroy?
     grower?
   end
 

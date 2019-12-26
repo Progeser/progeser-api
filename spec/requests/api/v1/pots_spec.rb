@@ -15,6 +15,54 @@ RSpec.describe 'Api/V1/Pots', type: :request do
     { 'Authorization': "Bearer #{requester_token.token}" }
   end
 
+  let!(:pot) { pots(:pot_1) }
+  let!(:id)  { pot.id }
+
+  describe 'GET api/v1/pots' do
+    context '200' do
+      it 'get pots with pagination params' do
+        get(
+          '/api/v1/pots',
+          headers: header,
+          params: {
+            page: {
+              number: 1,
+              size: 2
+            }
+          }
+        )
+
+        expect(status).to eq(200)
+
+        expect(JSON.parse(response.body).count).to eq(2)
+        expect(response.headers.dig('Pagination-Current-Page')).to eq(1)
+        expect(response.headers.dig('Pagination-Per')).to eq(2)
+        expect(response.headers.dig('Pagination-Total-Pages')).to eq(3)
+        expect(response.headers.dig('Pagination-Total-Count')).to eq(5)
+      end
+    end
+
+    context '403' do
+      it 'can\'t get pots as a requester' do
+        get('/api/v1/pots', headers: requester_header)
+
+        expect(status).to eq(403)
+        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+      end
+    end
+  end
+
+  describe 'GET api/v1/pots/:id' do
+    context '404' do
+      it 'can\'t get a pot as a requester' do
+        get("/api/v1/pots/#{id}", headers: requester_header)
+
+        expect(status).to eq(404)
+        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+      end
+    end
+  end
+
   describe 'POST api/v1/pots' do
     context '201' do
       it 'creates a square pot given its dimensions' do
@@ -285,6 +333,39 @@ RSpec.describe 'Api/V1/Pots', type: :request do
           expect(status).to eq(422)
           expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
         end
+      end
+    end
+  end
+
+  describe 'POST api/v1/pots' do
+    context '404' do
+      it 'can\'t update a pot as a requester' do
+        put("/api/v1/pots/#{id}", headers: requester_header)
+
+        expect(status).to eq(404)
+        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+      end
+    end
+  end
+
+  describe 'DELETE api/v1/pots/:id' do
+    context '404' do
+      it 'can\'t delete a pot as a requester' do
+        delete("/api/v1/pots/#{id}", headers: requester_header)
+
+        expect(status).to eq(404)
+        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+      end
+    end
+
+    context '422' do
+      it 'fails to delete a pot' do
+        allow_any_instance_of(Pot).to receive(:destroy).and_return(false)
+
+        delete("/api/v1/pots/#{id}", headers: header)
+
+        expect(status).to eq(422)
+        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
       end
     end
   end

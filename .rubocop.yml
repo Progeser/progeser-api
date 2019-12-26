@@ -40,7 +40,7 @@ Layout/MultilineMethodCallIndentation:
 Layout/HashAlignment:
   EnforcedHashRocketStyle: table
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 100
 
 Metrics/MethodLength:

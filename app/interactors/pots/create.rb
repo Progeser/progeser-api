@@ -13,21 +13,15 @@ class Pots::Create < ApplicationInteractor
   around :database_transaction!
   step :validate_input!
 
-  try :get_area!, catch: [Shape::InvalidKind, Shape::InvalidDimensionsNumber]
-  try :create_pot!, catch: ActiveRecord::RecordInvalid
+  try :create_pot!, catch: [
+    Shape::InvalidKind,
+    Shape::InvalidDimensionsNumber,
+    ActiveRecord::RecordInvalid
+  ]
 
-  def get_area!(params)
-    pot_params = { name: params[:name], shape: params[:shape] }
-
-    if params[:area]
-      pot_params.merge(area: params[:area])
-    else
-      area = Shape.new(params[:shape]).area(params[:dimensions])
-      pot_params.merge(area: area)
-    end
-  end
-
-  def create_pot!(pot_params)
-    Pot.create!(pot_params)
+  def create_pot!(params)
+    Pot.create!(
+      Shape.format_params(params)
+    )
   end
 end
