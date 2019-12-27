@@ -9,6 +9,11 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  # Load files from Shape library.
+  Rails.application.reloader.to_prepare do
+    Dir[Rails.root.join('lib', 'shape', '*.rb')].each {|file| require_dependency file}
+  end
+
   # Show full error reports.
   config.consider_all_requests_local = true
 

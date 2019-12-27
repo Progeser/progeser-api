@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resource :me, controller: 'me', only: %i[show update destroy]
 
-      resource :passwords, only: %i[update] do
+      resource :passwords, only: :update do
         post '/forgot', action: :forgot
         put '/:confirmation_token/reset', action: :reset
       end
@@ -26,6 +26,8 @@ Rails.application.routes.draw do
       post '/users/:creation_token/create_from_account_request', to: 'users#create_from_account_request'
 
       resources :pots, only: %i[index show create update destroy]
+
+      resources :shapes, only: :index
     end
   end
 end
