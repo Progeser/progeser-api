@@ -70,6 +70,36 @@
               }
             },
             "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
               "Content-Type": {
                 "description": "",
                 "type": "string",
@@ -88,12 +118,17 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "d533f4ea-efeb-43d1-9392-1d9e15278496"
+                "x-example-value": "19fa21d7-e830-4b49-975e-fda6ac894208"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.018759"
+                "x-example-value": "0.033929"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
               },
               "Content-Length": {
                 "description": "",
@@ -162,28 +197,28 @@
           {
             "name": "email",
             "in": "formData",
-            "description": "Email of the requested account\nEg, `weldon@durganbahringer.net`",
+            "description": "Email of the requested account\nEg, `leisa_blanda@cartwright.com`",
             "required": false,
             "type": "string"
           },
           {
             "name": "first_name",
             "in": "formData",
-            "description": "First name of the requested account\nEg, `Paul`",
+            "description": "First name of the requested account\nEg, `Kylian`",
             "required": false,
             "type": "string"
           },
           {
             "name": "last_name",
             "in": "formData",
-            "description": "Last name of the requested account\nEg, `Bernard`",
+            "description": "Last name of the requested account\nEg, `Lefèvre`",
             "required": false,
             "type": "string"
           },
           {
             "name": "comment",
             "in": "formData",
-            "description": "(Optional) Free comment to give additional information\nEg, `Remember, remember, the Fifth of November, the Gunpowder Treason and Plot. I know of no reason why the Gunpowder Treason should ever be forgot... But what of the man? I know his name was Guy Fawkes and I know, in 1605, he attempted to blow up the Houses of Parliament. But who was he really? What was he like? We are told to remember the idea, not the man, because a man can fail. He can be caught, he can be killed and forgotten, but 400 years later, an idea can still change the world. I've witnessed first hand the power of ideas, I've seen people kill in the name of them, and die defending them... but you cannot kiss an idea, cannot touch it, or hold it... ideas do not bleed, they do not feel pain, they do not love... And it is not an idea that I miss, it is a man... A man that made me remember the Fifth of November. A man that I will never forget.`",
+            "description": "(Optional) Free comment to give additional information\nEg, `My fellow Englishmen: tonight our country, that which we stand for, and all we hold dear, faces a grave and terrible threat. This violent and unparalleled assault on our security will not go undefended... or unpunished. Our enemy is an insidious one, seeking to divide us and destroy the very foundation of our great nation. Tonight, we must remain steadfast. We must remain determined. But most of all, we must remain united. Those caught tonight in violation of curfew will be considered in league with our enemy and prosecuted as a terrorist without leniency or exception. Tonight, I give you my most solemn vow: that justice will be swift, it will be righteous, and it will be without mercy.`",
             "required": false,
             "type": "string"
           }
@@ -198,6 +233,36 @@
               }
             },
             "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
               "Content-Type": {
                 "description": "",
                 "type": "string",
@@ -206,7 +271,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"ce506139bbb050d789d9288487a1ecaa\""
+                "x-example-value": "W/\"c1d7f91fa134edb1792b2e81de36a39a\""
               },
               "Cache-Control": {
                 "description": "",
@@ -216,29 +281,34 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "611cc18c-4360-4606-adad-4cddb094fda2"
+                "x-example-value": "18ac3b94-2824-4fa6-80d1-e6eb8ae1b891"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.004602"
+                "x-example-value": "0.010544"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
               },
               "Content-Length": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "1055"
+                "x-example-value": "896"
               }
             },
             "examples": {
               "application/json": {
                 "id": 4,
                 "accepted": false,
-                "comment": "Remember, remember, the Fifth of November, the Gunpowder Treason and Plot. I know of no reason why the Gunpowder Treason should ever be forgot... But what of the man? I know his name was Guy Fawkes and I know, in 1605, he attempted to blow up the Houses of Parliament. But who was he really? What was he like? We are told to remember the idea, not the man, because a man can fail. He can be caught, he can be killed and forgotten, but 400 years later, an idea can still change the world. I've witnessed first hand the power of ideas, I've seen people kill in the name of them, and die defending them... but you cannot kiss an idea, cannot touch it, or hold it... ideas do not bleed, they do not feel pain, they do not love... And it is not an idea that I miss, it is a man... A man that made me remember the Fifth of November. A man that I will never forget.",
-                "created_at": "2019-11-27T19:29:59.449Z",
-                "email": "weldon@durganbahringer.net",
-                "first_name": "Paul",
-                "last_name": "Bernard",
-                "updated_at": "2019-11-27T19:29:59.449Z"
+                "comment": "My fellow Englishmen: tonight our country, that which we stand for, and all we hold dear, faces a grave and terrible threat. This violent and unparalleled assault on our security will not go undefended... or unpunished. Our enemy is an insidious one, seeking to divide us and destroy the very foundation of our great nation. Tonight, we must remain steadfast. We must remain determined. But most of all, we must remain united. Those caught tonight in violation of curfew will be considered in league with our enemy and prosecuted as a terrorist without leniency or exception. Tonight, I give you my most solemn vow: that justice will be swift, it will be righteous, and it will be without mercy.",
+                "created_at": "2019-12-27T01:56:42.105Z",
+                "email": "leisa_blanda@cartwright.com",
+                "first_name": "Kylian",
+                "last_name": "Lefèvre",
+                "updated_at": "2019-12-27T01:56:42.105Z"
               }
             }
           }
@@ -281,6 +351,36 @@
               }
             },
             "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
               "Content-Type": {
                 "description": "",
                 "type": "string",
@@ -299,12 +399,17 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "650f5d38-a5a8-4dbe-8c88-f30bf986efab"
+                "x-example-value": "b5bd183e-8950-4871-bb47-6508cb0725a3"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.005550"
+                "x-example-value": "0.011580"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
               },
               "Content-Length": {
                 "description": "",
@@ -366,6 +471,36 @@
               }
             },
             "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
               "Cache-Control": {
                 "description": "",
                 "type": "string",
@@ -374,12 +509,17 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "6239e2d6-6bab-47b8-b103-7f056b5a9ab8"
+                "x-example-value": "7796b030-c33c-4d91-86c3-4269e6165ecb"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.006547"
+                "x-example-value": "0.013818"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
               }
             }
           }
@@ -426,6 +566,36 @@
               }
             },
             "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
               "Content-Type": {
                 "description": "",
                 "type": "string",
@@ -444,12 +614,17 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "b89a8de3-e85f-48ee-91a0-90abe0a1ad05"
+                "x-example-value": "1cc6f789-c449-46cf-b2ef-1e4b07713977"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.015663"
+                "x-example-value": "0.032394"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
               },
               "Content-Length": {
                 "description": "",
@@ -522,6 +697,36 @@
               }
             },
             "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
               "Content-Type": {
                 "description": "",
                 "type": "string",
@@ -540,12 +745,17 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "bb3eb818-12bd-4d4b-a226-61b0bc0c2c58"
+                "x-example-value": "f5665435-e987-4926-b479-fc9aca16ca9b"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.008351"
+                "x-example-value": "0.018742"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
               },
               "Content-Length": {
                 "description": "",
@@ -661,6 +871,36 @@
               }
             },
             "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
               "Content-Type": {
                 "description": "",
                 "type": "string",
@@ -669,7 +909,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"8f089ace97a97eca97672146ce86faa5\""
+                "x-example-value": "W/\"58d7ecaca33a2fcf290126be3efc283e\""
               },
               "Cache-Control": {
                 "description": "",
@@ -679,12 +919,17 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "128b8816-b0de-4713-9e2e-7f4574149f73"
+                "x-example-value": "338fed9b-f0cf-4d70-a56e-5f253abc7651"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.012817"
+                "x-example-value": "0.032604"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
               },
               "Content-Length": {
                 "description": "",
@@ -695,13 +940,13 @@
             "examples": {
               "application/json": {
                 "id": 4,
-                "created_at": "2019-11-27T19:29:59.543Z",
+                "created_at": "2019-12-27T01:56:42.270Z",
                 "email": "requester_to_invite@progeser.com",
                 "first_name": "invite first name",
                 "laboratory": "invite laboratory",
                 "last_name": "invite last name",
                 "role": "requester",
-                "updated_at": "2019-11-27T19:29:59.543Z"
+                "updated_at": "2019-12-27T01:56:42.270Z"
               }
             }
           }
@@ -748,6 +993,36 @@
               }
             },
             "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
               "Content-Type": {
                 "description": "",
                 "type": "string",
@@ -766,12 +1041,17 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0c60be79-d997-45e9-9ccc-b40d3a25139d"
+                "x-example-value": "3f0b30d2-3d15-4839-b281-c001af20d517"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.005468"
+                "x-example-value": "0.014285"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
               },
               "Content-Length": {
                 "description": "",
@@ -833,6 +1113,36 @@
               }
             },
             "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
               "Cache-Control": {
                 "description": "",
                 "type": "string",
@@ -841,12 +1151,17 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "febcd941-5ab1-43c1-be65-dd0de6b51352"
+                "x-example-value": "ec7794ea-97d3-4c11-8ecb-1d117223bc8a"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.005902"
+                "x-example-value": "0.014895"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
               }
             }
           }
@@ -893,6 +1208,36 @@
               }
             },
             "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
               "Cache-Control": {
                 "description": "",
                 "type": "string",
@@ -901,12 +1246,17 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "3ae5a5c0-e441-4800-bb8c-266dacde1fa8"
+                "x-example-value": "79588d48-465f-4072-93da-1dc8e5f8a284"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.006214"
+                "x-example-value": "0.022288"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
               }
             }
           }
@@ -947,6 +1297,36 @@
               }
             },
             "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
               "Content-Type": {
                 "description": "",
                 "type": "string",
@@ -965,12 +1345,17 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "6c98e869-d7e7-4c38-bb02-f32df4fb4c64"
+                "x-example-value": "852ac582-44e2-4f69-b544-5446bfa7711d"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.012590"
+                "x-example-value": "0.020164"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
               },
               "Content-Length": {
                 "description": "",
@@ -1046,6 +1431,36 @@
               }
             },
             "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
               "Content-Type": {
                 "description": "",
                 "type": "string",
@@ -1054,7 +1469,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"e6dcf8fda1e9c3f5927fc163c33b08f3\""
+                "x-example-value": "W/\"6fec02d5657daf444d83789f08c7aaa6\""
               },
               "Cache-Control": {
                 "description": "",
@@ -1064,12 +1479,17 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "3e06a5a1-0818-4d2f-be82-33d320bdf5f0"
+                "x-example-value": "4c6ab405-dc7b-43eb-9a85-3ceee60ffa65"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.009641"
+                "x-example-value": "0.019477"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
               },
               "Content-Length": {
                 "description": "",
@@ -1086,7 +1506,7 @@
                 "laboratory": "Updated laboratory",
                 "last_name": "Updated last name",
                 "role": "requester",
-                "updated_at": "2019-11-27T19:29:59.609Z"
+                "updated_at": "2019-12-27T01:56:42.400Z"
               }
             }
           }
@@ -1125,6 +1545,36 @@
               }
             },
             "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
               "Cache-Control": {
                 "description": "",
                 "type": "string",
@@ -1133,12 +1583,17 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "016876dd-e94f-4907-b834-91880eb3bd22"
+                "x-example-value": "20fcf565-624d-4464-8672-10deda77f79f"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.006956"
+                "x-example-value": "0.016475"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
               }
             }
           }
@@ -1185,6 +1640,36 @@
               }
             },
             "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
               "Cache-Control": {
                 "description": "",
                 "type": "string",
@@ -1193,12 +1678,17 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "12034d52-f4bd-40df-ada3-3949ece00f62"
+                "x-example-value": "13aad079-4110-4731-8792-dcea34fc7b87"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.013030"
+                "x-example-value": "0.026374"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
               }
             }
           }
@@ -1255,6 +1745,36 @@
               }
             },
             "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
               "Content-Type": {
                 "description": "",
                 "type": "string",
@@ -1263,7 +1783,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"66c5a54db77ce131b7566b1afa4382e8\""
+                "x-example-value": "W/\"94c26b9840f1d27548db520f4897d082\""
               },
               "Cache-Control": {
                 "description": "",
@@ -1273,12 +1793,17 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "d6095ec3-68a0-422a-b10b-5946f27db735"
+                "x-example-value": "975d2db8-b394-47b0-9f8f-746ba3cd81d6"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.018212"
+                "x-example-value": "0.029495"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
               },
               "Content-Length": {
                 "description": "",
@@ -1297,13 +1822,13 @@
                 "role": "requester",
                 "token": {
                   "id": 16,
-                  "access_token": "4S0CCtKeVJpvItBqU5St0IHDjaaPV4lA9IJkUbk-p5w",
-                  "created_at": "2019-11-27T19:29:59.850Z",
+                  "access_token": "vdj3G1jMYoxnDqjJVLJ_I8Zn-FXKZPRmpzd4VjJ4EFA",
+                  "created_at": "2019-12-27T01:56:42.685Z",
                   "expires_in": 7200,
-                  "refresh_token": "FMdLgy8RkwwRs1P8FACjexvEaKZsG5zKm9oAMecKMk0",
+                  "refresh_token": "PGkQa2aPWTcNrlRXE96nD-eyQcuxfel83BhY0Bi0muI",
                   "token_type": "Bearer"
                 },
-                "updated_at": "2019-11-27T19:29:59.849Z"
+                "updated_at": "2019-12-27T01:56:42.684Z"
               }
             }
           }
@@ -1360,6 +1885,36 @@
               }
             },
             "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
               "Cache-Control": {
                 "description": "",
                 "type": "string",
@@ -1368,13 +1923,833 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "d8eee6ba-2ac5-42cc-8d18-3feefe0e4687"
+                "x-example-value": "ec9928cb-a5dd-400c-a75d-0a18943cf1c0"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.197684"
+                "x-example-value": "0.226720"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
               }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "Authorization": [
+
+            ]
+          }
+        ]
+      }
+    },
+    "/api/v1/pots": {
+      "get": {
+        "tags": [
+          "Pots"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "page[number]",
+            "in": "query",
+            "description": "The number of the desired page\n\nIf used, additional information is returned in the response headers:\n`Pagination-Current-Page`: the current page number\n`Pagination-Per`: the number of records per page\n`Pagination-Total-Pages`: the total number of pages\n`Pagination-Total-Count`: the total number of records",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          },
+          {
+            "name": "page[size]",
+            "in": "query",
+            "description": "The number of elements in a page\n\nIf used, additional information is returned in the response headers:\n`Pagination-Current-Page`: the current page number\n`Pagination-Per`: the number of records per page\n`Pagination-Total-Pages`: the total number of pages\n`Pagination-Total-Count`: the total number of records",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get all pots",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json; charset=utf-8"
+              },
+              "ETag": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "W/\"1ea48c447140403e5c6d2362ab77e1df\""
+              },
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "max-age=0, private, must-revalidate"
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0c8d8523-f96a-408d-898f-6b06e2ca6461"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.016472"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "744"
+              }
+            },
+            "examples": {
+              "application/json": [
+                {
+                  "id": 1,
+                  "area": "50.0",
+                  "created_at": "2019-12-20T00:45:32.800Z",
+                  "name": "My square pot",
+                  "shape": "square",
+                  "updated_at": "2019-12-20T00:45:32.800Z"
+                },
+                {
+                  "id": 2,
+                  "area": "80.0",
+                  "created_at": "2019-12-20T00:45:32.818Z",
+                  "name": "My rectangular pot",
+                  "shape": "rectangle",
+                  "updated_at": "2019-12-20T00:45:32.818Z"
+                },
+                {
+                  "id": 3,
+                  "area": "31.4159265358979",
+                  "created_at": "2019-12-20T00:45:32.832Z",
+                  "name": "My circular pot",
+                  "shape": "circle",
+                  "updated_at": "2019-12-20T00:45:32.832Z"
+                },
+                {
+                  "id": 4,
+                  "area": "105.0",
+                  "created_at": "2019-12-20T00:45:32.845Z",
+                  "name": "My triangular pot",
+                  "shape": "triangle",
+                  "updated_at": "2019-12-20T00:45:32.845Z"
+                },
+                {
+                  "id": 5,
+                  "area": "120.0",
+                  "created_at": "2019-12-20T00:45:40.030Z",
+                  "name": "My other pot",
+                  "shape": "other",
+                  "updated_at": "2019-12-20T00:45:40.030Z"
+                }
+              ]
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "Authorization": [
+
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Pots"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "formData",
+            "description": "Name of the pot\nEg, `my rectangular pot`",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "shape",
+            "in": "formData",
+            "description": "Shape of the pot\n\nIf `other` given, `area` param should be passed\nEg, `rectangle`",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "square",
+              "rectangle",
+              "circle",
+              "triangle",
+              "other"
+            ]
+          },
+          {
+            "name": "area",
+            "in": "formData",
+            "description": "(Optional) Area of the pot (in square centimeters)\n\nIf used, following `dimensions` parameter will be ignored",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "dimensions",
+            "in": "formData",
+            "description": "(Optional) Dimensions of the pot (in centimeters)\nEg, `[10, 20]`",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create a pot with its area",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json; charset=utf-8"
+              },
+              "ETag": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "W/\"944ba77acccae7cf1cd30d6938b6a450\""
+              },
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "max-age=0, private, must-revalidate"
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "ca1ede23-199b-48ff-84c7-028138c9567c"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.018563"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "151"
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 6,
+                "area": "200.0",
+                "created_at": "2019-12-27T01:56:43.201Z",
+                "name": "my rectangular pot",
+                "shape": "rectangle",
+                "updated_at": "2019-12-27T01:56:43.201Z"
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "Authorization": [
+
+            ]
+          }
+        ]
+      }
+    },
+    "/api/v1/pots/{id}": {
+      "get": {
+        "tags": [
+          "Pots"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get a pot",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json; charset=utf-8"
+              },
+              "ETag": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "W/\"8ddeab1fd5a545b6d1f72572f4160262\""
+              },
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "max-age=0, private, must-revalidate"
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "e4f6db04-5b09-4d27-af98-e92a6eab5702"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.013312"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "142"
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "area": "50.0",
+                "created_at": "2019-12-20T00:45:32.800Z",
+                "name": "My square pot",
+                "shape": "square",
+                "updated_at": "2019-12-20T00:45:32.800Z"
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "Authorization": [
+
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Pots"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "description": "Name of the pot\nEg, `my square pot`",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "shape",
+            "in": "formData",
+            "description": "Shape of the pot\n\nIf `other` given, `area` param should be passed\nEg, `square`",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "square",
+              "rectangle",
+              "circle",
+              "triangle",
+              "other"
+            ]
+          },
+          {
+            "name": "area",
+            "in": "formData",
+            "description": "(Optional) Area of the pot (in square centimeters)\n\nIf used, following `dimensions` parameter will be ignored",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "dimensions",
+            "in": "formData",
+            "description": "(Optional) Dimensions of the pot (in centimeters)\nEg, `[8]`",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update a pot with its area",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json; charset=utf-8"
+              },
+              "ETag": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "W/\"5ececa922600635912b3df6fe0da7e26\""
+              },
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "max-age=0, private, must-revalidate"
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "14ab8447-7fe6-4350-b53b-904b4363725c"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.020907"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "142"
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "area": "64.0",
+                "created_at": "2019-12-20T00:45:32.800Z",
+                "name": "my square pot",
+                "shape": "square",
+                "updated_at": "2019-12-27T01:56:43.230Z"
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "Authorization": [
+
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Pots"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Delete a pot",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "no-cache"
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "9f50fe1d-4097-4564-a44b-04b1f806fa8a"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.015525"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "Authorization": [
+
+            ]
+          }
+        ]
+      }
+    },
+    "/api/v1/shapes": {
+      "get": {
+        "tags": [
+          "Shapes"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "Get all shapes",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json; charset=utf-8"
+              },
+              "ETag": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "W/\"fe839795bf2a1b0f6beda33f44bbeca8\""
+              },
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "max-age=0, private, must-revalidate"
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "222ce4a4-8705-412f-9849-db1f6a6a54b5"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.029455"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "209"
+              }
+            },
+            "examples": {
+              "application/json": [
+                {
+                  "dimension_names": [
+                    "diameter"
+                  ],
+                  "name": "circle"
+                },
+                {
+                  "dimension_names": [
+                    "side"
+                  ],
+                  "name": "square"
+                },
+                {
+                  "dimension_names": [
+                    "base",
+                    "height"
+                  ],
+                  "name": "triangle"
+                },
+                {
+                  "dimension_names": [
+                    "width",
+                    "height"
+                  ],
+                  "name": "rectangle"
+                }
+              ]
             }
           }
         },
@@ -1434,6 +2809,36 @@
               }
             },
             "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
               "Cache-Control": {
                 "description": "",
                 "type": "string",
@@ -1452,17 +2857,22 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"50eb42778e76d2212e5efc2bd15d1f4a\""
+                "x-example-value": "W/\"103adad7464d9d043c11c32419f203bc\""
               },
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "6e3e80bc-81d4-465a-bea5-9e94f0e547ec"
+                "x-example-value": "3aaf4480-2b12-4871-b054-5ec03a018f98"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.196051"
+                "x-example-value": "0.207403"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
               },
               "Content-Length": {
                 "description": "",
@@ -1472,11 +2882,11 @@
             },
             "examples": {
               "application/json": {
-                "access_token": "criXvIZzohcdaxOo-BBXvLhLgZRy4GQGXk_QvjT8OsM",
+                "access_token": "kPPB64JEzlClfk_BCgok3rA7xIoIQ5xJZMR7oIBeKR8",
                 "token_type": "Bearer",
                 "expires_in": 7200,
-                "refresh_token": "q6X2kuIQ1XxGbNGtxxFIpJd573w7J8tNToPN26vgSto",
-                "created_at": 1574883000
+                "refresh_token": "6HJBjFA7jq5nhJhdRvqTvhQ3yEGMT4mVLApdFrLwkNc",
+                "created_at": 1577411803
               }
             }
           }
@@ -1533,6 +2943,36 @@
               }
             },
             "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
               "Content-Type": {
                 "description": "",
                 "type": "string",
@@ -1541,7 +2981,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"da002734dcc04c0359e18b835d281057\""
+                "x-example-value": "W/\"81cfb637fe0994df2eb17d8840635fc3\""
               },
               "Cache-Control": {
                 "description": "",
@@ -1551,12 +2991,17 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "3ce7a8ca-fc29-4e99-a302-a623f21664d2"
+                "x-example-value": "c589d524-d514-4547-8f8e-4858504e0c1d"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.015144"
+                "x-example-value": "0.022370"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
               },
               "Content-Length": {
                 "description": "",
@@ -1567,21 +3012,21 @@
             "examples": {
               "application/json": {
                 "id": 4,
-                "created_at": "2019-11-27T19:30:00.464Z",
+                "created_at": "2019-12-27T01:56:43.559Z",
                 "email": "invite+requester@progeser.com",
                 "first_name": "Requester",
                 "laboratory": "My test lab",
                 "last_name": "Invite",
                 "role": "requester",
                 "token": {
-                  "id": 19,
-                  "access_token": "Fisn7s3K0NgII4gD8ZTSsT5vNKFhg_s0wsWsd_Ti-k8",
-                  "created_at": "2019-11-27T19:30:00.465Z",
+                  "id": 25,
+                  "access_token": "CKD0y_jAY1aXGlulGOZX7pNwxuui4BlqyvXXpjRX0_M",
+                  "created_at": "2019-12-27T01:56:43.561Z",
                   "expires_in": 7200,
-                  "refresh_token": "r_GsJazX6zT5JpUwifjorGysLXG5owTA4QRrKJHDtAI",
+                  "refresh_token": "EiTIFTmZiqUrdplOUmjAFj2mS8mjkVJBke59lqXLsHU",
                   "token_type": "Bearer"
                 },
-                "updated_at": "2019-11-27T19:30:00.464Z"
+                "updated_at": "2019-12-27T01:56:43.559Z"
               }
             }
           }
@@ -1645,6 +3090,36 @@
               }
             },
             "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
               "Content-Type": {
                 "description": "",
                 "type": "string",
@@ -1653,7 +3128,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"cfc7a573d53252dac2ac7c3914e6e191\""
+                "x-example-value": "W/\"f68416cde6e38eeaad7b968bca1ef8aa\""
               },
               "Cache-Control": {
                 "description": "",
@@ -1663,12 +3138,17 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "63127497-a54b-4b83-a0d4-66866056f29e"
+                "x-example-value": "ee933520-b453-4784-a17f-eb745a09ea6b"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.015633"
+                "x-example-value": "0.027434"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
               },
               "Content-Length": {
                 "description": "",
@@ -1679,21 +3159,21 @@
             "examples": {
               "application/json": {
                 "id": 5,
-                "created_at": "2019-11-27T19:30:00.485Z",
+                "created_at": "2019-12-27T01:56:43.593Z",
                 "email": "tyler.kautzer@beierhegmann.net",
                 "first_name": "Manon",
                 "laboratory": "my laboratory",
                 "last_name": "Rousseau",
                 "role": "requester",
                 "token": {
-                  "id": 20,
-                  "access_token": "AA7RN8NWOed7r_P9wW9onWOcF1__6H1YBtHVGz6TD4g",
-                  "created_at": "2019-11-27T19:30:00.487Z",
+                  "id": 26,
+                  "access_token": "ckTTP_4BUAPWHFzCsz7gO7hLj7g9chSZEcKEUBsZyak",
+                  "created_at": "2019-12-27T01:56:43.596Z",
                   "expires_in": 7200,
-                  "refresh_token": "byuJLJCmp5JXW86ITskEILJ2kzWRdmpw6LSvTCBzkYY",
+                  "refresh_token": "QOu792uvV5b7iEbuGZk_u3mfw79zVKSTJCLIIlSmRto",
                   "token_type": "Bearer"
                 },
-                "updated_at": "2019-11-27T19:30:00.485Z"
+                "updated_at": "2019-12-27T01:56:43.593Z"
               }
             }
           }
@@ -1727,6 +3207,14 @@
     {
       "name": "Passwords",
       "description": "Passwords resource"
+    },
+    {
+      "name": "Pots",
+      "description": "Pots resource"
+    },
+    {
+      "name": "Shapes",
+      "description": "Shapes resource"
     },
     {
       "name": "OAuth Tokens",

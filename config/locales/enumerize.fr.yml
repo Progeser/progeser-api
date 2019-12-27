@@ -8,3 +8,10 @@ fr:
       role:
         requester: Demandeur
         grower: Serriste
+    pot:
+      shape:
+        square: Carré
+        rectangle: Rectangle
+        circle: Cercle
+        triangle: Triangle
+        other: Autre
