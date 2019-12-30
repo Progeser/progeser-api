@@ -28,6 +28,8 @@ Rails.application.routes.draw do
       resources :pots, only: %i[index show create update destroy]
 
       resources :shapes, only: :index
+
+      resources :greenhouses, only: %i[index show create update destroy]
     end
   end
 end

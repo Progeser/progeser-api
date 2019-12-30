@@ -24,8 +24,6 @@ class Api::V1::PotsController < ApiController
   end
 
   def update
-    authorize @pot
-
     render_interactor_result(
       Pots::Update.call(pot: @pot, params: pot_params.to_h)
     )

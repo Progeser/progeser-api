@@ -130,9 +130,4 @@ if Rails.env.development?
       area: 50
     )
   end
-
-  #  name          :string
-  #  shape         :string           not null
-  #  area          :decimal(, )      not null
-  #  dimensions    :integer          is an Array
 end

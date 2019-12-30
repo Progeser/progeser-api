@@ -13,9 +13,15 @@ class Greenhouse < ApplicationRecord
   # Associations
   has_many :benches,
            class_name: 'Bench',
-           foreign_key: 'bench_id',
+           foreign_key: 'greenhouse_id',
            inverse_of: :greenhouse,
            dependent: :destroy
+
+  # Public instance methods
+  # TODO: complete this method when request distributions will be created
+  def compute_occupancy
+    100
+  end
 end
 
 # == Schema Information
