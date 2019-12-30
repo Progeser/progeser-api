@@ -1,0 +1,92 @@
+
+bench_1:
+  id: 1
+  greenhouse_id: 1
+  name: My big greenhouse - bench 1
+  shape: square
+  area: !ruby/object:BigDecimal 18:0.25e2
+  dimensions:
+  - 5
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2019-12-30 18:06:47.130479000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2019-12-30 18:06:47.130479000 Z
+    zone: *2
+    time: *3
+
+bench_2:
+  id: 2
+  greenhouse_id: 1
+  name: My big greenhouse - bench 2
+  shape: rectangle
+  area: !ruby/object:BigDecimal 18:0.5e2
+  dimensions:
+  - 5
+  - 10
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2019-12-30 18:06:47.133846000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2019-12-30 18:06:47.133846000 Z
+    zone: *2
+    time: *3
+
+bench_3:
+  id: 3
+  greenhouse_id: 2
+  name: My small greenhouse - bench 1
+  shape: square
+  area: !ruby/object:BigDecimal 18:0.25e2
+  dimensions:
+  - 5
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2019-12-30 18:06:47.135758000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2019-12-30 18:06:47.135758000 Z
+    zone: *2
+    time: *3
+
+bench_4:
+  id: 4
+  greenhouse_id: 2
+  name: My small greenhouse - bench 2
+  shape: rectangle
+  area: !ruby/object:BigDecimal 18:0.5e2
+  dimensions:
+  - 5
+  - 10
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2019-12-30 18:06:47.137411000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2019-12-30 18:06:47.137411000 Z
+    zone: *2
+    time: *3
+
+# == Schema Information
+#
+# Table name: benches
+#
+#  id            :bigint           not null, primary key
+#  greenhouse_id :bigint
+#  name          :string
+#  shape         :string           not null
+#  area          :decimal(, )      not null
+#  dimensions    :integer          is an Array
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+# Indexes
+#
+#  index_benches_on_greenhouse_id  (greenhouse_id)
+#

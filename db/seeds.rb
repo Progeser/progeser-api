@@ -98,4 +98,41 @@ if Rails.env.development?
     shape: :other,
     area: 120
   )
+
+  # Greenhouses
+  Greenhouse.create!(
+    name: 'My big greenhouse',
+    width: 1000,
+    height: 2000
+  )
+
+  Greenhouse.create!(
+    name: 'My small greenhouse',
+    width: 500,
+    height: 500
+  )
+
+  # Benches
+  Greenhouse.all.each do |greenhouse|
+    Bench.create!(
+      greenhouse: greenhouse,
+      name: "#{greenhouse.name} - bench 1",
+      shape: :square,
+      dimensions: [5],
+      area: 25
+    )
+
+    Bench.create!(
+      greenhouse: greenhouse,
+      name: "#{greenhouse.name} - bench 2",
+      shape: :rectangle,
+      dimensions: [5, 10],
+      area: 50
+    )
+  end
+
+  #  name          :string
+  #  shape         :string           not null
+  #  area          :decimal(, )      not null
+  #  dimensions    :integer          is an Array
 end

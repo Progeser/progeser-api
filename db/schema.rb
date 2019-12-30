@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_16_210927) do
+ActiveRecord::Schema.define(version: 2019_12_30_112431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,26 @@ ActiveRecord::Schema.define(version: 2019_12_16_210927) do
     t.datetime "updated_at", null: false
     t.index ["creation_token"], name: "index_account_requests_on_creation_token", unique: true
     t.index ["email"], name: "index_account_requests_on_email", unique: true
+  end
+
+  create_table "benches", force: :cascade do |t|
+    t.bigint "greenhouse_id"
+    t.string "name"
+    t.string "shape", null: false
+    t.decimal "area", null: false
+    t.integer "dimensions", array: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["greenhouse_id"], name: "index_benches_on_greenhouse_id"
+  end
+
+  create_table "greenhouses", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "width", null: false
+    t.integer "height", null: false
+    t.decimal "occupancy", default: "0.0", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "invites", force: :cascade do |t|
