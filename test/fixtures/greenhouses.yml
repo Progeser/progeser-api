@@ -1,0 +1,45 @@
+
+greenhouse_1:
+  id: 1
+  name: My big greenhouse
+  width: 1000
+  height: 2000
+  occupancy: !ruby/object:BigDecimal 18:0.0
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2019-12-30 17:50:24.796535000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2019-12-30 17:50:24.796535000 Z
+    zone: *2
+    time: *3
+
+greenhouse_2:
+  id: 2
+  name: My small greenhouse
+  width: 500
+  height: 500
+  occupancy: !ruby/object:BigDecimal 18:0.0
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2019-12-30 17:50:24.918348000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2019-12-30 17:50:24.918348000 Z
+    zone: *2
+    time: *3
+
+# == Schema Information
+#
+# Table name: greenhouses
+#
+#  id         :bigint           not null, primary key
+#  name       :string           not null
+#  width      :integer          not null
+#  height     :integer          not null
+#  occupancy  :decimal(, )      default(0.0), not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#

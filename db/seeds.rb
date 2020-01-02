@@ -72,25 +72,29 @@ if Rails.env.development?
   Pot.create!(
     name: 'My square pot',
     shape: :square,
-    area: 50
+    dimensions: [7],
+    area: 49
   )
 
   Pot.create!(
     name: 'My rectangular pot',
     shape: :rectangle,
+    dimensions: [8, 10],
     area: 80
   )
 
   Pot.create!(
     name: 'My circular pot',
     shape: :circle,
+    dimensions: [10],
     area: 10 * Math::PI
   )
 
   Pot.create!(
     name: 'My triangular pot',
     shape: :triangle,
-    area: 105
+    dimensions: [8, 10],
+    area: 40
   )
 
   Pot.create!(
@@ -98,4 +102,36 @@ if Rails.env.development?
     shape: :other,
     area: 120
   )
+
+  # Greenhouses
+  Greenhouse.create!(
+    name: 'My big greenhouse',
+    width: 1000,
+    height: 2000
+  )
+
+  Greenhouse.create!(
+    name: 'My small greenhouse',
+    width: 500,
+    height: 500
+  )
+
+  # Benches
+  Greenhouse.all.each do |greenhouse|
+    Bench.create!(
+      greenhouse: greenhouse,
+      name: "#{greenhouse.name} - bench 1",
+      shape: :square,
+      dimensions: [5],
+      area: 25
+    )
+
+    Bench.create!(
+      greenhouse: greenhouse,
+      name: "#{greenhouse.name} - bench 2",
+      shape: :rectangle,
+      dimensions: [5, 10],
+      area: 50
+    )
+  end
 end

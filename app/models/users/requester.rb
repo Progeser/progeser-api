@@ -2,8 +2,7 @@
 
 class Users::Requester < User
   # Validations
-  validates :laboratory,
-            presence: true
+  validates :laboratory, presence: true
 end
 
 # == Schema Information

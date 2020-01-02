@@ -18,16 +18,14 @@ class Api::V1::PotsController < ApiController
     authorize Pot
 
     render_interactor_result(
-      Pots::Create.call(pot_params.to_h),
+      ShapedRecords::Create.call(record: Pot.new, params: pot_params.to_h),
       status: :created
     )
   end
 
   def update
-    authorize @pot
-
     render_interactor_result(
-      Pots::Update.call(pot: @pot, params: pot_params.to_h)
+      ShapedRecords::Update.call(record: @pot, params: pot_params.to_h)
     )
   end
 

@@ -59,4 +59,5 @@ end
 #  area       :decimal(, )      not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  dimensions :integer          is an Array
 #

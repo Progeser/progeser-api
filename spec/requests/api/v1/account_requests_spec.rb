@@ -9,8 +9,8 @@ RSpec.describe 'Api/V1/AccountRequests', type: :request do
     { 'Authorization': "Bearer #{token.token}" }
   end
 
-  let!(:requester)   { users(:user_1) }
-  let!(:requester_token)  { Doorkeeper::AccessToken.create!(resource_owner_id: requester.id) }
+  let!(:requester)       { users(:user_1) }
+  let!(:requester_token) { Doorkeeper::AccessToken.create!(resource_owner_id: requester.id) }
   let!(:requester_header) do
     { 'Authorization': "Bearer #{requester_token.token}" }
   end
