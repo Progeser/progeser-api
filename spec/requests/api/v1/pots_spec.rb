@@ -83,6 +83,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
         expect(response.body).to eq(pot.to_blueprint)
         expect(pot.name).to eq('my square pot')
         expect(pot.shape).to eq('square')
+        expect(pot.dimensions).to eq([12])
         expect(pot.area).to eq(144.0)
       end
 
@@ -104,6 +105,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
         expect(response.body).to eq(pot.to_blueprint)
         expect(pot.name).to eq('my square pot')
         expect(pot.shape).to eq('square')
+        expect(pot.dimensions).to eq(nil)
         expect(pot.area).to eq(100.0)
       end
 
@@ -125,6 +127,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
         expect(response.body).to eq(pot.to_blueprint)
         expect(pot.name).to eq('my rectangular pot')
         expect(pot.shape).to eq('rectangle')
+        expect(pot.dimensions).to eq([4, 8])
         expect(pot.area).to eq(32.0)
       end
 
@@ -146,6 +149,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
         expect(response.body).to eq(pot.to_blueprint)
         expect(pot.name).to eq('my rectangular pot')
         expect(pot.shape).to eq('rectangle')
+        expect(pot.dimensions).to eq(nil)
         expect(pot.area).to eq(110.0)
       end
 
@@ -167,6 +171,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
         expect(response.body).to eq(pot.to_blueprint)
         expect(pot.name).to eq('my circular pot')
         expect(pot.shape).to eq('circle')
+        expect(pot.dimensions).to eq([10])
         expect(pot.area).to eq(31.4159265358979)
       end
 
@@ -188,6 +193,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
         expect(response.body).to eq(pot.to_blueprint)
         expect(pot.name).to eq('my circular pot')
         expect(pot.shape).to eq('circle')
+        expect(pot.dimensions).to eq(nil)
         expect(pot.area).to eq(120.0)
       end
 
@@ -209,6 +215,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
         expect(response.body).to eq(pot.to_blueprint)
         expect(pot.name).to eq('my triangular pot')
         expect(pot.shape).to eq('triangle')
+        expect(pot.dimensions).to eq([7, 5])
         expect(pot.area).to eq(17.5)
       end
 
@@ -230,6 +237,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
         expect(response.body).to eq(pot.to_blueprint)
         expect(pot.name).to eq('my triangular pot')
         expect(pot.shape).to eq('triangle')
+        expect(pot.dimensions).to eq(nil)
         expect(pot.area).to eq(130.0)
       end
 
@@ -251,6 +259,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
         expect(response.body).to eq(pot.to_blueprint)
         expect(pot.name).to eq('my other pot')
         expect(pot.shape).to eq('other')
+        expect(pot.dimensions).to eq(nil)
         expect(pot.area).to eq(140.0)
       end
     end
@@ -337,7 +346,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
     end
   end
 
-  describe 'POST api/v1/pots' do
+  describe 'PUT api/v1/pots/:id' do
     context '404' do
       it 'can\'t update a pot as a requester' do
         put("/api/v1/pots/#{id}", headers: requester_header)

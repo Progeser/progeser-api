@@ -7,34 +7,15 @@ class Bench < ApplicationRecord
             in: Pot.shape.values
 
   # Validations
-  validates :shape,
-            :dimensions,
-            presence: true
+  validates :shape, presence: true
 
   validates :area, numericality: { greater_than: 0 }
-
-  validate :valid_dimensions_number
 
   # Associations
   belongs_to :greenhouse,
              class_name: 'Greenhouse',
              foreign_key: 'greenhouse_id',
              inverse_of: :benches
-
-  # Public instance methods
-  def valid_dimensions_number
-    return false unless shape && dimensions
-
-    current_number = dimensions.length
-    expected_number = "Shape::#{shape.capitalize}::DIMENSIONS_NAMES".constantize.length
-
-    return true if current_number == expected_number
-
-    errors.add(
-      :dimensions,
-      "Dimensions number is incorrect (given #{current_number}, expected #{expected_number})"
-    )
-  end
 end
 
 # == Schema Information

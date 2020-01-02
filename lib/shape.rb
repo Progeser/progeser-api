@@ -7,13 +7,13 @@ class Shape
   end
 
   def self.format_params(params)
-    pot_params = { name: params[:name], shape: params[:shape] }
+    record_params = { name: params[:name], shape: params[:shape], dimensions: params[:dimensions] }
 
     if params[:area]
-      pot_params.merge(area: params[:area])
+      record_params.merge(area: params[:area])
     else
       area = Shape.new(params[:shape]).area(params[:dimensions])
-      pot_params.merge(area: area)
+      record_params.merge(area: area)
     end
   end
 

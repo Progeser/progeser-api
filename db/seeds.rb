@@ -72,25 +72,29 @@ if Rails.env.development?
   Pot.create!(
     name: 'My square pot',
     shape: :square,
-    area: 50
+    dimensions: [7],
+    area: 49
   )
 
   Pot.create!(
     name: 'My rectangular pot',
     shape: :rectangle,
+    dimensions: [8, 10],
     area: 80
   )
 
   Pot.create!(
     name: 'My circular pot',
     shape: :circle,
+    dimensions: [10],
     area: 10 * Math::PI
   )
 
   Pot.create!(
     name: 'My triangular pot',
     shape: :triangle,
-    area: 105
+    dimensions: [8, 10],
+    area: 40
   )
 
   Pot.create!(

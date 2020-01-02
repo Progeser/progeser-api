@@ -3,16 +3,18 @@ pot_1:
   id: 1
   name: My square pot
   shape: square
-  area: !ruby/object:BigDecimal 18:0.5e2
+  area: !ruby/object:BigDecimal 18:0.49e2
   created_at: !ruby/object:ActiveSupport::TimeWithZone
-    utc: &1 2019-12-20 00:45:32.800302000 Z
+    utc: &1 2020-01-02 19:52:33.356017000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone
       name: Etc/UTC
     time: *1
   updated_at: !ruby/object:ActiveSupport::TimeWithZone
-    utc: &3 2019-12-20 00:45:32.800302000 Z
+    utc: &3 2020-01-02 19:52:42.363365000 Z
     zone: *2
     time: *3
+  dimensions:
+  - 7
 
 pot_2:
   id: 2
@@ -20,14 +22,17 @@ pot_2:
   shape: rectangle
   area: !ruby/object:BigDecimal 18:0.8e2
   created_at: !ruby/object:ActiveSupport::TimeWithZone
-    utc: &1 2019-12-20 00:45:32.818764000 Z
+    utc: &1 2020-01-02 19:53:01.192199000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone
       name: Etc/UTC
     time: *1
   updated_at: !ruby/object:ActiveSupport::TimeWithZone
-    utc: &3 2019-12-20 00:45:32.818764000 Z
+    utc: &3 2020-01-02 19:53:06.709410000 Z
     zone: *2
     time: *3
+  dimensions:
+  - 8
+  - 10
 
 pot_3:
   id: 3
@@ -35,29 +40,34 @@ pot_3:
   shape: circle
   area: !ruby/object:BigDecimal 27:0.314159265358979e2
   created_at: !ruby/object:ActiveSupport::TimeWithZone
-    utc: &1 2019-12-20 00:45:32.832102000 Z
+    utc: &1 2020-01-02 19:53:17.857445000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone
       name: Etc/UTC
     time: *1
   updated_at: !ruby/object:ActiveSupport::TimeWithZone
-    utc: &3 2019-12-20 00:45:32.832102000 Z
+    utc: &3 2020-01-02 19:53:24.319038000 Z
     zone: *2
     time: *3
+  dimensions:
+  - 10
 
 pot_4:
   id: 4
   name: My triangular pot
   shape: triangle
-  area: !ruby/object:BigDecimal 18:0.105e3
+  area: !ruby/object:BigDecimal 18:0.4e2
   created_at: !ruby/object:ActiveSupport::TimeWithZone
-    utc: &1 2019-12-20 00:45:32.845443000 Z
+    utc: &1 2020-01-02 19:54:19.204833000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone
       name: Etc/UTC
     time: *1
   updated_at: !ruby/object:ActiveSupport::TimeWithZone
-    utc: &3 2019-12-20 00:45:32.845443000 Z
+    utc: &3 2020-01-02 19:54:24.631866000 Z
     zone: *2
     time: *3
+  dimensions:
+  - 8
+  - 10
 
 pot_5:
   id: 5
@@ -65,14 +75,15 @@ pot_5:
   shape: other
   area: !ruby/object:BigDecimal 18:0.12e3
   created_at: !ruby/object:ActiveSupport::TimeWithZone
-    utc: &1 2019-12-20 00:45:40.030081000 Z
+    utc: &1 2020-01-02 19:54:36.923349000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone
       name: Etc/UTC
     time: *1
   updated_at: !ruby/object:ActiveSupport::TimeWithZone
-    utc: &3 2019-12-20 00:45:40.030081000 Z
+    utc: &3 2020-01-02 19:54:41.757632000 Z
     zone: *2
     time: *3
+  dimensions:
 
 # == Schema Information
 #
@@ -84,4 +95,5 @@ pot_5:
 #  area       :decimal(, )      not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  dimensions :integer          is an Array
 #

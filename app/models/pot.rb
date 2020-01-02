@@ -13,9 +13,7 @@ class Pot < ApplicationRecord
             :shape,
             presence: true
 
-  validates :area,
-            presence: true,
-            numericality: { greater_than: 0 }
+  validates :area, numericality: { greater_than: 0 }
 end
 
 # == Schema Information
@@ -28,4 +26,5 @@ end
 #  area       :decimal(, )      not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  dimensions :integer          is an Array
 #

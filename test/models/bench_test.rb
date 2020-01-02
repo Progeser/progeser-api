@@ -28,22 +28,10 @@ class BenchTest < ActiveSupport::TestCase
     assert_not_empty @bench.errors[:area]
    end
 
-   test 'invalid without dimensions' do
-    @bench.dimensions = nil
-    assert_not @bench.valid?
-    assert_not_empty @bench.errors[:dimensions]
-  end
-
   test 'invalid with incorrect area value' do
     @bench.area = 0
     assert_not @bench.valid?
     assert_not_empty @bench.errors[:area]
-  end
-
-  test 'invalid with incorrect dimensions number' do
-    @bench.dimensions = [5, 10]
-    assert_not @bench.valid?
-    assert_not_empty @bench.errors[:dimensions]
   end
 
   # Enumerize
@@ -59,7 +47,7 @@ end
 # Table name: benches
 #
 #  id            :bigint           not null, primary key
-#  bench_id :bigint
+#  greenhouse_id :bigint
 #  name          :string
 #  shape         :string           not null
 #  area          :decimal(, )      not null
@@ -69,5 +57,5 @@ end
 #
 # Indexes
 #
-#  index_benches_on_bench_id  (bench_id)
+#  index_benches_on_greenhouse_id  (greenhouse_id)
 #

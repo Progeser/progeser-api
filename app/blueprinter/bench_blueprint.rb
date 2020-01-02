@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class PotBlueprint < Base
+class BenchBlueprint < Base
   # Fields
   fields :name, :shape, :area, :dimensions
 end

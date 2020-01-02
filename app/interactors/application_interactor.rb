@@ -13,6 +13,22 @@ class ApplicationInteractor
     @input_schema = Class.new(Dry::Validation::Contract, &block).new
   end
 
+  # Default input for shaped records interactors.
+  #
+  def self.shaped_record_input
+    input do
+      schema do
+        required(:record).filled(type?: ApplicationRecord)
+        required(:params).hash do
+          required(:name).filled(:string)
+          required(:shape).filled(:string)
+          optional(:area).filled(:float)
+          optional(:dimensions).filled(:array)
+        end
+      end
+    end
+  end
+
   # Call the interactor with its arguments.
   #
   def self.call(*args)
