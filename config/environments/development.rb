@@ -9,6 +9,9 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  # Disable Rails 6 Host Authorization middleware to allow requests from all hostnames.
+  config.hosts.clear
+
   # Load files from Shape library.
   Rails.application.reloader.to_prepare do
     Dir[Rails.root.join('lib', 'shape', '*.rb')].each {|file| require_dependency file}
