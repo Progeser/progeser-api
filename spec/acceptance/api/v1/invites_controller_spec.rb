@@ -77,7 +77,7 @@ resource 'Invites' do
     example 'Create an invite and send an email' do
       authentication :basic, "Bearer #{user_token.token}"
 
-      allow_any_instance_of(ApplicationMailer).to receive(:send_mail).and_return(false)
+      expect(Mailjet::Send).to receive(:create).and_return(nil)
 
       do_request
 
@@ -96,7 +96,7 @@ resource 'Invites' do
     example 'Retry sending the invite email' do
       authentication :basic, "Bearer #{user_token.token}"
 
-      allow_any_instance_of(ApplicationMailer).to receive(:send_mail).and_return(false)
+      expect(Mailjet::Send).to receive(:create).and_return(nil)
 
       do_request
 

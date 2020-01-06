@@ -89,7 +89,7 @@ resource 'Account Requests' do
     example 'Accept an account request and send an email' do
       authentication :basic, "Bearer #{user_token.token}"
 
-      allow_any_instance_of(ApplicationMailer).to receive(:send_mail).and_return(false)
+      expect(Mailjet::Send).to receive(:create).and_return(nil)
 
       do_request
 

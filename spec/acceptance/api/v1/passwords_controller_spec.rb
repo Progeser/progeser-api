@@ -18,7 +18,7 @@ resource 'Passwords' do
     let(:raw_post) { params.to_json }
 
     example 'Send an email to reset user password' do
-      allow_any_instance_of(ApplicationMailer).to receive(:send_mail).and_return(false)
+      expect(Mailjet::Send).to receive(:create).and_return(nil)
 
       do_request
 
