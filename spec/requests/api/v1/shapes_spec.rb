@@ -16,22 +16,6 @@ RSpec.describe 'Api/V1/Shapes', type: :request do
   end
 
   describe 'GET api/v1/shapes' do
-    context '200' do
-      it 'get shapes with valid attributes' do
-        get('/api/v1/shapes', headers: header)
-
-        expect(status).to eq(200)
-
-        JSON.parse(response.body).each do |shape|
-          name = shape.dig('name')
-          klass = "Shape::#{name.capitalize}".constantize
-
-          expect(Pot::SHAPE_KINDS.include?(name)).to eq(true)
-          expect(shape.dig('dimension_names')).to eq(klass::DIMENSIONS_NAMES)
-        end
-      end
-    end
-
     context '403' do
       it 'can\'t get shapes as a requester' do
         get('/api/v1/shapes', headers: requester_header)

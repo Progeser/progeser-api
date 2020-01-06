@@ -94,7 +94,8 @@ resource 'Pots' do
 
       response = JSON.parse(response_body)
       expect(response.dig('name')).to eq(name)
-      expect(response.dig('shape')).to eq(shape)
+      expect(response.dig('shape', 'name')).not_to be_blank
+      expect(response.dig('shape', 'dimension_names')).not_to be_blank
       expect(response.dig('dimensions')).to eq(dimensions)
       expect(response.dig('area')).to eq(dimensions.inject(:*).to_f.to_s)
     end

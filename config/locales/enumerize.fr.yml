@@ -2,16 +2,23 @@ fr:
   enumerize:
     user:
       role:
-        requester: Demandeur
-        grower: Serriste
+        requester: demandeur
+        grower: serriste
     invite:
       role:
-        requester: Demandeur
-        grower: Serriste
+        requester: demandeur
+        grower: serriste
     pot:
       shape:
-        square: Carré
-        rectangle: Rectangle
-        circle: Cercle
-        triangle: Triangle
-        other: Autre
+        square: carré
+        rectangle: rectangle
+        circle: cercle
+        triangle: triangle
+        other: autre
+    bench:
+      shape:
+        square: carré
+        rectangle: rectangle
+        circle: cercle
+        triangle: triangle
+        other: autre

@@ -39,8 +39,8 @@ RSpec.describe 'Api/V1/Benches', type: :request do
         expect(JSON.parse(response.body).count).to eq(2)
         expect(response.headers.dig('Pagination-Current-Page')).to eq(1)
         expect(response.headers.dig('Pagination-Per')).to eq(2)
-        expect(response.headers.dig('Pagination-Total-Pages')).to eq(1)
-        expect(response.headers.dig('Pagination-Total-Count')).to eq(2)
+        expect(response.headers.dig('Pagination-Total-Pages')).to eq(2)
+        expect(response.headers.dig('Pagination-Total-Count')).to eq(3)
       end
     end
 

@@ -227,3 +227,19 @@ fr:
       long: "%A %d %B %Y %Hh%M"
       short: "%d %b %Hh%M"
     pm: pm
+  shape:
+    square:
+      name: carré
+      side: côté
+    rectangle:
+      name: rectangle
+      width: largeur
+      height: longueur
+    circle:
+      name: cercle
+      diameter: diamètre
+    triangle:
+      name: triangle
+      base: base
+      height: hauteur
+    other: autre

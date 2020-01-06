@@ -73,6 +73,40 @@ bench_4:
     zone: *2
     time: *3
 
+bench_5:
+  id: 5
+  greenhouse_id: 1
+  name: My big greenhouse - bench 3
+  shape: other
+  area: !ruby/object:BigDecimal 18:0.1e3
+  dimensions: 
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2020-01-06 13:27:55.355182000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2020-01-06 13:27:55.355182000 Z
+    zone: *2
+    time: *3
+
+bench_6:
+  id: 6
+  greenhouse_id: 2
+  name: My small greenhouse - bench 3
+  shape: other
+  area: !ruby/object:BigDecimal 18:0.1e3
+  dimensions: 
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2020-01-06 13:28:03.811235000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2020-01-06 13:28:03.811235000 Z
+    zone: *2
+    time: *3
+
 # == Schema Information
 #
 # Table name: benches
