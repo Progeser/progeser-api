@@ -2,11 +2,13 @@ version: '3.6'
 
 services:
   db:
+    restart: unless-stopped
     networks:
       - test-network
     image: postgres:latest
 
   web:
+    restart: unless-stopped
     networks:
       - test-network
     build: .
