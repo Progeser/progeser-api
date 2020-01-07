@@ -118,12 +118,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "7bf3a3dc-ab5f-46b4-b063-548ba14f476b"
+                "x-example-value": "ce78a3c6-5e6f-4038-acfe-1a25e11bc99a"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.026927"
+                "x-example-value": "0.041304"
               },
               "Vary": {
                 "description": "",
@@ -197,28 +197,28 @@
           {
             "name": "email",
             "in": "formData",
-            "description": "Email of the requested account\nEg, `debbie@watsica.name`",
+            "description": "Email of the requested account\nEg, `tim_ortiz@hills.info`",
             "required": false,
             "type": "string"
           },
           {
             "name": "first_name",
             "in": "formData",
-            "description": "First name of the requested account\nEg, `Baptiste`",
+            "description": "First name of the requested account\nEg, `Eva`",
             "required": false,
             "type": "string"
           },
           {
             "name": "last_name",
             "in": "formData",
-            "description": "Last name of the requested account\nEg, `Fernandez`",
+            "description": "Last name of the requested account\nEg, `Clément`",
             "required": false,
             "type": "string"
           },
           {
             "name": "comment",
             "in": "formData",
-            "description": "(Optional) Free comment to give additional information\nEg, `I know there's no way I can convince you this is not one of their tricks, but I don't care, I am me. My name is Valerie, I don't think I'll live much longer and I wanted to tell someone about my life. This is the only autobiography I'll ever write, and god, I'm writing it on toilet paper. I was born in Nottingham in 1985, I don't remember much of those early years, but I do remember the rain. My grandmother owned a farm in Tuttlebrook, and she use to tell me that god was in the rain. I passed my 11th lesson into girl's grammar; it was at school that I met my first girlfriend, her name was Sara. It was her wrists. They were beautiful. I thought we would love each other forever. I remember our teacher telling us that is was an adolescent phase people outgrew. Sara did, I didn't. In 2002, I fell in love with a girl named Christina. That year I came out to my parents. I couldn't have done it without Chris holding my hand. My father wouldn't look at me, he told me to go and never come back. My mother said nothing. But I had only told them the truth, was that so selfish? Our integrity sells for so little, but it is all we really have. It is the very last inch of us, but within that inch, we are free. I'd always known what I wanted to do with my life, and in 2015 I starred in my first film, 'The Salt Flats'. It was the most important role of my life, not because of my career, but because that was how I met Ruth. The first time we kissed, I knew I never wanted to kiss any other lips but hers again. We moved to a small flat in London together. She grew Scarlet Carsons for me in our window box, and our place always smelled of roses. Those were there best years of my life. But America's war grew worse, and worse. And eventually came to London. After that there were no roses anymore. Not for anyone. I remember how the meaning of words began to change. How unfamiliar words like 'collateral' and 'rendition' became frightening. While things like Norse Fire and The Articles of Allegiance became powerful, I remember how different became dangerous. I still don't understand it, why they hate us so much. They took Ruth while she was out buying food. I've never cried so hard in my life. It wasn't long till they came for me. It seems strange that my life should end in such a terrible place, but for three years, I had roses, and apologized to no one. I shall die here. Every inch of me shall perish. Every inch, but one. An Inch, it is small and it is fragile, but it is the only thing the world worth having. We must never lose it or give it away. We must never let them take it from us. I hope that whoever you are, you escape this place. I hope that the world turns and that things get better. But what I hope most of all is that you understand what I mean when I tell you that even though I do not know you, and even though I may never meet you, laugh with you, cry with you, or kiss you. I love you. With all my heart, I love you. -Valerie`",
+            "description": "(Optional) Free comment to give additional information\nEg, `Good evening, London. Allow me first to apologize for this interruption. I do, like many of you, appreciate the comforts of every day routine- the security of the familiar, the tranquility of repetition. I enjoy them as much as any bloke. But in the spirit of commemoration, whereby those important events of the past, usually associated with someone's death or the end of some awful bloody struggle, a celebration of a nice holiday, I thought we could mark this November the 5th, a day that is sadly no longer remembered, by taking some time out of our daily lives to sit down and have a little chat. There are of course those who do not want us to speak. I suspect even now, orders are being shouted into telephones, and men with guns will soon be on their way. Why? Because while the truncheon may be used in lieu of conversation, words will always retain their power. Words offer the means to meaning, and for those who will listen, the enunciation of truth. And the truth is, there is something terribly wrong with this country, isn't there? Cruelty and injustice, intolerance and oppression. And where once you had the freedom to object, to think and speak as you saw fit, you now have censors and systems of surveillance coercing your conformity and soliciting your submission. How did this happen? Who's to blame? Well certainly there are those more responsible than others, and they will be held accountable, but again truth be told, if you're looking for the guilty, you need only look into a mirror. I know why you did it. I know you were afraid. Who wouldn't be? War, terror, disease. There were a myriad of problems which conspired to corrupt your reason and rob you of your common sense. Fear got the best of you, and in your panic you turned to the now high chancellor, Adam Sutler. He promised you order, he promised you peace, and all he demanded in return was your silent, obedient consent. Last night I sought to end that silence. Last night I destroyed the Old Bailey, to remind this country of what it has forgotten. More than four hundred years ago a great citizen wished to embed the fifth of November forever in our memory. His hope was to remind the world that fairness, justice, and freedom are more than words, they are perspectives. So if you've seen nothing, if the crimes of this government remain unknown to you, then I would suggest you allow the fifth of November to pass unmarked. But if you see what I see, if you feel as I feel, and if you would seek as I seek, then I ask you to stand beside me one year from tonight, outside the gates of Parliament, and together we shall give them a fifth of November that shall never, ever be forgot.`",
             "required": false,
             "type": "string"
           }
@@ -271,7 +271,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"c1cfd2bf9c044cbcb18bac4cc1e493ab\""
+                "x-example-value": "W/\"d3ec828ce485fd63aa91800c63d6edd7\""
               },
               "Cache-Control": {
                 "description": "",
@@ -281,12 +281,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "f4880104-0f6d-4382-9be2-6f0d9145eb1f"
+                "x-example-value": "bcfdf787-8679-45c3-9b16-cf731ef5272b"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.011106"
+                "x-example-value": "0.019399"
               },
               "Vary": {
                 "description": "",
@@ -296,19 +296,19 @@
               "Content-Length": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "3159"
+                "x-example-value": "2864"
               }
             },
             "examples": {
               "application/json": {
                 "id": 4,
                 "accepted": false,
-                "comment": "I know there's no way I can convince you this is not one of their tricks, but I don't care, I am me. My name is Valerie, I don't think I'll live much longer and I wanted to tell someone about my life. This is the only autobiography I'll ever write, and god, I'm writing it on toilet paper. I was born in Nottingham in 1985, I don't remember much of those early years, but I do remember the rain. My grandmother owned a farm in Tuttlebrook, and she use to tell me that god was in the rain. I passed my 11th lesson into girl's grammar; it was at school that I met my first girlfriend, her name was Sara. It was her wrists. They were beautiful. I thought we would love each other forever. I remember our teacher telling us that is was an adolescent phase people outgrew. Sara did, I didn't. In 2002, I fell in love with a girl named Christina. That year I came out to my parents. I couldn't have done it without Chris holding my hand. My father wouldn't look at me, he told me to go and never come back. My mother said nothing. But I had only told them the truth, was that so selfish? Our integrity sells for so little, but it is all we really have. It is the very last inch of us, but within that inch, we are free. I'd always known what I wanted to do with my life, and in 2015 I starred in my first film, 'The Salt Flats'. It was the most important role of my life, not because of my career, but because that was how I met Ruth. The first time we kissed, I knew I never wanted to kiss any other lips but hers again. We moved to a small flat in London together. She grew Scarlet Carsons for me in our window box, and our place always smelled of roses. Those were there best years of my life. But America's war grew worse, and worse. And eventually came to London. After that there were no roses anymore. Not for anyone. I remember how the meaning of words began to change. How unfamiliar words like 'collateral' and 'rendition' became frightening. While things like Norse Fire and The Articles of Allegiance became powerful, I remember how different became dangerous. I still don't understand it, why they hate us so much. They took Ruth while she was out buying food. I've never cried so hard in my life. It wasn't long till they came for me. It seems strange that my life should end in such a terrible place, but for three years, I had roses, and apologized to no one. I shall die here. Every inch of me shall perish. Every inch, but one. An Inch, it is small and it is fragile, but it is the only thing the world worth having. We must never lose it or give it away. We must never let them take it from us. I hope that whoever you are, you escape this place. I hope that the world turns and that things get better. But what I hope most of all is that you understand what I mean when I tell you that even though I do not know you, and even though I may never meet you, laugh with you, cry with you, or kiss you. I love you. With all my heart, I love you. -Valerie",
-                "created_at": "2020-01-02T20:44:15.305Z",
-                "email": "debbie@watsica.name",
-                "first_name": "Baptiste",
-                "last_name": "Fernandez",
-                "updated_at": "2020-01-02T20:44:15.305Z"
+                "comment": "Good evening, London. Allow me first to apologize for this interruption. I do, like many of you, appreciate the comforts of every day routine- the security of the familiar, the tranquility of repetition. I enjoy them as much as any bloke. But in the spirit of commemoration, whereby those important events of the past, usually associated with someone's death or the end of some awful bloody struggle, a celebration of a nice holiday, I thought we could mark this November the 5th, a day that is sadly no longer remembered, by taking some time out of our daily lives to sit down and have a little chat. There are of course those who do not want us to speak. I suspect even now, orders are being shouted into telephones, and men with guns will soon be on their way. Why? Because while the truncheon may be used in lieu of conversation, words will always retain their power. Words offer the means to meaning, and for those who will listen, the enunciation of truth. And the truth is, there is something terribly wrong with this country, isn't there? Cruelty and injustice, intolerance and oppression. And where once you had the freedom to object, to think and speak as you saw fit, you now have censors and systems of surveillance coercing your conformity and soliciting your submission. How did this happen? Who's to blame? Well certainly there are those more responsible than others, and they will be held accountable, but again truth be told, if you're looking for the guilty, you need only look into a mirror. I know why you did it. I know you were afraid. Who wouldn't be? War, terror, disease. There were a myriad of problems which conspired to corrupt your reason and rob you of your common sense. Fear got the best of you, and in your panic you turned to the now high chancellor, Adam Sutler. He promised you order, he promised you peace, and all he demanded in return was your silent, obedient consent. Last night I sought to end that silence. Last night I destroyed the Old Bailey, to remind this country of what it has forgotten. More than four hundred years ago a great citizen wished to embed the fifth of November forever in our memory. His hope was to remind the world that fairness, justice, and freedom are more than words, they are perspectives. So if you've seen nothing, if the crimes of this government remain unknown to you, then I would suggest you allow the fifth of November to pass unmarked. But if you see what I see, if you feel as I feel, and if you would seek as I seek, then I ask you to stand beside me one year from tonight, outside the gates of Parliament, and together we shall give them a fifth of November that shall never, ever be forgot.",
+                "created_at": "2020-01-07T16:58:38.511Z",
+                "email": "tim_ortiz@hills.info",
+                "first_name": "Eva",
+                "last_name": "Clément",
+                "updated_at": "2020-01-07T16:58:38.511Z"
               }
             }
           }
@@ -399,12 +399,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "7c6f0bcf-bac5-4cb2-b8db-dfa72d623ecd"
+                "x-example-value": "514480d2-89a8-4d59-899e-fac9511b5ed9"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.011259"
+                "x-example-value": "0.013751"
               },
               "Vary": {
                 "description": "",
@@ -509,12 +509,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "a98eb5a4-2ec8-4051-854e-dafe0e000f51"
+                "x-example-value": "8843fd0b-b39a-4dc6-b720-a72988123aae"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.013815"
+                "x-example-value": "0.013093"
               },
               "Vary": {
                 "description": "",
@@ -614,12 +614,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "bad8b027-41c6-4f07-9af2-00a30ac94889"
+                "x-example-value": "0b567882-f2fc-494f-8e4d-a798885ca901"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.030833"
+                "x-example-value": "0.036655"
               },
               "Vary": {
                 "description": "",
@@ -742,7 +742,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"db79d04ab251ce51298eb27d1b234c75\""
+                "x-example-value": "W/\"2e8a221dc9e45f1378ea1a86dec13a53\""
               },
               "Cache-Control": {
                 "description": "",
@@ -752,12 +752,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "bff30e50-8e62-42e3-a79f-f60971f7ed34"
+                "x-example-value": "6f6c80c4-d2cb-416a-b39e-362868a6485a"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.018156"
+                "x-example-value": "0.023015"
               },
               "Vary": {
                 "description": "",
@@ -767,11 +767,27 @@
               "Content-Length": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "355"
+                "x-example-value": "627"
               }
             },
             "examples": {
               "application/json": [
+                {
+                  "id": 1,
+                  "area": "25.0",
+                  "created_at": "2019-12-30T18:06:47.130Z",
+                  "dimensions": [
+                    5
+                  ],
+                  "name": "My big greenhouse - bench 1",
+                  "shape": {
+                    "dimension_names": [
+                      "côté"
+                    ],
+                    "name": "carré"
+                  },
+                  "updated_at": "2019-12-30T18:06:47.130Z"
+                },
                 {
                   "id": 2,
                   "area": "50.0",
@@ -781,19 +797,25 @@
                     10
                   ],
                   "name": "My big greenhouse - bench 2",
-                  "shape": "rectangle",
+                  "shape": {
+                    "dimension_names": [
+                      "largeur",
+                      "longueur"
+                    ],
+                    "name": "rectangle"
+                  },
                   "updated_at": "2019-12-30T18:06:47.133Z"
                 },
                 {
-                  "id": 1,
-                  "area": "25.0",
-                  "created_at": "2019-12-30T18:06:47.130Z",
-                  "dimensions": [
-                    5
-                  ],
-                  "name": "My big greenhouse - bench 1",
-                  "shape": "square",
-                  "updated_at": "2019-12-30T18:06:47.130Z"
+                  "id": 5,
+                  "area": "100.0",
+                  "created_at": "2020-01-06T13:27:55.355Z",
+                  "dimensions": null,
+                  "name": "My big greenhouse - bench 3",
+                  "shape": {
+                    "name": "autre"
+                  },
+                  "updated_at": "2020-01-06T13:27:55.355Z"
                 }
               ]
             }
@@ -915,7 +937,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"c0ba16688b81b52a165a118df6bcd4ba\""
+                "x-example-value": "W/\"f1fb09765d8ed1a770166db5de98cfa4\""
               },
               "Cache-Control": {
                 "description": "",
@@ -925,12 +947,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "1c0baa6d-6e0b-418b-bafc-fcf18ca499fb"
+                "x-example-value": "15403ef6-a67a-4464-a010-728248b50942"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.020782"
+                "x-example-value": "0.022381"
               },
               "Vary": {
                 "description": "",
@@ -940,21 +962,27 @@
               "Content-Length": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "178"
+                "x-example-value": "228"
               }
             },
             "examples": {
               "application/json": {
-                "id": 5,
+                "id": 7,
                 "area": "20000.0",
-                "created_at": "2020-01-02T20:44:15.475Z",
+                "created_at": "2020-01-07T16:58:38.693Z",
                 "dimensions": [
                   100,
                   200
                 ],
                 "name": "my rectangular bench",
-                "shape": "rectangle",
-                "updated_at": "2020-01-02T20:44:15.475Z"
+                "shape": {
+                  "dimension_names": [
+                    "largeur",
+                    "longueur"
+                  ],
+                  "name": "rectangle"
+                },
+                "updated_at": "2020-01-07T16:58:38.693Z"
               }
             }
           }
@@ -1039,7 +1067,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"9f5b7c138df0122b28020aaf279214be\""
+                "x-example-value": "W/\"7c2b231a93cb4fd087cdeb3595b456b0\""
               },
               "Cache-Control": {
                 "description": "",
@@ -1049,12 +1077,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "c74e0805-fb3b-425f-a0a4-09ac09aa07c8"
+                "x-example-value": "93bffb23-c35c-41a5-9f54-e3ae70a792de"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.013071"
+                "x-example-value": "0.013834"
               },
               "Vary": {
                 "description": "",
@@ -1064,7 +1092,7 @@
               "Content-Length": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "173"
+                "x-example-value": "211"
               }
             },
             "examples": {
@@ -1076,7 +1104,12 @@
                   5
                 ],
                 "name": "My big greenhouse - bench 1",
-                "shape": "square",
+                "shape": {
+                  "dimension_names": [
+                    "côté"
+                  ],
+                  "name": "carré"
+                },
                 "updated_at": "2019-12-30T18:06:47.130Z"
               }
             }
@@ -1198,7 +1231,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"e13a87e667e21308aff84857df0ef9be\""
+                "x-example-value": "W/\"1aea6158c31da0b67379d7df2bdc113b\""
               },
               "Cache-Control": {
                 "description": "",
@@ -1208,12 +1241,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "363b023b-18c6-4a99-9c28-52fa37f3a5c8"
+                "x-example-value": "d14c70ad-cc5f-4bc9-8582-855f101b36be"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.021705"
+                "x-example-value": "0.021349"
               },
               "Vary": {
                 "description": "",
@@ -1223,7 +1256,7 @@
               "Content-Length": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "161"
+                "x-example-value": "199"
               }
             },
             "examples": {
@@ -1235,8 +1268,13 @@
                   8
                 ],
                 "name": "my square bench",
-                "shape": "square",
-                "updated_at": "2020-01-02T20:44:15.507Z"
+                "shape": {
+                  "dimension_names": [
+                    "côté"
+                  ],
+                  "name": "carré"
+                },
+                "updated_at": "2020-01-07T16:58:38.725Z"
               }
             }
           }
@@ -1319,12 +1357,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "e689ba51-fc56-4f4a-990a-5604cc6073e6"
+                "x-example-value": "60025751-b5ef-4ee4-8105-9f1469e272d4"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.014719"
+                "x-example-value": "0.013555"
               },
               "Vary": {
                 "description": "",
@@ -1433,12 +1471,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "05cb2db0-6a68-4c49-8a15-80b8c4c7e4ef"
+                "x-example-value": "069e913b-efb9-4e70-9894-6966a7add36d"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.014949"
+                "x-example-value": "0.015703"
               },
               "Vary": {
                 "description": "",
@@ -1567,7 +1605,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"9b571e06ccd6c13fa004fcde24f733d6\""
+                "x-example-value": "W/\"9305c00fe1d30dff4e4eb86ab59c0a88\""
               },
               "Cache-Control": {
                 "description": "",
@@ -1577,12 +1615,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "a445f340-b23c-4485-bd71-97136f4d0399"
+                "x-example-value": "a6f9d128-0e84-41ed-b707-2c366fb741fd"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.012661"
+                "x-example-value": "0.013763"
               },
               "Vary": {
                 "description": "",
@@ -1598,11 +1636,11 @@
             "examples": {
               "application/json": {
                 "id": 3,
-                "created_at": "2020-01-02T20:44:15.599Z",
+                "created_at": "2020-01-07T16:58:38.818Z",
                 "height": 200,
                 "name": "My new greenhouse",
                 "occupancy": "0.0",
-                "updated_at": "2020-01-02T20:44:15.599Z",
+                "updated_at": "2020-01-07T16:58:38.818Z",
                 "width": 100
               }
             }
@@ -1698,12 +1736,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "cb09055b-cb3a-45a8-bf55-9b32854299d3"
+                "x-example-value": "c16e5e1c-57e8-4079-9ddf-d83561314125"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.012574"
+                "x-example-value": "0.013086"
               },
               "Vary": {
                 "description": "",
@@ -1828,7 +1866,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"c132e3084a9d2d2dc8273c0ecbfe2a0e\""
+                "x-example-value": "W/\"3c5280937abf9cbd82c294c6c9502cd7\""
               },
               "Cache-Control": {
                 "description": "",
@@ -1838,12 +1876,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "36ca4853-2a87-4174-bb4a-e1307ae301ca"
+                "x-example-value": "f071c046-0f1d-4cb0-ad38-4897f4959c8c"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.014811"
+                "x-example-value": "0.015134"
               },
               "Vary": {
                 "description": "",
@@ -1863,7 +1901,7 @@
                 "height": 200,
                 "name": "Updated name",
                 "occupancy": "100.0",
-                "updated_at": "2020-01-02T20:44:15.622Z",
+                "updated_at": "2020-01-07T16:58:38.843Z",
                 "width": 100
               }
             }
@@ -1947,12 +1985,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "bad9785e-1cd1-4e46-9318-39d650e62e95"
+                "x-example-value": "5d3cb2f2-ddd4-4f24-889b-4fd63a16c226"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.015990"
+                "x-example-value": "0.015863"
               },
               "Vary": {
                 "description": "",
@@ -2061,12 +2099,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "21f31030-cf8b-4c6b-83f1-2f63acba59fd"
+                "x-example-value": "f8067ffd-3453-4d9b-b4c3-30eb7b172715"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.014832"
+                "x-example-value": "0.017082"
               },
               "Vary": {
                 "description": "",
@@ -2225,7 +2263,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"2fe83db8ec81ef9afc7ec2a9848fff9e\""
+                "x-example-value": "W/\"2293a25abf884d3bf55c956527161813\""
               },
               "Cache-Control": {
                 "description": "",
@@ -2235,12 +2273,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "ecb4428a-29d9-4cad-9337-fda237e02848"
+                "x-example-value": "7409d9a3-bf2d-4a88-a872-7f5314ed0f57"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.028906"
+                "x-example-value": "0.027865"
               },
               "Vary": {
                 "description": "",
@@ -2256,13 +2294,13 @@
             "examples": {
               "application/json": {
                 "id": 4,
-                "created_at": "2020-01-02T20:44:15.727Z",
+                "created_at": "2020-01-07T16:58:38.950Z",
                 "email": "requester_to_invite@progeser.com",
                 "first_name": "invite first name",
                 "laboratory": "invite laboratory",
                 "last_name": "invite last name",
                 "role": "requester",
-                "updated_at": "2020-01-02T20:44:15.727Z"
+                "updated_at": "2020-01-07T16:58:38.950Z"
               }
             }
           }
@@ -2357,12 +2395,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "f6ba905c-0e45-4e17-b929-1258a41bf516"
+                "x-example-value": "3b0660ea-030a-40a8-9f56-fbcfa17acc95"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.011882"
+                "x-example-value": "0.013634"
               },
               "Vary": {
                 "description": "",
@@ -2467,12 +2505,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "df62359f-276d-4736-a0e3-a94583fd9f81"
+                "x-example-value": "a2a1ffc6-05af-45f1-a819-5f7af3bb559a"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.012873"
+                "x-example-value": "0.013470"
               },
               "Vary": {
                 "description": "",
@@ -2562,12 +2600,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "72352070-2bcb-4dc9-b9a8-2d3281649017"
+                "x-example-value": "8a1cf775-c665-4afa-8676-987371420cf4"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.020410"
+                "x-example-value": "0.021131"
               },
               "Vary": {
                 "description": "",
@@ -2661,12 +2699,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "c4a56a7d-a25d-423e-bbdf-f1d4bdac47c8"
+                "x-example-value": "1884bccb-dd25-4ee6-b98a-5bec10e03521"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.016424"
+                "x-example-value": "0.025312"
               },
               "Vary": {
                 "description": "",
@@ -2785,7 +2823,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"5798a09a8d43bb0248d3d0ada71511b9\""
+                "x-example-value": "W/\"9f2aa4d750f5fc9710656fb89ebfecd3\""
               },
               "Cache-Control": {
                 "description": "",
@@ -2795,12 +2833,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "7ba82a4d-1089-4cf2-824e-77f5d6d6d3a3"
+                "x-example-value": "ac3fe197-3a15-4f13-883e-7a48fef61f3a"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.018239"
+                "x-example-value": "0.024300"
               },
               "Vary": {
                 "description": "",
@@ -2822,7 +2860,7 @@
                 "laboratory": "Updated laboratory",
                 "last_name": "Updated last name",
                 "role": "requester",
-                "updated_at": "2020-01-02T20:44:15.845Z"
+                "updated_at": "2020-01-07T16:58:39.088Z"
               }
             }
           }
@@ -2899,12 +2937,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "c32552f8-a03e-4463-bf09-aa6f3892d108"
+                "x-example-value": "1a3d9f7b-2aa3-4591-81b9-360cbf3a47b4"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.014852"
+                "x-example-value": "0.019668"
               },
               "Vary": {
                 "description": "",
@@ -2994,12 +3032,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "5a95853c-fac3-4922-8dd8-327418d2d7c5"
+                "x-example-value": "1d289148-87f2-4d4a-b215-953a39ad182c"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.022200"
+                "x-example-value": "0.036493"
               },
               "Vary": {
                 "description": "",
@@ -3099,7 +3137,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"5c1c54ff56fc9644792609914f27abb1\""
+                "x-example-value": "W/\"ae4add27ca92ccdececd6cdf2c6f095e\""
               },
               "Cache-Control": {
                 "description": "",
@@ -3109,12 +3147,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0f4b6b27-919e-4ec8-8637-98492fffcfbb"
+                "x-example-value": "359ef4b4-d1f8-4103-a8b1-e969976845fc"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.022031"
+                "x-example-value": "0.022249"
               },
               "Vary": {
                 "description": "",
@@ -3138,13 +3176,13 @@
                 "role": "requester",
                 "token": {
                   "id": 26,
-                  "access_token": "kV_556387TmZ1EncldTKIT_hoazDY0FqHOcyQtYfxnI",
-                  "created_at": "2020-01-02T20:44:16.122Z",
+                  "access_token": "N16jZlrtci77cSvgCZcCLTVRTWL-VsdPRlL6qsELzoM",
+                  "created_at": "2020-01-07T16:58:39.436Z",
                   "expires_in": 7200,
-                  "refresh_token": "IY5Zaih56ottvBh5-G8Kd6SXsI6T9EYdUhgD1VN9HPw",
+                  "refresh_token": "5mg0PHts9K5yL5cK59Zd5zx8a5AFHGxdCmpsonz98XY",
                   "token_type": "Bearer"
                 },
-                "updated_at": "2020-01-02T20:44:16.121Z"
+                "updated_at": "2020-01-07T16:58:39.435Z"
               }
             }
           }
@@ -3239,12 +3277,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "f47a038d-1bbb-42a3-a140-9dc3c8e1f0f7"
+                "x-example-value": "82148cc7-eb6f-4424-a91f-147863185d78"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.207288"
+                "x-example-value": "0.211728"
               },
               "Vary": {
                 "description": "",
@@ -3343,7 +3381,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"2bb807b2fb4dda66231eb94fbf727111\""
+                "x-example-value": "W/\"56b8b545731c8678e7264d5f3574796c\""
               },
               "Cache-Control": {
                 "description": "",
@@ -3353,12 +3391,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "a10882dc-5993-47c2-aa81-839d4c6437d6"
+                "x-example-value": "86d8d125-4b38-4f2e-8e9b-12d7c8e3ef90"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.016298"
+                "x-example-value": "0.018207"
               },
               "Vary": {
                 "description": "",
@@ -3368,7 +3406,7 @@
               "Content-Length": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "836"
+                "x-example-value": "1020"
               }
             },
             "examples": {
@@ -3381,7 +3419,12 @@
                     7
                   ],
                   "name": "My square pot",
-                  "shape": "square",
+                  "shape": {
+                    "dimension_names": [
+                      "côté"
+                    ],
+                    "name": "carré"
+                  },
                   "updated_at": "2020-01-02T19:52:42.363Z"
                 },
                 {
@@ -3393,7 +3436,13 @@
                     10
                   ],
                   "name": "My rectangular pot",
-                  "shape": "rectangle",
+                  "shape": {
+                    "dimension_names": [
+                      "largeur",
+                      "longueur"
+                    ],
+                    "name": "rectangle"
+                  },
                   "updated_at": "2020-01-02T19:53:06.709Z"
                 },
                 {
@@ -3404,7 +3453,12 @@
                     10
                   ],
                   "name": "My circular pot",
-                  "shape": "circle",
+                  "shape": {
+                    "dimension_names": [
+                      "diamètre"
+                    ],
+                    "name": "cercle"
+                  },
                   "updated_at": "2020-01-02T19:53:24.319Z"
                 },
                 {
@@ -3416,7 +3470,13 @@
                     10
                   ],
                   "name": "My triangular pot",
-                  "shape": "triangle",
+                  "shape": {
+                    "dimension_names": [
+                      "base",
+                      "hauteur"
+                    ],
+                    "name": "triangle"
+                  },
                   "updated_at": "2020-01-02T19:54:24.631Z"
                 },
                 {
@@ -3425,7 +3485,9 @@
                   "created_at": "2020-01-02T19:54:36.923Z",
                   "dimensions": null,
                   "name": "My other pot",
-                  "shape": "other",
+                  "shape": {
+                    "name": "autre"
+                  },
                   "updated_at": "2020-01-02T19:54:41.757Z"
                 }
               ]
@@ -3541,7 +3603,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"b7a3f281b006fbc9ede147370f585ddf\""
+                "x-example-value": "W/\"9f2eea76b9ab6666a976f8ad2d8c8a9b\""
               },
               "Cache-Control": {
                 "description": "",
@@ -3551,12 +3613,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "9a96d46e-d71e-492c-a6ae-0767050cb73d"
+                "x-example-value": "633cecfc-2cf4-427e-96e9-4e5358a1b2b2"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.021947"
+                "x-example-value": "0.018182"
               },
               "Vary": {
                 "description": "",
@@ -3566,21 +3628,27 @@
               "Content-Length": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "172"
+                "x-example-value": "222"
               }
             },
             "examples": {
               "application/json": {
                 "id": 6,
                 "area": "200.0",
-                "created_at": "2020-01-02T20:44:16.623Z",
+                "created_at": "2020-01-07T16:58:39.947Z",
                 "dimensions": [
                   10,
                   20
                 ],
                 "name": "my rectangular pot",
-                "shape": "rectangle",
-                "updated_at": "2020-01-02T20:44:16.623Z"
+                "shape": {
+                  "dimension_names": [
+                    "largeur",
+                    "longueur"
+                  ],
+                  "name": "rectangle"
+                },
+                "updated_at": "2020-01-07T16:58:39.947Z"
               }
             }
           }
@@ -3665,7 +3733,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"b21d23a62322121a352b6c407187c716\""
+                "x-example-value": "W/\"a9c6bfda040d6008ecb57a14d3f9ce18\""
               },
               "Cache-Control": {
                 "description": "",
@@ -3675,12 +3743,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "29d0ce78-b087-40da-bda8-1760074b14e6"
+                "x-example-value": "ca8d1c5d-3e2a-45e8-94aa-682e65090b7f"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.014875"
+                "x-example-value": "0.016993"
               },
               "Vary": {
                 "description": "",
@@ -3690,7 +3758,7 @@
               "Content-Length": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "159"
+                "x-example-value": "197"
               }
             },
             "examples": {
@@ -3702,7 +3770,12 @@
                   7
                 ],
                 "name": "My square pot",
-                "shape": "square",
+                "shape": {
+                  "dimension_names": [
+                    "côté"
+                  ],
+                  "name": "carré"
+                },
                 "updated_at": "2020-01-02T19:52:42.363Z"
               }
             }
@@ -3824,7 +3897,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"0669a0f0e1834726e8e4a471c9961114\""
+                "x-example-value": "W/\"360d1768d423b43e72414094b736ea7d\""
               },
               "Cache-Control": {
                 "description": "",
@@ -3834,12 +3907,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "16f95d93-73f8-4233-87e1-18a0db6c8b78"
+                "x-example-value": "38680574-7107-4866-b7c9-93bbdf3ab0eb"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.022769"
+                "x-example-value": "0.020673"
               },
               "Vary": {
                 "description": "",
@@ -3849,7 +3922,7 @@
               "Content-Length": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "159"
+                "x-example-value": "197"
               }
             },
             "examples": {
@@ -3861,8 +3934,13 @@
                   8
                 ],
                 "name": "my square pot",
-                "shape": "square",
-                "updated_at": "2020-01-02T20:44:16.665Z"
+                "shape": {
+                  "dimension_names": [
+                    "côté"
+                  ],
+                  "name": "carré"
+                },
+                "updated_at": "2020-01-07T16:58:39.981Z"
               }
             }
           }
@@ -3945,12 +4023,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "f26643d2-e925-4d9f-94aa-33559b2744d0"
+                "x-example-value": "f3b36b32-fbb8-4e89-bb2c-fd131732332f"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.017431"
+                "x-example-value": "0.019873"
               },
               "Vary": {
                 "description": "",
@@ -4034,7 +4112,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"e635f1c96f6d0ac040a4015228f45ec1\""
+                "x-example-value": "W/\"b2f271194e9b3cc60a580866251fecdb\""
               },
               "Cache-Control": {
                 "description": "",
@@ -4044,12 +4122,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "5e92bad1-cd92-45cb-b09d-36ab59c6a3c7"
+                "x-example-value": "0c7a9778-6eec-4b2e-9d0d-4f2b092b4f82"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.039501"
+                "x-example-value": "0.042795"
               },
               "Vary": {
                 "description": "",
@@ -4059,36 +4137,36 @@
               "Content-Length": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "209"
+                "x-example-value": "217"
               }
             },
             "examples": {
               "application/json": [
                 {
                   "dimension_names": [
-                    "width",
-                    "height"
+                    "diamètre"
+                  ],
+                  "name": "cercle"
+                },
+                {
+                  "dimension_names": [
+                    "base",
+                    "hauteur"
+                  ],
+                  "name": "triangle"
+                },
+                {
+                  "dimension_names": [
+                    "largeur",
+                    "longueur"
                   ],
                   "name": "rectangle"
                 },
                 {
                   "dimension_names": [
-                    "diameter"
+                    "côté"
                   ],
-                  "name": "circle"
-                },
-                {
-                  "dimension_names": [
-                    "side"
-                  ],
-                  "name": "square"
-                },
-                {
-                  "dimension_names": [
-                    "base",
-                    "height"
-                  ],
-                  "name": "triangle"
+                  "name": "carré"
                 }
               ]
             }
@@ -4198,17 +4276,17 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"21022d08d4c199c8faff3094e8f85fc1\""
+                "x-example-value": "W/\"ed8e204d41528c3e0515006674a11b91\""
               },
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "132515e3-e7d3-4897-8f90-a52768c1f2e3"
+                "x-example-value": "c8454a47-8ef7-437f-8689-7cf1411fb88a"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.243531"
+                "x-example-value": "0.215842"
               },
               "Vary": {
                 "description": "",
@@ -4223,11 +4301,11 @@
             },
             "examples": {
               "application/json": {
-                "access_token": "YfsMSsDtqddYEg66U4WEQZjKFsPrzK6x30rz9Q2ew1g",
+                "access_token": "9mL9jttYXM5QNaqMqXAFq8h9lGTRNZS685beaIDFY7E",
                 "token_type": "Bearer",
                 "expires_in": 7200,
-                "refresh_token": "FZHC4C6gDISnXD3FVemL0f9jb-L-qDGTKnBHY11rdcI",
-                "created_at": 1577997857
+                "refresh_token": "RlYR-vILcy4omN2BzXhDtkLXEenVffeRsj8T8QgqrpY",
+                "created_at": 1578416320
               }
             }
           }
@@ -4322,7 +4400,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"67ade117b5266078e4769da0b5e8b1f5\""
+                "x-example-value": "W/\"2548c922de454a406300be6001566519\""
               },
               "Cache-Control": {
                 "description": "",
@@ -4332,12 +4410,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "2d665238-ddc4-4613-8ba3-26bfbdb7a1a6"
+                "x-example-value": "588aa019-10b1-4495-852f-bf57fbc6560f"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.027605"
+                "x-example-value": "0.024719"
               },
               "Vary": {
                 "description": "",
@@ -4353,7 +4431,7 @@
             "examples": {
               "application/json": {
                 "id": 4,
-                "created_at": "2020-01-02T20:44:17.068Z",
+                "created_at": "2020-01-07T16:58:40.351Z",
                 "email": "invite+requester@progeser.com",
                 "first_name": "Requester",
                 "laboratory": "My test lab",
@@ -4361,13 +4439,13 @@
                 "role": "requester",
                 "token": {
                   "id": 35,
-                  "access_token": "49eYeO4hNgUG_A3j4lqApvBcpDurAZchGHHbZWX1h5A",
-                  "created_at": "2020-01-02T20:44:17.071Z",
+                  "access_token": "H6651jCkJv6vgrwnjdaBc41CaFXwl2WostyBCllCuRg",
+                  "created_at": "2020-01-07T16:58:40.353Z",
                   "expires_in": 7200,
-                  "refresh_token": "hfW-gKvs0oSorjzByy5sfvK6zVsMoFV36Y1Iyi0DyWM",
+                  "refresh_token": "HC6qgKnXfLRzUL4LWKavWPS5xcwiyQnHdWM-bDOZEX8",
                   "token_type": "Bearer"
                 },
-                "updated_at": "2020-01-02T20:44:17.068Z"
+                "updated_at": "2020-01-07T16:58:40.351Z"
               }
             }
           }
@@ -4469,7 +4547,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"44bcdcc33f0ff88769cd4ad9f64402a0\""
+                "x-example-value": "W/\"3a42b4ef164194a69f027260afedc2db\""
               },
               "Cache-Control": {
                 "description": "",
@@ -4479,12 +4557,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "2cc83039-7f04-43c3-a958-3a1be8a5cf24"
+                "x-example-value": "7788dc18-2de2-4576-887a-f4969ba486d5"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.026826"
+                "x-example-value": "0.025262"
               },
               "Vary": {
                 "description": "",
@@ -4500,7 +4578,7 @@
             "examples": {
               "application/json": {
                 "id": 5,
-                "created_at": "2020-01-02T20:44:17.105Z",
+                "created_at": "2020-01-07T16:58:40.385Z",
                 "email": "tyler.kautzer@beierhegmann.net",
                 "first_name": "Manon",
                 "laboratory": "my laboratory",
@@ -4508,13 +4586,13 @@
                 "role": "requester",
                 "token": {
                   "id": 36,
-                  "access_token": "iwxkD1hANFsvkXDOMoX6gL9S_SgOYINlr-3OCAYpR6A",
-                  "created_at": "2020-01-02T20:44:17.107Z",
+                  "access_token": "TB_fMBeDL5J0_PjzsBNQ8j_xXvG9sOfIwGBh7IFuGhs",
+                  "created_at": "2020-01-07T16:58:40.387Z",
                   "expires_in": 7200,
-                  "refresh_token": "WcFldAAfVNs9VdV-kH7SizUZuNUGRRtsw1myzeeL-rw",
+                  "refresh_token": "zhmsNyBYzzqrS_zii5S0qGSEmeEYHY6RPeJ5_yiQwE8",
                   "token_type": "Bearer"
                 },
-                "updated_at": "2020-01-02T20:44:17.105Z"
+                "updated_at": "2020-01-07T16:58:40.385Z"
               }
             }
           }
