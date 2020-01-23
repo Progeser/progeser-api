@@ -1,0 +1,305 @@
+
+plant_stage_1:
+  id: 1
+  name: sprout
+  duration: 28
+  position: 1
+  plant_id: 1
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2020-01-23 14:58:27.769428000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2020-01-23 14:58:27.769428000 Z
+    zone: *2
+    time: *3
+
+plant_stage_2:
+  id: 2
+  name: seedling
+  duration: 19
+  position: 2
+  plant_id: 1
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2020-01-23 14:58:27.775405000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2020-01-23 14:58:27.775405000 Z
+    zone: *2
+    time: *3
+
+plant_stage_7:
+  id: 7
+  name: sprout
+  duration: 11
+  position: 1
+  plant_id: 2
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2020-01-23 14:58:27.800781000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2020-01-23 14:58:27.800781000 Z
+    zone: *2
+    time: *3
+
+plant_stage_8:
+  id: 8
+  name: seedling
+  duration: 12
+  position: 2
+  plant_id: 2
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2020-01-23 14:58:27.803600000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2020-01-23 14:58:27.803600000 Z
+    zone: *2
+    time: *3
+
+plant_stage_9:
+  id: 9
+  name: vegetative
+  duration: 25
+  position: 3
+  plant_id: 2
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2020-01-23 14:58:27.806356000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2020-01-23 14:58:27.806356000 Z
+    zone: *2
+    time: *3
+
+plant_stage_10:
+  id: 10
+  name: budding
+  duration: 9
+  position: 4
+  plant_id: 2
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2020-01-23 14:58:27.808845000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2020-01-23 14:58:27.808845000 Z
+    zone: *2
+    time: *3
+
+plant_stage_11:
+  id: 11
+  name: flowering
+  duration: 5
+  position: 5
+  plant_id: 2
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2020-01-23 14:58:27.811303000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2020-01-23 14:58:27.811303000 Z
+    zone: *2
+    time: *3
+
+plant_stage_12:
+  id: 12
+  name: ripening
+  duration: 10
+  position: 6
+  plant_id: 2
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2020-01-23 14:58:27.813730000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2020-01-23 14:58:27.813730000 Z
+    zone: *2
+    time: *3
+
+plant_stage_13:
+  id: 13
+  name: sprout
+  duration: 26
+  position: 1
+  plant_id: 3
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2020-01-23 14:58:27.816372000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2020-01-23 14:58:27.816372000 Z
+    zone: *2
+    time: *3
+
+plant_stage_14:
+  id: 14
+  name: seedling
+  duration: 26
+  position: 2
+  plant_id: 3
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2020-01-23 14:58:27.818768000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2020-01-23 14:58:27.818768000 Z
+    zone: *2
+    time: *3
+
+plant_stage_15:
+  id: 15
+  name: vegetative
+  duration: 26
+  position: 3
+  plant_id: 3
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2020-01-23 14:58:27.821151000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2020-01-23 14:58:27.821151000 Z
+    zone: *2
+    time: *3
+
+plant_stage_16:
+  id: 16
+  name: budding
+  duration: 19
+  position: 4
+  plant_id: 3
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2020-01-23 14:58:27.823567000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2020-01-23 14:58:27.823567000 Z
+    zone: *2
+    time: *3
+
+plant_stage_17:
+  id: 17
+  name: flowering
+  duration: 9
+  position: 5
+  plant_id: 3
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2020-01-23 14:58:27.825916000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2020-01-23 14:58:27.825916000 Z
+    zone: *2
+    time: *3
+
+plant_stage_18:
+  id: 18
+  name: ripening
+  duration: 11
+  position: 6
+  plant_id: 3
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2020-01-23 14:58:27.828284000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2020-01-23 14:58:27.828284000 Z
+    zone: *2
+    time: *3
+
+plant_stage_3:
+  id: 3
+  name: vegetative
+  duration: 21
+  position: 3
+  plant_id: 1
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2020-01-23 14:58:27.777985000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2020-01-23 14:58:27.777985000 Z
+    zone: *2
+    time: *3
+
+plant_stage_4:
+  id: 4
+  name: budding
+  duration: 10
+  position: 4
+  plant_id: 1
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2020-01-23 14:58:27.782493000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2020-01-23 14:58:27.782493000 Z
+    zone: *2
+    time: *3
+
+plant_stage_5:
+  id: 5
+  name: flowering
+  duration: 17
+  position: 5
+  plant_id: 1
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2020-01-23 14:58:27.787285000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2020-01-23 14:58:27.787285000 Z
+    zone: *2
+    time: *3
+
+plant_stage_6:
+  id: 6
+  name: ripening
+  duration: 30
+  position: 6
+  plant_id: 1
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2020-01-23 14:58:27.797403000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2020-01-23 14:58:27.797403000 Z
+    zone: *2
+    time: *3
+
+# == Schema Information
+#
+# Table name: plant_stages
+#
+#  id         :bigint           not null, primary key
+#  name       :string           not null
+#  duration   :integer
+#  position   :integer          not null
+#  plant_id   :bigint
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+# Indexes
+#
+#  index_plant_stages_on_plant_id  (plant_id)
+#
