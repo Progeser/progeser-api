@@ -64,7 +64,9 @@ class ApiController < ActionController::API
   end
 
   def unauthorized(exception)
-    return render_error(exception.record, code: 403) if exception.record.is_a?(ActiveRecord::Base)
+    if exception.record.is_a?(ActiveRecord::Base) && !request.put?
+      return render_error(exception.message, code: 403)
+    end
 
     render_error(exception.message, code: 403)
   end

@@ -141,4 +141,23 @@ if Rails.env.development?
       area: 100
     )
   end
+
+  # Plants
+  3.times do
+    Plant.create!(
+      name: Faker::Food.vegetables
+    )
+  end
+
+  # PlantStages
+  stage_names = %w[sprout seedling vegetative budding flowering ripening]
+  Plant.all.each do |plant|
+    stage_names.each do |stage_name|
+      plant.plant_stages.create!(
+        name: stage_name,
+        duration: Faker::Number.between(from: 5, to: 30),
+        position: stage_names.find_index(stage_name) + 1
+      )
+    end
+  end
 end

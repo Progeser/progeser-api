@@ -71,6 +71,8 @@ GEM
       mail
       phony (~> 2.0)
       rake
+    acts_as_list (1.0.0)
+      activerecord (>= 4.2)
     addressable (2.4.0)
     annotate (3.0.3)
       activerecord (>= 3.2, < 7.0)
@@ -415,6 +417,7 @@ PLATFORMS
 
 DEPENDENCIES
   activevalidators (~> 5.1)
+  acts_as_list (~> 1.0)
   annotate (~> 3.0)
   blueprinter (~> 0.20)
   bootsnap (>= 1.1.0)

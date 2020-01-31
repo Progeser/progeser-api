@@ -32,6 +32,8 @@ Rails.application.routes.draw do
       resources :greenhouses, only: %i[index show create update destroy], shallow: true do
         resources :benches, only: %i[index show create update destroy]
       end
+
+      resources :plants, only: %i[index show create update destroy]
     end
   end
 end
