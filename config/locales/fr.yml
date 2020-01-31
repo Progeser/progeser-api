@@ -19,6 +19,10 @@ fr:
           attributes:
             email:
               email_invalid: format d'email invalide
+        plant:
+          attributes:
+            plant_stages:
+              at_least_one: Au moins 1 plant_stage est requis
   date:
     abbr_day_names:
     - dim

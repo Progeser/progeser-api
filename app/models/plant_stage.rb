@@ -7,11 +7,9 @@ class PlantStage < ApplicationRecord
   # Validations
   validates :name, presence: true
 
-  # validates :position,
-  #           :duration,
-  #           numericality: { greater_than: 0 }
-  validates :position, numericality: { greater_than: 0 }
-  validates :duration, numericality: { greater_than: 0 }
+  validates :position,
+            :duration,
+            numericality: { greater_than: 0 }
 
   # Associations
   belongs_to :plant,

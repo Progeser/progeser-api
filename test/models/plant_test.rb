@@ -16,6 +16,14 @@ class PlantTest < ActiveSupport::TestCase
     assert_not @plant.valid?
     assert_not_empty @plant.errors[:name]
   end
+
+  # See comment on validation in app/models/plant.rb
+  #
+  # test 'invalid without plant_stages' do
+  #   @plant.plant_stages.destroy_all
+  #   assert_not @plant.valid?
+  #   assert_not_empty @plant.errors[:plant_stages]
+  # end
 end
 
 # == Schema Information
