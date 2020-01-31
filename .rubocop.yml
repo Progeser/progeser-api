@@ -20,17 +20,21 @@ AllCops:
     - 'config/**/*'
     - 'spec/**/*'
     - 'test/**/*'
-    - 'db/**/*'
+    - 'db/schema.rb'
     - 'bin/*'
     - 'vendor/**/*'
     - 'lib/tasks/auto_annotate_models.rake'
 
+# Style
+#
 Style/Documentation:
   Enabled: false
 
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
 
+# Layout
+#
 Layout/ArgumentAlignment:
   EnforcedStyle: with_first_argument
 
@@ -43,14 +47,20 @@ Layout/HashAlignment:
 Layout/LineLength:
   Max: 100
 
+# Metrics
+#
 Metrics/MethodLength:
-  Max: 22
+  Max: 15
+  Exclude:
+    - 'db/migrate/*'
 
 Metrics/ClassLength:
   Max: 150
 
 Metrics/AbcSize:
   Max: 20
+  Exclude:
+    - "db/migrate/*"
 
 Metrics/BlockLength:
   Enabled: true
@@ -59,5 +69,7 @@ Metrics/CyclomaticComplexity:
   Enabled: true
   Max: 10
 
+# Rails
+#
 Rails/InverseOf:
   Enabled: false

@@ -4,6 +4,7 @@ class ApplicationMailer < ActionMailer::Base
   default from: ENV['MAIL_FROM']
   layout 'mailer'
 
+  # rubocop: disable Metrics/MethodLength
   def send_mail(receiver_email:, subject:, template_id:, variables: {})
     Mailjet::Send.create(
       messages: [{
@@ -26,6 +27,7 @@ class ApplicationMailer < ActionMailer::Base
       }]
     )
   end
+  # rubocop: enable Metrics/MethodLength
 
   private
 
