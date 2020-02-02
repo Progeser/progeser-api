@@ -58,7 +58,7 @@ gem 'dry-transaction', '~> 0.13.0'
 gem 'dry-validation', '~> 1.3'
 
 # A controller filters engine gem based on jsonapi spec
-gem 'fetcheable_on_api', git: 'https://github.com/Tao-Galasse/fetcheable_on_api.git'
+gem 'fetcheable_on_api', '~> 0.4.1'
 
 # Rack Middleware for handling Cross-Origin Resource Sharing (CORS)
 gem 'rack-cors', '~> 1.1'

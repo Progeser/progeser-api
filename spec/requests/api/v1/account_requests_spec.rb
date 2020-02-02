@@ -30,9 +30,6 @@ RSpec.describe 'Api/V1/AccountRequests', type: :request do
           expect(response.headers.dig('Pagination-Total-Count')).to eq(3)
         end
 
-        # The purpose of this test is to insure the issue #20 in the original fetcheable_on_api gem (v 0.3.1) doesn't appear
-        # See https://github.com/fabienpiette/fetcheable_on_api/issues/20 for details
-        #
         it 'get account requests with the right pagination headers when the last page is full' do
           get(
             '/api/v1/account_requests',
@@ -50,31 +47,8 @@ RSpec.describe 'Api/V1/AccountRequests', type: :request do
           expect(JSON.parse(response.body).count).to eq(1)
           expect(response.headers.dig('Pagination-Current-Page')).to eq(2)
           expect(response.headers.dig('Pagination-Per')).to eq(1)
-          expect(response.headers.dig('Pagination-Total-Pages')).to eq(3) # not 4!
+          expect(response.headers.dig('Pagination-Total-Pages')).to eq(3)
           expect(response.headers.dig('Pagination-Total-Count')).to eq(3)
-        end
-
-        it 'returns 1 as Pagination-Total-Pages when no record is found' do
-          AccountRequest.destroy_all
-
-          get(
-            '/api/v1/account_requests',
-            headers: headers,
-            params: {
-              page: {
-                number: 1,
-                size: 3
-              }
-            }
-          )
-
-          expect(status).to eq(200)
-
-          expect(JSON.parse(response.body).count).to eq(0)
-          expect(response.headers.dig('Pagination-Current-Page')).to eq(1)
-          expect(response.headers.dig('Pagination-Per')).to eq(3)
-          expect(response.headers.dig('Pagination-Total-Pages')).to eq(1)
-          expect(response.headers.dig('Pagination-Total-Count')).to eq(0)
         end
       end
     end
