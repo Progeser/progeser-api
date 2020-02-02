@@ -10,7 +10,7 @@ class BenchBlueprint < Base
 
   field :shape do |bench|
     if bench.shape.other?
-      { name: I18n.t('shape.other') }
+      serialize_other_shape
     else
       JSON.parse(
         ShapeBlueprint.render("Shape::#{bench.shape.capitalize}".constantize)

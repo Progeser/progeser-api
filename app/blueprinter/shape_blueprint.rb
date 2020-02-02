@@ -3,6 +3,10 @@
 class ShapeBlueprint < Blueprinter::Base
   # Fields
   field :name do |shape|
+    shape.to_s.demodulize.downcase
+  end
+
+  field :display_name do |shape|
     I18n.t(
       "shape.#{shape.to_s.demodulize.downcase}.name"
     )

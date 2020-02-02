@@ -3,7 +3,7 @@
 class Shape
   # Public class methods
   def self.to_blueprint(opts = {})
-    "#{name}Blueprint".constantize.render(descendants, opts)
+    ShapeBlueprint.render(descendants, opts)
   end
 
   def self.format_params(params)

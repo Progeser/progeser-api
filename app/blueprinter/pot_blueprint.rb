@@ -10,7 +10,7 @@ class PotBlueprint < Base
 
   field :shape do |pot|
     if pot.shape.other?
-      { name: I18n.t('shape.other') }
+      serialize_other_shape
     else
       JSON.parse(
         ShapeBlueprint.render("Shape::#{pot.shape.capitalize}".constantize)
