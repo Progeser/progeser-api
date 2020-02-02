@@ -83,7 +83,7 @@ resource 'Greenhouses' do
       expect(response.dig('name')).to eq(name)
       expect(response.dig('width')).to eq(width)
       expect(response.dig('height')).to eq(height)
-      expect(response.dig('occupancy')).to eq('0.0')
+      expect(response.dig('occupancy')).to eq(0.0)
     end
   end
 

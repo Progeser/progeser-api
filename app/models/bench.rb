@@ -26,7 +26,7 @@ end
 #  greenhouse_id :bigint
 #  name          :string
 #  shape         :string           not null
-#  area          :decimal(, )      not null
+#  area          :float            not null
 #  dimensions    :integer          is an Array
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null

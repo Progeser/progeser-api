@@ -68,7 +68,7 @@ end
 #  name       :string           not null
 #  width      :integer          not null
 #  height     :integer          not null
-#  occupancy  :decimal(, )      default(0.0), not null
+#  occupancy  :float            default(0.0), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
