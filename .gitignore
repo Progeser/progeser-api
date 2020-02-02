@@ -36,3 +36,6 @@
 
 # Ignore local environment variables
 .env
+
+# Ignore idea configurations files
+.idea
