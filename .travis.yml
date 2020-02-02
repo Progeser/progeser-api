@@ -10,6 +10,7 @@ services:
 env:
   global:
     - CC_TEST_REPORTER_ID=c5fd8cd3e724b985885a522e2d5868567584983188d1b6230af994d47d82eb68
+    - DATABASE_HOST=localhost
 
 addons:
   postgresql: 10
