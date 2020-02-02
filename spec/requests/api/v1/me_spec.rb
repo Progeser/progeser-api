@@ -3,11 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Api/V1/Me', type: :request do
-  let!(:user)   { users(:user_2) }
-  let!(:token)  { Doorkeeper::AccessToken.create!(resource_owner_id: user.id) }
-  let!(:header) do
-    { 'Authorization': "Bearer #{token.token}" }
-  end
+  include_context 'with authenticated grower'
 
   describe 'GET api/v1/me' do
     context 'when 404' do
@@ -15,12 +11,12 @@ RSpec.describe 'Api/V1/Me', type: :request do
       let!(:discarded_user_token) do
         Doorkeeper::AccessToken.create!(resource_owner_id: discarded_user.id)
       end
-      let!(:discarded_user_header) do
+      let!(:discarded_user_headers) do
         { 'Authorization': "Bearer #{discarded_user_token.token}" }
       end
 
       it 'can\'t get a discarded user' do
-        get('/api/v1/me', headers: discarded_user_header)
+        get('/api/v1/me', headers: discarded_user_headers)
 
         expect(status).to eq(404)
         expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
@@ -33,7 +29,7 @@ RSpec.describe 'Api/V1/Me', type: :request do
       it 'can\'t update `laboratory` param for a grower' do
         put(
           '/api/v1/me',
-          headers: header,
+          headers: headers,
           params: {
             first_name: 'my new first name',
             last_name: 'my new last name',
@@ -55,7 +51,7 @@ RSpec.describe 'Api/V1/Me', type: :request do
       it 'fails to update user' do
         allow_any_instance_of(User).to receive(:update).and_return(false)
 
-        put('/api/v1/me', headers: header)
+        put('/api/v1/me', headers: headers)
 
         expect(status).to eq(422)
         expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
@@ -64,13 +60,15 @@ RSpec.describe 'Api/V1/Me', type: :request do
   end
 
   describe 'DELETE api/v1/me' do
-    it 'fails to soft delete user' do
-      allow_any_instance_of(User).to receive(:discard).and_return(false)
+    context 'when 422' do
+      it 'fails to soft delete user' do
+        allow_any_instance_of(User).to receive(:discard).and_return(false)
 
-      delete('/api/v1/me', headers: header)
+        delete('/api/v1/me', headers: headers)
 
-      expect(status).to eq(422)
-      expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        expect(status).to eq(422)
+        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+      end
     end
   end
 end

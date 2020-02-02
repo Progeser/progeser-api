@@ -3,11 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Api/V1/Passwords', type: :request do
-  let!(:user) { users(:user_1) }
-  let!(:token)  { Doorkeeper::AccessToken.create!(resource_owner_id: user.id) }
-  let!(:header) do
-    { 'Authorization': "Bearer #{token.token}" }
-  end
+  include_context 'with authenticated grower'
 
   describe 'POST /api/v1/passwords/forgot' do
     context 'when 404' do
@@ -117,7 +113,7 @@ RSpec.describe 'Api/V1/Passwords', type: :request do
       it 'fails to update password with missing params' do
         put(
           '/api/v1/passwords/',
-          headers: header,
+          headers: headers,
           params: {
             current_password: 'password',
             password: '',
@@ -134,7 +130,7 @@ RSpec.describe 'Api/V1/Passwords', type: :request do
       it 'can\'t update password with invalid current password' do
         put(
           '/api/v1/passwords',
-          headers: header,
+          headers: headers,
           params: {
             current_password: 'foobar'
           }
@@ -149,7 +145,7 @@ RSpec.describe 'Api/V1/Passwords', type: :request do
       it 'fails to update password if confirmation doesn\'t match' do
         put(
           '/api/v1/passwords',
-          headers: header,
+          headers: headers,
           params: {
             current_password: 'password',
             password: 'newPassword',
