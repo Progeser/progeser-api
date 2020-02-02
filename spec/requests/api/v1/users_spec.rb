@@ -7,7 +7,7 @@ RSpec.describe 'Api/V1/Users', type: :request do
     let!(:invite)           { invites(:invite_1) }
     let!(:invitation_token) { invite.invitation_token }
 
-    context '400' do
+    context 'when 400' do
       it 'fails to create a user with missing params' do
         post(
           "/api/v1/users/#{invitation_token}/create_from_invite",
@@ -22,7 +22,7 @@ RSpec.describe 'Api/V1/Users', type: :request do
       end
     end
 
-    context '404' do
+    context 'when 404' do
       it 'fails to create a user from invalid invitation_token' do
         post('/api/v1/users/foobar/create_from_invite')
 
@@ -31,7 +31,7 @@ RSpec.describe 'Api/V1/Users', type: :request do
       end
     end
 
-    context '422' do
+    context 'when 422' do
       it 'fails to create a user with different password and password_confirmation' do
         post(
           "/api/v1/users/#{invitation_token}/create_from_invite",
@@ -63,7 +63,8 @@ RSpec.describe 'Api/V1/Users', type: :request do
         expect(User.find_by(email: invite.email)).to be_nil
       end
 
-      it 'rollbacks the invite deletion & the user creation if the access token can\'t be created' do
+      it 'rollbacks the invite deletion '\
+      '& the user creation if the access token can\'t be created' do
         allow(Doorkeeper::AccessToken).to receive(:create!).and_raise(ActiveRecord::RecordInvalid)
 
         post(
@@ -88,7 +89,7 @@ RSpec.describe 'Api/V1/Users', type: :request do
     let!(:account_request) { account_requests(:account_request_1) }
     let!(:creation_token)  { account_request.creation_token }
 
-    context '400' do
+    context 'when 400' do
       it 'fails to create a user with missing params' do
         post(
           "/api/v1/users/#{creation_token}/create_from_account_request",
@@ -104,7 +105,7 @@ RSpec.describe 'Api/V1/Users', type: :request do
       end
     end
 
-    context '403' do
+    context 'when 403' do
       let!(:account_request) { account_requests(:account_request_2) }
       let!(:creation_token)  { account_request.creation_token }
 
@@ -116,7 +117,7 @@ RSpec.describe 'Api/V1/Users', type: :request do
       end
     end
 
-    context '404' do
+    context 'when 404' do
       it 'fails to create a user from invalid creation_token' do
         post('/api/v1/users/foobar/create_from_account_request')
 
@@ -125,7 +126,7 @@ RSpec.describe 'Api/V1/Users', type: :request do
       end
     end
 
-    context '422' do
+    context 'when 422' do
       it 'fails to create a user with different password and password_confirmation' do
         post(
           "/api/v1/users/#{creation_token}/create_from_account_request",
@@ -159,7 +160,8 @@ RSpec.describe 'Api/V1/Users', type: :request do
         expect(User.find_by(email: account_request.email)).to be_nil
       end
 
-      it 'rollbacks the account request deletion & the user creation if the access token can\'t be created' do
+      it 'rollbacks the account request deletion '\
+      '& the user creation if the access token can\'t be created' do
         allow(Doorkeeper::AccessToken).to receive(:create!).and_raise(ActiveRecord::RecordInvalid)
 
         post(

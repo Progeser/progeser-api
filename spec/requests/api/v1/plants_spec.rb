@@ -16,10 +16,10 @@ RSpec.describe 'Api/V1/Plants', type: :request do
   end
 
   let!(:plant) { plants(:plant_1) }
-  let!(:id)         { plant.id }
+  let!(:id) { plant.id }
 
   describe 'GET api/v1/plants' do
-    context '200' do
+    context 'when 200' do
       it 'get plants with pagination params' do
         get(
           '/api/v1/plants',
@@ -44,7 +44,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
   end
 
   describe 'POST api/v1/plants' do
-    context '403' do
+    context 'when 403' do
       it 'can\'t create a plant as a requester' do
         post('/api/v1/plants', headers: requester_header)
 
@@ -53,7 +53,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
       end
     end
 
-    context '422' do
+    context 'when 422' do
       # See comment on validation in app/models/plant.rb
       #
       # it 'fails to create a plant without plant_stage' do
@@ -86,7 +86,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
   end
 
   describe 'PUT api/v1/plants/:id' do
-    context '403' do
+    context 'when 403' do
       it 'can\'t udpdate a plant as a requester' do
         put("/api/v1/plants/#{id}", headers: requester_header)
 
@@ -95,7 +95,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
       end
     end
 
-    context '422' do
+    context 'when 422' do
       # See comment on validation in app/models/plant.rb
       #
       # it 'fails to update a plant when trying to delete all its plant stages' do
@@ -128,7 +128,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
   end
 
   describe 'DELETE api/v1/plants/:id' do
-    context '403' do
+    context 'when 403' do
       it 'can\'t delete a plant as a requester' do
         delete("/api/v1/plants/#{id}", headers: requester_header)
 
@@ -137,7 +137,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
       end
     end
 
-    context '422' do
+    context 'when 422' do
       it 'fails to delete a plant' do
         allow_any_instance_of(Plant).to receive(:destroy).and_return(false)
 

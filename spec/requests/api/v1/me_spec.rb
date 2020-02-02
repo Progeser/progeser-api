@@ -10,9 +10,9 @@ RSpec.describe 'Api/V1/Me', type: :request do
   end
 
   describe 'GET api/v1/me' do
-    context '404' do
+    context 'when 404' do
       let!(:discarded_user) { users(:user_3) }
-      let!(:discarded_user_token)  do
+      let!(:discarded_user_token) do
         Doorkeeper::AccessToken.create!(resource_owner_id: discarded_user.id)
       end
       let!(:discarded_user_header) do
@@ -29,7 +29,7 @@ RSpec.describe 'Api/V1/Me', type: :request do
   end
 
   describe 'PUT api/v1/me' do
-    context '200' do
+    context 'when 200' do
       it 'can\'t update `laboratory` param for a grower' do
         put(
           '/api/v1/me',
@@ -42,7 +42,7 @@ RSpec.describe 'Api/V1/Me', type: :request do
         )
 
         expect(status).to eq(200)
-        
+
         user.reload
         expect(response.body).to eq(user.to_blueprint)
         expect(user.first_name).to eq('my new first name')
@@ -51,7 +51,7 @@ RSpec.describe 'Api/V1/Me', type: :request do
       end
     end
 
-    context '422' do
+    context 'when 422' do
       it 'fails to update user' do
         allow_any_instance_of(User).to receive(:update).and_return(false)
 

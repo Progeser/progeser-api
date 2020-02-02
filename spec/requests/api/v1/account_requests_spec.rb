@@ -19,7 +19,7 @@ RSpec.describe 'Api/V1/AccountRequests', type: :request do
   let!(:id)              { account_request.id }
 
   describe 'GET api/v1/account_requests' do
-    context '200' do
+    context 'when 200' do
       it 'get account requests with pagination params' do
         get(
           '/api/v1/account_requests',
@@ -42,7 +42,7 @@ RSpec.describe 'Api/V1/AccountRequests', type: :request do
       end
 
       # The purpose of this test is to insure the issue #20 in the original fetcheable_on_api gem (v 0.3.1) doesn't appear
-      # see https://github.com/fabienpiette/fetcheable_on_api/issues/20 for details
+      # See https://github.com/fabienpiette/fetcheable_on_api/issues/20 for details
       #
       it 'get account requests with the right Pagination-Total-Pages when the last page is full' do
         get(
@@ -89,7 +89,7 @@ RSpec.describe 'Api/V1/AccountRequests', type: :request do
       end
     end
 
-    context '403' do
+    context 'when 403' do
       it 'can\'t get account requests as a requester' do
         get('/api/v1/account_requests', headers: requester_header)
 
@@ -100,7 +100,7 @@ RSpec.describe 'Api/V1/AccountRequests', type: :request do
   end
 
   describe 'GET api/v1/account_requests/:id' do
-    context '404' do
+    context 'when 404' do
       it 'can\'t get an account request as a requester' do
         get("/api/v1/account_requests/#{id}", headers: requester_header)
 
@@ -111,7 +111,7 @@ RSpec.describe 'Api/V1/AccountRequests', type: :request do
   end
 
   describe 'POST api/v1/account_requests' do
-    context '422' do
+    context 'when 422' do
       it 'fails to create an account_request with invalid params' do
         post(
           '/api/v1/account_requests',
@@ -130,7 +130,7 @@ RSpec.describe 'Api/V1/AccountRequests', type: :request do
   end
 
   describe 'POST api/v1/account_requests/:id/accept' do
-    context '404' do
+    context 'when 404' do
       it 'can\'t accept an account request as a requester' do
         post("/api/v1/account_requests/#{id}/accept", headers: requester_header)
 
@@ -141,7 +141,7 @@ RSpec.describe 'Api/V1/AccountRequests', type: :request do
   end
 
   describe 'DELETE api/v1/account_requests/:id' do
-    context '404' do
+    context 'when 404' do
       it 'can\'t delete an account request as a requester' do
         delete("/api/v1/account_requests/#{id}", headers: requester_header)
 
@@ -150,7 +150,7 @@ RSpec.describe 'Api/V1/AccountRequests', type: :request do
       end
     end
 
-    context '422' do
+    context 'when 422' do
       it 'fails to delete an account request' do
         allow_any_instance_of(AccountRequest).to receive(:destroy).and_return(false)
 

@@ -11,7 +11,7 @@ RspecApiDocumentation.configure do |config|
   # config.configurations_dir = Rails.root.join("doc", "configurations", "api")
 
   # Output folder
-  config.docs_dir = Rails.root.join('public', 'apidoc', 'open_api')
+  config.docs_dir = Rails.root.join('public/apidoc/open_api')
 
   # An array of output format(s).
   # Possible values are :json, :html, :combined_text, :combined_json,

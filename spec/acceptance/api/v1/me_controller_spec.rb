@@ -55,7 +55,7 @@ resource 'Me' do
       do_request
 
       expect(status).to eq(204)
-      
+
       user.reload
       expect(user.discarded?).to eq(true)
       expect(user.email).to eq('anonymized_1')

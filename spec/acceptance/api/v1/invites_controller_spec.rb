@@ -63,8 +63,10 @@ resource 'Invites' do
     parameter :email, 'Email of the user to invite', with_example: true
     parameter :role, 'Role of the user to invite', with_example: true, enum: %w[grower requester]
     parameter :first_name, 'First name of the user to invite', with_example: true
-    parameter :last_name, 'Last name of the user to invite',  with_example: true
-    parameter :laboratory, 'Laboratory of the user to invite (only for a requester)', with_example: true
+    parameter :last_name, 'Last name of the user to invite', with_example: true
+    parameter :laboratory,
+              'Laboratory of the user to invite (only for a requester)',
+              with_example: true
 
     let(:email)      { 'requester_to_invite@progeser.com' }
     let(:role)       { 'requester' }
@@ -111,8 +113,8 @@ resource 'Invites' do
       do_request
 
       expect(status).to eq(204)
-      
-      expect{invite.reload}.to raise_exception(ActiveRecord::RecordNotFound)
+
+      expect { invite.reload }.to raise_exception(ActiveRecord::RecordNotFound)
     end
   end
 end

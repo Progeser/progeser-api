@@ -60,7 +60,7 @@ resource 'Pots' do
   end
 
   post '/api/v1/pots' do
-    parameter :name, 'Name of the pot',  with_example: true
+    parameter :name, 'Name of the pot', with_example: true
     parameter :shape,
               "Shape of the pot\n\n"\
               'If `other` given, `area` param should be passed',
@@ -102,7 +102,7 @@ resource 'Pots' do
   end
 
   put '/api/v1/pots/:id' do
-    parameter :name, 'Name of the pot',  with_example: true
+    parameter :name, 'Name of the pot', with_example: true
     parameter :shape,
               "Shape of the pot\n\n"\
               'If `other` given, `area` param should be passed',
@@ -147,8 +147,8 @@ resource 'Pots' do
       do_request
 
       expect(status).to eq(204)
-      
-      expect{pot.reload}.to raise_exception(ActiveRecord::RecordNotFound)
+
+      expect { pot.reload }.to raise_exception(ActiveRecord::RecordNotFound)
     end
   end
 end

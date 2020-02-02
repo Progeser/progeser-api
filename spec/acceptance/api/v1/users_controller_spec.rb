@@ -15,7 +15,7 @@ resource 'Users' do
   let!(:creation_token)  { account_request.creation_token }
 
   post '/api/v1/users/:invitation_token/create_from_invite' do
-    parameter :password, 'Password of the user',  with_example: true
+    parameter :password, 'Password of the user', with_example: true
     parameter :password_confirmation, 'Password confirmation of the user', with_example: true
 
     let(:password)              { 'password' }
@@ -38,14 +38,14 @@ resource 'Users' do
       expect(response.dig('laboratory')).to eq(invite.laboratory)
       expect(response.dig('token', 'access_token')).not_to be_blank
       expect(response.dig('token', 'refresh_token')).not_to be_blank
-      
-      expect{invite.reload}.to raise_exception(ActiveRecord::RecordNotFound)
+
+      expect { invite.reload }.to raise_exception(ActiveRecord::RecordNotFound)
     end
   end
 
   post '/api/v1/users/:creation_token/create_from_account_request' do
     parameter :laboratory, 'Laboratory of the user', with_example: true
-    parameter :password, 'Password of the user',  with_example: true
+    parameter :password, 'Password of the user', with_example: true
     parameter :password_confirmation, 'Password confirmation of the user', with_example: true
 
     let(:laboratory)            { 'my laboratory' }
@@ -70,7 +70,7 @@ resource 'Users' do
       expect(response.dig('token', 'access_token')).not_to be_blank
       expect(response.dig('token', 'refresh_token')).not_to be_blank
 
-      expect{account_request.reload}.to raise_exception(ActiveRecord::RecordNotFound)
+      expect { account_request.reload }.to raise_exception(ActiveRecord::RecordNotFound)
     end
   end
 end

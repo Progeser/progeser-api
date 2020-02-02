@@ -121,8 +121,8 @@ resource 'Greenhouses' do
       do_request
 
       expect(status).to eq(204)
-      
-      expect{greenhouse.reload}.to raise_exception(ActiveRecord::RecordNotFound)
+
+      expect { greenhouse.reload }.to raise_exception(ActiveRecord::RecordNotFound)
     end
   end
 end

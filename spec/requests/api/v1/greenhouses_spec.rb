@@ -19,7 +19,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
   let!(:id)         { greenhouse.id }
 
   describe 'GET api/v1/greenhouses' do
-    context '200' do
+    context 'when 200' do
       it 'get greenhouses with pagination params' do
         get(
           '/api/v1/greenhouses',
@@ -42,7 +42,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
       end
     end
 
-    context '403' do
+    context 'when 403' do
       it 'can\'t get greenhouses as a requester' do
         get('/api/v1/greenhouses', headers: requester_header)
 
@@ -53,7 +53,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
   end
 
   describe 'GET api/v1/greenhouses/:id' do
-    context '404' do
+    context 'when 404' do
       it 'can\'t get a greenhouse as a requester' do
         get("/api/v1/greenhouses/#{id}", headers: requester_header)
 
@@ -64,7 +64,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
   end
 
   describe 'POST api/v1/greenhouses' do
-    context '403' do
+    context 'when 403' do
       it 'can\'t create a greenhouse as a requester' do
         post('/api/v1/greenhouses', headers: requester_header)
 
@@ -73,7 +73,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
       end
     end
 
-    context '422' do
+    context 'when 422' do
       it 'fails to create a greenhouse with invalid params' do
         post(
           '/api/v1/greenhouses',
@@ -92,7 +92,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
   end
 
   describe 'PUT api/v1/greenhouses/:id' do
-    context '404' do
+    context 'when 404' do
       it 'can\'t udpdate a greenhouse as a requester' do
         put("/api/v1/greenhouses/#{id}", headers: requester_header)
 
@@ -101,7 +101,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
       end
     end
 
-    context '422' do
+    context 'when 422' do
       it 'fails to update a greenhouse with invalid params' do
         put(
           "/api/v1/greenhouses/#{id}",
@@ -120,7 +120,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
   end
 
   describe 'DELETE api/v1/greenhouses/:id' do
-    context '404' do
+    context 'when 404' do
       it 'can\'t delete a greenhouse as a requester' do
         delete("/api/v1/greenhouses/#{id}", headers: requester_header)
 
@@ -129,7 +129,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
       end
     end
 
-    context '422' do
+    context 'when 422' do
       it 'fails to delete a greenhouse' do
         allow_any_instance_of(Greenhouse).to receive(:destroy).and_return(false)
 

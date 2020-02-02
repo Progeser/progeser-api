@@ -19,7 +19,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
   let!(:id)  { pot.id }
 
   describe 'GET api/v1/pots' do
-    context '200' do
+    context 'when 200' do
       it 'get pots with pagination params' do
         get(
           '/api/v1/pots',
@@ -42,7 +42,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
       end
     end
 
-    context '403' do
+    context 'when 403' do
       it 'can\'t get pots as a requester' do
         get('/api/v1/pots', headers: requester_header)
 
@@ -53,7 +53,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
   end
 
   describe 'GET api/v1/pots/:id' do
-    context '404' do
+    context 'when 404' do
       it 'can\'t get a pot as a requester' do
         get("/api/v1/pots/#{id}", headers: requester_header)
 
@@ -64,7 +64,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
   end
 
   describe 'POST api/v1/pots' do
-    context '201' do
+    context 'when 201' do
       it 'creates a square pot given its dimensions' do
         post(
           '/api/v1/pots',
@@ -265,7 +265,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
       end
     end
 
-    context '403' do
+    context 'when 403' do
       it 'can\'t create a pot as a requester' do
         post('/api/v1/pots', headers: requester_header)
 
@@ -274,81 +274,75 @@ RSpec.describe 'Api/V1/Pots', type: :request do
       end
     end
 
-    context '422' do
-      context 'raises a Shape::InvalidKind' do
-        it 'fails to create a pot with dimensions & invalid shape' do
-          post(
-            '/api/v1/pots',
-            headers: header,
-            params: {
-              name: 'my foobar pot',
-              shape: 'foobar',
-              dimensions: [12]
-            },
-            as: :json
-          )
+    context 'when 422' do
+      it 'fails to create a pot with dimensions & invalid shape' do
+        post(
+          '/api/v1/pots',
+          headers: header,
+          params: {
+            name: 'my foobar pot',
+            shape: 'foobar',
+            dimensions: [12]
+          },
+          as: :json
+        )
 
-          expect(status).to eq(422)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
-        end
-
-        it 'fails to create an other pot with no `area` given' do
-          post(
-            '/api/v1/pots',
-            headers: header,
-            params: {
-              name: 'my other pot',
-              shape: 'other',
-              dimensions: [8]
-            },
-            as: :json
-          )
-
-          expect(status).to eq(422)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
-        end
+        expect(status).to eq(422)
+        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
       end
 
-      context 'raises a Shape::InvalidDimensionsNumber' do
-        it 'fails to create a pot with invalid dimensions number' do
-          post(
-            '/api/v1/pots',
-            headers: header,
-            params: {
-              name: 'my square pot',
-              shape: 'square',
-              dimensions: [4, 8]
-            },
-            as: :json
-          )
+      it 'fails to create an other pot with no `area` given' do
+        post(
+          '/api/v1/pots',
+          headers: header,
+          params: {
+            name: 'my other pot',
+            shape: 'other',
+            dimensions: [8]
+          },
+          as: :json
+        )
 
-          expect(status).to eq(422)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
-        end
+        expect(status).to eq(422)
+        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
       end
 
-      context 'raises an ActiveRecord::RecordInvalid' do
-        it 'fails to create a pot with area & invalid shape' do
-          post(
-            '/api/v1/pots',
-            headers: header,
-            params: {
-              name: 'my foobar pot',
-              shape: 'foobar',
-              area: 100.0
-            },
-            as: :json
-          )
+      it 'fails to create a pot with invalid dimensions number' do
+        post(
+          '/api/v1/pots',
+          headers: header,
+          params: {
+            name: 'my square pot',
+            shape: 'square',
+            dimensions: [4, 8]
+          },
+          as: :json
+        )
 
-          expect(status).to eq(422)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
-        end
+        expect(status).to eq(422)
+        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+      end
+
+      it 'fails to create a pot with area & invalid shape' do
+        post(
+          '/api/v1/pots',
+          headers: header,
+          params: {
+            name: 'my foobar pot',
+            shape: 'foobar',
+            area: 100.0
+          },
+          as: :json
+        )
+
+        expect(status).to eq(422)
+        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
       end
     end
   end
 
   describe 'PUT api/v1/pots/:id' do
-    context '404' do
+    context 'when 404' do
       it 'can\'t update a pot as a requester' do
         put("/api/v1/pots/#{id}", headers: requester_header)
 
@@ -359,7 +353,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
   end
 
   describe 'DELETE api/v1/pots/:id' do
-    context '404' do
+    context 'when 404' do
       it 'can\'t delete a pot as a requester' do
         delete("/api/v1/pots/#{id}", headers: requester_header)
 
@@ -368,7 +362,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
       end
     end
 
-    context '422' do
+    context 'when 422' do
       it 'fails to delete a pot' do
         allow_any_instance_of(Pot).to receive(:destroy).and_return(false)
 

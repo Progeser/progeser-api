@@ -130,14 +130,14 @@ resource 'Plants' do
       plant.reload
       expect(response_body).to eq(plant.to_blueprint)
       expect(plant.name).to eq(name)
-      
+
       # 2 stages have been destroyed
       expect(plant.plant_stages.count).to eq(4)
-      
+
       # plant stage 3 has been updated
       expect(PlantStage.find(3).name).to eq('stage 3')
       expect(PlantStage.find(3).duration).to eq(10)
-      
+
       # positions have been scaled
       expect(plant.plant_stages.first.id).to eq(6)
       expect(plant.plant_stages.last.id).to eq(5)
@@ -152,8 +152,8 @@ resource 'Plants' do
       do_request
 
       expect(status).to eq(204)
-      
-      expect{plant.reload}.to raise_exception(ActiveRecord::RecordNotFound)
+
+      expect { plant.reload }.to raise_exception(ActiveRecord::RecordNotFound)
     end
   end
 end

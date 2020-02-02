@@ -62,7 +62,7 @@ resource 'Account Requests' do
   post '/api/v1/account_requests' do
     parameter :email, 'Email of the requested account', with_example: true
     parameter :first_name, 'First name of the requested account', with_example: true
-    parameter :last_name, 'Last name of the requested account',  with_example: true
+    parameter :last_name, 'Last name of the requested account', with_example: true
     parameter :comment, '(Optional) Free comment to give additional information', with_example: true
 
     let(:email)      { Faker::Internet.email }
@@ -109,7 +109,7 @@ resource 'Account Requests' do
 
       expect(status).to eq(204)
 
-      expect{account_request.reload}.to raise_exception(ActiveRecord::RecordNotFound)
+      expect { account_request.reload }.to raise_exception(ActiveRecord::RecordNotFound)
     end
   end
 end

@@ -12,13 +12,13 @@
 require:
   - rubocop-rails
   - rubocop-performance
+  - rubocop-rspec
 
 AllCops:
   Exclude:
     - Rakefile
     - Gemfile
     - 'config/**/*'
-    - 'spec/**/*'
     - 'test/**/*'
     - 'db/schema.rb'
     - 'bin/*'
@@ -46,6 +46,7 @@ Layout/HashAlignment:
 
 Layout/LineLength:
   Max: 100
+  IgnoredPatterns: ['(\A|\s)#'] # ignored comment line
 
 # Metrics
 #
@@ -64,6 +65,8 @@ Metrics/AbcSize:
 
 Metrics/BlockLength:
   Enabled: true
+  Exclude:
+    - "spec/**/*"
 
 Metrics/CyclomaticComplexity:
   Enabled: true
@@ -73,3 +76,14 @@ Metrics/CyclomaticComplexity:
 #
 Rails/InverseOf:
   Enabled: false
+
+# RSpec
+#
+RSpec/MultipleExpectations:
+  Enabled: false
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/AnyInstance:
+  Enabled: false
+RSpec/MessageSpies:
+  EnforcedStyle: receive

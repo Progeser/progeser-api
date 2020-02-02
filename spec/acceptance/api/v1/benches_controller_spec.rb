@@ -62,7 +62,7 @@ resource 'Benches' do
   end
 
   post '/api/v1/greenhouses/:greenhouse_id/benches' do
-    parameter :name, '(Optional) Name of the bench',  with_example: true
+    parameter :name, '(Optional) Name of the bench', with_example: true
     parameter :shape,
               "Shape of the bench\n\n"\
               'If `other` given, `area` param should be passed',
@@ -104,7 +104,7 @@ resource 'Benches' do
   end
 
   put '/api/v1/benches/:id' do
-    parameter :name, 'Name of the bench',  with_example: true
+    parameter :name, 'Name of the bench', with_example: true
     parameter :shape,
               "Shape of the bench\n\n"\
               'If `other` given, `area` param should be passed',
@@ -149,8 +149,8 @@ resource 'Benches' do
       do_request
 
       expect(status).to eq(204)
-      
-      expect{bench.reload}.to raise_exception(ActiveRecord::RecordNotFound)
+
+      expect { bench.reload }.to raise_exception(ActiveRecord::RecordNotFound)
     end
   end
 end

@@ -10,7 +10,7 @@ RSpec.describe 'Api/V1/Passwords', type: :request do
   end
 
   describe 'POST /api/v1/passwords/forgot' do
-    context '404' do
+    context 'when 404' do
       it 'can\'t find a user with wrong email' do
         post(
           '/api/v1/passwords/forgot',
@@ -24,7 +24,7 @@ RSpec.describe 'Api/V1/Passwords', type: :request do
       end
     end
 
-    context '422' do
+    context 'when 422' do
       it 'fails to call `forgot_password!` and generate a new confirmation_token' do
         allow_any_instance_of(User).to receive(:forgot_password!).and_return(false)
 
@@ -42,7 +42,7 @@ RSpec.describe 'Api/V1/Passwords', type: :request do
   end
 
   describe 'PUT /api/v1/passwords/:confirmation_token/reset' do
-    context '400' do
+    context 'when 400' do
       before do
         user.forgot_password!
       end
@@ -61,7 +61,7 @@ RSpec.describe 'Api/V1/Passwords', type: :request do
       end
     end
 
-    context '404' do
+    context 'when 404' do
       it 'can\'t find a user with wrong confirmation_token' do
         put('/api/v1/passwords/foobar/reset')
 
@@ -70,7 +70,7 @@ RSpec.describe 'Api/V1/Passwords', type: :request do
       end
     end
 
-    context '422' do
+    context 'when 422' do
       before do
         user.forgot_password!
       end
@@ -113,24 +113,24 @@ RSpec.describe 'Api/V1/Passwords', type: :request do
   end
 
   describe 'PUT /api/v1/passwords' do
-    context '400' do
-    it 'fails to update password with missing params' do
-      put(
-        '/api/v1/passwords/',
-        headers: header,
-        params: {
-          current_password: 'password',
-          password: '',
-          password_confirmation: ''
-        }
-      )
+    context 'when 400' do
+      it 'fails to update password with missing params' do
+        put(
+          '/api/v1/passwords/',
+          headers: header,
+          params: {
+            current_password: 'password',
+            password: '',
+            password_confirmation: ''
+          }
+        )
 
-      expect(status).to eq(400)
-      expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        expect(status).to eq(400)
+        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
       end
     end
 
-    context '403' do
+    context 'when 403' do
       it 'can\'t update password with invalid current password' do
         put(
           '/api/v1/passwords',
@@ -145,7 +145,7 @@ RSpec.describe 'Api/V1/Passwords', type: :request do
       end
     end
 
-    context '422' do
+    context 'when 422' do
       it 'fails to update password if confirmation doesn\'t match' do
         put(
           '/api/v1/passwords',

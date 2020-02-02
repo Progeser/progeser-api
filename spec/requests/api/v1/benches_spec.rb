@@ -21,7 +21,7 @@ RSpec.describe 'Api/V1/Benches', type: :request do
   let!(:id)            { bench.id }
 
   describe 'GET api/v1/greenhouses/:greenhouse_id/benches' do
-    context '200' do
+    context 'when 200' do
       it 'get benches in the given greenhouse with pagination params' do
         get(
           "/api/v1/greenhouses/#{greenhouse_id}/benches",
@@ -44,7 +44,7 @@ RSpec.describe 'Api/V1/Benches', type: :request do
       end
     end
 
-    context '404' do
+    context 'when 404' do
       it 'can\'t get benches as a requester' do
         get("/api/v1/greenhouses/#{greenhouse_id}/benches", headers: requester_header)
 
@@ -55,7 +55,7 @@ RSpec.describe 'Api/V1/Benches', type: :request do
   end
 
   describe 'GET api/v1/benches/:id' do
-    context '404' do
+    context 'when 404' do
       it 'can\'t get a bench as a requester' do
         get("/api/v1/benches/#{id}", headers: requester_header)
 
@@ -66,7 +66,7 @@ RSpec.describe 'Api/V1/Benches', type: :request do
   end
 
   describe 'POST api/v1/greenhouses/:greenhouse_id/benches' do
-    context '404' do
+    context 'when 404' do
       it 'can\'t create a bench as a requester' do
         post("/api/v1/greenhouses/#{greenhouse_id}/benches", headers: requester_header)
 
@@ -77,7 +77,7 @@ RSpec.describe 'Api/V1/Benches', type: :request do
   end
 
   describe 'PUT api/v1/benches/:id' do
-    context '404' do
+    context 'when 404' do
       it 'can\'t update a bench as a requester' do
         put("/api/v1/benches/#{id}", headers: requester_header)
 
@@ -88,7 +88,7 @@ RSpec.describe 'Api/V1/Benches', type: :request do
   end
 
   describe 'DELETE api/v1/benches/:id' do
-    context '404' do
+    context 'when 404' do
       it 'can\'t delete a bench as a requester' do
         delete("/api/v1/benches/#{id}", headers: requester_header)
 
@@ -97,7 +97,7 @@ RSpec.describe 'Api/V1/Benches', type: :request do
       end
     end
 
-    context '422' do
+    context 'when 422' do
       it 'fails to delete a bench' do
         allow_any_instance_of(Bench).to receive(:destroy).and_return(false)
 
