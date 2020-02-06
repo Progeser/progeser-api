@@ -97,7 +97,7 @@ resource 'Pots' do
       expect(response.dig('shape', 'name')).not_to be_blank
       expect(response.dig('shape', 'dimension_names')).not_to be_blank
       expect(response.dig('dimensions')).to eq(dimensions)
-      expect(response.dig('area')).to eq(dimensions.inject(:*).to_f)
+      expect(response.dig('area')).to eq(dimensions.inject(:*).to_f.to_s)
     end
   end
 

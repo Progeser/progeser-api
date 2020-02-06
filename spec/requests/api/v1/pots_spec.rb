@@ -168,7 +168,6 @@ RSpec.describe 'Api/V1/Pots', type: :request do
           expect(pot.shape).to eq('circle')
           expect(pot.dimensions).to eq([10])
           expect(pot.area).to eq(31.4159265358979)
-          expect(response.parsed_body.dig('area')).to eq(31.42)
         end
 
         it 'creates a circular pot given its area' do

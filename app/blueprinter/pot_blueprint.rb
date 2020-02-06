@@ -2,11 +2,7 @@
 
 class PotBlueprint < Base
   # Fields
-  fields :name, :dimensions
-
-  field :area do |pot|
-    pot.area.round(2)
-  end
+  fields :name, :area, :dimensions
 
   field :shape do |pot|
     if pot.shape.other?

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_31_004411) do
+ActiveRecord::Schema.define(version: 2020_01_08_144958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2020_01_31_004411) do
     t.bigint "greenhouse_id"
     t.string "name"
     t.string "shape", null: false
-    t.float "area", null: false
+    t.decimal "area", null: false
     t.integer "dimensions", array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2020_01_31_004411) do
     t.string "name", null: false
     t.integer "width", null: false
     t.integer "height", null: false
-    t.float "occupancy", default: 0.0, null: false
+    t.decimal "occupancy", default: "0.0", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -122,7 +122,7 @@ ActiveRecord::Schema.define(version: 2020_01_31_004411) do
   create_table "pots", force: :cascade do |t|
     t.string "name", null: false
     t.string "shape", null: false
-    t.float "area", null: false
+    t.decimal "area", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "dimensions", array: true

@@ -2,11 +2,7 @@
 
 class BenchBlueprint < Base
   # Fields
-  fields :name, :dimensions
-
-  field :area do |bench|
-    bench.area.round(2)
-  end
+  fields :name, :area, :dimensions
 
   field :shape do |bench|
     if bench.shape.other?

@@ -23,7 +23,7 @@ end
 #  id         :bigint           not null, primary key
 #  name       :string           not null
 #  shape      :string           not null
-#  area       :float            not null
+#  area       :decimal(, )      not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  dimensions :integer          is an Array
