@@ -160,4 +160,30 @@ if Rails.env.development?
       )
     end
   end
+
+  # Requests
+  Request.create!(
+    author: Users::Requester.first,
+    handler: Users::Grower.first,
+    plant_stage: Plant.first.plant_stages.last,
+    name: 'My first request',
+    plant_name: Plant.first.name,
+    stage_name: Plant.first.plant_stages.last.name,
+    status: :accepted,
+    comment: Faker::Movies::LordOfTheRings.quote,
+    due_date: Date.current + 3.months,
+    quantity: 50,
+    temperature: 20,
+    photoperiod: 8
+  )
+
+  Request.create!(
+    author: Users::Requester.first,
+    name: 'My new request',
+    plant_name: Faker::Food.vegetables,
+    stage_name: 'budding',
+    comment: Faker::Movies::LordOfTheRings.quote,
+    due_date: Date.current + 2.months,
+    quantity: 200
+  )
 end
