@@ -4,7 +4,7 @@ class Request < ApplicationRecord
   # Enumerize
   extend Enumerize
   enumerize :status,
-            in: %i[pending accepted refused],
+            in: %i[pending accepted refused], # in_cancelation ? canceled ?
             default: :pending
 
   # Validations

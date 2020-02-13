@@ -163,7 +163,7 @@ if Rails.env.development?
 
   # Requests
   Request.create!(
-    author: Users::Requester.first,
+    author: Users::Grower.first,
     handler: Users::Grower.first,
     plant_stage: Plant.first.plant_stages.last,
     name: 'My first request',

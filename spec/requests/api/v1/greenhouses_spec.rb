@@ -92,7 +92,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
   describe 'PUT api/v1/greenhouses/:id' do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t udpdate a greenhouse as a requester' do
+        it 'can\'t update a greenhouse as a requester' do
           put("/api/v1/greenhouses/#{id}", headers: headers)
 
           expect(status).to eq(404)
