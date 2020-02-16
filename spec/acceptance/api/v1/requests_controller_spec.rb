@@ -35,7 +35,9 @@ resource 'Requests' do
               with_example: true,
               type: :integer,
               default: FetcheableOnApi.configuration.pagination_default_size
-    # TODO: add filters & scopes parameters descriptions
+    parameter :'filter[status]',
+              'Filter requests by status using case insensitive exact matching',
+              with_exemple: true
 
     example 'Get all requests' do
       authentication :basic, "Bearer #{user_token.token}"
@@ -201,7 +203,7 @@ resource 'Requests' do
     end
 
     example "Cancel a request\n"\
-            'If the request is already accepted and the current user is a requester,'\
+            'If the request is already accepted and the current user is a requester, '\
             'the request will be set as `in_cancelation`' do
       authentication :basic, "Bearer #{user_token.token}"
 

@@ -29,9 +29,22 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           expect(response.headers.dig('Pagination-Total-Pages')).to eq(1)
           expect(response.headers.dig('Pagination-Total-Count')).to eq(2)
         end
-      end
 
-      # TODO: add tests with filters & scopes
+        it 'gets requests filtered by status' do
+          get(
+            '/api/v1/requests',
+            headers: headers,
+            params: {
+              filter: {
+                status: :accepted
+              }
+            }
+          )
+
+          expect(status).to eq(200)
+          expect(JSON.parse(response.body).count).to eq(1)
+        end
+      end
 
       it_behaves_like 'with authenticated requester' do
         it 'can get my requests as a requester' do

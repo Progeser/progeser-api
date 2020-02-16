@@ -3,6 +3,8 @@
 class Api::V1::RequestsController < ApiController
   before_action :set_request, except: %i[index create]
 
+  filter_by :status, with: :eq
+
   def index
     requests = policy_scope(Request)
     authorize requests
