@@ -17,6 +17,18 @@ class RequestPolicy < ApplicationPolicy
     true
   end
 
+  def accept?
+    grower?
+  end
+
+  def refuse?
+    grower?
+  end
+
+  def cancel?
+    true
+  end
+
   def destroy?
     grower?
   end

@@ -36,8 +36,9 @@ Rails.application.routes.draw do
       resources :plants, only: %i[index show create update destroy]
 
       resources :requests, only: %i[index show create update destroy] do
-        # post :accept, on: :member
-        # post :refuse, on: :member
+        post :accept, on: :member
+        post :refuse, on: :member
+        post :cancel, on: :member
       end
     end
   end

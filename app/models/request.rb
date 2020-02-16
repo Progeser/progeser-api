@@ -4,7 +4,7 @@ class Request < ApplicationRecord
   # Enumerize
   extend Enumerize
   enumerize :status,
-            in: %i[pending accepted refused], # in_cancelation ? canceled ?
+            in: %i[pending accepted refused in_cancelation canceled],
             default: :pending
 
   # Validations
@@ -33,6 +33,30 @@ class Request < ApplicationRecord
              foreign_key: 'plant_stage_id',
              inverse_of: :requests,
              optional: true
+
+  state_machine initial: :pending, attribute: :status do
+    event :accept do
+      transition pending: :accepted
+    end
+
+    event :refuse do
+      transition pending: :refused
+    end
+
+    event :cancel_request do
+      transition accepted: :in_cancelation
+    end
+
+    event :cancel do
+      transition %i[pending in_cancelation] => :canceled
+    end
+
+    # TODO: uncomment this when request_distributions will be implemented
+    # state :accepted do
+    #   validates :request_distributions,
+    #             length: { minimum: 1, message: :at_least_one }
+    # end
+  end
 end
 
 # == Schema Information

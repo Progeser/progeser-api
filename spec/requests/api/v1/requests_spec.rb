@@ -9,7 +9,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
   describe 'GET api/v1/requests' do
     context 'when 200' do
       it_behaves_like 'with authenticated grower' do
-        it 'get requests with pagination params' do
+        it 'gets requests with pagination params' do
           get(
             '/api/v1/requests',
             headers: headers,
@@ -83,12 +83,12 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           request = Request.last
           expect(response.body).to eq(request.to_blueprint)
           expect(request.author).to eq(user)
-          expect(request.handler).to eq(user)
+          expect(request.handler).to eq(nil)
           expect(request.plant_stage).to eq(plant_stage)
           expect(request.name).to eq('My request')
           expect(request.plant_name).to eq(plant.name)
           expect(request.stage_name).to eq(plant_stage.name)
-          expect(request.status).to eq(:accepted)
+          expect(request.status).to eq(:pending)
           expect(request.quantity).to eq(150)
           expect(request.due_date).to eq(Date.current + 6.months)
           expect(request.comment).to eq('My comment')
@@ -117,12 +117,12 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           request = Request.last
           expect(response.body).to eq(request.to_blueprint)
           expect(request.author).to eq(user)
-          expect(request.handler).to eq(user)
+          expect(request.handler).to eq(nil)
           expect(request.plant_stage).to eq(nil)
           expect(request.name).to eq('My request')
           expect(request.plant_name).to eq('My non-existing plant')
           expect(request.stage_name).to eq('My stage name')
-          expect(request.status).to eq(:accepted)
+          expect(request.status).to eq(:pending)
           expect(request.quantity).to eq(150)
           expect(request.due_date).to eq(Date.current + 6.months)
           expect(request.comment).to eq('My comment')
@@ -266,10 +266,118 @@ RSpec.describe 'Api/V1/Requests', type: :request do
     end
   end
 
+  describe 'POST api/v1/requests/:id/accept' do
+    let!(:request) { requests(:request_2) }
+    let!(:id)      { request.id }
+
+    context 'when 403' do
+      it_behaves_like 'with authenticated requester' do
+        it 'can\'t accept a request' do
+          post("/api/v1/requests/#{id}/accept", headers: headers)
+
+          expect(status).to eq(403)
+          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        end
+      end
+    end
+
+    context 'when 422' do
+      it_behaves_like 'with authenticated grower' do
+        before do
+          request.update(status: :accepted)
+        end
+
+        it 'can\'t accept a non-pending request' do
+          post("/api/v1/requests/#{id}/accept", headers: headers)
+
+          expect(status).to eq(422)
+          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        end
+      end
+    end
+  end
+
+  describe 'POST api/v1/requests/:id/refuse' do
+    let!(:request) { requests(:request_2) }
+    let!(:id)      { request.id }
+
+    context 'when 403' do
+      it_behaves_like 'with authenticated requester' do
+        it 'can\'t refuse a request' do
+          post("/api/v1/requests/#{id}/refuse", headers: headers)
+
+          expect(status).to eq(403)
+          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        end
+      end
+    end
+
+    context 'when 422' do
+      it_behaves_like 'with authenticated grower' do
+        before do
+          request.update(status: :accepted)
+        end
+
+        it 'can\'t refuse a non-pending request' do
+          post("/api/v1/requests/#{id}/refuse", headers: headers)
+
+          expect(status).to eq(422)
+          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        end
+      end
+    end
+  end
+
+  describe 'POST api/v1/requests/:id/cancel' do
+    let!(:request) { requests(:request_2) }
+    let!(:id)      { request.id }
+
+    context 'when 200' do
+      it_behaves_like 'with authenticated requester' do
+        it 'can cancel a pending request' do
+          post("/api/v1/requests/#{id}/cancel", headers: headers)
+
+          expect(status).to eq(200)
+
+          request.reload
+          expect(response.body).to eq(request.to_blueprint)
+          expect(request.status).to eq(:canceled)
+        end
+
+        it 'can ask to cancel an accepted request' do
+          request.update(status: :accepted)
+
+          post("/api/v1/requests/#{id}/cancel", headers: headers)
+
+          expect(status).to eq(200)
+
+          request.reload
+          expect(response.body).to eq(request.to_blueprint)
+          expect(request.status).to eq(:in_cancelation)
+        end
+      end
+    end
+
+    context 'when 422' do
+      it_behaves_like 'with authenticated grower' do
+        before do
+          request.update(status: :accepted)
+        end
+
+        it 'can\'t cancel a non pending or in_cancelation request' do
+          post("/api/v1/requests/#{id}/cancel", headers: headers)
+
+          expect(status).to eq(422)
+          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        end
+      end
+    end
+  end
+
   describe 'DELETE api/v1/requests/:id' do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t delete a request of another author' do
+        it 'can\'t delete a request' do
           delete("/api/v1/requests/#{id}", headers: headers)
 
           expect(status).to eq(404)

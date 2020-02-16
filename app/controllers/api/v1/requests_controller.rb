@@ -21,11 +21,6 @@ class Api::V1::RequestsController < ApiController
 
     plant_attributes_from_params(request)
 
-    if current_user.grower?
-      request.handler = current_user
-      request.status = :accepted # is this really the end-logic?
-    end
-
     if request.save
       render json: request.to_blueprint, status: :created
     else
@@ -46,17 +41,34 @@ class Api::V1::RequestsController < ApiController
   end
 
   def accept
-    # TODO?
-    # To accept a request, do we have to create request_distributions?
+    if @request.fire_state_event(:accept)
+      render json: @request.to_blueprint
+    else
+      render_validation_error(@request)
+    end
   end
 
-  # def refuse
-  #   if @request.update(status: :refused)
-  #     render json: @request.to_blueprint
-  #   else
-  #     render_validation_error(@request)
-  #   end
-  # end
+  def refuse
+    if @request.fire_state_event(:refuse)
+      render json: @request.to_blueprint
+    else
+      render_validation_error(@request)
+    end
+  end
+
+  def cancel
+    if @request.accepted? && current_user.requester?
+      @request.fire_state_event(:cancel_request)
+    else
+      @request.fire_state_event(:cancel)
+    end
+
+    if @request.errors.present?
+      render_validation_error(@request)
+    else
+      render json: @request.to_blueprint
+    end
+  end
 
   def destroy
     if @request.destroy

@@ -35,7 +35,7 @@ resource 'Requests' do
               with_example: true,
               type: :integer,
               default: FetcheableOnApi.configuration.pagination_default_size
-    # add filters, scopes
+    # TODO: add filters & scopes parameters descriptions
 
     example 'Get all requests' do
       authentication :basic, "Bearer #{user_token.token}"
@@ -156,6 +156,62 @@ resource 'Requests' do
       expect(request.due_date).to eq(due_date)
       expect(request.quantity).to eq(request.quantity)
       expect(request.comment).to eq(request.comment)
+    end
+  end
+
+  post '/api/v1/requests/:id/accept' do
+    before do
+      request.update(status: :pending)
+    end
+
+    example 'Accept a request' do
+      authentication :basic, "Bearer #{user_token.token}"
+
+      do_request
+
+      expect(status).to eq(200)
+
+      request.reload
+      expect(response_body).to eq(request.to_blueprint)
+      expect(request.status).to eq(:accepted)
+    end
+  end
+
+  post '/api/v1/requests/:id/refuse' do
+    before do
+      request.update(status: :pending)
+    end
+
+    example 'Refuse a request' do
+      authentication :basic, "Bearer #{user_token.token}"
+
+      do_request
+
+      expect(status).to eq(200)
+
+      request.reload
+      expect(response_body).to eq(request.to_blueprint)
+      expect(request.status).to eq(:refused)
+    end
+  end
+
+  post '/api/v1/requests/:id/cancel' do
+    before do
+      request.update(status: :pending)
+    end
+
+    example "Cancel a request\n"\
+            'If the request is already accepted and the current user is a requester,'\
+            'the request will be set as `in_cancelation`' do
+      authentication :basic, "Bearer #{user_token.token}"
+
+      do_request
+
+      expect(status).to eq(200)
+
+      request.reload
+      expect(response_body).to eq(request.to_blueprint)
+      expect(request.status).to eq(:canceled)
     end
   end
 
