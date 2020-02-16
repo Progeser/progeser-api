@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_08_144958) do
+ActiveRecord::Schema.define(version: 2020_02_12_231230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,6 +126,26 @@ ActiveRecord::Schema.define(version: 2020_01_08_144958) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "dimensions", array: true
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.bigint "author_id"
+    t.bigint "handler_id"
+    t.bigint "plant_stage_id"
+    t.string "name"
+    t.string "plant_name"
+    t.string "stage_name"
+    t.string "status"
+    t.text "comment"
+    t.date "due_date"
+    t.integer "quantity"
+    t.integer "temperature"
+    t.integer "photoperiod"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id"], name: "index_requests_on_author_id"
+    t.index ["handler_id"], name: "index_requests_on_handler_id"
+    t.index ["plant_stage_id"], name: "index_requests_on_plant_stage_id"
   end
 
   create_table "users", force: :cascade do |t|

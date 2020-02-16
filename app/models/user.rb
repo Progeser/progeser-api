@@ -40,6 +40,12 @@ class User < ApplicationRecord
            foreign_key: :resource_owner_id,
            dependent: :destroy
 
+  has_many :authored_requests,
+           class_name: 'Request',
+           foreign_key: 'author_id',
+           inverse_of: :author,
+           dependent: :destroy
+
   # Callbacks
   after_discard :anonymize
 

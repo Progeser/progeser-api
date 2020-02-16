@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 class Users::Grower < User
+  # Associations
+  has_many :handled_requests,
+           class_name: 'Request',
+           foreign_key: 'handler_id',
+           inverse_of: :handler,
+           dependent: :destroy
 end
 
 # == Schema Information

@@ -1,0 +1,75 @@
+
+request_1:
+  id: 1
+  author_id: 2
+  handler_id: 2
+  plant_stage_id: 6
+  name: My first request
+  plant_name: Celery
+  stage_name: ripening
+  status: accepted
+  comment: I didn't think it would end this way.
+  due_date: 2020-05-13
+  quantity: 50
+  temperature: 20
+  photoperiod: 8
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2020-02-13 00:04:08.434029000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2020-02-13 00:04:08.434029000 Z
+    zone: *2
+    time: *3
+
+request_2:
+  id: 2
+  author_id: 1
+  handler_id: 
+  plant_stage_id: 
+  name: My new request
+  plant_name: Endive
+  stage_name: budding
+  status: pending
+  comment: Many that live deserve death. And some that die deserve life
+  due_date: 2020-04-13
+  quantity: 200
+  temperature: 
+  photoperiod: 
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2020-02-13 00:04:57.684318000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2020-02-13 00:04:57.684318000 Z
+    zone: *2
+    time: *3
+
+# == Schema Information
+#
+# Table name: requests
+#
+#  id             :bigint           not null, primary key
+#  author_id      :bigint
+#  handler_id     :bigint
+#  plant_stage_id :bigint
+#  name           :string
+#  plant_name     :string
+#  stage_name     :string
+#  status         :string
+#  comment        :text
+#  due_date       :date
+#  quantity       :integer
+#  temperature    :integer
+#  photoperiod    :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+# Indexes
+#
+#  index_requests_on_author_id       (author_id)
+#  index_requests_on_handler_id      (handler_id)
+#  index_requests_on_plant_stage_id  (plant_stage_id)
+#
