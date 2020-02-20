@@ -5,11 +5,14 @@ services:
     restart: unless-stopped
     networks:
       - test-network
-    image: postgres:latest
+    image: postgres:10
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
     volumes:
       - db_data:/var/lib/postgresql/data
 
   redis:
+    restart: unless-stopped
     networks:
       - test-network
     image: redis:5.0.7
@@ -27,12 +30,13 @@ services:
       - "3000:3000"
     env_file: .env
     environment:
-        RAILS_ENV: development
+      RAILS_ENV: development
     depends_on:
       - db
       - redis
 
   sidekiq:
+    restart: unless-stopped
     networks:
       - test-network
     build: .

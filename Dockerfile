@@ -5,6 +5,7 @@ WORKDIR /myapp
 COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
 RUN gem install bundler
+RUN bundle config build.nokogiri --use-system-libraries
 RUN bundle install
 COPY . /myapp
 
