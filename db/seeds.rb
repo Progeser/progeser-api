@@ -186,4 +186,30 @@ if Rails.env.development?
     due_date: Date.current + 2.months,
     quantity: 200
   )
+
+  # RequestDistributions
+  RequestDistribution.create!(
+    request: Request.first,
+    bench: Bench.first,
+    plant_stage: Request.first.plant_stage,
+    pot: Pot.first,
+    pot_quantity: 30,
+    area: Pot.first.area * 30
+  )
+
+  RequestDistribution.create!(
+    request: Request.first,
+    bench: Bench.first,
+    plant_stage: Request.first.plant_stage,
+    pot: Pot.second,
+    pot_quantity: 20,
+    area: Pot.second.area * 20
+  )
+
+  RequestDistribution.create!(
+    request: Request.second,
+    bench: Bench.first,
+    plant_stage: Plant.second.plant_stages.first,
+    area: 100
+  )
 end

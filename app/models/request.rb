@@ -34,6 +34,13 @@ class Request < ApplicationRecord
              inverse_of: :requests,
              optional: true
 
+  has_many :request_distributions,
+           class_name: 'RequestDistribution',
+           foreign_key: 'request_id',
+           inverse_of: :request,
+           dependent: :destroy
+
+  # State Machine
   state_machine initial: :pending, attribute: :status do
     event :accept do
       transition pending: :accepted
@@ -51,11 +58,10 @@ class Request < ApplicationRecord
       transition %i[pending in_cancelation] => :canceled
     end
 
-    # TODO: uncomment this when request_distributions will be implemented
-    # state :accepted do
-    #   validates :request_distributions,
-    #             length: { minimum: 1, message: :at_least_one }
-    # end
+    state :accepted do
+      validates :request_distributions,
+                length: { minimum: 1, message: :at_least_one }
+    end
   end
 end
 

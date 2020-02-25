@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_12_231230) do
+ActiveRecord::Schema.define(version: 2020_02_25_200640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,6 +126,21 @@ ActiveRecord::Schema.define(version: 2020_02_12_231230) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "dimensions", array: true
+  end
+
+  create_table "request_distributions", force: :cascade do |t|
+    t.bigint "request_id"
+    t.bigint "bench_id"
+    t.bigint "plant_stage_id"
+    t.bigint "pot_id"
+    t.integer "pot_quantity"
+    t.decimal "area"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bench_id"], name: "index_request_distributions_on_bench_id"
+    t.index ["plant_stage_id"], name: "index_request_distributions_on_plant_stage_id"
+    t.index ["pot_id"], name: "index_request_distributions_on_pot_id"
+    t.index ["request_id"], name: "index_request_distributions_on_request_id"
   end
 
   create_table "requests", force: :cascade do |t|

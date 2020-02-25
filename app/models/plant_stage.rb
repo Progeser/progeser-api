@@ -22,6 +22,12 @@ class PlantStage < ApplicationRecord
            foreign_key: 'plant_stage_id',
            inverse_of: :plant_stage,
            dependent: :destroy
+
+  has_many :request_distributions,
+           class_name: 'RequestDistribution',
+           foreign_key: 'plant_stage_id',
+           inverse_of: :plant_stage,
+           dependent: :destroy
 end
 
 # == Schema Information

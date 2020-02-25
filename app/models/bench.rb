@@ -16,6 +16,12 @@ class Bench < ApplicationRecord
              class_name: 'Greenhouse',
              foreign_key: 'greenhouse_id',
              inverse_of: :benches
+
+  has_many :request_distributions,
+           class_name: 'RequestDistribution',
+           foreign_key: 'bench_id',
+           inverse_of: :bench,
+           dependent: :destroy
 end
 
 # == Schema Information
