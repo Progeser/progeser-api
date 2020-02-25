@@ -23,6 +23,10 @@ fr:
           attributes:
             plant_stages:
               at_least_one: Au moins 1 plant_stage est requis
+        request:
+          attributes:
+            request_distributions:
+              at_least_one: Au moins 1 request_distribution est requise
   date:
     abbr_day_names:
     - dim
