@@ -388,6 +388,17 @@ RSpec.describe 'Api/V1/Requests', type: :request do
   end
 
   describe 'DELETE api/v1/requests/:id' do
+    context 'when 403' do
+      it_behaves_like 'with authenticated grower' do
+        it 'can\'t delete a non-pending request' do
+          delete("/api/v1/requests/#{id}", headers: headers)
+
+          expect(status).to eq(403)
+          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        end
+      end
+    end
+
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t delete a request' do
@@ -402,6 +413,8 @@ RSpec.describe 'Api/V1/Requests', type: :request do
     context 'when 422' do
       it_behaves_like 'with authenticated grower' do
         it 'fails to delete a request' do
+          request.update(status: :pending)
+
           allow_any_instance_of(Request).to receive(:destroy).and_return(false)
 
           delete("/api/v1/requests/#{id}", headers: headers)

@@ -219,6 +219,10 @@ resource 'Requests' do
   end
 
   delete '/api/v1/requests/:id' do
+    before do
+      request.update(status: :pending)
+    end
+
     example 'Delete a request' do
       authentication :basic, "Bearer #{user_token.token}"
 
