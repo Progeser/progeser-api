@@ -6,6 +6,8 @@ class RequestDistribution < ApplicationRecord
 
   validates :pot_quantity, presence: true, if: -> { pot.present? }
 
+  validate :plant_stage_from_request
+
   # Associations
   belongs_to :request,
              class_name: 'Request',
@@ -27,6 +29,16 @@ class RequestDistribution < ApplicationRecord
              foreign_key: 'pot_id',
              inverse_of: :request_distributions,
              optional: true
+
+  # Private instance methods
+  private
+
+  def plant_stage_from_request
+    return if request.plant.nil?
+    return if request.plant.plant_stages.include?(plant_stage)
+
+    errors.add(:plant_stage, 'must be from requested plant')
+  end
 end
 
 # == Schema Information

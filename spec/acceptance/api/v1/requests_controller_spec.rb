@@ -37,7 +37,8 @@ resource 'Requests' do
               default: FetcheableOnApi.configuration.pagination_default_size
     parameter :'filter[status]',
               'Filter requests by status using case insensitive exact matching',
-              with_exemple: true
+              with_exemple: true,
+              enum: Request.status.values
 
     example 'Get all requests' do
       authentication :basic, "Bearer #{user_token.token}"

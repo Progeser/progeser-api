@@ -34,6 +34,10 @@ class Request < ApplicationRecord
              inverse_of: :requests,
              optional: true
 
+  has_one :plant,
+          class_name: 'Plant',
+          through: :plant_stage
+
   has_many :request_distributions,
            class_name: 'RequestDistribution',
            foreign_key: 'request_id',

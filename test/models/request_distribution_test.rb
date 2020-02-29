@@ -30,12 +30,6 @@ class Request_distributionTest < ActiveSupport::TestCase
     assert_not_empty @request_distribution.errors[:pot_quantity]
   end
 
-  test 'invalid without request' do
-    @request_distribution.request = nil
-    assert_not @request_distribution.valid?
-    assert_not_empty @request_distribution.errors[:request]
-  end
-
   test 'invalid without bench' do
     @request_distribution.bench = nil
     assert_not @request_distribution.valid?
@@ -52,6 +46,12 @@ class Request_distributionTest < ActiveSupport::TestCase
     @request_distribution.area = nil
     assert_not @request_distribution.valid?
     assert_not_empty @request_distribution.errors[:area]
+  end
+
+  test 'invalid with plant_stage from the non-requested plant' do
+    @request_distribution.plant_stage = PlantStage.last
+    assert_not @request_distribution.valid?
+    assert_not_empty @request_distribution.errors[:plant_stage]
   end
 end
 
