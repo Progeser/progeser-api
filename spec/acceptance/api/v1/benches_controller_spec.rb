@@ -143,6 +143,10 @@ resource 'Benches' do
   end
 
   delete '/api/v1/benches/:id' do
+    before do
+      bench.request_distributions.destroy_all
+    end
+
     example 'Delete a bench' do
       authentication :basic, "Bearer #{user_token.token}"
 

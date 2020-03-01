@@ -115,6 +115,10 @@ resource 'Greenhouses' do
   end
 
   delete '/api/v1/greenhouses/:id' do
+    before do
+      greenhouse.benches.flat_map(&:request_distributions).map(&:destroy)
+    end
+
     example 'Delete a greenhouse' do
       authentication :basic, "Bearer #{user_token.token}"
 

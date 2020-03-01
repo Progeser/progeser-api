@@ -18,7 +18,12 @@ class GreenhousePolicy < ApplicationPolicy
   end
 
   def destroy?
-    grower?
+    return false unless grower?
+
+    return true if record.benches.flat_map(&:request_distributions).empty?
+
+    record.errors.add(:request_distributions, 'can\'t delete a greenhouse with ongoing requests')
+    false
   end
 
   class Scope < Scope

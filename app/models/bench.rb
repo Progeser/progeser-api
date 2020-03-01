@@ -21,7 +21,7 @@ class Bench < ApplicationRecord
            class_name: 'RequestDistribution',
            foreign_key: 'bench_id',
            inverse_of: :bench,
-           dependent: :destroy
+           dependent: :restrict_with_error
 end
 
 # == Schema Information
