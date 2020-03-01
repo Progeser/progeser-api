@@ -20,7 +20,7 @@ class Pot < ApplicationRecord
            class_name: 'RequestDistribution',
            foreign_key: 'pot_id',
            inverse_of: :pot,
-           dependent: :destroy
+           dependent: :restrict_with_error
 end
 
 # == Schema Information

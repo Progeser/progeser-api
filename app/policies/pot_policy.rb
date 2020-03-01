@@ -18,7 +18,12 @@ class PotPolicy < ApplicationPolicy
   end
 
   def destroy?
-    grower?
+    return false unless grower?
+
+    return true if record.request_distributions.empty?
+
+    record.errors.add(:request_distributions, 'can\'t delete a pot with ongoing requests')
+    false
   end
 
   class Scope < Scope
