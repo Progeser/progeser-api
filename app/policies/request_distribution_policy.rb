@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class BenchPolicy < ApplicationPolicy
+class RequestDistributionPolicy < ApplicationPolicy
   def index?
     grower?
   end
@@ -20,9 +20,9 @@ class BenchPolicy < ApplicationPolicy
   def destroy?
     return false unless grower?
 
-    return true if record.request_distributions.empty?
+    return true if record.request.request_distributions.count > 1
 
-    record.errors.add(:request_distributions, 'can\'t delete a bench with ongoing requests')
+    record.errors.add(:request, 'can\'t delete the last distribution of an accepted request')
     false
   end
 

@@ -32,6 +32,9 @@ class Api::V1::PlantsController < ApiController
     else
       render_validation_error(@plant)
     end
+  rescue ActiveRecord::RecordNotDestroyed
+    @plant.errors.add(:request_distributions, 'can\'t delete a plant_stage with ongoing requests')
+    render_validation_error(@plant)
   end
 
   def destroy

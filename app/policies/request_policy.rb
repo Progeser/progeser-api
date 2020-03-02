@@ -30,7 +30,12 @@ class RequestPolicy < ApplicationPolicy
   end
 
   def destroy?
-    grower?
+    return false unless grower?
+
+    return true if record.pending?
+
+    record.errors.add(:status, 'can\'t delete a non-pending request')
+    false
   end
 
   class Scope < Scope

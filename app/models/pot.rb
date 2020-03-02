@@ -14,6 +14,13 @@ class Pot < ApplicationRecord
             presence: true
 
   validates :area, numericality: { greater_than: 0 }
+
+  # Associations
+  has_many :request_distributions,
+           class_name: 'RequestDistribution',
+           foreign_key: 'pot_id',
+           inverse_of: :pot,
+           dependent: :restrict_with_error
 end
 
 # == Schema Information

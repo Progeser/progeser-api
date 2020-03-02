@@ -121,6 +121,22 @@ RSpec.describe 'Api/V1/Plants', type: :request do
           expect(status).to eq(422)
           expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
         end
+
+        it 'can\'t delete a plant_stage with ongoing requests' do
+          put(
+            "/api/v1/plants/#{id}",
+            headers: headers,
+            params: {
+              plant_stages_attributes: {
+                id: 6,
+                _destroy: true
+              }
+            }
+          )
+
+          expect(status).to eq(422)
+          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        end
       end
     end
   end
@@ -135,10 +151,23 @@ RSpec.describe 'Api/V1/Plants', type: :request do
           expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
         end
       end
+
+      it_behaves_like 'with authenticated grower' do
+        it 'can\'t delete a plant with ongoing requests' do
+          delete("/api/v1/plants/#{id}", headers: headers)
+
+          expect(status).to eq(403)
+          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        end
+      end
     end
 
     context 'when 422' do
       it_behaves_like 'with authenticated grower' do
+        before do
+          plant.plant_stages.flat_map(&:request_distributions).map(&:destroy)
+        end
+
         it 'fails to delete a plant' do
           allow_any_instance_of(Plant).to receive(:destroy).and_return(false)
 

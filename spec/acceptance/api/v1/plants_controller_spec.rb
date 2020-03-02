@@ -146,6 +146,10 @@ resource 'Plants' do
   end
 
   delete '/api/v1/plants/:id' do
+    before do
+      plant.plant_stages.flat_map(&:requests).map(&:destroy)
+    end
+
     example 'Delete a plant' do
       authentication :basic, "Bearer #{user_token.token}"
 

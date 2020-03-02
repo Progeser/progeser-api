@@ -141,6 +141,10 @@ resource 'Pots' do
   end
 
   delete '/api/v1/pots/:id' do
+    before do
+      pot.request_distributions.destroy_all
+    end
+
     example 'Delete a pot' do
       authentication :basic, "Bearer #{user_token.token}"
 
