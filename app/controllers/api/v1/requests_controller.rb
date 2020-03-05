@@ -89,7 +89,7 @@ class Api::V1::RequestsController < ApiController
 
   def request_params
     params.permit(
-      :plant_stage_id, :name, :plant_name, :stage_name, :quantity, :due_date,
+      :plant_stage_id, :name, :plant_name, :plant_stage_name, :quantity, :due_date,
       :comment, :temperature, :photoperiod
     )
   end
@@ -98,7 +98,7 @@ class Api::V1::RequestsController < ApiController
     return if request_params[:plant_stage_id].blank?
 
     plant_stage = PlantStage.find(request_params[:plant_stage_id])
-    request.stage_name = plant_stage.name
+    request.plant_stage_name = plant_stage.name
     request.plant_name = plant_stage.plant.name
   end
 end

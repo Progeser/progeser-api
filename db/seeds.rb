@@ -168,7 +168,7 @@ if Rails.env.development?
     plant_stage: Plant.first.plant_stages.last,
     name: 'My first request',
     plant_name: Plant.first.name,
-    stage_name: Plant.first.plant_stages.last.name,
+    plant_stage_name: Plant.first.plant_stages.last.name,
     status: :accepted,
     comment: Faker::Movies::LordOfTheRings.quote,
     due_date: Date.current + 3.months,
@@ -181,7 +181,7 @@ if Rails.env.development?
     author: Users::Requester.first,
     name: 'My new request',
     plant_name: Faker::Food.vegetables,
-    stage_name: 'budding',
+    plant_stage_name: 'budding',
     comment: Faker::Movies::LordOfTheRings.quote,
     due_date: Date.current + 2.months,
     quantity: 200

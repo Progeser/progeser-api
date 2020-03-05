@@ -100,7 +100,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           expect(request.plant_stage).to eq(plant_stage)
           expect(request.name).to eq('My request')
           expect(request.plant_name).to eq(plant.name)
-          expect(request.stage_name).to eq(plant_stage.name)
+          expect(request.plant_stage_name).to eq(plant_stage.name)
           expect(request.status).to eq(:pending)
           expect(request.quantity).to eq(150)
           expect(request.due_date).to eq(Date.current + 6.months)
@@ -116,7 +116,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
             params: {
               name: 'My request',
               plant_name: 'My non-existing plant',
-              stage_name: 'My stage name',
+              plant_stage_name: 'My stage name',
               quantity: 150,
               due_date: Date.current + 6.months,
               comment: 'My comment',
@@ -134,7 +134,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           expect(request.plant_stage).to eq(nil)
           expect(request.name).to eq('My request')
           expect(request.plant_name).to eq('My non-existing plant')
-          expect(request.stage_name).to eq('My stage name')
+          expect(request.plant_stage_name).to eq('My stage name')
           expect(request.status).to eq(:pending)
           expect(request.quantity).to eq(150)
           expect(request.due_date).to eq(Date.current + 6.months)
@@ -172,7 +172,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           expect(request.plant_stage).to eq(plant_stage)
           expect(request.name).to eq('My request')
           expect(request.plant_name).to eq(plant.name)
-          expect(request.stage_name).to eq(plant_stage.name)
+          expect(request.plant_stage_name).to eq(plant_stage.name)
           expect(request.status).to eq(:pending)
           expect(request.quantity).to eq(150)
           expect(request.due_date).to eq(Date.current + 6.months)
@@ -188,7 +188,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
             params: {
               name: 'My request',
               plant_name: 'My non-existing plant',
-              stage_name: 'My stage name',
+              plant_stage_name: 'My stage name',
               quantity: 150,
               due_date: Date.current + 6.months,
               comment: 'My comment',
@@ -206,7 +206,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           expect(request.plant_stage).to eq(nil)
           expect(request.name).to eq('My request')
           expect(request.plant_name).to eq('My non-existing plant')
-          expect(request.stage_name).to eq('My stage name')
+          expect(request.plant_stage_name).to eq('My stage name')
           expect(request.status).to eq(:pending)
           expect(request.quantity).to eq(150)
           expect(request.due_date).to eq(Date.current + 6.months)
@@ -226,7 +226,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
             params: {
               name: nil,
               plant_name: nil,
-              stage_name: nil,
+              plant_stage_name: nil,
               quantity: nil,
               due_date: nil,
               comment: nil,
@@ -263,7 +263,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
             params: {
               name: nil,
               plant_name: nil,
-              stage_name: nil,
+              plant_stage_name: nil,
               quantity: nil,
               due_date: nil,
               comment: nil,

@@ -72,10 +72,10 @@ class RequestTest < ActiveSupport::TestCase
     assert_not_empty @request.errors[:plant_name]
   end
 
-  test 'invalid without stage_name' do
-    @request.stage_name = nil
+  test 'invalid without plant_stage_name' do
+    @request.plant_stage_name = nil
     assert_not @request.valid?
-    assert_not_empty @request.errors[:stage_name]
+    assert_not_empty @request.errors[:plant_stage_name]
   end
 
   # Enumerize
@@ -97,21 +97,21 @@ end
 #
 # Table name: requests
 #
-#  id             :bigint           not null, primary key
-#  author_id      :bigint
-#  handler_id     :bigint
-#  plant_stage_id :bigint
-#  name           :string
-#  plant_name     :string
-#  stage_name     :string
-#  status         :string
-#  comment        :text
-#  due_date       :date
-#  quantity       :integer
-#  temperature    :integer
-#  photoperiod    :integer
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
+#  id               :bigint           not null, primary key
+#  author_id        :bigint
+#  handler_id       :bigint
+#  plant_stage_id   :bigint
+#  name             :string
+#  plant_name       :string
+#  plant_stage_name :string
+#  status           :string
+#  comment          :text
+#  due_date         :date
+#  quantity         :integer
+#  temperature      :integer
+#  photoperiod      :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
 #
 # Indexes
 #

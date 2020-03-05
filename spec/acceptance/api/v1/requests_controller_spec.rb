@@ -69,7 +69,7 @@ resource 'Requests' do
     parameter :plant_name,
               'Name of the requested plant (ignored if plant_stage_id given)',
               with_example: true
-    parameter :stage_name,
+    parameter :plant_stage_name,
               'Name of the requested plant stage (ignored if plant_stage_id given)',
               with_example: true
     parameter :due_date, 'Due date of the request', with_example: true, type: :date
@@ -122,7 +122,7 @@ resource 'Requests' do
     parameter :plant_name,
               'Name of the requested plant (ignored if plant_stage_id given)',
               with_example: true
-    parameter :stage_name,
+    parameter :plant_stage_name,
               'Name of the requested plant stage (ignored if plant_stage_id given)',
               with_example: true
     parameter :due_date, 'Due date of the request', with_example: true, type: :date
