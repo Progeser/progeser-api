@@ -124,6 +124,21 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
 
     context 'when 422' do
       it_behaves_like 'with authenticated grower' do
+        it 'distributions can\'t have a sum of areas greater than their bench area' do
+          post(
+            "/api/v1/requests/#{request_id}/request_distributions",
+            headers: headers,
+            params: {
+              bench_id: Bench.first.id,
+              plant_stage_id: request.plant_stage_id,
+              area: Bench.first.area
+            }
+          )
+
+          expect(status).to eq(422)
+          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        end
+
         it 'fails to create a request distribution with missing params' do
           post(
             "/api/v1/requests/#{request_id}/request_distributions",

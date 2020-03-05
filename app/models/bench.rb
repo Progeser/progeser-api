@@ -11,6 +11,9 @@ class Bench < ApplicationRecord
 
   validates :area, numericality: { greater_than: 0 }
 
+  validates_associated :request_distributions,
+                       message: 'sum of distributions areas can\'t be greater than bench area'
+
   # Associations
   belongs_to :greenhouse,
              class_name: 'Greenhouse',

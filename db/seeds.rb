@@ -122,23 +122,23 @@ if Rails.env.development?
       greenhouse: greenhouse,
       name: "#{greenhouse.name} - bench 1",
       shape: :square,
-      dimensions: [5],
-      area: 25
+      dimensions: [200],
+      area: 40_000
     )
 
     Bench.create!(
       greenhouse: greenhouse,
       name: "#{greenhouse.name} - bench 2",
       shape: :rectangle,
-      dimensions: [5, 10],
-      area: 50
+      dimensions: [500, 100],
+      area: 50_000
     )
 
     Bench.create!(
       greenhouse: greenhouse,
       name: "#{greenhouse.name} - bench 3",
       shape: :other,
-      area: 100
+      area: 100_000
     )
   end
 

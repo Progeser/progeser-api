@@ -123,7 +123,7 @@ resource 'Benches' do
 
     let(:name)       { 'my square bench' }
     let(:shape)      { 'square' }
-    let(:dimensions) { [8] }
+    let(:dimensions) { [800] }
 
     let(:raw_post) { params.to_json }
 
@@ -138,7 +138,7 @@ resource 'Benches' do
       expect(response_body).to eq(bench.to_blueprint)
       expect(bench.name).to eq(name)
       expect(bench.shape).to eq(shape)
-      expect(bench.area).to eq(64.0)
+      expect(bench.area).to eq(640_000.0)
     end
   end
 

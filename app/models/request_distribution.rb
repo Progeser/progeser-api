@@ -6,7 +6,8 @@ class RequestDistribution < ApplicationRecord
 
   validates :pot_quantity, presence: true, if: -> { pot.present? }
 
-  validate :plant_stage_from_request
+  validate :plant_stage_from_request,
+           :distributions_areas_lower_than_bench_area
 
   # Associations
   belongs_to :request,
@@ -38,6 +39,17 @@ class RequestDistribution < ApplicationRecord
     return if request.plant.plant_stages.include?(plant_stage)
 
     errors.add(:plant_stage, 'must be from requested plant')
+  end
+
+  def distributions_areas_lower_than_bench_area
+    return if area.nil?
+    return if bench&.area.nil?
+
+    sum = bench.request_distributions.map(&:area).sum
+    sum += area if new_record? # area isn't included in previous operation if record isn't persisted
+    return if sum <= bench.area
+
+    errors.add(:bench, 'sum of distributions areas can\'t be greater than bench area')
   end
 end
 

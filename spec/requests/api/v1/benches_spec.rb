@@ -83,6 +83,26 @@ RSpec.describe 'Api/V1/Benches', type: :request do
         end
       end
     end
+
+    context 'when 422' do
+      it_behaves_like 'with authenticated grower' do
+        it 'can\'t have an area lower than the sum of distributions areas' do
+          put(
+            "/api/v1/benches/#{id}",
+            headers: headers,
+            params: {
+              name: bench.name,
+              shape: bench.shape,
+              area: 1.0
+            },
+            as: :json
+          )
+
+          expect(status).to eq(422)
+          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        end
+      end
+    end
   end
 
   describe 'DELETE api/v1/benches/:id' do
