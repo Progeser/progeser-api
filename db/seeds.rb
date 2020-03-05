@@ -169,7 +169,6 @@ if Rails.env.development?
     name: 'My first request',
     plant_name: Plant.first.name,
     plant_stage_name: Plant.first.plant_stages.last.name,
-    status: :accepted,
     comment: Faker::Movies::LordOfTheRings.quote,
     due_date: Date.current + 3.months,
     quantity: 50,
@@ -205,6 +204,8 @@ if Rails.env.development?
     pot_quantity: 20,
     area: Pot.second.area * 20
   )
+
+  Request.first.update!(status: :accepted)
 
   RequestDistribution.create!(
     request: Request.second,
