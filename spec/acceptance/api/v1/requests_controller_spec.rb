@@ -107,6 +107,7 @@ resource 'Requests' do
 
       response = JSON.parse(response_body)
       expect(response.dig('plant_stage_id')).to eq(plant_stage_id)
+      expect(response.dig('plant_id')).to eq(Plant.last.id)
       expect(response.dig('name')).to eq(name)
       expect(response.dig('due_date')).to eq(due_date.strftime('%F'))
       expect(response.dig('quantity')).to eq(quantity)
