@@ -6,7 +6,7 @@ RSpec.describe 'Api/V1/Shapes', type: :request do
   describe 'GET api/v1/shapes' do
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t get shapes as a requester' do
+        it 'can\'t get shapes' do
           get('/api/v1/shapes', headers: headers)
 
           expect(status).to eq(403)

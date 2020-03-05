@@ -36,7 +36,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
 
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t get request distributions as a requester' do
+        it 'can\'t get request distributions' do
           get('/api/v1/requests/2/request_distributions', headers: headers)
 
           expect(status).to eq(403)
@@ -49,7 +49,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
   describe 'GET api/v1/request_distributions/:id' do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t get a request distribution as a requester' do
+        it 'can\'t get a request distribution' do
           get("/api/v1/request_distributions/#{id}", headers: headers)
 
           expect(status).to eq(404)
@@ -113,7 +113,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
 
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t create a request distribution as a requester' do
+        it 'can\'t create a request distribution' do
           post("/api/v1/requests/#{request_id}/request_distributions", headers: headers)
 
           expect(status).to eq(404)
@@ -188,7 +188,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
 
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t update a request distribution as a requester' do
+        it 'can\'t update a request distribution' do
           put("/api/v1/request_distributions/#{id}", headers: headers)
 
           expect(status).to eq(404)

@@ -34,7 +34,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
 
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t get pots as a requester' do
+        it 'can\'t get pots' do
           get('/api/v1/pots', headers: headers)
 
           expect(status).to eq(403)
@@ -47,7 +47,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
   describe 'GET api/v1/pots/:id' do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t get a pot as a requester' do
+        it 'can\'t get a pot' do
           get("/api/v1/pots/#{id}", headers: headers)
 
           expect(status).to eq(404)
@@ -262,7 +262,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
 
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t create a pot as a requester' do
+        it 'can\'t create a pot' do
           post('/api/v1/pots', headers: headers)
 
           expect(status).to eq(403)
@@ -343,7 +343,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
   describe 'PUT api/v1/pots/:id' do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t update a pot as a requester' do
+        it 'can\'t update a pot' do
           put("/api/v1/pots/#{id}", headers: headers)
 
           expect(status).to eq(404)
@@ -367,7 +367,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
 
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t delete a pot as a requester' do
+        it 'can\'t delete a pot' do
           delete("/api/v1/pots/#{id}", headers: headers)
 
           expect(status).to eq(404)

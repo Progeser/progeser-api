@@ -55,7 +55,7 @@ RSpec.describe 'Api/V1/AccountRequests', type: :request do
 
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t get account requests as a requester' do
+        it 'can\'t get account requests' do
           get('/api/v1/account_requests', headers: headers)
 
           expect(status).to eq(403)
@@ -68,7 +68,7 @@ RSpec.describe 'Api/V1/AccountRequests', type: :request do
   describe 'GET api/v1/account_requests/:id' do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t get an account request as a requester' do
+        it 'can\'t get an account request' do
           get("/api/v1/account_requests/#{id}", headers: headers)
 
           expect(status).to eq(404)
@@ -102,7 +102,7 @@ RSpec.describe 'Api/V1/AccountRequests', type: :request do
   describe 'POST api/v1/account_requests/:id/accept' do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t accept an account request as a requester' do
+        it 'can\'t accept an account request' do
           post("/api/v1/account_requests/#{id}/accept", headers: headers)
 
           expect(status).to eq(404)
@@ -115,7 +115,7 @@ RSpec.describe 'Api/V1/AccountRequests', type: :request do
   describe 'DELETE api/v1/account_requests/:id' do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t delete an account request as a requester' do
+        it 'can\'t delete an account request' do
           delete("/api/v1/account_requests/#{id}", headers: headers)
 
           expect(status).to eq(404)

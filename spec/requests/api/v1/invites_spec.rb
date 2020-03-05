@@ -55,7 +55,7 @@ RSpec.describe 'Api/V1/Invites', type: :request do
 
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t get invites as a requester' do
+        it 'can\'t get invites' do
           get('/api/v1/invites', headers: headers)
 
           expect(status).to eq(403)
@@ -68,7 +68,7 @@ RSpec.describe 'Api/V1/Invites', type: :request do
   describe 'GET api/v1/invites/:id' do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t get an invite as a requester' do
+        it 'can\'t get an invite' do
           get("/api/v1/invites/#{id}", headers: headers)
 
           expect(status).to eq(404)
@@ -102,7 +102,7 @@ RSpec.describe 'Api/V1/Invites', type: :request do
 
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t create an invite as a requester' do
+        it 'can\'t create an invite' do
           post('/api/v1/invites', headers: headers)
 
           expect(status).to eq(403)
@@ -136,7 +136,7 @@ RSpec.describe 'Api/V1/Invites', type: :request do
   describe 'POST api/v1/invites/:id/retry' do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t retry sending the invite email as a requester' do
+        it 'can\'t retry sending the invite email' do
           post("/api/v1/invites/#{id}/retry", headers: headers)
 
           expect(status).to eq(404)
@@ -149,7 +149,7 @@ RSpec.describe 'Api/V1/Invites', type: :request do
   describe 'DELETE api/v1/invites/:id' do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t delete an invite as a requester' do
+        it 'can\'t delete an invite' do
           delete("/api/v1/invites/#{id}", headers: headers)
 
           expect(status).to eq(404)

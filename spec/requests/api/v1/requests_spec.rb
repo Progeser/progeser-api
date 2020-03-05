@@ -47,7 +47,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
       end
 
       it_behaves_like 'with authenticated requester' do
-        it 'can get my requests as a requester' do
+        it 'can get my requests' do
           get('/api/v1/requests', headers: headers)
 
           expect(status).to eq(200)
@@ -60,7 +60,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
   describe 'GET api/v1/requests/:id' do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t get a request of another author as a requester' do
+        it 'can\'t get a request of another author' do
           get("/api/v1/requests/#{id}", headers: headers)
 
           expect(status).to eq(404)

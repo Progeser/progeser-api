@@ -34,7 +34,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
 
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t get greenhouses as a requester' do
+        it 'can\'t get greenhouses' do
           get('/api/v1/greenhouses', headers: headers)
 
           expect(status).to eq(403)
@@ -47,7 +47,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
   describe 'GET api/v1/greenhouses/:id' do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t get a greenhouse as a requester' do
+        it 'can\'t get a greenhouse' do
           get("/api/v1/greenhouses/#{id}", headers: headers)
 
           expect(status).to eq(404)
@@ -60,7 +60,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
   describe 'POST api/v1/greenhouses' do
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t create a greenhouse as a requester' do
+        it 'can\'t create a greenhouse' do
           post('/api/v1/greenhouses', headers: headers)
 
           expect(status).to eq(403)
@@ -92,7 +92,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
   describe 'PUT api/v1/greenhouses/:id' do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t update a greenhouse as a requester' do
+        it 'can\'t update a greenhouse' do
           put("/api/v1/greenhouses/#{id}", headers: headers)
 
           expect(status).to eq(404)
@@ -135,7 +135,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
 
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t delete a greenhouse as a requester' do
+        it 'can\'t delete a greenhouse' do
           delete("/api/v1/greenhouses/#{id}", headers: headers)
 
           expect(status).to eq(404)

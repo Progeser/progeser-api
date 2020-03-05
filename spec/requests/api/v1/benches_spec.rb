@@ -36,7 +36,7 @@ RSpec.describe 'Api/V1/Benches', type: :request do
 
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t get benches as a requester' do
+        it 'can\'t get benches' do
           get("/api/v1/greenhouses/#{greenhouse_id}/benches", headers: headers)
 
           expect(status).to eq(404)
@@ -49,7 +49,7 @@ RSpec.describe 'Api/V1/Benches', type: :request do
   describe 'GET api/v1/benches/:id' do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t get a bench as a requester' do
+        it 'can\'t get a bench' do
           get("/api/v1/benches/#{id}", headers: headers)
 
           expect(status).to eq(404)
@@ -62,7 +62,7 @@ RSpec.describe 'Api/V1/Benches', type: :request do
   describe 'POST api/v1/greenhouses/:greenhouse_id/benches' do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t create a bench as a requester' do
+        it 'can\'t create a bench' do
           post("/api/v1/greenhouses/#{greenhouse_id}/benches", headers: headers)
 
           expect(status).to eq(404)
@@ -75,7 +75,7 @@ RSpec.describe 'Api/V1/Benches', type: :request do
   describe 'PUT api/v1/benches/:id' do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t update a bench as a requester' do
+        it 'can\'t update a bench' do
           put("/api/v1/benches/#{id}", headers: headers)
 
           expect(status).to eq(404)
@@ -99,7 +99,7 @@ RSpec.describe 'Api/V1/Benches', type: :request do
 
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
-        it 'can\'t delete a bench as a requester' do
+        it 'can\'t delete a bench' do
           delete("/api/v1/benches/#{id}", headers: headers)
 
           expect(status).to eq(404)
