@@ -29,27 +29,19 @@ class InviteTest < ActiveSupport::TestCase
     assert_not_empty @invite.errors[:email]
   end
 
-  test 'invalid without first_name' do
+  test 'valid without first_name' do
     @invite.first_name = nil
-    assert_not @invite.valid?
-    assert_not_empty @invite.errors[:first_name]
+    assert @invite.valid?, @invite.errors.messages
   end
 
-  test 'invalid without last_name' do
+  test 'valid without last_name' do
     @invite.last_name = nil
-    assert_not @invite.valid?
-    assert_not_empty @invite.errors[:last_name]
+    assert @invite.valid?, @invite.errors.messages
   end
 
-  test 'invalid without laboratory for a requester' do
+  test 'valid without laboratory' do
     @invite.laboratory = nil
-    assert_not @invite.valid?
-    assert_not_empty @invite.errors[:laboratory]
-  end
-
-  test 'valid without laboratory for a grower' do
-    invites(:invite_2).laboratory = nil
-    assert invites(:invite_2).valid?
+    assert @invite.valid?, @invite.errors.messages
   end
 
   # Enumerize

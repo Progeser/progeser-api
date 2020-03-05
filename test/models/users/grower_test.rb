@@ -61,7 +61,7 @@ class Users::GrowerTest < ActiveSupport::TestCase
 
   test 'valid without laboratory' do
     @user.laboratory = nil
-    assert @user.valid?
+    assert @user.valid?, @user.errors.messages
   end
 
   # Enumerize
