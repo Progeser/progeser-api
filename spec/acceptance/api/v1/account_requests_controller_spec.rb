@@ -48,6 +48,19 @@ resource 'Account Requests' do
     end
   end
 
+  get '/api/v1/account_requests/pending_account_requests_count' do
+    example 'Get number of pending account requests' do
+      authentication :basic, "Bearer #{user_token.token}"
+
+      do_request
+
+      expect(status).to eq(200)
+      expect(
+        JSON.parse(response_body).dig('pending_account_requests_count')
+      ).to eq(AccountRequest.where(accepted: false).count)
+    end
+  end
+
   get '/api/v1/account_requests/:id' do
     example 'Get an account request' do
       authentication :basic, "Bearer #{user_token.token}"

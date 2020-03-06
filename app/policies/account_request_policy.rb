@@ -5,6 +5,10 @@ class AccountRequestPolicy < ApplicationPolicy
     grower?
   end
 
+  def pending_account_requests_count?
+    grower?
+  end
+
   def show?
     grower?
   end

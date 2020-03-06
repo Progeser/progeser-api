@@ -3,14 +3,21 @@
 class Api::V1::AccountRequestsController < ApiController
   skip_before_action :doorkeeper_authorize!, only: :create
   skip_after_action :verify_authorized, only: :create
+  skip_after_action :verify_policy_scoped, only: :pending_account_requests_count
 
-  before_action :set_account_request, except: %i[index create]
+  before_action :set_account_request, only: %i[show accept destroy]
 
   def index
     account_requests = policy_scope(AccountRequest)
     authorize account_requests
 
     render json: apply_fetcheable(account_requests).to_blueprint
+  end
+
+  def pending_account_requests_count
+    authorize AccountRequest
+
+    render json: { pending_account_requests_count: AccountRequest.where(accepted: false).count }
   end
 
   def show

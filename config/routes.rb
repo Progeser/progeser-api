@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       end
 
       resources :account_requests, only: %i[index show create destroy] do
+        get :pending_account_requests_count, on: :collection
         post :accept, on: :member
       end
 

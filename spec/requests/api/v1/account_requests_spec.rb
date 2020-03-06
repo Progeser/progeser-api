@@ -65,6 +65,19 @@ RSpec.describe 'Api/V1/AccountRequests', type: :request do
     end
   end
 
+  describe 'GET api/v1/account_requests/pending_account_requests_count' do
+    context 'when 403' do
+      it_behaves_like 'with authenticated requester' do
+        it 'can\'t get number of pending account requests' do
+          get('/api/v1/account_requests/pending_account_requests_count', headers: headers)
+
+          expect(status).to eq(403)
+          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        end
+      end
+    end
+  end
+
   describe 'GET api/v1/account_requests/:id' do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
