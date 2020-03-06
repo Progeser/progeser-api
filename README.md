@@ -1,9 +1,9 @@
 # ProGeSer API
 
-[![Build Status](https://travis-ci.org/ProGeSer/progeser-api.svg?branch=master)](https://travis-ci.org/ProGeSer/progeser-api)
-[![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=ProGeSer/progeser-api)](https://api.dependabot.com/badges/status?host=github&repo=ProGeSer/progeser-api)
-[![Maintainability](https://api.codeclimate.com/v1/badges/908ab32e27c4371f4c5e/maintainability)](https://codeclimate.com/github/ProGeSer/progeser-api/maintainability)
-[![Coverage](https://api.codeclimate.com/v1/badges/908ab32e27c4371f4c5e/test_coverage)](https://codeclimate.com/github/ProGeSer/progeser-api/test_coverage)
+[![Build Status](https://travis-ci.org/Progeser/progeser-api.svg?branch=master)](https://travis-ci.org/Progeser/progeser-api)
+[![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=Progeser/progeser-api)](https://api.dependabot.com/badges/status?host=github&repo=Progeser/progeser-api)
+[![Maintainability](https://api.codeclimate.com/v1/badges/34144c727e5098090c39/maintainability)](https://codeclimate.com/github/Progeser/progeser-api/maintainability)
+[![Coverage](https://api.codeclimate.com/v1/badges/34144c727e5098090c39/test_coverage)](https://codeclimate.com/github/Progeser/progeser-api/test_coverage)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 This README would normally document whatever steps are necessary to get the
