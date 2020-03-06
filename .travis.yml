@@ -15,7 +15,8 @@ stages:
 - lint
 - security
 - test
-- docker
+- name: docker
+  if: branch = master
 jobs:
   include:
   - stage: lint
@@ -43,4 +44,3 @@ jobs:
     - "./cc-test-reporter after-build --exit-code $TRAVIS_TEStrT_RESULT"
   - stage: docker
     script: bash scripts/docker_travis
-
