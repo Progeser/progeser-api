@@ -118,12 +118,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "bf056834-e2e5-43f3-909d-3bff38a570b0"
+                "x-example-value": "fa23f2c6-6c5b-4019-ad41-8a020e13abc2"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.029878"
+                "x-example-value": "0.027167"
               },
               "Vary": {
                 "description": "",
@@ -137,38 +137,6 @@
               }
             },
             "examples": {
-              "application/json": [
-                {
-                  "id": 1,
-                  "accepted": true,
-                  "comment": "Good evening, London. Allow me first to apologize for this interruption. I do, like many of you, appreciate the comforts of every day routine- the security of the familiar, the tranquility of repetition. I enjoy them as much as any bloke. But in the spirit of commemoration, whereby those important events of the past, usually associated with someone's death or the end of some awful bloody struggle, a celebration of a nice holiday, I thought we could mark this November the 5th, a day that is sadly no longer remembered, by taking some time out of our daily lives to sit down and have a little chat. There are of course those who do not want us to speak. I suspect even now, orders are being shouted into telephones, and men with guns will soon be on their way. Why? Because while the truncheon may be used in lieu of conversation, words will always retain their power. Words offer the means to meaning, and for those who will listen, the enunciation of truth. And the truth is, there is something terribly wrong with this country, isn't there? Cruelty and injustice, intolerance and oppression. And where once you had the freedom to object, to think and speak as you saw fit, you now have censors and systems of surveillance coercing your conformity and soliciting your submission. How did this happen? Who's to blame? Well certainly there are those more responsible than others, and they will be held accountable, but again truth be told, if you're looking for the guilty, you need only look into a mirror. I know why you did it. I know you were afraid. Who wouldn't be? War, terror, disease. There were a myriad of problems which conspired to corrupt your reason and rob you of your common sense. Fear got the best of you, and in your panic you turned to the now high chancellor, Adam Sutler. He promised you order, he promised you peace, and all he demanded in return was your silent, obedient consent. Last night I sought to end that silence. Last night I destroyed the Old Bailey, to remind this country of what it has forgotten. More than four hundred years ago a great citizen wished to embed the fifth of November forever in our memory. His hope was to remind the world that fairness, justice, and freedom are more than words, they are perspectives. So if you've seen nothing, if the crimes of this government remain unknown to you, then I would suggest you allow the fifth of November to pass unmarked. But if you see what I see, if you feel as I feel, and if you would seek as I seek, then I ask you to stand beside me one year from tonight, outside the gates of Parliament, and together we shall give them a fifth of November that shall never, ever be forgot.",
-                  "created_at": "2019-11-13T19:30:49.632Z",
-                  "email": "tyler.kautzer@beierhegmann.net",
-                  "first_name": "Manon",
-                  "last_name": "Rousseau",
-                  "updated_at": "2019-11-13T19:30:49.632Z"
-                },
-                {
-                  "id": 2,
-                  "accepted": false,
-                  "comment": "I know there's no way I can convince you this is not one of their tricks, but I don't care, I am me. My name is Valerie, I don't think I'll live much longer and I wanted to tell someone about my life. This is the only autobiography I'll ever write, and god, I'm writing it on toilet paper. I was born in Nottingham in 1985, I don't remember much of those early years, but I do remember the rain. My grandmother owned a farm in Tuttlebrook, and she use to tell me that god was in the rain. I passed my 11th lesson into girl's grammar; it was at school that I met my first girlfriend, her name was Sara. It was her wrists. They were beautiful. I thought we would love each other forever. I remember our teacher telling us that is was an adolescent phase people outgrew. Sara did, I didn't. In 2002, I fell in love with a girl named Christina. That year I came out to my parents. I couldn't have done it without Chris holding my hand. My father wouldn't look at me, he told me to go and never come back. My mother said nothing. But I had only told them the truth, was that so selfish? Our integrity sells for so little, but it is all we really have. It is the very last inch of us, but within that inch, we are free. I'd always known what I wanted to do with my life, and in 2015 I starred in my first film, 'The Salt Flats'. It was the most important role of my life, not because of my career, but because that was how I met Ruth. The first time we kissed, I knew I never wanted to kiss any other lips but hers again. We moved to a small flat in London together. She grew Scarlet Carsons for me in our window box, and our place always smelled of roses. Those were there best years of my life. But America's war grew worse, and worse. And eventually came to London. After that there were no roses anymore. Not for anyone. I remember how the meaning of words began to change. How unfamiliar words like 'collateral' and 'rendition' became frightening. While things like Norse Fire and The Articles of Allegiance became powerful, I remember how different became dangerous. I still don't understand it, why they hate us so much. They took Ruth while she was out buying food. I've never cried so hard in my life. It wasn't long till they came for me. It seems strange that my life should end in such a terrible place, but for three years, I had roses, and apologized to no one. I shall die here. Every inch of me shall perish. Every inch, but one. An Inch, it is small and it is fragile, but it is the only thing the world worth having. We must never lose it or give it away. We must never let them take it from us. I hope that whoever you are, you escape this place. I hope that the world turns and that things get better. But what I hope most of all is that you understand what I mean when I tell you that even though I do not know you, and even though I may never meet you, laugh with you, cry with you, or kiss you. I love you. With all my heart, I love you. -Valerie",
-                  "created_at": "2019-11-13T19:31:05.133Z",
-                  "email": "deidre@ratkewyman.com",
-                  "first_name": "Nicolas",
-                  "last_name": "Lecomte",
-                  "updated_at": "2019-11-13T19:31:05.133Z"
-                },
-                {
-                  "id": 3,
-                  "accepted": false,
-                  "comment": "My fellow Englishmen: tonight our country, that which we stand for, and all we hold dear, faces a grave and terrible threat. This violent and unparalleled assault on our security will not go undefended... or unpunished. Our enemy is an insidious one, seeking to divide us and destroy the very foundation of our great nation. Tonight, we must remain steadfast. We must remain determined. But most of all, we must remain united. Those caught tonight in violation of curfew will be considered in league with our enemy and prosecuted as a terrorist without leniency or exception. Tonight, I give you my most solemn vow: that justice will be swift, it will be righteous, and it will be without mercy.",
-                  "created_at": "2019-11-13T19:31:06.133Z",
-                  "email": "elma@mitchell.co",
-                  "first_name": "Adrien",
-                  "last_name": "Poirier",
-                  "updated_at": "2019-11-13T19:31:06.133Z"
-                }
-              ]
             }
           }
         },
@@ -197,21 +165,21 @@
           {
             "name": "email",
             "in": "formData",
-            "description": "Email of the requested account\nEg, `katherina@borerbins.io`",
+            "description": "Email of the requested account\nEg, `natacha@mitchellerdman.com`",
             "required": false,
             "type": "string"
           },
           {
             "name": "first_name",
             "in": "formData",
-            "description": "First name of the requested account\nEg, `Maëlle`",
+            "description": "First name of the requested account\nEg, `Alicia`",
             "required": false,
             "type": "string"
           },
           {
             "name": "last_name",
             "in": "formData",
-            "description": "Last name of the requested account\nEg, `Dvnis`",
+            "description": "Last name of the requested account\nEg, `Francois`",
             "required": false,
             "type": "string"
           },
@@ -271,7 +239,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"209cd8e6035a5a8b39cf6b735d4e3ceb\""
+                "x-example-value": "W/\"27cd20ab11262850022d825fe04627fe\""
               },
               "Cache-Control": {
                 "description": "",
@@ -281,12 +249,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "362cee1d-5192-461e-a925-09354d5cb16a"
+                "x-example-value": "86baf7d8-982e-4652-aed7-9b01fae969bc"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.011829"
+                "x-example-value": "0.010937"
               },
               "Vary": {
                 "description": "",
@@ -296,7 +264,7 @@
               "Content-Length": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "936"
+                "x-example-value": "942"
               }
             },
             "examples": {
@@ -304,11 +272,11 @@
                 "id": 4,
                 "accepted": false,
                 "comment": "Voilà! In view, a humble vaudevillian veteran, cast vicariously as both victim and villain by the vicissitudes of Fate. This visage, no mere veneer of vanity, is a vestige of the vox populi, now vacant, vanished. However, this valorous visitation of a by-gone vexation, stands vivified and has vowed to vanquish these venal and virulent vermin vanguarding vice and vouchsafing the violently vicious and voracious violation of volition. The only verdict is vengeance; a vendetta, held as a votive, not in vain, for the value and veracity of such shall one day vindicate the vigilant and the virtuous. Verily, this vichyssoise of verbiage veers most verbose, so let me simply add that it's my very good honor to meet you and you may call me V.",
-                "created_at": "2020-03-06T01:28:38.686Z",
-                "email": "katherina@borerbins.io",
-                "first_name": "Maëlle",
-                "last_name": "Dvnis",
-                "updated_at": "2020-03-06T01:28:38.686Z"
+                "created_at": "2020-03-06T13:17:01.253Z",
+                "email": "natacha@mitchellerdman.com",
+                "first_name": "Alicia",
+                "last_name": "Francois",
+                "updated_at": "2020-03-06T13:17:01.253Z"
               }
             }
           }
@@ -399,12 +367,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "dcf6111e-96bc-4140-92d8-a645c75df8c4"
+                "x-example-value": "eb32b24b-4a84-4870-a39e-f0a6300f03ef"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.010020"
+                "x-example-value": "0.010610"
               },
               "Vary": {
                 "description": "",
@@ -418,16 +386,6 @@
               }
             },
             "examples": {
-              "application/json": {
-                "id": 1,
-                "accepted": true,
-                "comment": "Good evening, London. Allow me first to apologize for this interruption. I do, like many of you, appreciate the comforts of every day routine- the security of the familiar, the tranquility of repetition. I enjoy them as much as any bloke. But in the spirit of commemoration, whereby those important events of the past, usually associated with someone's death or the end of some awful bloody struggle, a celebration of a nice holiday, I thought we could mark this November the 5th, a day that is sadly no longer remembered, by taking some time out of our daily lives to sit down and have a little chat. There are of course those who do not want us to speak. I suspect even now, orders are being shouted into telephones, and men with guns will soon be on their way. Why? Because while the truncheon may be used in lieu of conversation, words will always retain their power. Words offer the means to meaning, and for those who will listen, the enunciation of truth. And the truth is, there is something terribly wrong with this country, isn't there? Cruelty and injustice, intolerance and oppression. And where once you had the freedom to object, to think and speak as you saw fit, you now have censors and systems of surveillance coercing your conformity and soliciting your submission. How did this happen? Who's to blame? Well certainly there are those more responsible than others, and they will be held accountable, but again truth be told, if you're looking for the guilty, you need only look into a mirror. I know why you did it. I know you were afraid. Who wouldn't be? War, terror, disease. There were a myriad of problems which conspired to corrupt your reason and rob you of your common sense. Fear got the best of you, and in your panic you turned to the now high chancellor, Adam Sutler. He promised you order, he promised you peace, and all he demanded in return was your silent, obedient consent. Last night I sought to end that silence. Last night I destroyed the Old Bailey, to remind this country of what it has forgotten. More than four hundred years ago a great citizen wished to embed the fifth of November forever in our memory. His hope was to remind the world that fairness, justice, and freedom are more than words, they are perspectives. So if you've seen nothing, if the crimes of this government remain unknown to you, then I would suggest you allow the fifth of November to pass unmarked. But if you see what I see, if you feel as I feel, and if you would seek as I seek, then I ask you to stand beside me one year from tonight, outside the gates of Parliament, and together we shall give them a fifth of November that shall never, ever be forgot.",
-                "created_at": "2019-11-13T19:30:49.632Z",
-                "email": "tyler.kautzer@beierhegmann.net",
-                "first_name": "Manon",
-                "last_name": "Rousseau",
-                "updated_at": "2019-11-13T19:30:49.632Z"
-              }
             }
           }
         },
@@ -509,12 +467,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "5fda9d5b-f7dd-4c32-a72d-670c30507ea4"
+                "x-example-value": "9b8c9091-b634-4928-9ae5-4e3d629e804d"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.013705"
+                "x-example-value": "0.014664"
               },
               "Vary": {
                 "description": "",
@@ -614,12 +572,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "dbee8a6f-831a-437e-b8c3-f1ceb5528fa7"
+                "x-example-value": "49e0d9fb-02b6-42a6-9ae5-82a1bae3fa71"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.030708"
+                "x-example-value": "0.028970"
               },
               "Vary": {
                 "description": "",
@@ -633,16 +591,6 @@
               }
             },
             "examples": {
-              "application/json": {
-                "id": 1,
-                "accepted": true,
-                "comment": "Good evening, London. Allow me first to apologize for this interruption. I do, like many of you, appreciate the comforts of every day routine- the security of the familiar, the tranquility of repetition. I enjoy them as much as any bloke. But in the spirit of commemoration, whereby those important events of the past, usually associated with someone's death or the end of some awful bloody struggle, a celebration of a nice holiday, I thought we could mark this November the 5th, a day that is sadly no longer remembered, by taking some time out of our daily lives to sit down and have a little chat. There are of course those who do not want us to speak. I suspect even now, orders are being shouted into telephones, and men with guns will soon be on their way. Why? Because while the truncheon may be used in lieu of conversation, words will always retain their power. Words offer the means to meaning, and for those who will listen, the enunciation of truth. And the truth is, there is something terribly wrong with this country, isn't there? Cruelty and injustice, intolerance and oppression. And where once you had the freedom to object, to think and speak as you saw fit, you now have censors and systems of surveillance coercing your conformity and soliciting your submission. How did this happen? Who's to blame? Well certainly there are those more responsible than others, and they will be held accountable, but again truth be told, if you're looking for the guilty, you need only look into a mirror. I know why you did it. I know you were afraid. Who wouldn't be? War, terror, disease. There were a myriad of problems which conspired to corrupt your reason and rob you of your common sense. Fear got the best of you, and in your panic you turned to the now high chancellor, Adam Sutler. He promised you order, he promised you peace, and all he demanded in return was your silent, obedient consent. Last night I sought to end that silence. Last night I destroyed the Old Bailey, to remind this country of what it has forgotten. More than four hundred years ago a great citizen wished to embed the fifth of November forever in our memory. His hope was to remind the world that fairness, justice, and freedom are more than words, they are perspectives. So if you've seen nothing, if the crimes of this government remain unknown to you, then I would suggest you allow the fifth of November to pass unmarked. But if you see what I see, if you feel as I feel, and if you would seek as I seek, then I ask you to stand beside me one year from tonight, outside the gates of Parliament, and together we shall give them a fifth of November that shall never, ever be forgot.",
-                "created_at": "2019-11-13T19:30:49.632Z",
-                "email": "tyler.kautzer@beierhegmann.net",
-                "first_name": "Manon",
-                "last_name": "Rousseau",
-                "updated_at": "2019-11-13T19:30:49.632Z"
-              }
             }
           }
         },
@@ -752,12 +700,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "cbc2a71e-113b-4e85-9a52-89d9576b21df"
+                "x-example-value": "8be4a47b-226f-44cd-8cd2-9c49e9704a2d"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.018666"
+                "x-example-value": "0.018691"
               },
               "Vary": {
                 "description": "",
@@ -940,7 +888,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"7a5bcf7a59062721e0146d4f8d17b6f7\""
+                "x-example-value": "W/\"0466e52dc1ae13a9553c7094f1149399\""
               },
               "Cache-Control": {
                 "description": "",
@@ -950,12 +898,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "dd99546c-a5ca-489e-b948-662668b10a6a"
+                "x-example-value": "0e4daebc-b6ed-4f0e-b553-213831da2621"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.026836"
+                "x-example-value": "0.024313"
               },
               "Vary": {
                 "description": "",
@@ -969,25 +917,6 @@
               }
             },
             "examples": {
-              "application/json": {
-                "id": 7,
-                "area": "20000.0",
-                "created_at": "2020-03-06T01:28:38.863Z",
-                "dimensions": [
-                  100,
-                  200
-                ],
-                "name": "my rectangular bench",
-                "shape": {
-                  "dimension_names": [
-                    "largeur",
-                    "longueur"
-                  ],
-                  "display_name": "rectangle",
-                  "name": "rectangle"
-                },
-                "updated_at": "2020-03-06T01:28:38.863Z"
-              }
             }
           }
         },
@@ -1081,12 +1010,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "2d06c5b4-8519-43c7-889d-d4195d2e75c8"
+                "x-example-value": "a760eee5-8747-4bcf-9a5f-e05eec33d71e"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.013089"
+                "x-example-value": "0.013179"
               },
               "Vary": {
                 "description": "",
@@ -1236,7 +1165,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"f142f138ef964a17b1a7e418957a7d9e\""
+                "x-example-value": "W/\"4076717b9eec3f0271cb0a27156ebdb7\""
               },
               "Cache-Control": {
                 "description": "",
@@ -1246,12 +1175,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "899ca201-8ee4-4a0d-b2b0-289bf9252b33"
+                "x-example-value": "cf20464a-ddc8-4fd0-9837-a203903c88c7"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.066542"
+                "x-example-value": "0.066206"
               },
               "Vary": {
                 "description": "",
@@ -1280,7 +1209,7 @@
                   "display_name": "carré",
                   "name": "square"
                 },
-                "updated_at": "2020-03-06T01:28:38.944Z"
+                "updated_at": "2020-03-06T13:17:01.504Z"
               }
             }
           }
@@ -1363,12 +1292,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "050863f2-8eee-485f-aeea-2059857f2f69"
+                "x-example-value": "51a3536c-83f8-4f09-bf69-b1791d19ec95"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.014008"
+                "x-example-value": "0.013617"
               },
               "Vary": {
                 "description": "",
@@ -1477,12 +1406,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "68025542-e4a4-470d-a4d8-4965dc33c0b2"
+                "x-example-value": "7021e6e9-328a-4140-b2de-23b7117f6383"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.016529"
+                "x-example-value": "0.016114"
               },
               "Vary": {
                 "description": "",
@@ -1496,26 +1425,6 @@
               }
             },
             "examples": {
-              "application/json": [
-                {
-                  "id": 1,
-                  "created_at": "2019-12-30T17:50:24.796Z",
-                  "height": 2000,
-                  "name": "My big greenhouse",
-                  "occupancy": "0.0",
-                  "updated_at": "2019-12-30T17:50:24.796Z",
-                  "width": 1000
-                },
-                {
-                  "id": 2,
-                  "created_at": "2019-12-30T17:50:24.918Z",
-                  "height": 500,
-                  "name": "My small greenhouse",
-                  "occupancy": "0.0",
-                  "updated_at": "2019-12-30T17:50:24.918Z",
-                  "width": 500
-                }
-              ]
             }
           }
         },
@@ -1611,7 +1520,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"bc1333f472ccaf8f5aecaa80609d3a8c\""
+                "x-example-value": "W/\"edc13cbddafb352519a93dbb14786479\""
               },
               "Cache-Control": {
                 "description": "",
@@ -1621,12 +1530,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "aafa896f-4074-45e1-996c-9aae3a5a51bd"
+                "x-example-value": "c33b5f83-0930-465e-b66a-905b2f7a50e2"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.015414"
+                "x-example-value": "0.017553"
               },
               "Vary": {
                 "description": "",
@@ -1640,15 +1549,6 @@
               }
             },
             "examples": {
-              "application/json": {
-                "id": 3,
-                "created_at": "2020-03-06T01:28:39.044Z",
-                "height": 200,
-                "name": "My new greenhouse",
-                "occupancy": "0.0",
-                "updated_at": "2020-03-06T01:28:39.044Z",
-                "width": 100
-              }
             }
           }
         },
@@ -1742,12 +1642,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "930c1f24-6436-47b9-9176-3cb536f42a93"
+                "x-example-value": "c22fe2a1-d79a-43e4-95dd-6d78645e8f90"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.014326"
+                "x-example-value": "0.016011"
               },
               "Vary": {
                 "description": "",
@@ -1761,15 +1661,6 @@
               }
             },
             "examples": {
-              "application/json": {
-                "id": 1,
-                "created_at": "2019-12-30T17:50:24.796Z",
-                "height": 2000,
-                "name": "My big greenhouse",
-                "occupancy": "0.0",
-                "updated_at": "2019-12-30T17:50:24.796Z",
-                "width": 1000
-              }
             }
           }
         },
@@ -1872,7 +1763,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"4a82a0fbf8f573aad8dceb36b786b2dc\""
+                "x-example-value": "W/\"93b22d5a9d2413f44c6d35992f76367a\""
               },
               "Cache-Control": {
                 "description": "",
@@ -1882,12 +1773,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "068c4cdf-f67a-4566-8245-d1e04661a4ba"
+                "x-example-value": "f908fbb2-b8a5-4ecd-9339-12d6c6f5fb1e"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.017837"
+                "x-example-value": "0.019402"
               },
               "Vary": {
                 "description": "",
@@ -1901,15 +1792,6 @@
               }
             },
             "examples": {
-              "application/json": {
-                "id": 1,
-                "created_at": "2019-12-30T17:50:24.796Z",
-                "height": 200,
-                "name": "Updated name",
-                "occupancy": "100.0",
-                "updated_at": "2020-03-06T01:28:39.071Z",
-                "width": 100
-              }
             }
           }
         },
@@ -1991,12 +1873,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "ed1a65ec-e5f0-4d0e-848d-6c1994387837"
+                "x-example-value": "a0faafff-45a3-4357-aca1-e168a45d44b4"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.020718"
+                "x-example-value": "0.019664"
               },
               "Vary": {
                 "description": "",
@@ -2105,12 +1987,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "1d74b0f4-ea43-4370-8132-1bc397a12498"
+                "x-example-value": "4f491e33-5ed0-4316-81c6-4b3c1e044504"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.015681"
+                "x-example-value": "0.016728"
               },
               "Vary": {
                 "description": "",
@@ -2269,7 +2151,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"5159b8a9e61497df3cab64be65cec3ee\""
+                "x-example-value": "W/\"b2a559e5095c671ec90f4de284b00dc3\""
               },
               "Cache-Control": {
                 "description": "",
@@ -2279,12 +2161,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "658e63f1-1acf-4bfa-8b4a-777815bdfc4e"
+                "x-example-value": "10a83ebb-4377-4ff5-a9a5-3f68cf7e3f96"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.030133"
+                "x-example-value": "0.030742"
               },
               "Vary": {
                 "description": "",
@@ -2298,16 +2180,6 @@
               }
             },
             "examples": {
-              "application/json": {
-                "id": 4,
-                "created_at": "2020-03-06T01:28:39.195Z",
-                "email": "requester_to_invite@progeser.com",
-                "first_name": "invite first name",
-                "laboratory": "invite laboratory",
-                "last_name": "invite last name",
-                "role": "requester",
-                "updated_at": "2020-03-06T01:28:39.195Z"
-              }
             }
           }
         },
@@ -2401,12 +2273,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "b7048fd6-b772-43e7-99ac-1d1d33955730"
+                "x-example-value": "9844bb1a-6794-47c3-850f-f6c030a079e4"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.014941"
+                "x-example-value": "0.014117"
               },
               "Vary": {
                 "description": "",
@@ -2420,16 +2292,6 @@
               }
             },
             "examples": {
-              "application/json": {
-                "id": 1,
-                "created_at": "2019-11-06T00:42:46.777Z",
-                "email": "invite+requester@progeser.com",
-                "first_name": "Requester",
-                "laboratory": "My test lab",
-                "last_name": "Invite",
-                "role": "requester",
-                "updated_at": "2019-11-06T00:42:46.777Z"
-              }
             }
           }
         },
@@ -2511,12 +2373,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "1dbad2d8-3838-4e60-9de4-1b59c9a8be62"
+                "x-example-value": "ebaa199f-1fb8-42d5-a172-1f3d6b857910"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.015818"
+                "x-example-value": "0.016521"
               },
               "Vary": {
                 "description": "",
@@ -2606,12 +2468,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "a51dbcd6-c964-4321-ae1f-992743963244"
+                "x-example-value": "089be3a2-b089-4a0a-8c29-5368668272b5"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.021429"
+                "x-example-value": "0.024254"
               },
               "Vary": {
                 "description": "",
@@ -2705,12 +2567,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "934b8c38-d953-4148-b051-8cbe107fa496"
+                "x-example-value": "06dadbfc-c02c-42f7-8081-82f3c871be33"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.023271"
+                "x-example-value": "0.018424"
               },
               "Vary": {
                 "description": "",
@@ -2724,16 +2586,6 @@
               }
             },
             "examples": {
-              "application/json": {
-                "id": 1,
-                "created_at": "2019-10-30T16:57:33.316Z",
-                "email": "dev+requester@progeser.com",
-                "first_name": "Requester",
-                "laboratory": "My test lab",
-                "last_name": "ProGeSer",
-                "role": "requester",
-                "updated_at": "2019-10-30T16:57:33.316Z"
-              }
             }
           }
         },
@@ -2829,7 +2681,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"ac57cbcea53943b56caa13d0fc44b85c\""
+                "x-example-value": "W/\"681ec94021f6a232717971f274a24a12\""
               },
               "Cache-Control": {
                 "description": "",
@@ -2839,12 +2691,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "fdcdcaa0-1ba8-4913-b47b-04352b267f34"
+                "x-example-value": "b0d8829f-97cb-4df1-9b1a-73f4e182135c"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.023862"
+                "x-example-value": "0.017354"
               },
               "Vary": {
                 "description": "",
@@ -2858,16 +2710,6 @@
               }
             },
             "examples": {
-              "application/json": {
-                "id": 1,
-                "created_at": "2019-10-30T16:57:33.316Z",
-                "email": "dev+requester@progeser.com",
-                "first_name": "Updated first name",
-                "laboratory": "Updated laboratory",
-                "last_name": "Updated last name",
-                "role": "requester",
-                "updated_at": "2020-03-06T01:28:39.332Z"
-              }
             }
           }
         },
@@ -2943,12 +2785,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "2de6019e-b03d-4964-ad21-0e1dfe6ce842"
+                "x-example-value": "645dba62-f971-45f8-a9a2-cd08513cba98"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.019223"
+                "x-example-value": "0.018328"
               },
               "Vary": {
                 "description": "",
@@ -3038,12 +2880,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "8772c9b1-cf9e-4af1-909e-55c2bb0b057f"
+                "x-example-value": "8163cf57-4b5d-40ec-a31f-14e03fd08fd7"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.027136"
+                "x-example-value": "0.025628"
               },
               "Vary": {
                 "description": "",
@@ -3143,7 +2985,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"e903a30163497dfdf822543a18f0d939\""
+                "x-example-value": "W/\"7e9c41c29dfb0505bf1fe25754bb5754\""
               },
               "Cache-Control": {
                 "description": "",
@@ -3153,12 +2995,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "f35bc7d3-01d1-4e9c-a643-1ccd025a7489"
+                "x-example-value": "8819395c-16c2-455d-b6fa-cc4d9a4a1feb"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.019625"
+                "x-example-value": "0.018207"
               },
               "Vary": {
                 "description": "",
@@ -3172,24 +3014,6 @@
               }
             },
             "examples": {
-              "application/json": {
-                "id": 1,
-                "created_at": "2019-10-30T16:57:33.316Z",
-                "email": "dev+requester@progeser.com",
-                "first_name": "Requester",
-                "laboratory": "My test lab",
-                "last_name": "ProGeSer",
-                "role": "requester",
-                "token": {
-                  "id": 26,
-                  "access_token": "YEthVK3RiyiTJIsuNzHAHpz7lm4X2MPNTRCF5tFAJLU",
-                  "created_at": "2020-03-06T01:28:39.630Z",
-                  "expires_in": 7200,
-                  "refresh_token": "lBivj7WQ4vU9acreNK8YebNpdXQVt16nl9HJ-u_-sQw",
-                  "token_type": "Bearer"
-                },
-                "updated_at": "2020-03-06T01:28:39.629Z"
-              }
             }
           }
         },
@@ -3283,12 +3107,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "2c2eae5b-ded3-4056-950b-dca0db972b91"
+                "x-example-value": "6af0afea-14dc-43d1-866d-10eef7b020e3"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.200035"
+                "x-example-value": "0.199781"
               },
               "Vary": {
                 "description": "",
@@ -3397,12 +3221,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "6a80c9ff-623c-400a-883b-f331df3ddb89"
+                "x-example-value": "dd45527d-6cdf-4611-aea4-0a9006f2d637"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.016545"
+                "x-example-value": "0.016166"
               },
               "Vary": {
                 "description": "",
@@ -3416,176 +3240,6 @@
               }
             },
             "examples": {
-              "application/json": [
-                {
-                  "id": 1,
-                  "created_at": "2020-01-23T14:58:27.600Z",
-                  "name": "Carrot",
-                  "plant_stages": [
-                    {
-                      "id": 1,
-                      "created_at": "2020-01-23T14:58:27.769Z",
-                      "duration": 28,
-                      "name": "sprout",
-                      "position": 1,
-                      "updated_at": "2020-01-23T14:58:27.769Z"
-                    },
-                    {
-                      "id": 2,
-                      "created_at": "2020-01-23T14:58:27.775Z",
-                      "duration": 19,
-                      "name": "seedling",
-                      "position": 2,
-                      "updated_at": "2020-01-23T14:58:27.775Z"
-                    },
-                    {
-                      "id": 3,
-                      "created_at": "2020-01-23T14:58:27.777Z",
-                      "duration": 21,
-                      "name": "vegetative",
-                      "position": 3,
-                      "updated_at": "2020-01-23T14:58:27.777Z"
-                    },
-                    {
-                      "id": 4,
-                      "created_at": "2020-01-23T14:58:27.782Z",
-                      "duration": 10,
-                      "name": "budding",
-                      "position": 4,
-                      "updated_at": "2020-01-23T14:58:27.782Z"
-                    },
-                    {
-                      "id": 5,
-                      "created_at": "2020-01-23T14:58:27.787Z",
-                      "duration": 17,
-                      "name": "flowering",
-                      "position": 5,
-                      "updated_at": "2020-01-23T14:58:27.787Z"
-                    },
-                    {
-                      "id": 6,
-                      "created_at": "2020-01-23T14:58:27.797Z",
-                      "duration": 30,
-                      "name": "ripening",
-                      "position": 6,
-                      "updated_at": "2020-01-23T14:58:27.797Z"
-                    }
-                  ],
-                  "updated_at": "2020-01-23T14:58:27.600Z"
-                },
-                {
-                  "id": 2,
-                  "created_at": "2020-01-23T14:58:27.602Z",
-                  "name": "Cauliflower",
-                  "plant_stages": [
-                    {
-                      "id": 7,
-                      "created_at": "2020-01-23T14:58:27.800Z",
-                      "duration": 11,
-                      "name": "sprout",
-                      "position": 1,
-                      "updated_at": "2020-01-23T14:58:27.800Z"
-                    },
-                    {
-                      "id": 8,
-                      "created_at": "2020-01-23T14:58:27.803Z",
-                      "duration": 12,
-                      "name": "seedling",
-                      "position": 2,
-                      "updated_at": "2020-01-23T14:58:27.803Z"
-                    },
-                    {
-                      "id": 9,
-                      "created_at": "2020-01-23T14:58:27.806Z",
-                      "duration": 25,
-                      "name": "vegetative",
-                      "position": 3,
-                      "updated_at": "2020-01-23T14:58:27.806Z"
-                    },
-                    {
-                      "id": 10,
-                      "created_at": "2020-01-23T14:58:27.808Z",
-                      "duration": 9,
-                      "name": "budding",
-                      "position": 4,
-                      "updated_at": "2020-01-23T14:58:27.808Z"
-                    },
-                    {
-                      "id": 11,
-                      "created_at": "2020-01-23T14:58:27.811Z",
-                      "duration": 5,
-                      "name": "flowering",
-                      "position": 5,
-                      "updated_at": "2020-01-23T14:58:27.811Z"
-                    },
-                    {
-                      "id": 12,
-                      "created_at": "2020-01-23T14:58:27.813Z",
-                      "duration": 10,
-                      "name": "ripening",
-                      "position": 6,
-                      "updated_at": "2020-01-23T14:58:27.813Z"
-                    }
-                  ],
-                  "updated_at": "2020-01-23T14:58:27.602Z"
-                },
-                {
-                  "id": 3,
-                  "created_at": "2020-01-23T14:58:27.604Z",
-                  "name": "Red cabbage",
-                  "plant_stages": [
-                    {
-                      "id": 13,
-                      "created_at": "2020-01-23T14:58:27.816Z",
-                      "duration": 26,
-                      "name": "sprout",
-                      "position": 1,
-                      "updated_at": "2020-01-23T14:58:27.816Z"
-                    },
-                    {
-                      "id": 14,
-                      "created_at": "2020-01-23T14:58:27.818Z",
-                      "duration": 26,
-                      "name": "seedling",
-                      "position": 2,
-                      "updated_at": "2020-01-23T14:58:27.818Z"
-                    },
-                    {
-                      "id": 15,
-                      "created_at": "2020-01-23T14:58:27.821Z",
-                      "duration": 26,
-                      "name": "vegetative",
-                      "position": 3,
-                      "updated_at": "2020-01-23T14:58:27.821Z"
-                    },
-                    {
-                      "id": 16,
-                      "created_at": "2020-01-23T14:58:27.823Z",
-                      "duration": 19,
-                      "name": "budding",
-                      "position": 4,
-                      "updated_at": "2020-01-23T14:58:27.823Z"
-                    },
-                    {
-                      "id": 17,
-                      "created_at": "2020-01-23T14:58:27.825Z",
-                      "duration": 9,
-                      "name": "flowering",
-                      "position": 5,
-                      "updated_at": "2020-01-23T14:58:27.825Z"
-                    },
-                    {
-                      "id": 18,
-                      "created_at": "2020-01-23T14:58:27.828Z",
-                      "duration": 11,
-                      "name": "ripening",
-                      "position": 6,
-                      "updated_at": "2020-01-23T14:58:27.828Z"
-                    }
-                  ],
-                  "updated_at": "2020-01-23T14:58:27.604Z"
-                }
-              ]
             }
           }
         },
@@ -3614,14 +3268,14 @@
           {
             "name": "name",
             "in": "formData",
-            "description": "Name of the plant\nEg, `Peppers`",
+            "description": "Name of the plant\nEg, `Onion`",
             "required": false,
             "type": "string"
           },
           {
             "name": "plant_stages_attributes",
             "in": "formData",
-            "description": "Plant stages attributes\nA plant stage should have a name, a duration and a position\nEg, `[{:name=>\"sprout\", :duration=>20, :position=>1}, {:name=>\"seedling\", :duration=>24, :position=>2}]`",
+            "description": "Plant stages attributes\nA plant stage should have a name, a duration and a position\nEg, `[{:name=>\"sprout\", :duration=>25, :position=>1}, {:name=>\"seedling\", :duration=>12, :position=>2}]`",
             "required": false,
             "type": "array",
             "items": {
@@ -3677,7 +3331,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"6304d44b61f22a8ced442b0ea8e586ba\""
+                "x-example-value": "W/\"eb567ca7fca47f49d0e8cdcce55fa056\""
               },
               "Cache-Control": {
                 "description": "",
@@ -3687,12 +3341,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "893ebcf6-f617-4fd5-a9d7-9ec1ac827197"
+                "x-example-value": "8a462d29-3ab0-430e-aee0-ffc9b30220cd"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.026140"
+                "x-example-value": "0.023776"
               },
               "Vary": {
                 "description": "",
@@ -3702,34 +3356,10 @@
               "Content-Length": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "390"
+                "x-example-value": "388"
               }
             },
             "examples": {
-              "application/json": {
-                "id": 4,
-                "created_at": "2020-03-06T01:28:40.111Z",
-                "name": "Peppers",
-                "plant_stages": [
-                  {
-                    "id": 19,
-                    "created_at": "2020-03-06T01:28:40.113Z",
-                    "duration": 20,
-                    "name": "sprout",
-                    "position": 1,
-                    "updated_at": "2020-03-06T01:28:40.113Z"
-                  },
-                  {
-                    "id": 20,
-                    "created_at": "2020-03-06T01:28:40.116Z",
-                    "duration": 24,
-                    "name": "seedling",
-                    "position": 2,
-                    "updated_at": "2020-03-06T01:28:40.116Z"
-                  }
-                ],
-                "updated_at": "2020-03-06T01:28:40.111Z"
-              }
             }
           }
         },
@@ -3823,12 +3453,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "6b18acc2-d29c-40b8-9b2b-909059f68c21"
+                "x-example-value": "ce728144-9876-41ae-9449-8cef944fde98"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.014919"
+                "x-example-value": "0.015470"
               },
               "Vary": {
                 "description": "",
@@ -3842,62 +3472,6 @@
               }
             },
             "examples": {
-              "application/json": {
-                "id": 1,
-                "created_at": "2020-01-23T14:58:27.600Z",
-                "name": "Carrot",
-                "plant_stages": [
-                  {
-                    "id": 1,
-                    "created_at": "2020-01-23T14:58:27.769Z",
-                    "duration": 28,
-                    "name": "sprout",
-                    "position": 1,
-                    "updated_at": "2020-01-23T14:58:27.769Z"
-                  },
-                  {
-                    "id": 2,
-                    "created_at": "2020-01-23T14:58:27.775Z",
-                    "duration": 19,
-                    "name": "seedling",
-                    "position": 2,
-                    "updated_at": "2020-01-23T14:58:27.775Z"
-                  },
-                  {
-                    "id": 3,
-                    "created_at": "2020-01-23T14:58:27.777Z",
-                    "duration": 21,
-                    "name": "vegetative",
-                    "position": 3,
-                    "updated_at": "2020-01-23T14:58:27.777Z"
-                  },
-                  {
-                    "id": 4,
-                    "created_at": "2020-01-23T14:58:27.782Z",
-                    "duration": 10,
-                    "name": "budding",
-                    "position": 4,
-                    "updated_at": "2020-01-23T14:58:27.782Z"
-                  },
-                  {
-                    "id": 5,
-                    "created_at": "2020-01-23T14:58:27.787Z",
-                    "duration": 17,
-                    "name": "flowering",
-                    "position": 5,
-                    "updated_at": "2020-01-23T14:58:27.787Z"
-                  },
-                  {
-                    "id": 6,
-                    "created_at": "2020-01-23T14:58:27.797Z",
-                    "duration": 30,
-                    "name": "ripening",
-                    "position": 6,
-                    "updated_at": "2020-01-23T14:58:27.797Z"
-                  }
-                ],
-                "updated_at": "2020-01-23T14:58:27.600Z"
-              }
             }
           }
         },
@@ -3996,7 +3570,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"8dba606a37a4088ad312980b0851c0e5\""
+                "x-example-value": "W/\"bc41190cd46c95cd8d79cba32d3c0a61\""
               },
               "Cache-Control": {
                 "description": "",
@@ -4006,12 +3580,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "864a46c5-e9e4-49ff-a030-27030fed8d6e"
+                "x-example-value": "7286b171-5185-44c5-8a09-4fe2e19472fc"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.043598"
+                "x-example-value": "0.043393"
               },
               "Vary": {
                 "description": "",
@@ -4025,46 +3599,6 @@
               }
             },
             "examples": {
-              "application/json": {
-                "id": 1,
-                "created_at": "2020-01-23T14:58:27.600Z",
-                "name": "Updated name",
-                "plant_stages": [
-                  {
-                    "id": 6,
-                    "created_at": "2020-01-23T14:58:27.797Z",
-                    "duration": 30,
-                    "name": "ripening",
-                    "position": 1,
-                    "updated_at": "2020-03-06T01:28:40.167Z"
-                  },
-                  {
-                    "id": 3,
-                    "created_at": "2020-01-23T14:58:27.777Z",
-                    "duration": 10,
-                    "name": "stage 3",
-                    "position": 2,
-                    "updated_at": "2020-03-06T01:28:40.171Z"
-                  },
-                  {
-                    "id": 4,
-                    "created_at": "2020-01-23T14:58:27.782Z",
-                    "duration": 10,
-                    "name": "budding",
-                    "position": 3,
-                    "updated_at": "2020-03-06T01:28:40.171Z"
-                  },
-                  {
-                    "id": 5,
-                    "created_at": "2020-01-23T14:58:27.787Z",
-                    "duration": 17,
-                    "name": "flowering",
-                    "position": 4,
-                    "updated_at": "2020-03-06T01:28:40.171Z"
-                  }
-                ],
-                "updated_at": "2020-03-06T01:28:40.151Z"
-              }
             }
           }
         },
@@ -4146,12 +3680,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "5cae2ae1-5137-448e-a569-f1af8ccfddba"
+                "x-example-value": "dd0507c7-ef0b-40b5-8e94-548a00867426"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.023786"
+                "x-example-value": "0.025143"
               },
               "Vary": {
                 "description": "",
@@ -4260,12 +3794,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "9e2f4f42-be54-49ad-a01e-18f6de5edf45"
+                "x-example-value": "bd928532-d9ae-424d-9da0-353dda08cd7f"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.016150"
+                "x-example-value": "0.015208"
               },
               "Vary": {
                 "description": "",
@@ -4477,7 +4011,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"a13dd8fc531c37ffcf252cc9592028b3\""
+                "x-example-value": "W/\"13c3d2176067cff1ababa5195e04fc8d\""
               },
               "Cache-Control": {
                 "description": "",
@@ -4487,12 +4021,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "b46da91d-efa7-4207-aa2a-83463ad6b7d8"
+                "x-example-value": "c7f8269b-39a8-43d4-895b-2268b5ec460a"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.014682"
+                "x-example-value": "0.015266"
               },
               "Vary": {
                 "description": "",
@@ -4506,25 +4040,6 @@
               }
             },
             "examples": {
-              "application/json": {
-                "id": 6,
-                "area": "200.0",
-                "created_at": "2020-03-06T01:28:40.320Z",
-                "dimensions": [
-                  10,
-                  20
-                ],
-                "name": "my rectangular pot",
-                "shape": {
-                  "dimension_names": [
-                    "largeur",
-                    "longueur"
-                  ],
-                  "display_name": "rectangle",
-                  "name": "rectangle"
-                },
-                "updated_at": "2020-03-06T01:28:40.320Z"
-              }
             }
           }
         },
@@ -4618,12 +4133,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "be1c77a4-7571-4bff-ba81-7172d457bd11"
+                "x-example-value": "eafd6fd5-757b-4099-8fe6-bb5d0e8e8d4c"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.014694"
+                "x-example-value": "0.012852"
               },
               "Vary": {
                 "description": "",
@@ -4773,7 +4288,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"7f4af52e7d6aec82d3ecbf0a79d08638\""
+                "x-example-value": "W/\"11defa4b5e1f750cbeccebee168dc9f2\""
               },
               "Cache-Control": {
                 "description": "",
@@ -4783,12 +4298,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "2af18a71-234c-40c7-9330-c4ac497a9784"
+                "x-example-value": "2f1bbdf2-3f64-4705-b1a7-688969ef4860"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.017990"
+                "x-example-value": "0.017103"
               },
               "Vary": {
                 "description": "",
@@ -4817,7 +4332,7 @@
                   "display_name": "carré",
                   "name": "square"
                 },
-                "updated_at": "2020-03-06T01:28:40.351Z"
+                "updated_at": "2020-03-06T13:17:02.868Z"
               }
             }
           }
@@ -4900,12 +4415,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "70e05ea2-2c88-467b-a925-cf66216564a0"
+                "x-example-value": "2404cbe7-86ab-40e4-90a4-2b10fdb842f5"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.017130"
+                "x-example-value": "0.015425"
               },
               "Vary": {
                 "description": "",
@@ -5021,12 +4536,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "93c59242-9c7a-4140-885b-9dc05a8ff4d3"
+                "x-example-value": "4d8e8d9e-70c9-4e0e-91e8-5dd0b7a399a5"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.022407"
+                "x-example-value": "0.021096"
               },
               "Vary": {
                 "description": "",
@@ -5040,28 +4555,6 @@
               }
             },
             "examples": {
-              "application/json": [
-                {
-                  "id": 1,
-                  "area": "1470.0",
-                  "bench_id": 1,
-                  "created_at": "2020-02-25T21:03:27.754Z",
-                  "plant_stage_id": 6,
-                  "pot_id": 1,
-                  "pot_quantity": 30,
-                  "updated_at": "2020-02-25T21:03:27.754Z"
-                },
-                {
-                  "id": 2,
-                  "area": "1600.0",
-                  "bench_id": 1,
-                  "created_at": "2020-02-25T21:03:27.843Z",
-                  "plant_stage_id": 6,
-                  "pot_id": 2,
-                  "pot_quantity": 20,
-                  "updated_at": "2020-02-25T21:03:27.843Z"
-                }
-              ]
             }
           }
         },
@@ -5178,7 +4671,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"d9c8da050ec199a8ce572a4addb8a66e\""
+                "x-example-value": "W/\"0fedada471f75a4bb09bb7c9746b37cf\""
               },
               "Cache-Control": {
                 "description": "",
@@ -5188,12 +4681,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "66373f92-264b-47c3-879c-2f0fa04da8b9"
+                "x-example-value": "f129d750-7b43-4df5-b77e-c4fea942e512"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.023933"
+                "x-example-value": "0.023916"
               },
               "Vary": {
                 "description": "",
@@ -5207,16 +4700,6 @@
               }
             },
             "examples": {
-              "application/json": {
-                "id": 4,
-                "area": "1470.0",
-                "bench_id": 1,
-                "created_at": "2020-03-06T01:28:40.482Z",
-                "plant_stage_id": 1,
-                "pot_id": 1,
-                "pot_quantity": 30,
-                "updated_at": "2020-03-06T01:28:40.482Z"
-              }
             }
           }
         },
@@ -5310,12 +4793,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "86ffd649-cbc0-412a-93c4-8c9068203a0a"
+                "x-example-value": "a95766e6-e046-48e6-9e4a-38ffcdb71b24"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.017977"
+                "x-example-value": "0.015515"
               },
               "Vary": {
                 "description": "",
@@ -5329,16 +4812,6 @@
               }
             },
             "examples": {
-              "application/json": {
-                "id": 1,
-                "area": "1470.0",
-                "bench_id": 1,
-                "created_at": "2020-02-25T21:03:27.754Z",
-                "plant_stage_id": 6,
-                "pot_id": 1,
-                "pot_quantity": 30,
-                "updated_at": "2020-02-25T21:03:27.754Z"
-              }
             }
           }
         },
@@ -5455,7 +4928,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"e645db7676e3c84ea0a98d039c086081\""
+                "x-example-value": "W/\"83ad02458dff601ef37d8c322e55e771\""
               },
               "Cache-Control": {
                 "description": "",
@@ -5465,12 +4938,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "6cb13c3e-e5a2-46b6-a0c8-b0345a2f3b51"
+                "x-example-value": "88843eb1-6070-4c2e-b5cf-1c6e1643abfe"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.021305"
+                "x-example-value": "0.020264"
               },
               "Vary": {
                 "description": "",
@@ -5484,16 +4957,6 @@
               }
             },
             "examples": {
-              "application/json": {
-                "id": 1,
-                "area": "1600.0",
-                "bench_id": 6,
-                "created_at": "2020-02-25T21:03:27.754Z",
-                "plant_stage_id": 2,
-                "pot_id": 2,
-                "pot_quantity": 20,
-                "updated_at": "2020-03-06T01:28:40.518Z"
-              }
             }
           }
         },
@@ -5575,12 +5038,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "79e84d4e-0082-4aad-8d10-5ffa5df1db19"
+                "x-example-value": "37a48a6e-e74a-47f3-8a99-29ecbb587a39"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.017538"
+                "x-example-value": "0.014987"
               },
               "Vary": {
                 "description": "",
@@ -5719,12 +5182,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "3b570f52-0003-4b18-9bc3-3230f470cac9"
+                "x-example-value": "d50c6e4d-dc5e-44a7-b848-04b94c0498b6"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.019730"
+                "x-example-value": "0.019122"
               },
               "Vary": {
                 "description": "",
@@ -5738,44 +5201,6 @@
               }
             },
             "examples": {
-              "application/json": [
-                {
-                  "id": 1,
-                  "author_id": 2,
-                  "comment": "I didn't think it would end this way.",
-                  "created_at": "2020-02-13T00:04:08.434Z",
-                  "due_date": "2020-05-13",
-                  "handler_id": 2,
-                  "name": "My first request",
-                  "photoperiod": 8,
-                  "plant_id": 1,
-                  "plant_name": "Celery",
-                  "plant_stage_id": 6,
-                  "plant_stage_name": "ripening",
-                  "quantity": 50,
-                  "status": "accepted",
-                  "temperature": 20,
-                  "updated_at": "2020-02-13T00:04:08.434Z"
-                },
-                {
-                  "id": 2,
-                  "author_id": 1,
-                  "comment": "Many that live deserve death. And some that die deserve life",
-                  "created_at": "2020-02-13T00:04:57.684Z",
-                  "due_date": "2020-04-13",
-                  "handler_id": null,
-                  "name": "My new request",
-                  "photoperiod": null,
-                  "plant_id": null,
-                  "plant_name": "Endive",
-                  "plant_stage_id": null,
-                  "plant_stage_name": "budding",
-                  "quantity": 200,
-                  "status": "pending",
-                  "temperature": null,
-                  "updated_at": "2020-02-13T00:04:57.684Z"
-                }
-              ]
             }
           }
         },
@@ -5913,7 +5338,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"c37eeedf2c4d0f825c7995d6657f3cb2\""
+                "x-example-value": "W/\"e23aa6fd2cd7183355712ff4a5439674\""
               },
               "Cache-Control": {
                 "description": "",
@@ -5923,12 +5348,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "9a54df39-3315-4a2b-afa5-91b1cdebadaf"
+                "x-example-value": "62d6a67d-7225-4f05-aed6-da2c49413259"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.020120"
+                "x-example-value": "0.019331"
               },
               "Vary": {
                 "description": "",
@@ -5942,24 +5367,6 @@
               }
             },
             "examples": {
-              "application/json": {
-                "id": 3,
-                "author_id": 2,
-                "comment": "The specimens have to be in perfect condition, please be careful!",
-                "created_at": "2020-03-06T01:28:40.633Z",
-                "due_date": "2020-09-06",
-                "handler_id": null,
-                "name": "My request",
-                "photoperiod": 12,
-                "plant_id": 3,
-                "plant_name": "Red cabbage",
-                "plant_stage_id": 18,
-                "plant_stage_name": "ripening",
-                "quantity": 150,
-                "status": "pending",
-                "temperature": 35,
-                "updated_at": "2020-03-06T01:28:40.633Z"
-              }
             }
           }
         },
@@ -6053,12 +5460,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "2dccc014-6f9e-4ee5-afdd-138c4ef293cc"
+                "x-example-value": "5d8249ba-489c-40f7-9d1c-8297a63858f9"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.017494"
+                "x-example-value": "0.015883"
               },
               "Vary": {
                 "description": "",
@@ -6072,24 +5479,6 @@
               }
             },
             "examples": {
-              "application/json": {
-                "id": 1,
-                "author_id": 2,
-                "comment": "I didn't think it would end this way.",
-                "created_at": "2020-02-13T00:04:08.434Z",
-                "due_date": "2020-05-13",
-                "handler_id": 2,
-                "name": "My first request",
-                "photoperiod": 8,
-                "plant_id": 1,
-                "plant_name": "Celery",
-                "plant_stage_id": 6,
-                "plant_stage_name": "ripening",
-                "quantity": 50,
-                "status": "accepted",
-                "temperature": 20,
-                "updated_at": "2020-02-13T00:04:08.434Z"
-              }
             }
           }
         },
@@ -6234,7 +5623,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"03c10543e6cfe2833af5ab34d9508227\""
+                "x-example-value": "W/\"6d939f7c16ec60a488faf03260237078\""
               },
               "Cache-Control": {
                 "description": "",
@@ -6244,12 +5633,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "1e071c3f-27b7-42d4-b0fa-134c9a8ac581"
+                "x-example-value": "f3100b6f-b5b4-44ae-91a2-0cddbeed82df"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.021313"
+                "x-example-value": "0.022764"
               },
               "Vary": {
                 "description": "",
@@ -6263,24 +5652,6 @@
               }
             },
             "examples": {
-              "application/json": {
-                "id": 1,
-                "author_id": 2,
-                "comment": "After all, this is less urgent, but I need more specimens!",
-                "created_at": "2020-02-13T00:04:08.434Z",
-                "due_date": "2020-09-06",
-                "handler_id": 2,
-                "name": "My updated request",
-                "photoperiod": 8,
-                "plant_id": 1,
-                "plant_name": "Celery",
-                "plant_stage_id": 6,
-                "plant_stage_name": "ripening",
-                "quantity": 150,
-                "status": "accepted",
-                "temperature": 20,
-                "updated_at": "2020-03-06T01:28:40.665Z"
-              }
             }
           }
         },
@@ -6362,12 +5733,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "b328cbf4-efc1-4aca-b5d6-2dbdcb019029"
+                "x-example-value": "2650b181-7965-4247-b170-6133bb469384"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.015673"
+                "x-example-value": "0.016053"
               },
               "Vary": {
                 "description": "",
@@ -6457,7 +5828,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"e28cdd47729d78310918ffa5606982cb\""
+                "x-example-value": "W/\"be6314faa182d5aea46a05d272062178\""
               },
               "Cache-Control": {
                 "description": "",
@@ -6467,12 +5838,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "dac61123-825c-456e-b0d1-120f05fb6152"
+                "x-example-value": "30bdaf8a-6114-48bf-bc4e-cd4b224786aa"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.020130"
+                "x-example-value": "0.016858"
               },
               "Vary": {
                 "description": "",
@@ -6486,24 +5857,6 @@
               }
             },
             "examples": {
-              "application/json": {
-                "id": 1,
-                "author_id": 2,
-                "comment": "I didn't think it would end this way.",
-                "created_at": "2020-02-13T00:04:08.434Z",
-                "due_date": "2020-05-13",
-                "handler_id": 2,
-                "name": "My first request",
-                "photoperiod": 8,
-                "plant_id": 1,
-                "plant_name": "Celery",
-                "plant_stage_id": 6,
-                "plant_stage_name": "ripening",
-                "quantity": 50,
-                "status": "accepted",
-                "temperature": 20,
-                "updated_at": "2020-03-06T01:28:40.697Z"
-              }
             }
           }
         },
@@ -6587,7 +5940,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"4326804e3d8d190c6486c87eacb1f727\""
+                "x-example-value": "W/\"092269b086727f0f6d3d0209d92fba56\""
               },
               "Cache-Control": {
                 "description": "",
@@ -6597,12 +5950,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "77d0fd6c-dce9-463b-b510-2ad74fcde0d2"
+                "x-example-value": "a2ea73f1-6a24-4862-8743-f5d5533ec66d"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.018070"
+                "x-example-value": "0.017498"
               },
               "Vary": {
                 "description": "",
@@ -6616,24 +5969,6 @@
               }
             },
             "examples": {
-              "application/json": {
-                "id": 1,
-                "author_id": 2,
-                "comment": "I didn't think it would end this way.",
-                "created_at": "2020-02-13T00:04:08.434Z",
-                "due_date": "2020-05-13",
-                "handler_id": 2,
-                "name": "My first request",
-                "photoperiod": 8,
-                "plant_id": 1,
-                "plant_name": "Celery",
-                "plant_stage_id": 6,
-                "plant_stage_name": "ripening",
-                "quantity": 50,
-                "status": "refused",
-                "temperature": 20,
-                "updated_at": "2020-03-06T01:28:40.728Z"
-              }
             }
           }
         },
@@ -6717,7 +6052,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"28737e9b293176962e5acd3bb2bfa5ac\""
+                "x-example-value": "W/\"6b6cb05beea243e8dc7bc3321cc26b26\""
               },
               "Cache-Control": {
                 "description": "",
@@ -6727,12 +6062,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "cd1095f3-f766-4f5b-804d-7e7059dac4cd"
+                "x-example-value": "7aebd4ba-9abb-4177-804d-f84792f73ce3"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.016920"
+                "x-example-value": "0.016730"
               },
               "Vary": {
                 "description": "",
@@ -6746,24 +6081,6 @@
               }
             },
             "examples": {
-              "application/json": {
-                "id": 1,
-                "author_id": 2,
-                "comment": "I didn't think it would end this way.",
-                "created_at": "2020-02-13T00:04:08.434Z",
-                "due_date": "2020-05-13",
-                "handler_id": 2,
-                "name": "My first request",
-                "photoperiod": 8,
-                "plant_id": 1,
-                "plant_name": "Celery",
-                "plant_stage_id": 6,
-                "plant_stage_name": "ripening",
-                "quantity": 50,
-                "status": "canceled",
-                "temperature": 20,
-                "updated_at": "2020-03-06T01:28:40.760Z"
-              }
             }
           }
         },
@@ -6841,7 +6158,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"93183691086e316984ecbf688b611938\""
+                "x-example-value": "W/\"21faf3a64c8fff157f0c277a1f3836ef\""
               },
               "Cache-Control": {
                 "description": "",
@@ -6851,12 +6168,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "c8d3e7e8-e082-4db6-96bd-93fa83435df2"
+                "x-example-value": "949b2cf9-1de6-4131-ae39-5b726d2062ab"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.031784"
+                "x-example-value": "0.028548"
               },
               "Vary": {
                 "description": "",
@@ -6871,6 +6188,14 @@
             },
             "examples": {
               "application/json": [
+                {
+                  "dimension_names": [
+                    "largeur",
+                    "longueur"
+                  ],
+                  "display_name": "rectangle",
+                  "name": "rectangle"
+                },
                 {
                   "dimension_names": [
                     "diamètre"
@@ -6892,14 +6217,6 @@
                   ],
                   "display_name": "triangle",
                   "name": "triangle"
-                },
-                {
-                  "dimension_names": [
-                    "largeur",
-                    "longueur"
-                  ],
-                  "display_name": "rectangle",
-                  "name": "rectangle"
                 }
               ]
             }
@@ -7009,17 +6326,17 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"8fa5a31b5f0d18d4d765bcf0b4a930dd\""
+                "x-example-value": "W/\"982881ca08b989d5ff6afed09c9d2a5d\""
               },
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "1198b763-4742-4705-95bf-1c8bac940146"
+                "x-example-value": "44365603-8f5a-4d80-bbe7-9380d2f705cd"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.201570"
+                "x-example-value": "0.203375"
               },
               "Vary": {
                 "description": "",
@@ -7033,19 +6350,133 @@
               }
             },
             "examples": {
-              "application/json": {
-                "access_token": "Y0IE4H0MwfHxG-fqyioPljFaH2fIAUrpSW33XdLYYpI",
-                "token_type": "Bearer",
-                "expires_in": 7200,
-                "refresh_token": "Y9x5YEh9tk3dfu5jjcKsyLw2o5d-ECYo2NbhkOiZI6Y",
-                "created_at": 1583458121
-              }
             }
           }
         },
         "deprecated": false,
         "security": [
 
+        ]
+      }
+    },
+    "/api/v1/users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "page[number]",
+            "in": "query",
+            "description": "The number of the desired page\n\nIf used, additional information is returned in the response headers:\n`Pagination-Current-Page`: the current page number\n`Pagination-Per`: the number of records per page\n`Pagination-Total-Pages`: the total number of pages\n`Pagination-Total-Count`: the total number of records",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          },
+          {
+            "name": "page[size]",
+            "in": "query",
+            "description": "The number of elements in a page\n\nIf used, additional information is returned in the response headers:\n`Pagination-Current-Page`: the current page number\n`Pagination-Per`: the number of records per page\n`Pagination-Total-Pages`: the total number of pages\n`Pagination-Total-Count`: the total number of records",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get all users",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json; charset=utf-8"
+              },
+              "ETag": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "W/\"6c8856c50942d85eb42e1e34df8e6179\""
+              },
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "max-age=0, private, must-revalidate"
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "b573cee7-f80a-4ec3-b26f-a99d23027ae7"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.010746"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "615"
+              }
+            },
+            "examples": {
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "Authorization": [
+
+            ]
+          }
         ]
       }
     },
@@ -7133,7 +6564,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"b24c75a0925e7e138fd1112de4a50ec5\""
+                "x-example-value": "W/\"91ff182ae206b20d79a81d5f4fe24d0b\""
               },
               "Cache-Control": {
                 "description": "",
@@ -7143,12 +6574,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "418f0147-70cb-4ca3-af5f-c8c6f8ea4b88"
+                "x-example-value": "e52848c1-9981-4fc4-906f-cc12a534f3c6"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.022397"
+                "x-example-value": "0.025537"
               },
               "Vary": {
                 "description": "",
@@ -7162,24 +6593,6 @@
               }
             },
             "examples": {
-              "application/json": {
-                "id": 4,
-                "created_at": "2020-03-06T01:28:41.088Z",
-                "email": "invite+requester@progeser.com",
-                "first_name": "Requester",
-                "laboratory": "My test lab",
-                "last_name": "Invite",
-                "role": "requester",
-                "token": {
-                  "id": 53,
-                  "access_token": "TXfZ_iNNqj0jzOSqsIjGnsSZDC10qvx4gLnM5VPV6wE",
-                  "created_at": "2020-03-06T01:28:41.090Z",
-                  "expires_in": 7200,
-                  "refresh_token": "vmkCTqrPamO1b1RDPMxUA8BBwAnsjJQRfjBAZJE8Yrw",
-                  "token_type": "Bearer"
-                },
-                "updated_at": "2020-03-06T01:28:41.088Z"
-              }
             }
           }
         },
@@ -7280,7 +6693,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"2a9367f8d180a83bb6bbcd373a149fe1\""
+                "x-example-value": "W/\"3981ecd390a625a0d93920ea741e8738\""
               },
               "Cache-Control": {
                 "description": "",
@@ -7290,12 +6703,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "60ef5473-3205-40ce-bf0e-20c6ac5d92d1"
+                "x-example-value": "9fbb19ad-bc4d-4c57-9951-e923248af06b"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.027785"
+                "x-example-value": "0.025823"
               },
               "Vary": {
                 "description": "",
@@ -7309,24 +6722,6 @@
               }
             },
             "examples": {
-              "application/json": {
-                "id": 5,
-                "created_at": "2020-03-06T01:28:41.125Z",
-                "email": "tyler.kautzer@beierhegmann.net",
-                "first_name": "Manon",
-                "laboratory": "my laboratory",
-                "last_name": "Rousseau",
-                "role": "requester",
-                "token": {
-                  "id": 54,
-                  "access_token": "VIKj_Pba8YZznRQErM1Cpb5IRW20rRP9PB3rIFDmz5A",
-                  "created_at": "2020-03-06T01:28:41.127Z",
-                  "expires_in": 7200,
-                  "refresh_token": "JcbRzCA2bK1LW8CXzDrlASIkM-U46f_J2T5SON_aUSk",
-                  "token_type": "Bearer"
-                },
-                "updated_at": "2020-03-06T01:28:41.125Z"
-              }
             }
           }
         },
