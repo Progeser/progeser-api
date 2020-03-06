@@ -44,6 +44,66 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           expect(status).to eq(200)
           expect(JSON.parse(response.body).count).to eq(1)
         end
+
+        it 'gets requests sorted by name' do
+          get(
+            '/api/v1/requests',
+            headers: headers,
+            params: {
+              sort: 'name'
+            }
+          )
+
+          expect(status).to eq(200)
+
+          names = JSON.parse(response.body).map { |request| request.dig('name') }
+          expect(names).to eq(names.sort)
+        end
+
+        it 'gets requests sorted in descending order by plant_name' do
+          get(
+            '/api/v1/requests',
+            headers: headers,
+            params: {
+              sort: '-plant_name'
+            }
+          )
+
+          expect(status).to eq(200)
+
+          plant_names = JSON.parse(response.body).map { |request| request.dig('plant_name') }
+          expect(plant_names).to eq(plant_names.sort.reverse)
+        end
+
+        it 'gets requests sorted in descending order by status' do
+          get(
+            '/api/v1/requests',
+            headers: headers,
+            params: {
+              sort: '-status'
+            }
+          )
+
+          expect(status).to eq(200)
+
+          statuses = JSON.parse(response.body).map { |request| request.dig('status') }
+          expect(statuses).to eq(statuses.sort.reverse)
+        end
+
+        it 'gets requests sorted by due_date' do
+          get(
+            '/api/v1/requests',
+            headers: headers,
+            params: {
+              sort: 'due_date'
+            }
+          )
+
+          expect(status).to eq(200)
+
+          due_dates = JSON.parse(response.body).map { |request| request.dig('due_date') }
+          expect(due_dates).to eq(due_dates.sort)
+        end
       end
 
       it_behaves_like 'with authenticated requester' do

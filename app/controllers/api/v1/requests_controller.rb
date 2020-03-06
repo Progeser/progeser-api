@@ -5,6 +5,14 @@ class Api::V1::RequestsController < ApiController
 
   filter_by :status, with: :eq
 
+  sort_by :id,
+          :created_at,
+          :updated_at,
+          :name,
+          :plant_name,
+          :status,
+          :due_date
+
   def index
     requests = policy_scope(Request)
     authorize requests
