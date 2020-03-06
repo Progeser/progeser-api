@@ -42,4 +42,5 @@ jobs:
     after_script:
     - "./cc-test-reporter after-build --exit-code $TRAVIS_TEStrT_RESULT"
   - stage: docker
-    script: bash docker_travis
+    script: bash scripts/docker_travis
+
