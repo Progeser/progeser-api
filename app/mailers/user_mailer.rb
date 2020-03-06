@@ -17,7 +17,7 @@ class UserMailer < ApplicationMailer
 
     send_mail(
       receiver_email: account_request.email,
-      subject: t('mailers.clearance_mailer.invite.subject'),
+      subject: t('mailers.clearance_mailer.account_request.subject'),
       template_id: 1_096_237,
       variables: account_request_variables(account_request)
     )

@@ -34,7 +34,7 @@ class ApplicationMailer < ActionMailer::Base
   def frontend_url(path, token)
     URI::HTTPS.build(
       host: ENV['FRONT_BASE_URL'],
-      path: path + URI.encode_www_form(token: token)
+      path: path + token
     ).to_s
   end
 end
