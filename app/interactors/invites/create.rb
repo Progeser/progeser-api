@@ -5,8 +5,8 @@ class Invites::Create < ApplicationInteractor
     schema do
       required(:email).filled(:string)
       required(:role).filled(:string)
-      required(:first_name).filled(:string)
-      required(:last_name).filled(:string)
+      optional(:first_name).filled(:string)
+      optional(:last_name).filled(:string)
 
       optional(:laboratory).filled(:string)
     end
