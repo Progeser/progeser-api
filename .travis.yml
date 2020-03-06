@@ -9,7 +9,7 @@ services:
 
 env:
   global:
-    - CC_TEST_REPORTER_ID=c5fd8cd3e724b985885a522e2d5868567584983188d1b6230af994d47d82eb68
+    - CC_TEST_REPORTER_ID=76aefbc3e8a95973feaba1fda885d9a0e69293db9f7772eeccd565a382dbcf18
     - DATABASE_HOST=localhost
 
 addons:
