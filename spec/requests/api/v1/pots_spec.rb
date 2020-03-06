@@ -89,7 +89,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
             params: {
               name: 'my square pot',
               shape: 'square',
-              area: 100.0
+              area: '100.0'
             },
             as: :json
           )
@@ -133,7 +133,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
             params: {
               name: 'my rectangular pot',
               shape: 'rectangle',
-              area: 110.0
+              area: '110.0'
             },
             as: :json
           )
@@ -177,7 +177,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
             params: {
               name: 'my circular pot',
               shape: 'circle',
-              area: 120.0
+              area: '120.0'
             },
             as: :json
           )
@@ -221,7 +221,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
             params: {
               name: 'my triangular pot',
               shape: 'triangle',
-              area: 130.0
+              area: '130.0'
             },
             as: :json
           )
@@ -243,7 +243,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
             params: {
               name: 'my other pot',
               shape: 'other',
-              area: 140.0
+              area: '140.0'
             },
             as: :json
           )
@@ -328,7 +328,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
             params: {
               name: 'my foobar pot',
               shape: 'foobar',
-              area: 100.0
+              area: '100.0'
             },
             as: :json
           )

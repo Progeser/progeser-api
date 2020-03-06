@@ -22,7 +22,7 @@ class ApplicationInteractor
         required(:params).hash do
           required(:name).filled(:string)
           required(:shape).filled(:string)
-          optional(:area).filled(:float)
+          optional(:area).filled(:string)
           optional(:dimensions).filled(:array)
         end
       end

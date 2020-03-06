@@ -93,7 +93,7 @@ RSpec.describe 'Api/V1/Benches', type: :request do
             params: {
               name: bench.name,
               shape: bench.shape,
-              area: 1.0
+              area: '1.0'
             },
             as: :json
           )
