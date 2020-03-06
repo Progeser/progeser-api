@@ -33,6 +33,13 @@ Style/Documentation:
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
 
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
+
 # Layout
 #
 Layout/ArgumentAlignment:
