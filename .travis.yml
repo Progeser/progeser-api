@@ -42,10 +42,4 @@ jobs:
     after_script:
     - "./cc-test-reporter after-build --exit-code $TRAVIS_TEStrT_RESULT"
   - stage: docker
-    script:
-    - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-    - docker build -t $DOCKER_PROGESER_API .
-    - docker push $DOCKER_PROGESER_API
-    - docker build -f DockerfileSidekiq -t $DOCKER_PROGESER_SIDEKIQ .
-    - docker push $DOCKER_PROGESER_API
-    - docker push $DOCKER_PROGESER_SIDEKIQ
+    script: bash docker_travis

@@ -1,0 +1,7 @@
+#!/bin/bash
+docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+docker build -t $DOCKER_PROGESER_API .
+docker push $DOCKER_PROGESER_API
+docker build -f DockerfileSidekiq -t $DOCKER_PROGESER_SIDEKIQ .
+docker push $DOCKER_PROGESER_API
+docker push $DOCKER_PROGESER_SIDEKIQ
