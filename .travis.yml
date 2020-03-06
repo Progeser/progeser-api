@@ -49,4 +49,3 @@ jobs:
     - docker build -f DockerfileSidekiq -t $DOCKER_PROGESER_SIDEKIQ .
     - docker push $DOCKER_PROGESER_API
     - docker push $DOCKER_PROGESER_SIDEKIQ
-uihzf
