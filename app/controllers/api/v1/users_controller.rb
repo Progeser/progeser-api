@@ -1,8 +1,17 @@
 # frozen_string_literal: true
 
 class Api::V1::UsersController < ApiController
-  skip_before_action :doorkeeper_authorize!
-  skip_after_action :verify_policy_scoped
+  skip_before_action :doorkeeper_authorize!,
+                     only: %i[create_from_invite create_from_account_request]
+  skip_after_action :verify_policy_scoped,
+                    only: %i[create_from_invite create_from_account_request]
+
+  def index
+    users = policy_scope(User)
+    authorize users
+
+    render json: apply_fetcheable(users).to_blueprint
+  end
 
   # Accept an invite and create a user
   #

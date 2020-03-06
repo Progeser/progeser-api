@@ -3,6 +3,44 @@
 require 'rails_helper'
 
 RSpec.describe 'Api/V1/Users', type: :request do
+  describe 'GET api/v1/users' do
+    context 'when 200' do
+      it_behaves_like 'with authenticated grower' do
+        it 'gets users with pagination params' do
+          get(
+            '/api/v1/users',
+            headers: headers,
+            params: {
+              page: {
+                number: 1,
+                size: 2
+              }
+            }
+          )
+
+          expect(status).to eq(200)
+
+          expect(JSON.parse(response.body).count).to eq(2)
+          expect(response.headers.dig('Pagination-Current-Page')).to eq(1)
+          expect(response.headers.dig('Pagination-Per')).to eq(2)
+          expect(response.headers.dig('Pagination-Total-Pages')).to eq(2)
+          expect(response.headers.dig('Pagination-Total-Count')).to eq(3)
+        end
+      end
+
+      it_behaves_like 'with authenticated requester' do
+        it 'gets the authenticated user only' do
+          get('/api/v1/users', headers: headers)
+
+          expect(status).to eq(200)
+
+          expect(JSON.parse(response.body).count).to eq(1)
+          expect(JSON.parse(response.body).first.dig('id')).to eq(user.id)
+        end
+      end
+    end
+  end
+
   describe 'POST /api/v1/users/:invitation_token/create_from_invite' do
     let!(:invite)           { invites(:invite_1) }
     let!(:invitation_token) { invite.invitation_token }

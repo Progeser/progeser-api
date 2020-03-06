@@ -22,8 +22,14 @@ Rails.application.routes.draw do
         post :accept, on: :member
       end
 
-      post '/users/:invitation_token/create_from_invite', to: 'users#create_from_invite'
-      post '/users/:creation_token/create_from_account_request', to: 'users#create_from_account_request'
+      resources :users, only: :index do
+        post '/:invitation_token/create_from_invite',
+             on: :collection,
+             action: :create_from_invite
+        post '/:creation_token/create_from_account_request',
+             on: :collection,
+             action: :create_from_account_request
+      end
 
       resources :pots, only: %i[index show create update destroy]
 
