@@ -16,7 +16,7 @@ RSpec.describe 'Api/V1/Passwords', type: :request do
         )
 
         expect(status).to eq(404)
-        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        expect(response.parsed_body.dig('error', 'message')).not_to be_blank
       end
     end
 
@@ -32,7 +32,7 @@ RSpec.describe 'Api/V1/Passwords', type: :request do
         )
 
         expect(status).to eq(422)
-        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        expect(response.parsed_body.dig('error', 'message')).not_to be_blank
       end
     end
   end
@@ -53,7 +53,7 @@ RSpec.describe 'Api/V1/Passwords', type: :request do
         )
 
         expect(status).to eq(400)
-        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        expect(response.parsed_body.dig('error', 'message')).not_to be_blank
       end
     end
 
@@ -62,7 +62,7 @@ RSpec.describe 'Api/V1/Passwords', type: :request do
         put('/api/v1/passwords/foobar/reset')
 
         expect(status).to eq(404)
-        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        expect(response.parsed_body.dig('error', 'message')).not_to be_blank
       end
     end
 
@@ -82,7 +82,7 @@ RSpec.describe 'Api/V1/Passwords', type: :request do
         )
 
         expect(status).to eq(422)
-        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        expect(response.parsed_body.dig('error', 'message')).not_to be_blank
       end
 
       it 'rollbacks the password reset if the access token can\'t be created' do
@@ -98,7 +98,7 @@ RSpec.describe 'Api/V1/Passwords', type: :request do
         )
 
         expect(status).to eq(422)
-        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        expect(response.parsed_body.dig('error', 'message')).not_to be_blank
 
         user.reload
         expect(user.confirmation_token).not_to be_nil
@@ -122,7 +122,7 @@ RSpec.describe 'Api/V1/Passwords', type: :request do
         )
 
         expect(status).to eq(400)
-        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        expect(response.parsed_body.dig('error', 'message')).not_to be_blank
       end
     end
 
@@ -137,7 +137,7 @@ RSpec.describe 'Api/V1/Passwords', type: :request do
         )
 
         expect(status).to eq(403)
-        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        expect(response.parsed_body.dig('error', 'message')).not_to be_blank
       end
     end
 
@@ -154,7 +154,7 @@ RSpec.describe 'Api/V1/Passwords', type: :request do
         )
 
         expect(status).to eq(422)
-        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        expect(response.parsed_body.dig('error', 'message')).not_to be_blank
       end
     end
   end

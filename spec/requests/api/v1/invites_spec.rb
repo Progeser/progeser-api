@@ -23,7 +23,7 @@ RSpec.describe 'Api/V1/Invites', type: :request do
 
           expect(status).to eq(200)
 
-          expect(JSON.parse(response.body).count).to eq(2)
+          expect(response.parsed_body.count).to eq(2)
           expect(response.headers.dig('Pagination-Current-Page')).to eq(1)
           expect(response.headers.dig('Pagination-Per')).to eq(2)
           expect(response.headers.dig('Pagination-Total-Pages')).to eq(2)
@@ -44,7 +44,7 @@ RSpec.describe 'Api/V1/Invites', type: :request do
 
           expect(status).to eq(200)
 
-          expect(JSON.parse(response.body).count).to eq(1)
+          expect(response.parsed_body.count).to eq(1)
           expect(response.headers.dig('Pagination-Current-Page')).to eq(2)
           expect(response.headers.dig('Pagination-Per')).to eq(1)
           expect(response.headers.dig('Pagination-Total-Pages')).to eq(3)
@@ -59,7 +59,7 @@ RSpec.describe 'Api/V1/Invites', type: :request do
           get('/api/v1/invites', headers: headers)
 
           expect(status).to eq(403)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -72,7 +72,7 @@ RSpec.describe 'Api/V1/Invites', type: :request do
           get("/api/v1/invites/#{id}", headers: headers)
 
           expect(status).to eq(404)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -95,7 +95,7 @@ RSpec.describe 'Api/V1/Invites', type: :request do
           )
 
           expect(status).to eq(400)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -106,7 +106,7 @@ RSpec.describe 'Api/V1/Invites', type: :request do
           post('/api/v1/invites', headers: headers)
 
           expect(status).to eq(403)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -127,7 +127,7 @@ RSpec.describe 'Api/V1/Invites', type: :request do
           )
 
           expect(status).to eq(422)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -140,7 +140,7 @@ RSpec.describe 'Api/V1/Invites', type: :request do
           post("/api/v1/invites/#{id}/retry", headers: headers)
 
           expect(status).to eq(404)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -153,7 +153,7 @@ RSpec.describe 'Api/V1/Invites', type: :request do
           delete("/api/v1/invites/#{id}", headers: headers)
 
           expect(status).to eq(404)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -166,7 +166,7 @@ RSpec.describe 'Api/V1/Invites', type: :request do
           delete("/api/v1/invites/#{id}", headers: headers)
 
           expect(status).to eq(422)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end

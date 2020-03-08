@@ -25,7 +25,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
 
           expect(status).to eq(200)
 
-          expect(JSON.parse(response.body).count).to eq(2)
+          expect(response.parsed_body.count).to eq(2)
           expect(response.headers.dig('Pagination-Current-Page')).to eq(1)
           expect(response.headers.dig('Pagination-Per')).to eq(2)
           expect(response.headers.dig('Pagination-Total-Pages')).to eq(1)
@@ -40,7 +40,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
           get('/api/v1/requests/2/request_distributions', headers: headers)
 
           expect(status).to eq(403)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -53,7 +53,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
           get("/api/v1/request_distributions/#{id}", headers: headers)
 
           expect(status).to eq(404)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -80,7 +80,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
           expect(response.body).to eq(distribution.to_blueprint)
           expect(distribution.request).to eq(request)
           expect(distribution.bench).to eq(Bench.first)
-          expect(JSON.parse(response.body).dig('greenhouse_id')).to eq(Bench.first.greenhouse_id)
+          expect(response.parsed_body.dig('greenhouse_id')).to eq(Bench.first.greenhouse_id)
           expect(distribution.plant_stage).to eq(request.plant_stage)
           expect(distribution.pot).to eq(Pot.first)
           expect(distribution.pot_quantity).to eq(10)
@@ -104,7 +104,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
           expect(response.body).to eq(distribution.to_blueprint)
           expect(distribution.request).to eq(request)
           expect(distribution.bench).to eq(Bench.first)
-          expect(JSON.parse(response.body).dig('greenhouse_id')).to eq(Bench.first.greenhouse_id)
+          expect(response.parsed_body.dig('greenhouse_id')).to eq(Bench.first.greenhouse_id)
           expect(distribution.plant_stage).to eq(request.plant_stage)
           expect(distribution.pot).to eq(nil)
           expect(distribution.pot_quantity).to eq(nil)
@@ -119,7 +119,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
           post("/api/v1/requests/#{request_id}/request_distributions", headers: headers)
 
           expect(status).to eq(404)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -138,7 +138,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
           )
 
           expect(status).to eq(422)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
 
         it 'fails to create a request distribution with missing params' do
@@ -153,7 +153,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
           )
 
           expect(status).to eq(422)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -209,7 +209,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
           put("/api/v1/request_distributions/#{id}", headers: headers)
 
           expect(status).to eq(404)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -228,7 +228,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
           )
 
           expect(status).to eq(422)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -243,7 +243,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
           delete("/api/v1/request_distributions/#{id}", headers: headers)
 
           expect(status).to eq(403)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -254,7 +254,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
           delete("/api/v1/request_distributions/#{id}", headers: headers)
 
           expect(status).to eq(404)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -267,7 +267,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
           delete("/api/v1/request_distributions/#{id}", headers: headers)
 
           expect(status).to eq(422)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end

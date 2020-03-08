@@ -10,7 +10,7 @@ RSpec.describe 'Api/V1/Shapes', type: :request do
           get('/api/v1/shapes', headers: headers)
 
           expect(status).to eq(403)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end

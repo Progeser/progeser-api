@@ -23,7 +23,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
 
           expect(status).to eq(200)
 
-          expect(JSON.parse(response.body).count).to eq(2)
+          expect(response.parsed_body.count).to eq(2)
           expect(response.headers.dig('Pagination-Current-Page')).to eq(1)
           expect(response.headers.dig('Pagination-Per')).to eq(2)
           expect(response.headers.dig('Pagination-Total-Pages')).to eq(1)
@@ -42,7 +42,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           )
 
           expect(status).to eq(200)
-          expect(JSON.parse(response.body).count).to eq(1)
+          expect(response.parsed_body.count).to eq(1)
         end
 
         it 'gets requests sorted by name' do
@@ -56,7 +56,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
 
           expect(status).to eq(200)
 
-          names = JSON.parse(response.body).map { |request| request.dig('name') }
+          names = response.parsed_body.map { |request| request.dig('name') }
           expect(names).to eq(names.sort)
         end
 
@@ -71,7 +71,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
 
           expect(status).to eq(200)
 
-          plant_names = JSON.parse(response.body).map { |request| request.dig('plant_name') }
+          plant_names = response.parsed_body.map { |request| request.dig('plant_name') }
           expect(plant_names).to eq(plant_names.sort.reverse)
         end
 
@@ -86,7 +86,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
 
           expect(status).to eq(200)
 
-          statuses = JSON.parse(response.body).map { |request| request.dig('status') }
+          statuses = response.parsed_body.map { |request| request.dig('status') }
           expect(statuses).to eq(statuses.sort.reverse)
         end
 
@@ -101,7 +101,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
 
           expect(status).to eq(200)
 
-          due_dates = JSON.parse(response.body).map { |request| request.dig('due_date') }
+          due_dates = response.parsed_body.map { |request| request.dig('due_date') }
           expect(due_dates).to eq(due_dates.sort)
         end
       end
@@ -111,7 +111,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           get('/api/v1/requests', headers: headers)
 
           expect(status).to eq(200)
-          expect(JSON.parse(response.body).count).to eq(1)
+          expect(response.parsed_body.count).to eq(1)
         end
       end
     end
@@ -124,7 +124,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           get("/api/v1/requests/#{id}", headers: headers)
 
           expect(status).to eq(404)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -229,7 +229,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           expect(response.body).to eq(request.to_blueprint)
           expect(request.author).to eq(user)
           expect(request.handler).to eq(nil)
-          expect(JSON.parse(response.body).dig('plant_id')).to eq(plant.id)
+          expect(response.parsed_body.dig('plant_id')).to eq(plant.id)
           expect(request.plant_stage).to eq(plant_stage)
           expect(request.name).to eq('My request')
           expect(request.plant_name).to eq(plant.name)
@@ -264,7 +264,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           expect(response.body).to eq(request.to_blueprint)
           expect(request.author).to eq(user)
           expect(request.handler).to eq(nil)
-          expect(JSON.parse(response.body).dig('plant_id')).to eq(nil)
+          expect(response.parsed_body.dig('plant_id')).to eq(nil)
           expect(request.plant_stage).to eq(nil)
           expect(request.name).to eq('My request')
           expect(request.plant_name).to eq('My non-existing plant')
@@ -298,7 +298,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           )
 
           expect(status).to eq(422)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -311,7 +311,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           put("/api/v1/requests/#{id}", headers: headers)
 
           expect(status).to eq(404)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -335,7 +335,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           )
 
           expect(status).to eq(422)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -351,7 +351,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           post("/api/v1/requests/#{id}/accept", headers: headers)
 
           expect(status).to eq(403)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -366,7 +366,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           post("/api/v1/requests/#{id}/accept", headers: headers)
 
           expect(status).to eq(422)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -382,7 +382,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           post("/api/v1/requests/#{id}/refuse", headers: headers)
 
           expect(status).to eq(403)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -397,7 +397,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           post("/api/v1/requests/#{id}/refuse", headers: headers)
 
           expect(status).to eq(422)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -443,7 +443,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           post("/api/v1/requests/#{id}/cancel", headers: headers)
 
           expect(status).to eq(422)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -456,7 +456,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           delete("/api/v1/requests/#{id}", headers: headers)
 
           expect(status).to eq(403)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -467,7 +467,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           delete("/api/v1/requests/#{id}", headers: headers)
 
           expect(status).to eq(404)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -482,7 +482,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           delete("/api/v1/requests/#{id}", headers: headers)
 
           expect(status).to eq(422)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end

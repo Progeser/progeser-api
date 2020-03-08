@@ -20,7 +20,7 @@ RSpec.describe 'Api/V1/Users', type: :request do
 
           expect(status).to eq(200)
 
-          expect(JSON.parse(response.body).count).to eq(2)
+          expect(response.parsed_body.count).to eq(2)
           expect(response.headers.dig('Pagination-Current-Page')).to eq(1)
           expect(response.headers.dig('Pagination-Per')).to eq(2)
           expect(response.headers.dig('Pagination-Total-Pages')).to eq(2)
@@ -34,8 +34,8 @@ RSpec.describe 'Api/V1/Users', type: :request do
 
           expect(status).to eq(200)
 
-          expect(JSON.parse(response.body).count).to eq(1)
-          expect(JSON.parse(response.body).first.dig('id')).to eq(user.id)
+          expect(response.parsed_body.count).to eq(1)
+          expect(response.parsed_body.first.dig('id')).to eq(user.id)
         end
       end
     end
@@ -56,7 +56,7 @@ RSpec.describe 'Api/V1/Users', type: :request do
         )
 
         expect(status).to eq(400)
-        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        expect(response.parsed_body.dig('error', 'message')).not_to be_blank
       end
     end
 
@@ -65,7 +65,7 @@ RSpec.describe 'Api/V1/Users', type: :request do
         post('/api/v1/users/foobar/create_from_invite')
 
         expect(status).to eq(404)
-        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        expect(response.parsed_body.dig('error', 'message')).not_to be_blank
       end
     end
 
@@ -80,7 +80,7 @@ RSpec.describe 'Api/V1/Users', type: :request do
         )
 
         expect(status).to eq(422)
-        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        expect(response.parsed_body.dig('error', 'message')).not_to be_blank
       end
 
       it 'rollbacks the user creation if the invite can\'t be destroyed' do
@@ -95,7 +95,7 @@ RSpec.describe 'Api/V1/Users', type: :request do
         )
 
         expect(status).to eq(422)
-        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        expect(response.parsed_body.dig('error', 'message')).not_to be_blank
 
         invite.reload
         expect(User.find_by(email: invite.email)).to be_nil
@@ -114,7 +114,7 @@ RSpec.describe 'Api/V1/Users', type: :request do
         )
 
         expect(status).to eq(422)
-        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        expect(response.parsed_body.dig('error', 'message')).not_to be_blank
 
         invite.reload
         expect(invite).to be_persisted
@@ -139,7 +139,7 @@ RSpec.describe 'Api/V1/Users', type: :request do
         )
 
         expect(status).to eq(400)
-        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        expect(response.parsed_body.dig('error', 'message')).not_to be_blank
       end
     end
 
@@ -151,7 +151,7 @@ RSpec.describe 'Api/V1/Users', type: :request do
         post("/api/v1/users/#{creation_token}/create_from_account_request")
 
         expect(status).to eq(403)
-        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        expect(response.parsed_body.dig('error', 'message')).not_to be_blank
       end
     end
 
@@ -160,7 +160,7 @@ RSpec.describe 'Api/V1/Users', type: :request do
         post('/api/v1/users/foobar/create_from_account_request')
 
         expect(status).to eq(404)
-        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        expect(response.parsed_body.dig('error', 'message')).not_to be_blank
       end
     end
 
@@ -176,7 +176,7 @@ RSpec.describe 'Api/V1/Users', type: :request do
         )
 
         expect(status).to eq(422)
-        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        expect(response.parsed_body.dig('error', 'message')).not_to be_blank
       end
 
       it 'rollbacks the user creation if the account_request can\'t be destroyed' do
@@ -192,7 +192,7 @@ RSpec.describe 'Api/V1/Users', type: :request do
         )
 
         expect(status).to eq(422)
-        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        expect(response.parsed_body.dig('error', 'message')).not_to be_blank
 
         account_request.reload
         expect(User.find_by(email: account_request.email)).to be_nil
@@ -212,7 +212,7 @@ RSpec.describe 'Api/V1/Users', type: :request do
         )
 
         expect(status).to eq(422)
-        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        expect(response.parsed_body.dig('error', 'message')).not_to be_blank
 
         account_request.reload
         expect(account_request).to be_persisted

@@ -23,7 +23,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
 
           expect(status).to eq(200)
 
-          expect(JSON.parse(response.body).count).to eq(2)
+          expect(response.parsed_body.count).to eq(2)
           expect(response.headers.dig('Pagination-Current-Page')).to eq(1)
           expect(response.headers.dig('Pagination-Per')).to eq(2)
           expect(response.headers.dig('Pagination-Total-Pages')).to eq(2)
@@ -40,7 +40,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
           post('/api/v1/plants', headers: headers)
 
           expect(status).to eq(403)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -59,7 +59,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
         #   )
 
         #   expect(status).to eq(422)
-        #   expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        #   expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         # end
 
         it 'fails to create a plant with missing params' do
@@ -73,7 +73,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
           )
 
           expect(status).to eq(422)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -86,7 +86,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
           put("/api/v1/plants/#{id}", headers: headers)
 
           expect(status).to eq(403)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -106,7 +106,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
         #   )
 
         #   expect(status).to eq(422)
-        #   expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        #   expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         # end
 
         it 'fails to update a plant with missing params' do
@@ -119,7 +119,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
           )
 
           expect(status).to eq(422)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
 
         it 'can\'t delete a plant_stage with ongoing requests' do
@@ -135,7 +135,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
           )
 
           expect(status).to eq(422)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -148,7 +148,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
           delete("/api/v1/plants/#{id}", headers: headers)
 
           expect(status).to eq(403)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
 
@@ -157,7 +157,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
           delete("/api/v1/plants/#{id}", headers: headers)
 
           expect(status).to eq(403)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -174,7 +174,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
           delete("/api/v1/plants/#{id}", headers: headers)
 
           expect(status).to eq(422)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end

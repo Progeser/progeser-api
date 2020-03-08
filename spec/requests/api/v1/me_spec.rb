@@ -19,7 +19,7 @@ RSpec.describe 'Api/V1/Me', type: :request do
         get('/api/v1/me', headers: discarded_user_headers)
 
         expect(status).to eq(404)
-        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        expect(response.parsed_body.dig('error', 'message')).not_to be_blank
       end
     end
   end
@@ -54,7 +54,7 @@ RSpec.describe 'Api/V1/Me', type: :request do
         put('/api/v1/me', headers: headers)
 
         expect(status).to eq(422)
-        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        expect(response.parsed_body.dig('error', 'message')).not_to be_blank
       end
     end
   end
@@ -67,7 +67,7 @@ RSpec.describe 'Api/V1/Me', type: :request do
         delete('/api/v1/me', headers: headers)
 
         expect(status).to eq(422)
-        expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+        expect(response.parsed_body.dig('error', 'message')).not_to be_blank
       end
     end
   end
