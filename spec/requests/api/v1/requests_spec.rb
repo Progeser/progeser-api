@@ -436,10 +436,10 @@ RSpec.describe 'Api/V1/Requests', type: :request do
     context 'when 422' do
       it_behaves_like 'with authenticated grower' do
         before do
-          request.update(status: :accepted)
+          request.update(status: :refused)
         end
 
-        it 'can\'t cancel a non pending or in_cancelation request' do
+        it 'can\'t cancel a non pending, accepted or in_cancelation request' do
           post("/api/v1/requests/#{id}/cancel", headers: headers)
 
           expect(status).to eq(422)

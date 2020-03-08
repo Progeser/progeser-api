@@ -59,7 +59,7 @@ class Request < ApplicationRecord
     end
 
     event :cancel do
-      transition %i[pending in_cancelation] => :canceled
+      transition %i[pending accepted in_cancelation] => :canceled
     end
 
     state :accepted do
