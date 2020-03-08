@@ -97,6 +97,7 @@ resource 'RequestDistributions' do
 
       response = JSON.parse(response_body)
       expect(response.dig('bench_id')).to eq(bench_id)
+      expect(response.dig('greenhouse_id')).to eq(Bench.first.greenhouse_id)
       expect(response.dig('plant_stage_id')).to eq(plant_stage_id)
       expect(response.dig('pot_id')).to eq(pot_id)
       expect(response.dig('pot_quantity')).to eq(pot_quantity)
