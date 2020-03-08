@@ -15,7 +15,10 @@ class Invite < ApplicationRecord
             uniqueness: true,
             email: { message: :email_invalid }
 
-  validates :role, presence: true
+  validates :role,
+            :first_name,
+            :last_name,
+            presence: true
 end
 
 # == Schema Information
