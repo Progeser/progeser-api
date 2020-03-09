@@ -1,46 +1,46 @@
 language: ruby
 cache: bundler
-
 rvm:
-  - 2.6.5
-
+- 2.6.5
 services:
-  - postgresql
-
+- postgresql
 env:
   global:
-    - CC_TEST_REPORTER_ID=76aefbc3e8a95973feaba1fda885d9a0e69293db9f7772eeccd565a382dbcf18
-    - DATABASE_HOST=localhost
-
+  - CC_TEST_REPORTER_ID=35b4e9c26fa39d21970402f41ef99d2c5931f65769f46620a0f9fceadd1c7a4d
+  - DATABASE_HOST=localhost
+  - secure: KlPRlygM6iOu1s/buLxjQ/sN++zaxQSFmIeOAAVpg59C+TQk+gSPTGjfv0xyyZZAKltfIiYTaQPYoInZbdfTKDAJIGhAi47LJPlGmPNrXMa7bAqDQ67MGV4lr576OB1UNzh3J0YT3fyzjfnB7OHjROWWCBZiKsv5+DUXqTFbkxqzwSmaRNddv2HjOP3AVer1X/S3mQccFsKJNxTHi+P55Jx04O/CDlmJuslWmU5veu5RYRD8rJBoMjliHakBav1w1I08Td3E8c89nDGHZ/d++ZWZyDBy2fUo7LbtaSRqlv1mmhssesJI91TSCZf53N3yC3KE/1E0hHN4/90h77BgBu2tCEL0rw9/PAvGJVhxhkTD4b+RINR5+JWLyid9qyfkUuY3ckCcG7bqFa+VU4F2ZzzAX942YLXXxXwUE0n43dMIYckwlUMzeGOoL81ul0uY5B6ntsy8S8rnNRD6+Er2JsqEHDhyp8abRMQfu9ScJN3bxlhyqLFIT9hselZaUB9MSaAIK0batVWXZ657odT6q3VW5j/0FzLxGanEk1Y9HfJj1JmeD32qpPdHBDuYP6EP66e/FVGctf/D4w4bXim/AKB+qPup6HVSPD2h1pTyUQ2uZ3HGOtYwF5R8c5p8y43NSQcwv3CssLUt/7UiLnG3IbIT/D8ehca2dFi8EuPj05o=
 addons:
   postgresql: 10
-
 stages:
-  - lint
-  - security
-  - test
-
+- lint
+- security
+- test
+- name: docker
+  if: branch = master
 jobs:
   include:
-    - stage: lint
-      script:
-      - gem install rubocop
-      - bundle exec rubocop
-    - stage: security
-      script:
-      - gem install brakeman
-      - brakeman
-      - gem install bundler-audit
-      - bundle audit check --update
-    - stage: test
-      before_script:
-      - psql -c 'create database travis_ci_test;' -U postgres
-      - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-      - chmod +x ./cc-test-reporter
-      - ./cc-test-reporter before-build
-      script:
-      - bundle exec rails db:reset db:setup db:migrate RAILS_ENV=test
-      - bundle exec rake test
-      - bundle exec rake spec
-      after_script:
-      - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - stage: lint
+    script:
+    - gem install rubocop
+    - bundle exec rubocop
+  - stage: security
+    script:
+    - gem install brakeman
+    - brakeman
+    - gem install bundler-audit
+    - bundle audit check --update
+  - stage: test
+    before_script:
+    - psql -c 'create database travis_ci_test;' -U postgres
+    - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+      > ./cc-test-reporter
+    - chmod +x ./cc-test-reporter
+    - "./cc-test-reporter before-build"
+    script:
+    - bundle exec rails db:reset db:setup db:migrate RAILS_ENV=test
+    - bundle exec rake test
+    - bundle exec rake spec
+    after_script:
+    - "./cc-test-reporter after-build --exit-code $TRAVIS_TEStrT_RESULT"
+  - stage: docker
+    script: bash scripts/docker_travis
