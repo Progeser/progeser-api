@@ -33,6 +33,10 @@ class RequestPolicy < ApplicationPolicy
     true
   end
 
+  def complete?
+    grower?
+  end
+
   def destroy?
     return false unless grower?
 

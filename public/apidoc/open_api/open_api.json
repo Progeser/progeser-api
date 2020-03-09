@@ -118,12 +118,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "fd875680-4b3a-4d61-aa58-b65cbfafa8f2"
+                "x-example-value": "be4766d7-9ce0-4089-8ca7-ecf0960de3c0"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.039797"
+                "x-example-value": "0.061262"
               },
               "Vary": {
                 "description": "",
@@ -197,21 +197,21 @@
           {
             "name": "email",
             "in": "formData",
-            "description": "Email of the requested account\nEg, `olga@satterfieldstoltenberg.co`",
+            "description": "Email of the requested account\nEg, `della@howegutkowski.name`",
             "required": false,
             "type": "string"
           },
           {
             "name": "first_name",
             "in": "formData",
-            "description": "First name of the requested account\nEg, `Justine`",
+            "description": "First name of the requested account\nEg, `Océane`",
             "required": false,
             "type": "string"
           },
           {
             "name": "last_name",
             "in": "formData",
-            "description": "Last name of the requested account\nEg, `Bonnet`",
+            "description": "Last name of the requested account\nEg, `Bernard`",
             "required": false,
             "type": "string"
           },
@@ -271,7 +271,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"27905c0dd096058f1ae1f46a652f79bc\""
+                "x-example-value": "W/\"81e95e8dbbce44367a9af3b0821bc1cd\""
               },
               "Cache-Control": {
                 "description": "",
@@ -281,12 +281,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "91898461-b3af-43f7-ad21-90dfa63ace21"
+                "x-example-value": "a21ca84b-2bc9-4225-8d67-ffd986c13735"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.011878"
+                "x-example-value": "0.011250"
               },
               "Vary": {
                 "description": "",
@@ -296,7 +296,7 @@
               "Content-Length": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "1638"
+                "x-example-value": "1633"
               }
             },
             "examples": {
@@ -304,11 +304,11 @@
                 "id": 4,
                 "accepted": false,
                 "comment": "So I read that the former United States is so desperate for medical supplies that they have allegedly sent several containers filled with wheat and tobacco. A gesture, they said, of good will. You wanna know what I think? Well, you're listening to my show, so I will assume you do... I think it's high time we let the colonies know what we really think of them. I think its payback time for a little tea party they threw for us a few hundred years ago. I say we go down to those docks tonight and dump that crap where everything from the Ulcered Sphincter of Arse-erica belongs! Who's with me? Who's bloody with me? Did you like that? USA... Ulcered Sphincter of Arse-erica, I mean what else can you say? Here was a country that had everything, absolutely everything. And now, 20 years later, is what? The world's biggest leper colony. Why? Godlessness. Let me say that again... Godlessness. It wasn't the war they started. It wasn't the plague they created. It was Judgement. No one escapes their past. No one escapes Judgement. You think he's not up there? You think he's not watching over this country? How else can you explain it? He tested us, but we came through. We did what we had to do. Islington. Enfield. I was there, I saw it all. Immigrants, Muslims, homosexuals, terrorists. Disease-ridden degenerates. They had to go. Strength through unity. Unity through faith. I'm a God-fearing Englishman and I'm goddamn proud of it!",
-                "created_at": "2020-03-09T00:33:58.177Z",
-                "email": "olga@satterfieldstoltenberg.co",
-                "first_name": "Justine",
-                "last_name": "Bonnet",
-                "updated_at": "2020-03-09T00:33:58.177Z"
+                "created_at": "2020-03-09T00:54:41.789Z",
+                "email": "della@howegutkowski.name",
+                "first_name": "Océane",
+                "last_name": "Bernard",
+                "updated_at": "2020-03-09T00:54:41.789Z"
               }
             }
           }
@@ -393,12 +393,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "249bd54d-2a1b-41ef-8d96-50390a3a90f5"
+                "x-example-value": "8d81feeb-60a3-4174-8885-a511702bc415"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.011066"
+                "x-example-value": "0.010931"
               },
               "Vary": {
                 "description": "",
@@ -508,12 +508,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "c23edcfb-3547-4fa8-8280-d615eaf2566d"
+                "x-example-value": "d4c8024c-7880-41ce-a6d1-b0f2a913e740"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.014440"
+                "x-example-value": "0.014447"
               },
               "Vary": {
                 "description": "",
@@ -618,12 +618,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "7e4e391b-2b09-4745-afa4-9ff540e61c8f"
+                "x-example-value": "d1c61dac-d1b9-4764-81a1-b7b6c3eda47f"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.014204"
+                "x-example-value": "0.013987"
               },
               "Vary": {
                 "description": "",
@@ -723,12 +723,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "d05302ed-c864-42f3-8a98-8ea105555f2c"
+                "x-example-value": "ba9537b2-dac3-4ae5-bd5a-33f370a90290"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.042308"
+                "x-example-value": "0.030262"
               },
               "Vary": {
                 "description": "",
@@ -861,12 +861,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "92b19490-1e9b-49ef-a696-00a0b8951f17"
+                "x-example-value": "579d6f20-3984-435e-ae89-9f6d94680245"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.036997"
+                "x-example-value": "0.019400"
               },
               "Vary": {
                 "description": "",
@@ -1049,7 +1049,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"cdb81566765b579e2bcaaa33bb54e3b0\""
+                "x-example-value": "W/\"e324a6147a033b46cf7bb3493fe1ebe6\""
               },
               "Cache-Control": {
                 "description": "",
@@ -1059,12 +1059,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "753e27f5-e319-42f8-afc9-a73a245d82b2"
+                "x-example-value": "f87619be-ec84-4f1e-8cc2-6fca7ddaceef"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.026635"
+                "x-example-value": "0.024169"
               },
               "Vary": {
                 "description": "",
@@ -1081,7 +1081,7 @@
               "application/json": {
                 "id": 7,
                 "area": "20000.0",
-                "created_at": "2020-03-09T00:33:58.393Z",
+                "created_at": "2020-03-09T00:54:41.965Z",
                 "dimensions": [
                   100,
                   200
@@ -1095,7 +1095,7 @@
                   "display_name": "rectangle",
                   "name": "rectangle"
                 },
-                "updated_at": "2020-03-09T00:33:58.393Z"
+                "updated_at": "2020-03-09T00:54:41.965Z"
               }
             }
           }
@@ -1190,12 +1190,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "a28a9087-62ca-4d05-ab34-39a58e41a10e"
+                "x-example-value": "f65fd9d6-f17a-4f88-ae30-4722f67b30a6"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.013175"
+                "x-example-value": "0.012127"
               },
               "Vary": {
                 "description": "",
@@ -1345,7 +1345,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"21069b6e13b726a8b9b876224a25baa9\""
+                "x-example-value": "W/\"016921ded6047ee8b29a7ea18d053522\""
               },
               "Cache-Control": {
                 "description": "",
@@ -1355,12 +1355,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "118ac0c1-c2b0-47db-b8ed-5a650e001b52"
+                "x-example-value": "d1e72e5d-0f3d-4630-ab4f-95a1bbaf15bf"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.106138"
+                "x-example-value": "0.066156"
               },
               "Vary": {
                 "description": "",
@@ -1389,7 +1389,7 @@
                   "display_name": "carré",
                   "name": "square"
                 },
-                "updated_at": "2020-03-09T00:33:58.514Z"
+                "updated_at": "2020-03-09T00:54:42.044Z"
               }
             }
           }
@@ -1472,12 +1472,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "7bc2373c-4dd0-4554-8a6b-be0b0902840e"
+                "x-example-value": "dd9a544f-edbb-4057-aee6-ce5b790d2315"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.015825"
+                "x-example-value": "0.013629"
               },
               "Vary": {
                 "description": "",
@@ -1586,12 +1586,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "400ade8c-8900-4cc4-b621-4d56a54af9a2"
+                "x-example-value": "e9d5407a-7938-4662-9ffd-17e4779292df"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.019746"
+                "x-example-value": "0.013978"
               },
               "Vary": {
                 "description": "",
@@ -1720,7 +1720,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"474a55014dc3f0e59bdab94da6de760f\""
+                "x-example-value": "W/\"7b469bad670825f1db4a5ce88f726581\""
               },
               "Cache-Control": {
                 "description": "",
@@ -1730,12 +1730,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "a032a103-6804-4868-a4b6-c64b75a71ee5"
+                "x-example-value": "4b0be0e4-47b7-4292-a579-725fbfb701e3"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.018075"
+                "x-example-value": "0.014498"
               },
               "Vary": {
                 "description": "",
@@ -1751,11 +1751,11 @@
             "examples": {
               "application/json": {
                 "id": 3,
-                "created_at": "2020-03-09T00:33:58.632Z",
+                "created_at": "2020-03-09T00:54:42.139Z",
                 "height": 200,
                 "name": "My new greenhouse",
                 "occupancy": "0.0",
-                "updated_at": "2020-03-09T00:33:58.632Z",
+                "updated_at": "2020-03-09T00:54:42.139Z",
                 "width": 100
               }
             }
@@ -1851,12 +1851,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "753267d1-1c45-4cee-98f8-2bee9d9a458d"
+                "x-example-value": "3c0e0897-fa6d-4db4-8bfb-bea93389eac5"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.018589"
+                "x-example-value": "0.013085"
               },
               "Vary": {
                 "description": "",
@@ -1981,7 +1981,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"27fe6414f6a41dc0ae6c9e3b0b56bed8\""
+                "x-example-value": "W/\"1961c67bee463240ebb5d6cc2ec27f7a\""
               },
               "Cache-Control": {
                 "description": "",
@@ -1991,12 +1991,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "c66fd95b-1a8f-4e0b-9d9e-a8d111f89d78"
+                "x-example-value": "739dfa9d-65c7-41dc-8a67-5e335feded14"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.015457"
+                "x-example-value": "0.015426"
               },
               "Vary": {
                 "description": "",
@@ -2016,7 +2016,7 @@
                 "height": 200,
                 "name": "Updated name",
                 "occupancy": "100.0",
-                "updated_at": "2020-03-09T00:33:58.660Z",
+                "updated_at": "2020-03-09T00:54:42.164Z",
                 "width": 100
               }
             }
@@ -2100,12 +2100,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "840c3143-7f0f-47cb-b242-79a87ea40b7f"
+                "x-example-value": "92f5409e-7363-46b1-a8be-7e3be3883b00"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.017818"
+                "x-example-value": "0.024511"
               },
               "Vary": {
                 "description": "",
@@ -2214,12 +2214,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "1a5f11b5-76fc-4feb-913a-99ccf5d1b09a"
+                "x-example-value": "97ba9b2b-8105-417b-a983-8460c66d5f70"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.026198"
+                "x-example-value": "0.016176"
               },
               "Vary": {
                 "description": "",
@@ -2378,7 +2378,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"43821703968276a2d87d01ea92709286\""
+                "x-example-value": "W/\"a2f6d332732d6bf5f01fba711bacdc5c\""
               },
               "Cache-Control": {
                 "description": "",
@@ -2388,12 +2388,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "2195b3ed-4716-43ba-b894-37fd836aa9a4"
+                "x-example-value": "2b5c1a44-63e3-4aee-aa34-b3efc6e6c558"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.029833"
+                "x-example-value": "0.031446"
               },
               "Vary": {
                 "description": "",
@@ -2409,13 +2409,13 @@
             "examples": {
               "application/json": {
                 "id": 4,
-                "created_at": "2020-03-09T00:33:58.816Z",
+                "created_at": "2020-03-09T00:54:42.288Z",
                 "email": "requester_to_invite@progeser.com",
                 "first_name": "invite first name",
                 "laboratory": "invite laboratory",
                 "last_name": "invite last name",
                 "role": "requester",
-                "updated_at": "2020-03-09T00:33:58.816Z"
+                "updated_at": "2020-03-09T00:54:42.288Z"
               }
             }
           }
@@ -2510,12 +2510,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "fde82e00-be78-4505-9b9a-7e2f8766026e"
+                "x-example-value": "b7df46ae-f043-4a6d-a2d4-81a315fc78de"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.019117"
+                "x-example-value": "0.012687"
               },
               "Vary": {
                 "description": "",
@@ -2620,12 +2620,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "b2f7290e-4045-4998-b875-97f992f8b296"
+                "x-example-value": "be6e1e88-21db-47f8-8278-a52217b8332c"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.016388"
+                "x-example-value": "0.013842"
               },
               "Vary": {
                 "description": "",
@@ -2715,12 +2715,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "267abc8f-7b63-4d3d-bb9b-5a3c6174f595"
+                "x-example-value": "2b334e6b-24f6-46f9-b0d7-6361bfc5b1a1"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.025258"
+                "x-example-value": "0.023110"
               },
               "Vary": {
                 "description": "",
@@ -2814,12 +2814,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "5374e9f8-33a0-4d90-a03e-88fa105f6abb"
+                "x-example-value": "2d163275-2737-45fb-bbd0-709888bf4d10"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.022910"
+                "x-example-value": "0.016457"
               },
               "Vary": {
                 "description": "",
@@ -2938,7 +2938,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"34bf2025bda749d7caf421edaaea7be9\""
+                "x-example-value": "W/\"9b0b77f8410f1ad6a2cd260003f9a18e\""
               },
               "Cache-Control": {
                 "description": "",
@@ -2948,12 +2948,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "95b313f9-1ec5-4ea8-be83-cec66ec47be9"
+                "x-example-value": "817281a2-205c-4de8-847a-01465387f751"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.021657"
+                "x-example-value": "0.017120"
               },
               "Vary": {
                 "description": "",
@@ -2975,7 +2975,7 @@
                 "laboratory": "Updated laboratory",
                 "last_name": "Updated last name",
                 "role": "requester",
-                "updated_at": "2020-03-09T00:33:58.952Z"
+                "updated_at": "2020-03-09T00:54:42.411Z"
               }
             }
           }
@@ -3052,12 +3052,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "703302f0-bb1b-4bd3-8aee-c3897a1fc427"
+                "x-example-value": "e47d241e-0716-4ded-a46e-00fc04bf4624"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.015283"
+                "x-example-value": "0.025844"
               },
               "Vary": {
                 "description": "",
@@ -3147,12 +3147,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "41487585-7cd0-4f79-aa1a-6f0a7c333317"
+                "x-example-value": "0e713633-9b85-4d5b-ae08-9d4b59c9a598"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.028695"
+                "x-example-value": "0.024561"
               },
               "Vary": {
                 "description": "",
@@ -3252,7 +3252,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"cca25e4b88ce9643f5638429e706305c\""
+                "x-example-value": "W/\"f6bf50f9b69c00413bea5e1d4c766349\""
               },
               "Cache-Control": {
                 "description": "",
@@ -3262,12 +3262,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "504c4296-1630-4e5a-a8da-1b48d14ed5e0"
+                "x-example-value": "cbb06e0b-422c-4382-8d0b-b21118429f21"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.023616"
+                "x-example-value": "0.023403"
               },
               "Vary": {
                 "description": "",
@@ -3291,13 +3291,13 @@
                 "role": "requester",
                 "token": {
                   "id": 27,
-                  "access_token": "9__WVN_nfykTixvWF9X6qhLzPIGtTXcPOHphK356tzI",
-                  "created_at": "2020-03-09T00:33:59.240Z",
+                  "access_token": "QMHN3XTkpDCQYE4VyNdzizv5X7xUO5HptQ4B8Iq42_U",
+                  "created_at": "2020-03-09T00:54:42.721Z",
                   "expires_in": 7200,
-                  "refresh_token": "62Zl8L2rGL_rpG1x5tAJ5aC-iCy2s68wa6mniwEUWUs",
+                  "refresh_token": "0O1TSxdwQmDPW8iQTatSrYPicbbzjLrMgOHBsn4xjVs",
                   "token_type": "Bearer"
                 },
-                "updated_at": "2020-03-09T00:33:59.239Z"
+                "updated_at": "2020-03-09T00:54:42.720Z"
               }
             }
           }
@@ -3392,12 +3392,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "b3929c81-27fc-4980-94fa-29ba5b24827b"
+                "x-example-value": "0ffd1743-d549-4f55-a3e4-5cae649f23f3"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.288590"
+                "x-example-value": "0.205871"
               },
               "Vary": {
                 "description": "",
@@ -3506,12 +3506,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "756d3483-0294-4c20-ae6e-ed2dcaff83e3"
+                "x-example-value": "68285973-940b-4668-87c5-cbd12fb29edd"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.081854"
+                "x-example-value": "0.016465"
               },
               "Vary": {
                 "description": "",
@@ -3723,14 +3723,14 @@
           {
             "name": "name",
             "in": "formData",
-            "description": "Name of the plant\nEg, `Chinese Cabbage`",
+            "description": "Name of the plant\nEg, `Cucumber`",
             "required": false,
             "type": "string"
           },
           {
             "name": "plant_stages_attributes",
             "in": "formData",
-            "description": "Plant stages attributes\nA plant stage should have a name, a duration and a position\nEg, `[{:name=>\"sprout\", :duration=>25, :position=>1}, {:name=>\"seedling\", :duration=>16, :position=>2}]`",
+            "description": "Plant stages attributes\nA plant stage should have a name, a duration and a position\nEg, `[{:name=>\"sprout\", :duration=>24, :position=>1}, {:name=>\"seedling\", :duration=>15, :position=>2}]`",
             "required": false,
             "type": "array",
             "items": {
@@ -3786,7 +3786,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"77cd71e1771a561d04a0a36b29ff9a28\""
+                "x-example-value": "W/\"7e1dfc2eb377d2e991dcdd1a34f2169a\""
               },
               "Cache-Control": {
                 "description": "",
@@ -3796,12 +3796,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "5c4e972d-f935-4095-ac8d-2fcd7bbcca83"
+                "x-example-value": "cb658486-0060-48d0-a6b9-3da57ce5f8bc"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.047756"
+                "x-example-value": "0.022237"
               },
               "Vary": {
                 "description": "",
@@ -3811,33 +3811,33 @@
               "Content-Length": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "398"
+                "x-example-value": "391"
               }
             },
             "examples": {
               "application/json": {
                 "id": 4,
-                "created_at": "2020-03-09T00:33:59.986Z",
-                "name": "Chinese Cabbage",
+                "created_at": "2020-03-09T00:54:43.223Z",
+                "name": "Cucumber",
                 "plant_stages": [
                   {
                     "id": 19,
-                    "created_at": "2020-03-09T00:33:59.994Z",
-                    "duration": 25,
+                    "created_at": "2020-03-09T00:54:43.224Z",
+                    "duration": 24,
                     "name": "sprout",
                     "position": 1,
-                    "updated_at": "2020-03-09T00:33:59.994Z"
+                    "updated_at": "2020-03-09T00:54:43.224Z"
                   },
                   {
                     "id": 20,
-                    "created_at": "2020-03-09T00:34:00.005Z",
-                    "duration": 16,
+                    "created_at": "2020-03-09T00:54:43.227Z",
+                    "duration": 15,
                     "name": "seedling",
                     "position": 2,
-                    "updated_at": "2020-03-09T00:34:00.005Z"
+                    "updated_at": "2020-03-09T00:54:43.227Z"
                   }
                 ],
-                "updated_at": "2020-03-09T00:33:59.986Z"
+                "updated_at": "2020-03-09T00:54:43.223Z"
               }
             }
           }
@@ -3932,12 +3932,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "21ead75b-80bf-4eea-b26f-385bacdf2431"
+                "x-example-value": "70a07b77-627a-468a-b580-fc473aaa4aeb"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.020761"
+                "x-example-value": "0.014428"
               },
               "Vary": {
                 "description": "",
@@ -4105,7 +4105,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"3bf6f84a2ef974a270117fe2f075eca6\""
+                "x-example-value": "W/\"78214d9f9de682563f45b071a5a57ed2\""
               },
               "Cache-Control": {
                 "description": "",
@@ -4115,12 +4115,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "c44bc5ac-eca2-415d-bca5-8d6ca8f56023"
+                "x-example-value": "5dc609ee-4887-4191-a600-18b5f8df042a"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.068047"
+                "x-example-value": "0.073491"
               },
               "Vary": {
                 "description": "",
@@ -4145,7 +4145,7 @@
                     "duration": 30,
                     "name": "ripening",
                     "position": 1,
-                    "updated_at": "2020-03-09T00:34:00.088Z"
+                    "updated_at": "2020-03-09T00:54:43.310Z"
                   },
                   {
                     "id": 3,
@@ -4153,7 +4153,7 @@
                     "duration": 10,
                     "name": "stage 3",
                     "position": 2,
-                    "updated_at": "2020-03-09T00:34:00.097Z"
+                    "updated_at": "2020-03-09T00:54:43.313Z"
                   },
                   {
                     "id": 4,
@@ -4161,7 +4161,7 @@
                     "duration": 10,
                     "name": "budding",
                     "position": 3,
-                    "updated_at": "2020-03-09T00:34:00.097Z"
+                    "updated_at": "2020-03-09T00:54:43.313Z"
                   },
                   {
                     "id": 5,
@@ -4169,10 +4169,10 @@
                     "duration": 17,
                     "name": "flowering",
                     "position": 4,
-                    "updated_at": "2020-03-09T00:34:00.097Z"
+                    "updated_at": "2020-03-09T00:54:43.313Z"
                   }
                 ],
-                "updated_at": "2020-03-09T00:34:00.059Z"
+                "updated_at": "2020-03-09T00:54:43.293Z"
               }
             }
           }
@@ -4255,12 +4255,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "938dd9bf-ad82-46d9-a1ef-57d25cbf1c85"
+                "x-example-value": "9bb5ac02-f402-4590-b748-8d9682b85df5"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.042641"
+                "x-example-value": "0.024864"
               },
               "Vary": {
                 "description": "",
@@ -4369,12 +4369,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "13413fa4-2f67-4f70-b18c-73643ff7f46b"
+                "x-example-value": "9e9a1e18-2730-472b-ab95-2471d6d50ef1"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.024213"
+                "x-example-value": "0.015568"
               },
               "Vary": {
                 "description": "",
@@ -4586,7 +4586,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"f0b0c826cea11f71980bb6c451a9b235\""
+                "x-example-value": "W/\"a7ae52e41f77eed604abc70e0342eac8\""
               },
               "Cache-Control": {
                 "description": "",
@@ -4596,12 +4596,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "eb963812-cb84-4b49-a141-12252390c6c6"
+                "x-example-value": "26740fb4-526b-4c54-af34-f93f3cca8e39"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.022955"
+                "x-example-value": "0.013459"
               },
               "Vary": {
                 "description": "",
@@ -4618,7 +4618,7 @@
               "application/json": {
                 "id": 6,
                 "area": "200.0",
-                "created_at": "2020-03-09T00:34:00.308Z",
+                "created_at": "2020-03-09T00:54:43.428Z",
                 "dimensions": [
                   10,
                   20
@@ -4632,7 +4632,7 @@
                   "display_name": "rectangle",
                   "name": "rectangle"
                 },
-                "updated_at": "2020-03-09T00:34:00.308Z"
+                "updated_at": "2020-03-09T00:54:43.428Z"
               }
             }
           }
@@ -4727,12 +4727,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "abf3193c-9d62-435f-8ba6-d5b4125470fc"
+                "x-example-value": "f978c58b-509d-451b-adb9-6f9e7cb7cde5"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.034954"
+                "x-example-value": "0.012878"
               },
               "Vary": {
                 "description": "",
@@ -4882,7 +4882,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"c37075b35e23daa4acf566d4b9ffa3de\""
+                "x-example-value": "W/\"062f8c23960a9fc7883a07e0e0940729\""
               },
               "Cache-Control": {
                 "description": "",
@@ -4892,12 +4892,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "d733592a-e706-4d8a-8f2d-15ee554d4cd9"
+                "x-example-value": "f3538734-438d-49cc-9e8e-c927d9630afb"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.016570"
+                "x-example-value": "0.016977"
               },
               "Vary": {
                 "description": "",
@@ -4926,7 +4926,7 @@
                   "display_name": "carré",
                   "name": "square"
                 },
-                "updated_at": "2020-03-09T00:34:00.338Z"
+                "updated_at": "2020-03-09T00:54:43.465Z"
               }
             }
           }
@@ -5009,12 +5009,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0090b8e2-8e3f-4f14-800a-20f787b6fb72"
+                "x-example-value": "cca2b2c6-b942-4c40-a0d1-081f23f71012"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.026893"
+                "x-example-value": "0.015047"
               },
               "Vary": {
                 "description": "",
@@ -5130,12 +5130,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "ced7777e-6581-49f7-8d66-e752122b2a5e"
+                "x-example-value": "b9bcc805-bc24-4114-8151-faa8c1c4015a"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.035330"
+                "x-example-value": "0.021975"
               },
               "Vary": {
                 "description": "",
@@ -5289,7 +5289,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"dd70cefcee90d5bb10af59f37284d228\""
+                "x-example-value": "W/\"57ed63c6a72f58035ebc6886c0dc43da\""
               },
               "Cache-Control": {
                 "description": "",
@@ -5299,12 +5299,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "03fa20bd-7dcd-45c2-9266-8578163b7e5e"
+                "x-example-value": "3ff1cb9f-e1c3-429d-91c5-c18906f79d12"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.030454"
+                "x-example-value": "0.020477"
               },
               "Vary": {
                 "description": "",
@@ -5322,12 +5322,12 @@
                 "id": 4,
                 "area": "1470.0",
                 "bench_id": 1,
-                "created_at": "2020-03-09T00:34:00.553Z",
+                "created_at": "2020-03-09T00:54:43.587Z",
                 "greenhouse_id": 1,
                 "plant_stage_id": 1,
                 "pot_id": 1,
                 "pot_quantity": 30,
-                "updated_at": "2020-03-09T00:34:00.553Z"
+                "updated_at": "2020-03-09T00:54:43.587Z"
               }
             }
           }
@@ -5422,12 +5422,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "311e9dc2-2c40-44d5-aeee-2ebd20737cdb"
+                "x-example-value": "529baf08-2096-4ab8-9143-8794eb62a034"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.019915"
+                "x-example-value": "0.013643"
               },
               "Vary": {
                 "description": "",
@@ -5568,7 +5568,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"ba82d83370450f267e4a2731e397a7fd\""
+                "x-example-value": "W/\"42f3249816b627838dd948c10d8fc770\""
               },
               "Cache-Control": {
                 "description": "",
@@ -5578,12 +5578,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "e2c138c1-f85e-4ff3-bc9d-6fa7a4e0ac77"
+                "x-example-value": "b05a7ea7-0878-42b2-9eb0-4731eb6605dd"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.030184"
+                "x-example-value": "0.020488"
               },
               "Vary": {
                 "description": "",
@@ -5606,7 +5606,7 @@
                 "plant_stage_id": 2,
                 "pot_id": 2,
                 "pot_quantity": 20,
-                "updated_at": "2020-03-09T00:34:00.611Z"
+                "updated_at": "2020-03-09T00:54:43.624Z"
               }
             }
           }
@@ -5689,12 +5689,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "cda2d5b0-81ec-4bca-a3e3-d94bd31b0394"
+                "x-example-value": "db7aa80e-1a19-4960-93d9-b72b09dfe37b"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.020486"
+                "x-example-value": "0.014371"
               },
               "Vary": {
                 "description": "",
@@ -5755,7 +5755,8 @@
               "accepted",
               "refused",
               "in_cancelation",
-              "canceled"
+              "canceled",
+              "completed"
             ]
           },
           {
@@ -5833,12 +5834,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "50ff7e33-0b01-4725-9197-a684d331f66d"
+                "x-example-value": "334990b6-85aa-47fc-8653-4c700555aea6"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.027669"
+                "x-example-value": "0.018870"
               },
               "Vary": {
                 "description": "",
@@ -6027,7 +6028,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"9bf9da38ef449d9cf3dbaa8fddab15c6\""
+                "x-example-value": "W/\"8f16e251ae3275dabc3bcfc430c77428\""
               },
               "Cache-Control": {
                 "description": "",
@@ -6037,12 +6038,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "c36c98cd-054d-414b-8340-80bc0c3e9ebb"
+                "x-example-value": "554a3667-b4b4-4bbe-8b02-ab091fca76f3"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.022216"
+                "x-example-value": "0.018128"
               },
               "Vary": {
                 "description": "",
@@ -6060,7 +6061,7 @@
                 "id": 3,
                 "author_id": 2,
                 "comment": "The specimens have to be in perfect condition, please be careful!",
-                "created_at": "2020-03-09T00:34:00.796Z",
+                "created_at": "2020-03-09T00:54:43.767Z",
                 "due_date": "2020-09-09",
                 "handler_id": null,
                 "name": "My request",
@@ -6072,7 +6073,7 @@
                 "quantity": 150,
                 "status": "pending",
                 "temperature": 35,
-                "updated_at": "2020-03-09T00:34:00.796Z"
+                "updated_at": "2020-03-09T00:54:43.767Z"
               }
             }
           }
@@ -6161,12 +6162,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "b378a720-6a40-4b24-8170-5b0386f066ce"
+                "x-example-value": "a7e39243-4a3c-41fe-b737-999cb27ad968"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.018536"
+                "x-example-value": "0.012890"
               },
               "Vary": {
                 "description": "",
@@ -6277,12 +6278,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "bfa6f2d9-adb6-42ea-99aa-c8bfa47c4353"
+                "x-example-value": "5015323e-2bdd-4319-a750-d4b129ebf32a"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.022797"
+                "x-example-value": "0.015742"
               },
               "Vary": {
                 "description": "",
@@ -6458,7 +6459,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"12121b3ee2397c43229dc90842edd14f\""
+                "x-example-value": "W/\"d802c93ec3e194ba5feb7fb429e474b0\""
               },
               "Cache-Control": {
                 "description": "",
@@ -6468,12 +6469,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "f11d79c7-e70f-4920-ba32-a0fda69364ef"
+                "x-example-value": "f7785f78-87ae-434b-9782-d2840cbdc5e7"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.024106"
+                "x-example-value": "0.021392"
               },
               "Vary": {
                 "description": "",
@@ -6503,7 +6504,7 @@
                 "quantity": 150,
                 "status": "accepted",
                 "temperature": 20,
-                "updated_at": "2020-03-09T00:34:00.833Z"
+                "updated_at": "2020-03-09T00:54:43.801Z"
               }
             }
           }
@@ -6586,12 +6587,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "c12678da-9ee2-4fc7-ace7-5965a35b8719"
+                "x-example-value": "a7f19460-a23b-4d2c-850b-693e8e1663b5"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.036163"
+                "x-example-value": "0.021901"
               },
               "Vary": {
                 "description": "",
@@ -6681,7 +6682,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"23661d5330b384da526e752cd40515ed\""
+                "x-example-value": "W/\"98081502b2d5ab033816aaa11db11810\""
               },
               "Cache-Control": {
                 "description": "",
@@ -6691,12 +6692,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "974a37fc-3075-4eaf-9010-7da5f6e7add0"
+                "x-example-value": "d10552c0-0fb4-4082-bcb6-246a580a1c6d"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.019691"
+                "x-example-value": "0.018896"
               },
               "Vary": {
                 "description": "",
@@ -6726,7 +6727,7 @@
                 "quantity": 50,
                 "status": "accepted",
                 "temperature": 20,
-                "updated_at": "2020-03-09T00:34:00.867Z"
+                "updated_at": "2020-03-09T00:54:43.836Z"
               }
             }
           }
@@ -6811,7 +6812,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"97a4c8d0bf5b40cbb112eb548b82c4f6\""
+                "x-example-value": "W/\"12e2481486890bad17df106275407975\""
               },
               "Cache-Control": {
                 "description": "",
@@ -6821,12 +6822,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "098dcae9-0b71-4c98-aed2-b7f9440fe4bf"
+                "x-example-value": "886f546f-41b7-422f-965c-b775603e9ad0"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.022760"
+                "x-example-value": "0.017178"
               },
               "Vary": {
                 "description": "",
@@ -6856,7 +6857,7 @@
                 "quantity": 50,
                 "status": "refused",
                 "temperature": 20,
-                "updated_at": "2020-03-09T00:34:00.902Z"
+                "updated_at": "2020-03-09T00:54:43.868Z"
               }
             }
           }
@@ -6941,7 +6942,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"254592d2f24771b9360d6ce39bb860fd\""
+                "x-example-value": "W/\"3e8a42376a8e0e5b12ed92202a532abb\""
               },
               "Cache-Control": {
                 "description": "",
@@ -6951,12 +6952,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "580b3f28-86f9-42e2-a659-8f9cc86d2a70"
+                "x-example-value": "e1308ba3-17f3-4e06-9b70-01b9f12d7698"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.027319"
+                "x-example-value": "0.016219"
               },
               "Vary": {
                 "description": "",
@@ -6986,7 +6987,137 @@
                 "quantity": 50,
                 "status": "canceled",
                 "temperature": 20,
-                "updated_at": "2020-03-09T00:34:00.948Z"
+                "updated_at": "2020-03-09T00:54:43.899Z"
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "Authorization": [
+
+            ]
+          }
+        ]
+      }
+    },
+    "/api/v1/requests/{id}/complete": {
+      "post": {
+        "tags": [
+          "Requests"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Complete a request",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json; charset=utf-8"
+              },
+              "ETag": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "W/\"8119aec6697233b1ff92a0b4a2436d0c\""
+              },
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "max-age=0, private, must-revalidate"
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "877aef6e-9898-4d5b-8af4-8c2d8b171112"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.015584"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "369"
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "author_id": 2,
+                "comment": "I didn't think it would end this way.",
+                "created_at": "2020-02-13T00:04:08.434Z",
+                "due_date": "2020-05-13",
+                "handler_id": 2,
+                "name": "My first request",
+                "photoperiod": 8,
+                "plant_id": 1,
+                "plant_name": "Celery",
+                "plant_stage_id": 6,
+                "plant_stage_name": "ripening",
+                "quantity": 50,
+                "status": "completed",
+                "temperature": 20,
+                "updated_at": "2020-03-09T00:54:43.923Z"
               }
             }
           }
@@ -7065,7 +7196,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"f533339fe8cd9201976bbc2b7a7c7e83\""
+                "x-example-value": "W/\"9f4fb890f047e95f95fcb163c227aba8\""
               },
               "Cache-Control": {
                 "description": "",
@@ -7075,12 +7206,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "dd4ce083-cf04-4033-9c48-c61625e23aba"
+                "x-example-value": "1041f532-4ee8-4033-90ed-49a7bef77ac1"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.042663"
+                "x-example-value": "0.030985"
               },
               "Vary": {
                 "description": "",
@@ -7104,14 +7235,6 @@
                 },
                 {
                   "dimension_names": [
-                    "base",
-                    "hauteur"
-                  ],
-                  "display_name": "triangle",
-                  "name": "triangle"
-                },
-                {
-                  "dimension_names": [
                     "largeur",
                     "longueur"
                   ],
@@ -7124,6 +7247,14 @@
                   ],
                   "display_name": "carré",
                   "name": "square"
+                },
+                {
+                  "dimension_names": [
+                    "base",
+                    "hauteur"
+                  ],
+                  "display_name": "triangle",
+                  "name": "triangle"
                 }
               ]
             }
@@ -7233,17 +7364,17 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"546eb51756fd37f0ba0e5e0c28d593ea\""
+                "x-example-value": "W/\"d92cbde29ba000a37de846e558098f1c\""
               },
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "4332d4f1-7e13-4a94-b802-d6791d39c3a8"
+                "x-example-value": "83ee3159-9c30-4878-9ec5-fa933d38c14c"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.218885"
+                "x-example-value": "0.206292"
               },
               "Vary": {
                 "description": "",
@@ -7258,11 +7389,11 @@
             },
             "examples": {
               "application/json": {
-                "access_token": "pALJ8Pc60YVoROyEKNzWNM1UhkoZTup1pQbig-ldj3I",
+                "access_token": "zh2Nj06dBXOMNEKql_43I1_BFlQcOt8p1BjCEUsuZgI",
                 "token_type": "Bearer",
                 "expires_in": 7200,
-                "refresh_token": "ZPd1x0MCVf50uQYhyNffCf593sNHqIeYwdTAwaJshX8",
-                "created_at": 1583714041
+                "refresh_token": "oN4ni8U-_2oTQw3hRTHGdr_z1xTOyI11auhbLdrcaw4",
+                "created_at": 1583715284
               }
             }
           }
@@ -7362,12 +7493,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "9d941162-8794-4f96-8d93-cca235e90695"
+                "x-example-value": "08222eb6-b6ec-481c-ad0f-bd3dd4556524"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.016709"
+                "x-example-value": "0.010803"
               },
               "Vary": {
                 "description": "",
@@ -7510,7 +7641,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"664dba49bf28ed12e4c1f54d560afeaf\""
+                "x-example-value": "W/\"3d028aa56a0b9e0c61e78014d36a114e\""
               },
               "Cache-Control": {
                 "description": "",
@@ -7520,12 +7651,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "438bb5bb-399c-47b6-a8b5-4eafcc36830a"
+                "x-example-value": "cc0772c7-3289-428a-93a1-385aeaf85d75"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.024978"
+                "x-example-value": "0.025512"
               },
               "Vary": {
                 "description": "",
@@ -7541,21 +7672,21 @@
             "examples": {
               "application/json": {
                 "id": 4,
-                "created_at": "2020-03-09T00:34:01.381Z",
+                "created_at": "2020-03-09T00:54:44.287Z",
                 "email": "invite+requester@progeser.com",
                 "first_name": "Requester",
                 "laboratory": "My test lab",
                 "last_name": "Invite",
                 "role": "requester",
                 "token": {
-                  "id": 57,
-                  "access_token": "YSoCM-PFKVnq5uhvtfKe_AMdzhpz4lmtJlCMVp0oObw",
-                  "created_at": "2020-03-09T00:34:01.383Z",
+                  "id": 58,
+                  "access_token": "oLkO-S2gxQCo0l7vNdOvzfM1jRRheFARaAywx-_rX7g",
+                  "created_at": "2020-03-09T00:54:44.289Z",
                   "expires_in": 7200,
-                  "refresh_token": "ObMBE640BYDqF8Uf6x8cgCxIy-OIAPbmnE68cImPSRY",
+                  "refresh_token": "AgTYB5nuHYUPErniuN5wGl6GJrp8NPxgy3i2h7kYUSA",
                   "token_type": "Bearer"
                 },
-                "updated_at": "2020-03-09T00:34:01.381Z"
+                "updated_at": "2020-03-09T00:54:44.287Z"
               }
             }
           }
@@ -7657,7 +7788,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"cb4c89462ad0adae2211f7e545437596\""
+                "x-example-value": "W/\"f8dbeaef9525c8588ab3eea01ade87bb\""
               },
               "Cache-Control": {
                 "description": "",
@@ -7667,12 +7798,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "22d0532b-ad69-46b9-8eb1-ee0429f6f53c"
+                "x-example-value": "42b09ca2-37b1-4733-996d-4e6f36e272ab"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.023001"
+                "x-example-value": "0.025889"
               },
               "Vary": {
                 "description": "",
@@ -7688,21 +7819,21 @@
             "examples": {
               "application/json": {
                 "id": 5,
-                "created_at": "2020-03-09T00:34:01.415Z",
+                "created_at": "2020-03-09T00:54:44.325Z",
                 "email": "tyler.kautzer@beierhegmann.net",
                 "first_name": "Manon",
                 "laboratory": "my laboratory",
                 "last_name": "Rousseau",
                 "role": "requester",
                 "token": {
-                  "id": 59,
-                  "access_token": "LQBjZGnbFkbztkZSFl3vI2YNRUO8JjqD4k18n8iGy-w",
-                  "created_at": "2020-03-09T00:34:01.417Z",
+                  "id": 60,
+                  "access_token": "0McOG5oEKeF8EaAygSZ-aNtvIhhG-lQWSJICR_sL75c",
+                  "created_at": "2020-03-09T00:54:44.328Z",
                   "expires_in": 7200,
-                  "refresh_token": "0PH7pmnhaoVhiCP2chteM7E71iuTqIw9pt7W1XajiT4",
+                  "refresh_token": "0ScrBy9he-cKg-SRuzKtodoXxpnUc_lYrYU_B6Zo3E4",
                   "token_type": "Bearer"
                 },
-                "updated_at": "2020-03-09T00:34:01.415Z"
+                "updated_at": "2020-03-09T00:54:44.325Z"
               }
             }
           }

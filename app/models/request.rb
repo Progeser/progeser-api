@@ -4,7 +4,7 @@ class Request < ApplicationRecord
   # Enumerize
   extend Enumerize
   enumerize :status,
-            in: %i[pending accepted refused in_cancelation canceled],
+            in: %i[pending accepted refused in_cancelation canceled completed],
             default: :pending
 
   # Validations
@@ -60,6 +60,10 @@ class Request < ApplicationRecord
 
     event :cancel do
       transition %i[pending accepted in_cancelation] => :canceled
+    end
+
+    event :complete do
+      transition accepted: :completed
     end
 
     state :accepted do

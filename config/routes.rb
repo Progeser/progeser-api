@@ -47,6 +47,7 @@ Rails.application.routes.draw do
         post :accept, on: :member
         post :refuse, on: :member
         post :cancel, on: :member
+        post :complete, on: :member
         resources :request_distributions, only: %i[index show create update destroy]
       end
     end

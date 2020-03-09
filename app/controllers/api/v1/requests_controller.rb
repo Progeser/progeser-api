@@ -91,6 +91,14 @@ class Api::V1::RequestsController < ApiController
     end
   end
 
+  def complete
+    if @request.fire_state_event(:complete)
+      render json: @request.to_blueprint
+    else
+      render_validation_error(@request)
+    end
+  end
+
   def destroy
     if @request.destroy
       head :no_content

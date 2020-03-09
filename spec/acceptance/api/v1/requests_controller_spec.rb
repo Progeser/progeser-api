@@ -240,6 +240,20 @@ resource 'Requests' do
     end
   end
 
+  post '/api/v1/requests/:id/complete' do
+    example 'Complete a request' do
+      authentication :basic, "Bearer #{user_token.token}"
+
+      do_request
+
+      expect(status).to eq(200)
+
+      request.reload
+      expect(response_body).to eq(request.to_blueprint)
+      expect(request.status).to eq(:completed)
+    end
+  end
+
   delete '/api/v1/requests/:id' do
     before do
       request.update(status: :pending)
