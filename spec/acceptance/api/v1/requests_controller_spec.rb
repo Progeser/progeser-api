@@ -55,6 +55,24 @@ resource 'Requests' do
     end
   end
 
+  get '/api/v1/requests/requests_to_handle_count' do
+    example 'Get number of requests to handle' do
+      authentication :basic, "Bearer #{user_token.token}"
+
+      do_request
+
+      expect(status).to eq(200)
+
+      parsed_body = JSON.parse(response_body)
+      expect(
+        parsed_body.dig('pending_requests_count')
+      ).to eq(Request.where(status: :pending).count)
+      expect(
+        parsed_body.dig('in_cancelation_requests_count')
+      ).to eq(Request.where(status: :in_cancelation).count)
+    end
+  end
+
   get '/api/v1/requests/:id' do
     example 'Get a request' do
       authentication :basic, "Bearer #{user_token.token}"

@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class Api::V1::RequestsController < ApiController
-  before_action :set_request, except: %i[index create]
+  skip_after_action :verify_policy_scoped, only: :requests_to_handle_count
+
+  before_action :set_request, except: %i[index requests_to_handle_count create]
 
   filter_by :status, with: :eq
 
@@ -18,6 +20,15 @@ class Api::V1::RequestsController < ApiController
     authorize requests
 
     render json: apply_fetcheable(requests).to_blueprint
+  end
+
+  def requests_to_handle_count
+    authorize Request
+
+    render json: {
+      pending_requests_count: Request.where(status: :pending).count,
+      in_cancelation_requests_count: Request.where(status: :in_cancelation).count
+    }
   end
 
   def show

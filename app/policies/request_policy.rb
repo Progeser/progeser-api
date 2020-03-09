@@ -5,6 +5,10 @@ class RequestPolicy < ApplicationPolicy
     true
   end
 
+  def requests_to_handle_count?
+    grower?
+  end
+
   def show?
     true
   end
