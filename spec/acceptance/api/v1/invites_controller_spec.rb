@@ -11,8 +11,9 @@ resource 'Invites' do
   let!(:user)       { users(:user_2) }
   let!(:user_token) { Doorkeeper::AccessToken.create!(resource_owner_id: user.id) }
 
-  let!(:invite) { invites(:invite_1) }
-  let!(:id)     { invite.id }
+  let!(:invite)           { invites(:invite_1) }
+  let!(:id)               { invite.id }
+  let!(:invitation_token) { invite.invitation_token }
 
   get '/api/v1/invites' do
     parameter :'page[number]',
@@ -52,6 +53,15 @@ resource 'Invites' do
     example 'Get an invite' do
       authentication :basic, "Bearer #{user_token.token}"
 
+      do_request
+
+      expect(status).to eq(200)
+      expect(response_body).to eq(invite.to_blueprint)
+    end
+  end
+
+  get '/api/v1/invites/token/:invitation_token' do
+    example 'Get an invite from its invitation_token' do
       do_request
 
       expect(status).to eq(200)

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       end
 
       resources :invites, only: %i[index show create destroy] do
+        get '/token/:invitation_token', action: :token, on: :collection
         post :retry, on: :member
       end
 

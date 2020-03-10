@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 class Api::V1::InvitesController < ApiController
-  before_action :set_invite, except: %i[index create]
+  skip_before_action :doorkeeper_authorize!, only: :token
+  skip_after_action :verify_authorized, only: :token
+  skip_after_action :verify_policy_scoped, only: :token
+
+  before_action :set_invite, only: %i[show retry destroy]
 
   def index
     invites = policy_scope(Invite)
@@ -12,6 +16,12 @@ class Api::V1::InvitesController < ApiController
 
   def show
     render json: @invite.to_blueprint
+  end
+
+  def token
+    invite = Invite.find_by!(invitation_token: params[:invitation_token])
+
+    render json: invite.to_blueprint
   end
 
   def create

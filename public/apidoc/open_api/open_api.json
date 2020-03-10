@@ -118,12 +118,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "be4766d7-9ce0-4089-8ca7-ecf0960de3c0"
+                "x-example-value": "c76af1b3-aa48-43a4-9e67-202ac1e06ea4"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.061262"
+                "x-example-value": "0.033061"
               },
               "Vary": {
                 "description": "",
@@ -197,28 +197,28 @@
           {
             "name": "email",
             "in": "formData",
-            "description": "Email of the requested account\nEg, `della@howegutkowski.name`",
+            "description": "Email of the requested account\nEg, `lynell.hoeger@nitzsche.info`",
             "required": false,
             "type": "string"
           },
           {
             "name": "first_name",
             "in": "formData",
-            "description": "First name of the requested account\nEg, `Océane`",
+            "description": "First name of the requested account\nEg, `Mohamed`",
             "required": false,
             "type": "string"
           },
           {
             "name": "last_name",
             "in": "formData",
-            "description": "Last name of the requested account\nEg, `Bernard`",
+            "description": "Last name of the requested account\nEg, `Vasseur`",
             "required": false,
             "type": "string"
           },
           {
             "name": "comment",
             "in": "formData",
-            "description": "(Optional) Free comment to give additional information\nEg, `So I read that the former United States is so desperate for medical supplies that they have allegedly sent several containers filled with wheat and tobacco. A gesture, they said, of good will. You wanna know what I think? Well, you're listening to my show, so I will assume you do... I think it's high time we let the colonies know what we really think of them. I think its payback time for a little tea party they threw for us a few hundred years ago. I say we go down to those docks tonight and dump that crap where everything from the Ulcered Sphincter of Arse-erica belongs! Who's with me? Who's bloody with me? Did you like that? USA... Ulcered Sphincter of Arse-erica, I mean what else can you say? Here was a country that had everything, absolutely everything. And now, 20 years later, is what? The world's biggest leper colony. Why? Godlessness. Let me say that again... Godlessness. It wasn't the war they started. It wasn't the plague they created. It was Judgement. No one escapes their past. No one escapes Judgement. You think he's not up there? You think he's not watching over this country? How else can you explain it? He tested us, but we came through. We did what we had to do. Islington. Enfield. I was there, I saw it all. Immigrants, Muslims, homosexuals, terrorists. Disease-ridden degenerates. They had to go. Strength through unity. Unity through faith. I'm a God-fearing Englishman and I'm goddamn proud of it!`",
+            "description": "(Optional) Free comment to give additional information\nEg, `I know there's no way I can convince you this is not one of their tricks, but I don't care, I am me. My name is Valerie, I don't think I'll live much longer and I wanted to tell someone about my life. This is the only autobiography I'll ever write, and god, I'm writing it on toilet paper. I was born in Nottingham in 1985, I don't remember much of those early years, but I do remember the rain. My grandmother owned a farm in Tuttlebrook, and she use to tell me that god was in the rain. I passed my 11th lesson into girl's grammar; it was at school that I met my first girlfriend, her name was Sara. It was her wrists. They were beautiful. I thought we would love each other forever. I remember our teacher telling us that is was an adolescent phase people outgrew. Sara did, I didn't. In 2002, I fell in love with a girl named Christina. That year I came out to my parents. I couldn't have done it without Chris holding my hand. My father wouldn't look at me, he told me to go and never come back. My mother said nothing. But I had only told them the truth, was that so selfish? Our integrity sells for so little, but it is all we really have. It is the very last inch of us, but within that inch, we are free. I'd always known what I wanted to do with my life, and in 2015 I starred in my first film, 'The Salt Flats'. It was the most important role of my life, not because of my career, but because that was how I met Ruth. The first time we kissed, I knew I never wanted to kiss any other lips but hers again. We moved to a small flat in London together. She grew Scarlet Carsons for me in our window box, and our place always smelled of roses. Those were there best years of my life. But America's war grew worse, and worse. And eventually came to London. After that there were no roses anymore. Not for anyone. I remember how the meaning of words began to change. How unfamiliar words like 'collateral' and 'rendition' became frightening. While things like Norse Fire and The Articles of Allegiance became powerful, I remember how different became dangerous. I still don't understand it, why they hate us so much. They took Ruth while she was out buying food. I've never cried so hard in my life. It wasn't long till they came for me. It seems strange that my life should end in such a terrible place, but for three years, I had roses, and apologized to no one. I shall die here. Every inch of me shall perish. Every inch, but one. An Inch, it is small and it is fragile, but it is the only thing the world worth having. We must never lose it or give it away. We must never let them take it from us. I hope that whoever you are, you escape this place. I hope that the world turns and that things get better. But what I hope most of all is that you understand what I mean when I tell you that even though I do not know you, and even though I may never meet you, laugh with you, cry with you, or kiss you. I love you. With all my heart, I love you. -Valerie`",
             "required": false,
             "type": "string"
           }
@@ -271,7 +271,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"81e95e8dbbce44367a9af3b0821bc1cd\""
+                "x-example-value": "W/\"fde2d029b36ec7f287cac4b125dbce79\""
               },
               "Cache-Control": {
                 "description": "",
@@ -281,12 +281,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "a21ca84b-2bc9-4225-8d67-ffd986c13735"
+                "x-example-value": "37d9f0ef-0860-461b-86b1-e671b1b87573"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.011250"
+                "x-example-value": "0.009504"
               },
               "Vary": {
                 "description": "",
@@ -296,19 +296,19 @@
               "Content-Length": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "1633"
+                "x-example-value": "3164"
               }
             },
             "examples": {
               "application/json": {
                 "id": 4,
                 "accepted": false,
-                "comment": "So I read that the former United States is so desperate for medical supplies that they have allegedly sent several containers filled with wheat and tobacco. A gesture, they said, of good will. You wanna know what I think? Well, you're listening to my show, so I will assume you do... I think it's high time we let the colonies know what we really think of them. I think its payback time for a little tea party they threw for us a few hundred years ago. I say we go down to those docks tonight and dump that crap where everything from the Ulcered Sphincter of Arse-erica belongs! Who's with me? Who's bloody with me? Did you like that? USA... Ulcered Sphincter of Arse-erica, I mean what else can you say? Here was a country that had everything, absolutely everything. And now, 20 years later, is what? The world's biggest leper colony. Why? Godlessness. Let me say that again... Godlessness. It wasn't the war they started. It wasn't the plague they created. It was Judgement. No one escapes their past. No one escapes Judgement. You think he's not up there? You think he's not watching over this country? How else can you explain it? He tested us, but we came through. We did what we had to do. Islington. Enfield. I was there, I saw it all. Immigrants, Muslims, homosexuals, terrorists. Disease-ridden degenerates. They had to go. Strength through unity. Unity through faith. I'm a God-fearing Englishman and I'm goddamn proud of it!",
-                "created_at": "2020-03-09T00:54:41.789Z",
-                "email": "della@howegutkowski.name",
-                "first_name": "Océane",
-                "last_name": "Bernard",
-                "updated_at": "2020-03-09T00:54:41.789Z"
+                "comment": "I know there's no way I can convince you this is not one of their tricks, but I don't care, I am me. My name is Valerie, I don't think I'll live much longer and I wanted to tell someone about my life. This is the only autobiography I'll ever write, and god, I'm writing it on toilet paper. I was born in Nottingham in 1985, I don't remember much of those early years, but I do remember the rain. My grandmother owned a farm in Tuttlebrook, and she use to tell me that god was in the rain. I passed my 11th lesson into girl's grammar; it was at school that I met my first girlfriend, her name was Sara. It was her wrists. They were beautiful. I thought we would love each other forever. I remember our teacher telling us that is was an adolescent phase people outgrew. Sara did, I didn't. In 2002, I fell in love with a girl named Christina. That year I came out to my parents. I couldn't have done it without Chris holding my hand. My father wouldn't look at me, he told me to go and never come back. My mother said nothing. But I had only told them the truth, was that so selfish? Our integrity sells for so little, but it is all we really have. It is the very last inch of us, but within that inch, we are free. I'd always known what I wanted to do with my life, and in 2015 I starred in my first film, 'The Salt Flats'. It was the most important role of my life, not because of my career, but because that was how I met Ruth. The first time we kissed, I knew I never wanted to kiss any other lips but hers again. We moved to a small flat in London together. She grew Scarlet Carsons for me in our window box, and our place always smelled of roses. Those were there best years of my life. But America's war grew worse, and worse. And eventually came to London. After that there were no roses anymore. Not for anyone. I remember how the meaning of words began to change. How unfamiliar words like 'collateral' and 'rendition' became frightening. While things like Norse Fire and The Articles of Allegiance became powerful, I remember how different became dangerous. I still don't understand it, why they hate us so much. They took Ruth while she was out buying food. I've never cried so hard in my life. It wasn't long till they came for me. It seems strange that my life should end in such a terrible place, but for three years, I had roses, and apologized to no one. I shall die here. Every inch of me shall perish. Every inch, but one. An Inch, it is small and it is fragile, but it is the only thing the world worth having. We must never lose it or give it away. We must never let them take it from us. I hope that whoever you are, you escape this place. I hope that the world turns and that things get better. But what I hope most of all is that you understand what I mean when I tell you that even though I do not know you, and even though I may never meet you, laugh with you, cry with you, or kiss you. I love you. With all my heart, I love you. -Valerie",
+                "created_at": "2020-03-10T00:48:03.068Z",
+                "email": "lynell.hoeger@nitzsche.info",
+                "first_name": "Mohamed",
+                "last_name": "Vasseur",
+                "updated_at": "2020-03-10T00:48:03.068Z"
               }
             }
           }
@@ -393,12 +393,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "8d81feeb-60a3-4174-8885-a511702bc415"
+                "x-example-value": "ef1ef1fd-1c45-4b8e-aef5-e9feb4d4735d"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.010931"
+                "x-example-value": "0.010403"
               },
               "Vary": {
                 "description": "",
@@ -508,12 +508,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "d4c8024c-7880-41ce-a6d1-b0f2a913e740"
+                "x-example-value": "52e161d4-f0e6-40a3-9c85-92b7922a6eeb"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.014447"
+                "x-example-value": "0.012934"
               },
               "Vary": {
                 "description": "",
@@ -618,12 +618,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "d1c61dac-d1b9-4764-81a1-b7b6c3eda47f"
+                "x-example-value": "17d0cfc8-ee25-41cc-b412-65dbab4308a8"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.013987"
+                "x-example-value": "0.013371"
               },
               "Vary": {
                 "description": "",
@@ -723,12 +723,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "ba9537b2-dac3-4ae5-bd5a-33f370a90290"
+                "x-example-value": "49c37da3-400c-4206-8d7f-959070faa589"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.030262"
+                "x-example-value": "0.029433"
               },
               "Vary": {
                 "description": "",
@@ -861,12 +861,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "579d6f20-3984-435e-ae89-9f6d94680245"
+                "x-example-value": "b0ae72ae-e682-4a32-b85b-49ba019442e3"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.019400"
+                "x-example-value": "0.018256"
               },
               "Vary": {
                 "description": "",
@@ -1049,7 +1049,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"e324a6147a033b46cf7bb3493fe1ebe6\""
+                "x-example-value": "W/\"ca9ba7066e9247b851abce32a6e5e60d\""
               },
               "Cache-Control": {
                 "description": "",
@@ -1059,12 +1059,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "f87619be-ec84-4f1e-8cc2-6fca7ddaceef"
+                "x-example-value": "a78d218f-b653-4570-b064-0384222ee295"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.024169"
+                "x-example-value": "0.023446"
               },
               "Vary": {
                 "description": "",
@@ -1081,7 +1081,7 @@
               "application/json": {
                 "id": 7,
                 "area": "20000.0",
-                "created_at": "2020-03-09T00:54:41.965Z",
+                "created_at": "2020-03-10T00:48:03.252Z",
                 "dimensions": [
                   100,
                   200
@@ -1095,7 +1095,7 @@
                   "display_name": "rectangle",
                   "name": "rectangle"
                 },
-                "updated_at": "2020-03-09T00:54:41.965Z"
+                "updated_at": "2020-03-10T00:48:03.252Z"
               }
             }
           }
@@ -1190,12 +1190,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "f65fd9d6-f17a-4f88-ae30-4722f67b30a6"
+                "x-example-value": "633073e8-4b68-4270-a603-4adb17c1cb6e"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.012127"
+                "x-example-value": "0.012542"
               },
               "Vary": {
                 "description": "",
@@ -1345,7 +1345,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"016921ded6047ee8b29a7ea18d053522\""
+                "x-example-value": "W/\"0df9901c30b92359e5fa3f39f9c15670\""
               },
               "Cache-Control": {
                 "description": "",
@@ -1355,12 +1355,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "d1e72e5d-0f3d-4630-ab4f-95a1bbaf15bf"
+                "x-example-value": "fa5ed835-9975-4ea7-bdb5-e2c175da7955"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.066156"
+                "x-example-value": "0.062076"
               },
               "Vary": {
                 "description": "",
@@ -1389,7 +1389,7 @@
                   "display_name": "carré",
                   "name": "square"
                 },
-                "updated_at": "2020-03-09T00:54:42.044Z"
+                "updated_at": "2020-03-10T00:48:03.324Z"
               }
             }
           }
@@ -1472,12 +1472,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "dd9a544f-edbb-4057-aee6-ce5b790d2315"
+                "x-example-value": "a94a5165-242c-4ebb-8199-42fd5cd10dc3"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.013629"
+                "x-example-value": "0.014011"
               },
               "Vary": {
                 "description": "",
@@ -1586,12 +1586,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "e9d5407a-7938-4662-9ffd-17e4779292df"
+                "x-example-value": "a8a8f75d-1f5d-4a87-b694-a4e48fc0febb"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.013978"
+                "x-example-value": "0.014087"
               },
               "Vary": {
                 "description": "",
@@ -1720,7 +1720,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"7b469bad670825f1db4a5ce88f726581\""
+                "x-example-value": "W/\"62dd579ba3e998e23cd9c2a4353aab4d\""
               },
               "Cache-Control": {
                 "description": "",
@@ -1730,12 +1730,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "4b0be0e4-47b7-4292-a579-725fbfb701e3"
+                "x-example-value": "b5688811-38d3-4c3d-a890-e33553a614a1"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.014498"
+                "x-example-value": "0.013706"
               },
               "Vary": {
                 "description": "",
@@ -1751,11 +1751,11 @@
             "examples": {
               "application/json": {
                 "id": 3,
-                "created_at": "2020-03-09T00:54:42.139Z",
+                "created_at": "2020-03-10T00:48:03.417Z",
                 "height": 200,
                 "name": "My new greenhouse",
                 "occupancy": "0.0",
-                "updated_at": "2020-03-09T00:54:42.139Z",
+                "updated_at": "2020-03-10T00:48:03.417Z",
                 "width": 100
               }
             }
@@ -1851,12 +1851,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "3c0e0897-fa6d-4db4-8bfb-bea93389eac5"
+                "x-example-value": "f0968b3f-9010-41f6-aad1-050847024971"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.013085"
+                "x-example-value": "0.013855"
               },
               "Vary": {
                 "description": "",
@@ -1981,7 +1981,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"1961c67bee463240ebb5d6cc2ec27f7a\""
+                "x-example-value": "W/\"6609e7438d8eaff3954f07c6004b2af0\""
               },
               "Cache-Control": {
                 "description": "",
@@ -1991,12 +1991,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "739dfa9d-65c7-41dc-8a67-5e335feded14"
+                "x-example-value": "f61a4efc-0498-4119-8c57-16fe79f8ac27"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.015426"
+                "x-example-value": "0.016092"
               },
               "Vary": {
                 "description": "",
@@ -2016,7 +2016,7 @@
                 "height": 200,
                 "name": "Updated name",
                 "occupancy": "100.0",
-                "updated_at": "2020-03-09T00:54:42.164Z",
+                "updated_at": "2020-03-10T00:48:03.444Z",
                 "width": 100
               }
             }
@@ -2100,12 +2100,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "92f5409e-7363-46b1-a8be-7e3be3883b00"
+                "x-example-value": "b6a7f112-b8f2-4ee7-a513-017a9afadc3d"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.024511"
+                "x-example-value": "0.018618"
               },
               "Vary": {
                 "description": "",
@@ -2214,12 +2214,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "97ba9b2b-8105-417b-a983-8460c66d5f70"
+                "x-example-value": "17186e8c-1d0b-4d04-8d3d-8493c4a6c80c"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.016176"
+                "x-example-value": "0.015090"
               },
               "Vary": {
                 "description": "",
@@ -2378,7 +2378,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"a2f6d332732d6bf5f01fba711bacdc5c\""
+                "x-example-value": "W/\"cb2d25d6d26203e5eaa6d90b2b5422ce\""
               },
               "Cache-Control": {
                 "description": "",
@@ -2388,12 +2388,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "2b5c1a44-63e3-4aee-aa34-b3efc6e6c558"
+                "x-example-value": "bcacadbf-b29e-4467-a153-4bf48cad158b"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.031446"
+                "x-example-value": "0.030450"
               },
               "Vary": {
                 "description": "",
@@ -2409,13 +2409,13 @@
             "examples": {
               "application/json": {
                 "id": 4,
-                "created_at": "2020-03-09T00:54:42.288Z",
+                "created_at": "2020-03-10T00:48:03.579Z",
                 "email": "requester_to_invite@progeser.com",
                 "first_name": "invite first name",
                 "laboratory": "invite laboratory",
                 "last_name": "invite last name",
                 "role": "requester",
-                "updated_at": "2020-03-09T00:54:42.288Z"
+                "updated_at": "2020-03-10T00:48:03.579Z"
               }
             }
           }
@@ -2510,12 +2510,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "b7df46ae-f043-4a6d-a2d4-81a315fc78de"
+                "x-example-value": "83e5f1fb-42e5-4284-a702-9dd36b0c6b00"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.012687"
+                "x-example-value": "0.011830"
               },
               "Vary": {
                 "description": "",
@@ -2620,12 +2620,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "be6e1e88-21db-47f8-8278-a52217b8332c"
+                "x-example-value": "24050502-5c21-4988-be07-401930307b8e"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.013842"
+                "x-example-value": "0.013173"
               },
               "Vary": {
                 "description": "",
@@ -2642,6 +2642,124 @@
 
             ]
           }
+        ]
+      }
+    },
+    "/api/v1/invites/token/{invitation_token}": {
+      "get": {
+        "tags": [
+          "Invites"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "invitation_token",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get an invite from its invitation_token",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "X-Frame-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "nosniff"
+              },
+              "X-Download-Options": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "noopen"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "none"
+              },
+              "Referrer-Policy": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "strict-origin-when-cross-origin"
+              },
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json; charset=utf-8"
+              },
+              "ETag": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "W/\"d5e229a830e79ccd511417f558f09abb\""
+              },
+              "Cache-Control": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "max-age=0, private, must-revalidate"
+              },
+              "X-Request-Id": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "a7be9cee-4cbf-4d0d-851a-1359ada56b58"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.009930"
+              },
+              "Vary": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "Origin"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "220"
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "created_at": "2019-11-06T00:42:46.777Z",
+                "email": "invite+requester@progeser.com",
+                "first_name": "Requester",
+                "laboratory": "My test lab",
+                "last_name": "Invite",
+                "role": "requester",
+                "updated_at": "2019-11-06T00:42:46.777Z"
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+
         ]
       }
     },
@@ -2715,12 +2833,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "2b334e6b-24f6-46f9-b0d7-6361bfc5b1a1"
+                "x-example-value": "d9c5eaf3-0405-4071-be9d-08bd746e692e"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.023110"
+                "x-example-value": "0.022075"
               },
               "Vary": {
                 "description": "",
@@ -2814,12 +2932,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "2d163275-2737-45fb-bbd0-709888bf4d10"
+                "x-example-value": "427e9115-555a-4997-9644-cba2bef756be"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.016457"
+                "x-example-value": "0.016236"
               },
               "Vary": {
                 "description": "",
@@ -2938,7 +3056,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"9b0b77f8410f1ad6a2cd260003f9a18e\""
+                "x-example-value": "W/\"12fa64b6799ee09484f54bdd6f2ac02b\""
               },
               "Cache-Control": {
                 "description": "",
@@ -2948,12 +3066,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "817281a2-205c-4de8-847a-01465387f751"
+                "x-example-value": "b633aa97-4304-466c-8b5a-33201fa6eddb"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.017120"
+                "x-example-value": "0.018435"
               },
               "Vary": {
                 "description": "",
@@ -2975,7 +3093,7 @@
                 "laboratory": "Updated laboratory",
                 "last_name": "Updated last name",
                 "role": "requester",
-                "updated_at": "2020-03-09T00:54:42.411Z"
+                "updated_at": "2020-03-10T00:48:03.699Z"
               }
             }
           }
@@ -3052,12 +3170,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "e47d241e-0716-4ded-a46e-00fc04bf4624"
+                "x-example-value": "fca7d275-72ab-4fff-bcc2-0ac30ce548dc"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.025844"
+                "x-example-value": "0.015936"
               },
               "Vary": {
                 "description": "",
@@ -3147,12 +3265,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0e713633-9b85-4d5b-ae08-9d4b59c9a598"
+                "x-example-value": "3b2ac718-7baa-46f4-ac4f-e607a2d1c52e"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.024561"
+                "x-example-value": "0.024201"
               },
               "Vary": {
                 "description": "",
@@ -3252,7 +3370,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"f6bf50f9b69c00413bea5e1d4c766349\""
+                "x-example-value": "W/\"eb98c455fb5675877440183b9d040ede\""
               },
               "Cache-Control": {
                 "description": "",
@@ -3262,12 +3380,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "cbb06e0b-422c-4382-8d0b-b21118429f21"
+                "x-example-value": "b7ce081b-2b42-422f-9aea-21b419c6a542"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.023403"
+                "x-example-value": "0.030485"
               },
               "Vary": {
                 "description": "",
@@ -3290,14 +3408,14 @@
                 "last_name": "ProGeSer",
                 "role": "requester",
                 "token": {
-                  "id": 27,
-                  "access_token": "QMHN3XTkpDCQYE4VyNdzizv5X7xUO5HptQ4B8Iq42_U",
-                  "created_at": "2020-03-09T00:54:42.721Z",
+                  "id": 28,
+                  "access_token": "Q1G5Evnb7rmdS6dpKz_K1ZN1kFp2F6v_92b0FSGFcY4",
+                  "created_at": "2020-03-10T00:48:04.009Z",
                   "expires_in": 7200,
-                  "refresh_token": "0O1TSxdwQmDPW8iQTatSrYPicbbzjLrMgOHBsn4xjVs",
+                  "refresh_token": "LGjcSZTn5kxeOaDk__HbKZ59OIJTHWUHzz9mjMmTzOs",
                   "token_type": "Bearer"
                 },
-                "updated_at": "2020-03-09T00:54:42.720Z"
+                "updated_at": "2020-03-10T00:48:04.007Z"
               }
             }
           }
@@ -3392,12 +3510,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0ffd1743-d549-4f55-a3e4-5cae649f23f3"
+                "x-example-value": "5ae26543-3a4f-4429-94ee-00799c7e99a9"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.205871"
+                "x-example-value": "0.212476"
               },
               "Vary": {
                 "description": "",
@@ -3506,12 +3624,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "68285973-940b-4668-87c5-cbd12fb29edd"
+                "x-example-value": "15a525cf-dff4-4578-8fc3-502fa9d0f974"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.016465"
+                "x-example-value": "0.016719"
               },
               "Vary": {
                 "description": "",
@@ -3723,14 +3841,14 @@
           {
             "name": "name",
             "in": "formData",
-            "description": "Name of the plant\nEg, `Cucumber`",
+            "description": "Name of the plant\nEg, `Peppers`",
             "required": false,
             "type": "string"
           },
           {
             "name": "plant_stages_attributes",
             "in": "formData",
-            "description": "Plant stages attributes\nA plant stage should have a name, a duration and a position\nEg, `[{:name=>\"sprout\", :duration=>24, :position=>1}, {:name=>\"seedling\", :duration=>15, :position=>2}]`",
+            "description": "Plant stages attributes\nA plant stage should have a name, a duration and a position\nEg, `[{:name=>\"sprout\", :duration=>26, :position=>1}, {:name=>\"seedling\", :duration=>21, :position=>2}]`",
             "required": false,
             "type": "array",
             "items": {
@@ -3786,7 +3904,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"7e1dfc2eb377d2e991dcdd1a34f2169a\""
+                "x-example-value": "W/\"0ceef67cd4a6d6bccab5dbccccf98d63\""
               },
               "Cache-Control": {
                 "description": "",
@@ -3796,12 +3914,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "cb658486-0060-48d0-a6b9-3da57ce5f8bc"
+                "x-example-value": "911a76dc-b5cf-4dc0-8de7-d11a93168b1c"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.022237"
+                "x-example-value": "0.020205"
               },
               "Vary": {
                 "description": "",
@@ -3811,33 +3929,33 @@
               "Content-Length": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "391"
+                "x-example-value": "390"
               }
             },
             "examples": {
               "application/json": {
                 "id": 4,
-                "created_at": "2020-03-09T00:54:43.223Z",
-                "name": "Cucumber",
+                "created_at": "2020-03-10T00:48:04.531Z",
+                "name": "Peppers",
                 "plant_stages": [
                   {
                     "id": 19,
-                    "created_at": "2020-03-09T00:54:43.224Z",
-                    "duration": 24,
+                    "created_at": "2020-03-10T00:48:04.533Z",
+                    "duration": 26,
                     "name": "sprout",
                     "position": 1,
-                    "updated_at": "2020-03-09T00:54:43.224Z"
+                    "updated_at": "2020-03-10T00:48:04.533Z"
                   },
                   {
                     "id": 20,
-                    "created_at": "2020-03-09T00:54:43.227Z",
-                    "duration": 15,
+                    "created_at": "2020-03-10T00:48:04.535Z",
+                    "duration": 21,
                     "name": "seedling",
                     "position": 2,
-                    "updated_at": "2020-03-09T00:54:43.227Z"
+                    "updated_at": "2020-03-10T00:48:04.535Z"
                   }
                 ],
-                "updated_at": "2020-03-09T00:54:43.223Z"
+                "updated_at": "2020-03-10T00:48:04.531Z"
               }
             }
           }
@@ -3932,12 +4050,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "70a07b77-627a-468a-b580-fc473aaa4aeb"
+                "x-example-value": "325054aa-2800-4d1e-ae33-34fdf7f90a7d"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.014428"
+                "x-example-value": "0.014713"
               },
               "Vary": {
                 "description": "",
@@ -4105,7 +4223,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"78214d9f9de682563f45b071a5a57ed2\""
+                "x-example-value": "W/\"34a9b3032216cc0a0e925aba71093c8a\""
               },
               "Cache-Control": {
                 "description": "",
@@ -4115,12 +4233,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "5dc609ee-4887-4191-a600-18b5f8df042a"
+                "x-example-value": "ed3bb23c-e142-4938-881e-027f74c238ab"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.073491"
+                "x-example-value": "0.039025"
               },
               "Vary": {
                 "description": "",
@@ -4145,7 +4263,7 @@
                     "duration": 30,
                     "name": "ripening",
                     "position": 1,
-                    "updated_at": "2020-03-09T00:54:43.310Z"
+                    "updated_at": "2020-03-10T00:48:04.581Z"
                   },
                   {
                     "id": 3,
@@ -4153,7 +4271,7 @@
                     "duration": 10,
                     "name": "stage 3",
                     "position": 2,
-                    "updated_at": "2020-03-09T00:54:43.313Z"
+                    "updated_at": "2020-03-10T00:48:04.585Z"
                   },
                   {
                     "id": 4,
@@ -4161,7 +4279,7 @@
                     "duration": 10,
                     "name": "budding",
                     "position": 3,
-                    "updated_at": "2020-03-09T00:54:43.313Z"
+                    "updated_at": "2020-03-10T00:48:04.585Z"
                   },
                   {
                     "id": 5,
@@ -4169,10 +4287,10 @@
                     "duration": 17,
                     "name": "flowering",
                     "position": 4,
-                    "updated_at": "2020-03-09T00:54:43.313Z"
+                    "updated_at": "2020-03-10T00:48:04.585Z"
                   }
                 ],
-                "updated_at": "2020-03-09T00:54:43.293Z"
+                "updated_at": "2020-03-10T00:48:04.564Z"
               }
             }
           }
@@ -4255,12 +4373,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "9bb5ac02-f402-4590-b748-8d9682b85df5"
+                "x-example-value": "809e549d-d651-441b-9ddb-5a9446d61afc"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.024864"
+                "x-example-value": "0.024659"
               },
               "Vary": {
                 "description": "",
@@ -4369,12 +4487,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "9e9a1e18-2730-472b-ab95-2471d6d50ef1"
+                "x-example-value": "299cf0fb-d3fb-46b2-b844-91bc0ade765f"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.015568"
+                "x-example-value": "0.015437"
               },
               "Vary": {
                 "description": "",
@@ -4586,7 +4704,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"a7ae52e41f77eed604abc70e0342eac8\""
+                "x-example-value": "W/\"c2214023e2fa787cdc846eb9ed1e47a7\""
               },
               "Cache-Control": {
                 "description": "",
@@ -4596,12 +4714,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "26740fb4-526b-4c54-af34-f93f3cca8e39"
+                "x-example-value": "8d425243-cab1-43a3-87bc-e859d7ff747a"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.013459"
+                "x-example-value": "0.014284"
               },
               "Vary": {
                 "description": "",
@@ -4618,7 +4736,7 @@
               "application/json": {
                 "id": 6,
                 "area": "200.0",
-                "created_at": "2020-03-09T00:54:43.428Z",
+                "created_at": "2020-03-10T00:48:04.700Z",
                 "dimensions": [
                   10,
                   20
@@ -4632,7 +4750,7 @@
                   "display_name": "rectangle",
                   "name": "rectangle"
                 },
-                "updated_at": "2020-03-09T00:54:43.428Z"
+                "updated_at": "2020-03-10T00:48:04.700Z"
               }
             }
           }
@@ -4727,12 +4845,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "f978c58b-509d-451b-adb9-6f9e7cb7cde5"
+                "x-example-value": "c0285d80-084c-4509-a43d-9308460e621d"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.012878"
+                "x-example-value": "0.013399"
               },
               "Vary": {
                 "description": "",
@@ -4882,7 +5000,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"062f8c23960a9fc7883a07e0e0940729\""
+                "x-example-value": "W/\"1f6e2fb5d2a5e546e09bd10b3607495e\""
               },
               "Cache-Control": {
                 "description": "",
@@ -4892,12 +5010,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "f3538734-438d-49cc-9e8e-c927d9630afb"
+                "x-example-value": "4eaae93b-9740-4abf-a29d-5073f15718b3"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.016977"
+                "x-example-value": "0.016162"
               },
               "Vary": {
                 "description": "",
@@ -4926,7 +5044,7 @@
                   "display_name": "carré",
                   "name": "square"
                 },
-                "updated_at": "2020-03-09T00:54:43.465Z"
+                "updated_at": "2020-03-10T00:48:04.725Z"
               }
             }
           }
@@ -5009,12 +5127,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "cca2b2c6-b942-4c40-a0d1-081f23f71012"
+                "x-example-value": "cfc612ad-b0ad-42d3-9ab1-0e6848d180f2"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.015047"
+                "x-example-value": "0.014061"
               },
               "Vary": {
                 "description": "",
@@ -5130,12 +5248,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "b9bcc805-bc24-4114-8151-faa8c1c4015a"
+                "x-example-value": "37483b6e-857e-4dfc-97b3-973598c1ebf2"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.021975"
+                "x-example-value": "0.020136"
               },
               "Vary": {
                 "description": "",
@@ -5289,7 +5407,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"57ed63c6a72f58035ebc6886c0dc43da\""
+                "x-example-value": "W/\"71eb2ce1088e1d0d83b13be3c8841c20\""
               },
               "Cache-Control": {
                 "description": "",
@@ -5299,12 +5417,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "3ff1cb9f-e1c3-429d-91c5-c18906f79d12"
+                "x-example-value": "378753eb-654a-4eed-8e5e-9d8a98d4d522"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.020477"
+                "x-example-value": "0.019664"
               },
               "Vary": {
                 "description": "",
@@ -5322,12 +5440,12 @@
                 "id": 4,
                 "area": "1470.0",
                 "bench_id": 1,
-                "created_at": "2020-03-09T00:54:43.587Z",
+                "created_at": "2020-03-10T00:48:04.879Z",
                 "greenhouse_id": 1,
                 "plant_stage_id": 1,
                 "pot_id": 1,
                 "pot_quantity": 30,
-                "updated_at": "2020-03-09T00:54:43.587Z"
+                "updated_at": "2020-03-10T00:48:04.879Z"
               }
             }
           }
@@ -5422,12 +5540,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "529baf08-2096-4ab8-9143-8794eb62a034"
+                "x-example-value": "1ac179e0-4993-46c7-ad3a-a240eb5a386d"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.013643"
+                "x-example-value": "0.013287"
               },
               "Vary": {
                 "description": "",
@@ -5568,7 +5686,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"42f3249816b627838dd948c10d8fc770\""
+                "x-example-value": "W/\"ee4dc5e90fa2860da68f2eed45456fef\""
               },
               "Cache-Control": {
                 "description": "",
@@ -5578,12 +5696,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "b05a7ea7-0878-42b2-9eb0-4731eb6605dd"
+                "x-example-value": "82f87e99-67bf-47bd-b312-f01401110848"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.020488"
+                "x-example-value": "0.019630"
               },
               "Vary": {
                 "description": "",
@@ -5606,7 +5724,7 @@
                 "plant_stage_id": 2,
                 "pot_id": 2,
                 "pot_quantity": 20,
-                "updated_at": "2020-03-09T00:54:43.624Z"
+                "updated_at": "2020-03-10T00:48:04.913Z"
               }
             }
           }
@@ -5689,12 +5807,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "db7aa80e-1a19-4960-93d9-b72b09dfe37b"
+                "x-example-value": "c346c09d-d34e-4d4c-b2e6-93801fdc3de1"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.014371"
+                "x-example-value": "0.014036"
               },
               "Vary": {
                 "description": "",
@@ -5834,12 +5952,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "334990b6-85aa-47fc-8653-4c700555aea6"
+                "x-example-value": "337251ae-3931-4ded-8331-157a6bd0d9ad"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.018870"
+                "x-example-value": "0.017099"
               },
               "Vary": {
                 "description": "",
@@ -5947,7 +6065,7 @@
           {
             "name": "due_date",
             "in": "formData",
-            "description": "Due date of the request\nEg, `2020-09-09`",
+            "description": "Due date of the request\nEg, `2020-09-10`",
             "required": false,
             "type": "date"
           },
@@ -6028,7 +6146,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"8f16e251ae3275dabc3bcfc430c77428\""
+                "x-example-value": "W/\"3d0e45d4f332f1b7611b29f67d0b8ad1\""
               },
               "Cache-Control": {
                 "description": "",
@@ -6038,12 +6156,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "554a3667-b4b4-4bbe-8b02-ab091fca76f3"
+                "x-example-value": "f66ad8f6-a13d-4402-885e-bb5287425cab"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.018128"
+                "x-example-value": "0.016977"
               },
               "Vary": {
                 "description": "",
@@ -6061,8 +6179,8 @@
                 "id": 3,
                 "author_id": 2,
                 "comment": "The specimens have to be in perfect condition, please be careful!",
-                "created_at": "2020-03-09T00:54:43.767Z",
-                "due_date": "2020-09-09",
+                "created_at": "2020-03-10T00:48:05.039Z",
+                "due_date": "2020-09-10",
                 "handler_id": null,
                 "name": "My request",
                 "photoperiod": 12,
@@ -6073,7 +6191,7 @@
                 "quantity": 150,
                 "status": "pending",
                 "temperature": 35,
-                "updated_at": "2020-03-09T00:54:43.767Z"
+                "updated_at": "2020-03-10T00:48:05.039Z"
               }
             }
           }
@@ -6162,12 +6280,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "a7e39243-4a3c-41fe-b737-999cb27ad968"
+                "x-example-value": "c16d0351-d95d-440d-8ecb-2136fa252173"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.012890"
+                "x-example-value": "0.012284"
               },
               "Vary": {
                 "description": "",
@@ -6278,12 +6396,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "5015323e-2bdd-4319-a750-d4b129ebf32a"
+                "x-example-value": "8060ae52-0c28-460b-9efa-75b012093928"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.015742"
+                "x-example-value": "0.014453"
               },
               "Vary": {
                 "description": "",
@@ -6378,7 +6496,7 @@
           {
             "name": "due_date",
             "in": "formData",
-            "description": "Due date of the request\nEg, `2020-09-09`",
+            "description": "Due date of the request\nEg, `2020-09-10`",
             "required": false,
             "type": "date"
           },
@@ -6459,7 +6577,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"d802c93ec3e194ba5feb7fb429e474b0\""
+                "x-example-value": "W/\"cd4b4d589140385ab9734bea7b41f380\""
               },
               "Cache-Control": {
                 "description": "",
@@ -6469,12 +6587,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "f7785f78-87ae-434b-9782-d2840cbdc5e7"
+                "x-example-value": "f28113b9-91b6-411c-ab5c-4206ccac6b14"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.021392"
+                "x-example-value": "0.017982"
               },
               "Vary": {
                 "description": "",
@@ -6493,7 +6611,7 @@
                 "author_id": 2,
                 "comment": "After all, this is less urgent, but I need more specimens!",
                 "created_at": "2020-02-13T00:04:08.434Z",
-                "due_date": "2020-09-09",
+                "due_date": "2020-09-10",
                 "handler_id": 2,
                 "name": "My updated request",
                 "photoperiod": 8,
@@ -6504,7 +6622,7 @@
                 "quantity": 150,
                 "status": "accepted",
                 "temperature": 20,
-                "updated_at": "2020-03-09T00:54:43.801Z"
+                "updated_at": "2020-03-10T00:48:05.068Z"
               }
             }
           }
@@ -6587,12 +6705,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "a7f19460-a23b-4d2c-850b-693e8e1663b5"
+                "x-example-value": "43c775a3-304d-47e5-b0d2-84caa81a11cb"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.021901"
+                "x-example-value": "0.015383"
               },
               "Vary": {
                 "description": "",
@@ -6682,7 +6800,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"98081502b2d5ab033816aaa11db11810\""
+                "x-example-value": "W/\"0dddc18211c9ae78aa3b61b8a72b04f2\""
               },
               "Cache-Control": {
                 "description": "",
@@ -6692,12 +6810,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "d10552c0-0fb4-4082-bcb6-246a580a1c6d"
+                "x-example-value": "941aac59-4303-48f3-baf3-e5bc3a7fb95f"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.018896"
+                "x-example-value": "0.017534"
               },
               "Vary": {
                 "description": "",
@@ -6727,7 +6845,7 @@
                 "quantity": 50,
                 "status": "accepted",
                 "temperature": 20,
-                "updated_at": "2020-03-09T00:54:43.836Z"
+                "updated_at": "2020-03-10T00:48:05.098Z"
               }
             }
           }
@@ -6812,7 +6930,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"12e2481486890bad17df106275407975\""
+                "x-example-value": "W/\"a2bc715d4886a0a961fde15fff34994d\""
               },
               "Cache-Control": {
                 "description": "",
@@ -6822,12 +6940,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "886f546f-41b7-422f-965c-b775603e9ad0"
+                "x-example-value": "1502b4b1-0986-4de0-a258-6225d8b4ec9d"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.017178"
+                "x-example-value": "0.015657"
               },
               "Vary": {
                 "description": "",
@@ -6857,7 +6975,7 @@
                 "quantity": 50,
                 "status": "refused",
                 "temperature": 20,
-                "updated_at": "2020-03-09T00:54:43.868Z"
+                "updated_at": "2020-03-10T00:48:05.125Z"
               }
             }
           }
@@ -6942,7 +7060,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"3e8a42376a8e0e5b12ed92202a532abb\""
+                "x-example-value": "W/\"4ed3cbb782561382c853d84e3d822c1e\""
               },
               "Cache-Control": {
                 "description": "",
@@ -6952,12 +7070,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "e1308ba3-17f3-4e06-9b70-01b9f12d7698"
+                "x-example-value": "6d8831f7-ad69-4531-b50a-98e91feb2dd5"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.016219"
+                "x-example-value": "0.015848"
               },
               "Vary": {
                 "description": "",
@@ -6987,7 +7105,7 @@
                 "quantity": 50,
                 "status": "canceled",
                 "temperature": 20,
-                "updated_at": "2020-03-09T00:54:43.899Z"
+                "updated_at": "2020-03-10T00:48:05.154Z"
               }
             }
           }
@@ -7072,7 +7190,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"8119aec6697233b1ff92a0b4a2436d0c\""
+                "x-example-value": "W/\"7cec90e857b8e5a643bf6623d093c24f\""
               },
               "Cache-Control": {
                 "description": "",
@@ -7082,12 +7200,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "877aef6e-9898-4d5b-8af4-8c2d8b171112"
+                "x-example-value": "3b190208-df87-4d44-8857-59c726a06876"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.015584"
+                "x-example-value": "0.017354"
               },
               "Vary": {
                 "description": "",
@@ -7117,7 +7235,7 @@
                 "quantity": 50,
                 "status": "completed",
                 "temperature": 20,
-                "updated_at": "2020-03-09T00:54:43.923Z"
+                "updated_at": "2020-03-10T00:48:05.180Z"
               }
             }
           }
@@ -7206,12 +7324,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "1041f532-4ee8-4033-90ed-49a7bef77ac1"
+                "x-example-value": "cfe73200-f8cf-4e9c-b7ae-98c706ad163b"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.030985"
+                "x-example-value": "0.027493"
               },
               "Vary": {
                 "description": "",
@@ -7364,17 +7482,17 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"d92cbde29ba000a37de846e558098f1c\""
+                "x-example-value": "W/\"768a17b8245006510b8183ad60253e8b\""
               },
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "83ee3159-9c30-4878-9ec5-fa933d38c14c"
+                "x-example-value": "6efdfa20-66cd-46af-bc3e-f6a03523631d"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.206292"
+                "x-example-value": "0.198425"
               },
               "Vary": {
                 "description": "",
@@ -7389,11 +7507,11 @@
             },
             "examples": {
               "application/json": {
-                "access_token": "zh2Nj06dBXOMNEKql_43I1_BFlQcOt8p1BjCEUsuZgI",
+                "access_token": "_wyW8Fm7kns1kvTE6Lx6MdASEESnutwsyoB5eJTmQn4",
                 "token_type": "Bearer",
                 "expires_in": 7200,
-                "refresh_token": "oN4ni8U-_2oTQw3hRTHGdr_z1xTOyI11auhbLdrcaw4",
-                "created_at": 1583715284
+                "refresh_token": "ADRGjVVoeilsjLsfgySKonN6hPvfYazRRvZz6fF6HSA",
+                "created_at": 1583801285
               }
             }
           }
@@ -7493,12 +7611,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "08222eb6-b6ec-481c-ad0f-bd3dd4556524"
+                "x-example-value": "2f550e82-2849-41df-a99b-f913d238b62d"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.010803"
+                "x-example-value": "0.010411"
               },
               "Vary": {
                 "description": "",
@@ -7641,7 +7759,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"3d028aa56a0b9e0c61e78014d36a114e\""
+                "x-example-value": "W/\"04b0a756fd01fb0089e10170463b0dee\""
               },
               "Cache-Control": {
                 "description": "",
@@ -7651,12 +7769,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "cc0772c7-3289-428a-93a1-385aeaf85d75"
+                "x-example-value": "ca6a3127-40f8-4d1e-9d11-0adb804cc8e6"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.025512"
+                "x-example-value": "0.022543"
               },
               "Vary": {
                 "description": "",
@@ -7672,21 +7790,21 @@
             "examples": {
               "application/json": {
                 "id": 4,
-                "created_at": "2020-03-09T00:54:44.287Z",
+                "created_at": "2020-03-10T00:48:05.521Z",
                 "email": "invite+requester@progeser.com",
                 "first_name": "Requester",
                 "laboratory": "My test lab",
                 "last_name": "Invite",
                 "role": "requester",
                 "token": {
-                  "id": 58,
-                  "access_token": "oLkO-S2gxQCo0l7vNdOvzfM1jRRheFARaAywx-_rX7g",
-                  "created_at": "2020-03-09T00:54:44.289Z",
+                  "id": 59,
+                  "access_token": "DpOffTs9P1RWel83uHeIEOZrGtr5N0qteeDFDRigYE0",
+                  "created_at": "2020-03-10T00:48:05.523Z",
                   "expires_in": 7200,
-                  "refresh_token": "AgTYB5nuHYUPErniuN5wGl6GJrp8NPxgy3i2h7kYUSA",
+                  "refresh_token": "3OSlwIKOKuJJqH9qL4GN-6W44K62nD4kQh_Ps1x1Y_o",
                   "token_type": "Bearer"
                 },
-                "updated_at": "2020-03-09T00:54:44.287Z"
+                "updated_at": "2020-03-10T00:48:05.521Z"
               }
             }
           }
@@ -7788,7 +7906,7 @@
               "ETag": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "W/\"f8dbeaef9525c8588ab3eea01ade87bb\""
+                "x-example-value": "W/\"1f2dd544b8b3368cec4037931cb6cfc0\""
               },
               "Cache-Control": {
                 "description": "",
@@ -7798,12 +7916,12 @@
               "X-Request-Id": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "42b09ca2-37b1-4733-996d-4e6f36e272ab"
+                "x-example-value": "d46bae72-4274-4674-9bae-fea843f1d319"
               },
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.025889"
+                "x-example-value": "0.023674"
               },
               "Vary": {
                 "description": "",
@@ -7819,21 +7937,21 @@
             "examples": {
               "application/json": {
                 "id": 5,
-                "created_at": "2020-03-09T00:54:44.325Z",
+                "created_at": "2020-03-10T00:48:05.555Z",
                 "email": "tyler.kautzer@beierhegmann.net",
                 "first_name": "Manon",
                 "laboratory": "my laboratory",
                 "last_name": "Rousseau",
                 "role": "requester",
                 "token": {
-                  "id": 60,
-                  "access_token": "0McOG5oEKeF8EaAygSZ-aNtvIhhG-lQWSJICR_sL75c",
-                  "created_at": "2020-03-09T00:54:44.328Z",
+                  "id": 61,
+                  "access_token": "4zIpOy3Bs4cCS_mJb9b3znSqVdSJsP-KAArqTPIiRv8",
+                  "created_at": "2020-03-10T00:48:05.557Z",
                   "expires_in": 7200,
-                  "refresh_token": "0ScrBy9he-cKg-SRuzKtodoXxpnUc_lYrYU_B6Zo3E4",
+                  "refresh_token": "3uJdqB0xM5VQH40A_YPQ-st9JtMElPbBbRTZ4XP3l7E",
                   "token_type": "Bearer"
                 },
-                "updated_at": "2020-03-09T00:54:44.325Z"
+                "updated_at": "2020-03-10T00:48:05.555Z"
               }
             }
           }

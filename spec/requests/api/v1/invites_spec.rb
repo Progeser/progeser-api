@@ -78,6 +78,17 @@ RSpec.describe 'Api/V1/Invites', type: :request do
     end
   end
 
+  describe 'GET api/v1/invites/token/:invitation_token' do
+    context 'when 404' do
+      it 'can\'t get an invite with invalid invitation_token' do
+        get('/api/v1/invites/token/foobar')
+
+        expect(status).to eq(404)
+        expect(response.parsed_body.dig('error', 'message')).not_to be_blank
+      end
+    end
+  end
+
   describe 'POST api/v1/invites' do
     context 'when 400' do
       it_behaves_like 'with authenticated grower' do

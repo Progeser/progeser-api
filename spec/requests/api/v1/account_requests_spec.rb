@@ -93,21 +93,19 @@ RSpec.describe 'Api/V1/AccountRequests', type: :request do
 
   describe 'POST api/v1/account_requests' do
     context 'when 422' do
-      it_behaves_like 'with authenticated grower' do
-        it 'fails to create an account_request with invalid params' do
-          post(
-            '/api/v1/account_requests',
-            params: {
-              email: nil,
-              first_name: nil,
-              last_name: nil,
-              comment: nil
-            }
-          )
+      it 'fails to create an account_request with invalid params' do
+        post(
+          '/api/v1/account_requests',
+          params: {
+            email: nil,
+            first_name: nil,
+            last_name: nil,
+            comment: nil
+          }
+        )
 
-          expect(status).to eq(422)
-          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
-        end
+        expect(status).to eq(422)
+        expect(response.parsed_body.dig('error', 'message')).not_to be_blank
       end
     end
   end
