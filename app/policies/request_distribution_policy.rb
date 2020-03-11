@@ -20,6 +20,8 @@ class RequestDistributionPolicy < ApplicationPolicy
   def destroy?
     return false unless grower?
 
+    return true unless record.request.accepted?
+
     return true if record.request.request_distributions.count > 1
 
     record.errors.add(:request, 'can\'t delete the last distribution of an accepted request')
