@@ -125,6 +125,10 @@ resource 'Pots' do
 
     let(:raw_post) { params.to_json }
 
+    before do
+      pot.request_distributions.destroy_all
+    end
+
     example 'Update a pot with its area' do
       authentication :basic, "Bearer #{user_token.token}"
 
