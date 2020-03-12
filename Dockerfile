@@ -7,7 +7,6 @@ COPY Gemfile.lock /myapp/Gemfile.lock
 RUN gem install bundler
 RUN bundle config build.nokogiri --use-system-libraries
 RUN bundle install
-RUN bundle update rack
 COPY . /myapp
 
 # Start the main process.
