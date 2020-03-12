@@ -371,11 +371,26 @@ RSpec.describe 'Api/V1/Requests', type: :request do
 
     context 'when 422' do
       it_behaves_like 'with authenticated grower' do
-        before do
-          request.update(status: :accepted)
+        it 'can\'t accept a non-pending request' do
+          request.update(status: :refused)
+
+          post("/api/v1/requests/#{id}/accept", headers: headers)
+
+          expect(status).to eq(422)
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
 
-        it 'can\'t accept a non-pending request' do
+        it 'can\'t accept a request without distributions' do
+          request.update(plant_stage: PlantStage.first)
+          request.request_distributions.destroy_all
+
+          post("/api/v1/requests/#{id}/accept", headers: headers)
+
+          expect(status).to eq(422)
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
+        end
+
+        it 'can\'t accept a request without plant stage' do
           post("/api/v1/requests/#{id}/accept", headers: headers)
 
           expect(status).to eq(422)
@@ -402,11 +417,9 @@ RSpec.describe 'Api/V1/Requests', type: :request do
 
     context 'when 422' do
       it_behaves_like 'with authenticated grower' do
-        before do
-          request.update(status: :accepted)
-        end
-
         it 'can\'t refuse a non-pending request' do
+          request.update(status: :refused)
+
           post("/api/v1/requests/#{id}/refuse", headers: headers)
 
           expect(status).to eq(422)
@@ -433,6 +446,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
         end
 
         it 'can ask to cancel an accepted request' do
+          request.update(plant_stage: PlantStage.first)
           request.update(status: :accepted)
 
           post("/api/v1/requests/#{id}/cancel", headers: headers)
@@ -448,11 +462,9 @@ RSpec.describe 'Api/V1/Requests', type: :request do
 
     context 'when 422' do
       it_behaves_like 'with authenticated grower' do
-        before do
-          request.update(status: :refused)
-        end
-
         it 'can\'t cancel a non pending, accepted or in_cancelation request' do
+          request.update(status: :refused)
+
           post("/api/v1/requests/#{id}/cancel", headers: headers)
 
           expect(status).to eq(422)

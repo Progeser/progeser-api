@@ -16,8 +16,9 @@ class RequestTest < ActiveSupport::TestCase
     assert @request.valid?, @request.errors.messages
   end
 
-  test 'valid without plant_stage' do
+  test 'valid without plant_stage and a non-accepted status' do
     @request.plant_stage = nil
+    @request.status = :pending
     assert @request.valid?, @request.errors.messages
   end
 
@@ -86,10 +87,16 @@ class RequestTest < ActiveSupport::TestCase
   end
 
   # State Machine
-  test 'can\'t accept a request without at least one request distribution' do
+  test 'can\'t be accepted without at least one request distribution' do
     @request.request_distributions = []
     assert_not @request.valid?
     assert_not_empty @request.errors[:request_distributions]
+  end
+
+  test 'can\'t be accepted without a plant stage' do
+    @request.plant_stage = nil
+    assert_not @request.valid?
+    assert_not_empty @request.errors[:plant_stage]
   end
 end
 
