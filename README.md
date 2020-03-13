@@ -47,6 +47,16 @@ To see the endpoints documentation, you can go to:
 
 http://localhost:3000/apidoc
 
+### Run tests
+
+To run smoke tests, run the following : 
+
+`bundle exec rails test`
+
+To run integration tests, run the following : 
+
+`bundle exec rails spec`
+
 ## With Docker
 
 ### Requirements
