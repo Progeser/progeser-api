@@ -41,6 +41,6 @@ jobs:
     - bundle exec rake test
     - bundle exec rake spec
     after_script:
-    - "./cc-test-reporter after-build --exit-code $TRAVIS_TEStrT_RESULT"
+    - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
   - stage: docker
     script: bash scripts/docker_travis
