@@ -5,6 +5,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/34144c727e5098090c39/maintainability)](https://codeclimate.com/github/Progeser/progeser-api/maintainability)
 [![Coverage](https://api.codeclimate.com/v1/badges/34144c727e5098090c39/test_coverage)](https://codeclimate.com/github/Progeser/progeser-api/test_coverage)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Made With Love <3](https://img.shields.io/badge/Made%20With-Love-ff69b4.svg)](https://github.com/Progeser)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
