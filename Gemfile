@@ -6,7 +6,7 @@ ruby '2.6.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0'
 # Use Puma as the app server
-gem 'puma', '~> 3.12'
+gem 'puma', '~> 4.3'
 # A PostgreSQL client library for Ruby
 gem 'pg', '~> 1.1', '>= 1.1.4'
 # Use SCSS for stylesheets
