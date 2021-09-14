@@ -32,7 +32,7 @@ gem 'activevalidators', '~> 5.1'
 gem 'enumerize', '~> 2.3'
 
 # Rails authentication with email & password
-gem 'clearance', '~> 2.0'
+gem 'clearance', '~> 2.5'
 
 # Minimal authorization through OO design and pure Ruby classes
 gem 'pundit', '~> 2.1'
