@@ -50,7 +50,7 @@ gem 'discard', '~> 1.0'
 gem 'mailjet', '~> 1.5', '>= 1.5.4'
 
 # Simple, efficient background processing for Ruby
-gem 'sidekiq', '~> 6.2'
+gem 'sidekiq', '~> 6.4'
 
 # Business Transaction DSL
 gem 'dry-transaction', '~> 0.13.0'

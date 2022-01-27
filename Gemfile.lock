@@ -307,7 +307,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
-    redis (4.4.0)
+    redis (4.5.1)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
@@ -367,7 +367,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    sidekiq (6.2.1)
+    sidekiq (6.4.0)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
@@ -466,7 +466,7 @@ DEPENDENCIES
   rubocop-rails (~> 2.4)
   rubocop-rspec (~> 1.38)
   sass-rails (~> 6.0)
-  sidekiq (~> 6.2)
+  sidekiq (~> 6.4)
   simplecov (~> 0.17.1)
   spring
   spring-watcher-listen (~> 2.0.0)
