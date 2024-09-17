@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
-class Request_distributionTest < ActiveSupport::TestCase
+class RequestDistributionTest < ActiveSupport::TestCase
   # Setups
   def setup
-    @request_distribution = request_distributions(:request_distribution_1)
+    @request_distribution = request_distributions(:request_distribution1)
   end
 
   # Validations

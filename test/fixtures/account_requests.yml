@@ -1,5 +1,5 @@
 
-account_request_1:
+account_request1:
   id: 1
   email: tyler.kautzer@beierhegmann.net
   creation_token: WjhB23fxsMKKzfL1w6CyyVe5
@@ -50,7 +50,7 @@ account_request_1:
     zone: *2
     time: *3
 
-account_request_2:
+account_request2:
   id: 2
   email: deidre@ratkewyman.com
   creation_token: TYFAtWNRLRWyYwAVWWPKtM1d
@@ -104,7 +104,7 @@ account_request_2:
     zone: *2
     time: *3
 
-account_request_3:
+account_request3:
   id: 3
   email: elma@mitchell.co
   creation_token: ogQgFCQBcPJsejWc1rt2rDMj

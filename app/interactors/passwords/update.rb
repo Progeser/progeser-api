@@ -17,7 +17,7 @@ class Passwords::Update < ApplicationInteractor
   try :update_password!, catch: ActiveRecord::RecordInvalid
 
   def update_password!(password_params:, user:)
-    user.update_password!(password_params.symbolize_keys)
+    user.update_password!(**password_params)
 
     user
   end

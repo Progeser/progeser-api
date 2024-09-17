@@ -1,32 +1,22 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '3.3.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.0'
+gem 'rails', '~> 7.2.0'
 # Use Puma as the app server
-gem 'puma', '~> 4.3'
+gem 'puma', '~> 6.4', '>= 6.4.2'
 # A PostgreSQL client library for Ruby
-gem 'pg', '~> 1.1', '>= 1.1.4'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 6.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+gem 'pg', '~> 1.1'
+# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
+gem 'sprockets-rails'
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', require: false
 
 # An OAuth 2 provider for Rails and Grape
-gem 'doorkeeper', '~> 5.2.0'
-gem 'doorkeeper-i18n', '~> 5.2.0'
-
-# Travis CI client
-gem 'travis', '~> 1.8', '>= 1.8.8'
-
-# A collection of off-the-shelf and tested ActiveModel/ActiveRecord validations
-gem 'activevalidators', '~> 5.1'
+gem 'doorkeeper', '~> 5.7'
+gem 'doorkeeper-i18n', '~> 5.2'
 
 # Enumerated attributes with I18n and ActiveRecord/Mongoid support
 gem 'enumerize', '~> 2.3'
@@ -41,10 +31,10 @@ gem 'pundit', '~> 2.1'
 gem 'oj', '~> 3.10'
 
 # Simple, Fast, and Declarative Serialization Library for Ruby
-gem 'blueprinter', '~> 0.20'
+gem 'blueprinter'
 
 # Soft deletes for ActiveRecord
-gem 'discard', '~> 1.0'
+gem 'discard'
 
 # Mailjet Ruby wrapper
 gem 'mailjet', '~> 1.5', '>= 1.5.4'
@@ -53,9 +43,9 @@ gem 'mailjet', '~> 1.5', '>= 1.5.4'
 gem 'sidekiq', '~> 6.2'
 
 # Business Transaction DSL
-gem 'dry-transaction', '~> 0.13.0'
+gem 'dry-transaction'
 # Validation library with type-safe schemas and rules
-gem 'dry-validation', '~> 1.3'
+gem 'dry-validation'
 
 # A controller filters engine gem based on jsonapi spec
 gem 'fetcheable_on_api', '~> 0.4.1'
@@ -73,21 +63,18 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'pry-rails', '~> 0.3.9'
-  gem 'rspec-rails', '~> 3.8'
+  gem 'rspec-rails'
   gem 'rspec_api_documentation', '~> 6.1'
   gem 'simplecov', '~> 0.17.1', require: false
   gem 'faker', '~> 2.7'
 end
 
 group :development do
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'rubocop', '~> 0.80.1', require: false
-  gem 'rubocop-rails', '~> 2.4', require: false
-  gem 'rubocop-performance', '~> 1.5', require: false
-  gem 'rubocop-rspec', '~> 1.38', require: false
+  gem 'listen'
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rspec', require: false
   gem 'brakeman'
   gem 'bundler-audit'
   gem 'annotate', '~> 3.0'

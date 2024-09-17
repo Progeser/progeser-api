@@ -11,7 +11,7 @@ RspecApiDocumentation.configure do |config|
   # config.configurations_dir = Rails.root.join("doc", "configurations", "api")
 
   # Output folder
-  config.docs_dir = Rails.root.join('public/apidoc/open_api')
+  config.docs_dir = Rails.public_path.join('apidoc/open_api')
 
   # An array of output format(s).
   # Possible values are :json, :html, :combined_text, :combined_json,
@@ -30,7 +30,7 @@ RspecApiDocumentation.configure do |config|
   # config.exclusion_filter = nil
 
   # Used when adding a cURL output to the docs
-  config.curl_host = ENV['API_DOC_BASE_URL']
+  config.curl_host = ENV.fetch('API_DOC_BASE_URL', nil)
 
   # Used when adding a cURL output to the docs
   # Allows you to filter out headers that are not needed in the cURL request,

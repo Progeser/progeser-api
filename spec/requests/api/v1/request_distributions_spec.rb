@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Api/V1/RequestDistributions', type: :request do
-  let!(:request)      { requests(:request_1) }
+  let!(:request)      { requests(:request1) }
   let!(:request_id)   { request.id }
   let!(:distribution) { request.request_distributions.first }
   let!(:id)           { distribution.id }
@@ -14,7 +14,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
         it 'gets request distributions with pagination params' do
           get(
             "/api/v1/requests/#{request_id}/request_distributions",
-            headers: headers,
+            headers:,
             params: {
               page: {
                 number: 1,
@@ -26,10 +26,10 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
           expect(status).to eq(200)
 
           expect(response.parsed_body.count).to eq(2)
-          expect(response.headers.dig('Pagination-Current-Page')).to eq(1)
-          expect(response.headers.dig('Pagination-Per')).to eq(2)
-          expect(response.headers.dig('Pagination-Total-Pages')).to eq(1)
-          expect(response.headers.dig('Pagination-Total-Count')).to eq(2)
+          expect(response.headers['Pagination-Current-Page']).to eq(1)
+          expect(response.headers['Pagination-Per']).to eq(2)
+          expect(response.headers['Pagination-Total-Pages']).to eq(1)
+          expect(response.headers['Pagination-Total-Count']).to eq(2)
         end
       end
     end
@@ -37,7 +37,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t get request distributions' do
-          get('/api/v1/requests/2/request_distributions', headers: headers)
+          get('/api/v1/requests/2/request_distributions', headers:)
 
           expect(status).to eq(403)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -50,7 +50,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t get a request distribution' do
-          get("/api/v1/request_distributions/#{id}", headers: headers)
+          get("/api/v1/request_distributions/#{id}", headers:)
 
           expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -65,7 +65,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
         it 'can create a request distribution given its pot & pot quantity' do
           post(
             "/api/v1/requests/#{request_id}/request_distributions",
-            headers: headers,
+            headers:,
             params: {
               bench_id: Bench.first.id,
               plant_stage_id: request.plant_stage_id,
@@ -80,7 +80,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
           expect(response.body).to eq(distribution.to_blueprint)
           expect(distribution.request).to eq(request)
           expect(distribution.bench).to eq(Bench.first)
-          expect(response.parsed_body.dig('greenhouse_id')).to eq(Bench.first.greenhouse_id)
+          expect(response.parsed_body['greenhouse_id']).to eq(Bench.first.greenhouse_id)
           expect(distribution.plant_stage).to eq(request.plant_stage)
           expect(distribution.pot).to eq(Pot.first)
           expect(distribution.pot_quantity).to eq(10)
@@ -90,7 +90,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
         it 'can create a request distribution given its area' do
           post(
             "/api/v1/requests/#{request_id}/request_distributions",
-            headers: headers,
+            headers:,
             params: {
               bench_id: Bench.first.id,
               plant_stage_id: request.plant_stage_id,
@@ -104,10 +104,10 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
           expect(response.body).to eq(distribution.to_blueprint)
           expect(distribution.request).to eq(request)
           expect(distribution.bench).to eq(Bench.first)
-          expect(response.parsed_body.dig('greenhouse_id')).to eq(Bench.first.greenhouse_id)
+          expect(response.parsed_body['greenhouse_id']).to eq(Bench.first.greenhouse_id)
           expect(distribution.plant_stage).to eq(request.plant_stage)
-          expect(distribution.pot).to eq(nil)
-          expect(distribution.pot_quantity).to eq(nil)
+          expect(distribution.pot).to be_nil
+          expect(distribution.pot_quantity).to be_nil
           expect(distribution.area).to eq(150)
         end
       end
@@ -116,7 +116,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t create a request distribution' do
-          post("/api/v1/requests/#{request_id}/request_distributions", headers: headers)
+          post("/api/v1/requests/#{request_id}/request_distributions", headers:)
 
           expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -129,7 +129,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
         it 'distributions can\'t have a sum of areas greater than their bench area' do
           post(
             "/api/v1/requests/#{request_id}/request_distributions",
-            headers: headers,
+            headers:,
             params: {
               bench_id: Bench.first.id,
               plant_stage_id: request.plant_stage_id,
@@ -144,7 +144,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
         it 'fails to create a request distribution with missing params' do
           post(
             "/api/v1/requests/#{request_id}/request_distributions",
-            headers: headers,
+            headers:,
             params: {
               bench_id: nil,
               plant_stage_id: nil,
@@ -165,7 +165,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
         it 'can update a request distribution given its pot & pot quantity' do
           put(
             "/api/v1/request_distributions/#{id}",
-            headers: headers,
+            headers:,
             params: {
               bench_id: Bench.second.id,
               pot_id: Pot.second.id,
@@ -186,7 +186,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
         it 'can update a request distribution given its area' do
           put(
             "/api/v1/request_distributions/#{id}",
-            headers: headers,
+            headers:,
             params: {
               bench_id: Bench.second.id,
               area: 100
@@ -206,7 +206,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t update a request distribution' do
-          put("/api/v1/request_distributions/#{id}", headers: headers)
+          put("/api/v1/request_distributions/#{id}", headers:)
 
           expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -219,7 +219,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
         it 'fails to update a request distribution with missing params' do
           put(
             "/api/v1/request_distributions/#{id}",
-            headers: headers,
+            headers:,
             params: {
               bench_id: nil,
               plant_stage_id: nil,
@@ -240,7 +240,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
         it 'can\'t delete a distribution if it is the last one of the associated request' do
           request.request_distributions.last.destroy
 
-          delete("/api/v1/request_distributions/#{id}", headers: headers)
+          delete("/api/v1/request_distributions/#{id}", headers:)
 
           expect(status).to eq(403)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -251,7 +251,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t delete a request distribution' do
-          delete("/api/v1/request_distributions/#{id}", headers: headers)
+          delete("/api/v1/request_distributions/#{id}", headers:)
 
           expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -264,7 +264,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
         it 'fails to delete a request distribution' do
           allow_any_instance_of(RequestDistribution).to receive(:destroy).and_return(false)
 
-          delete("/api/v1/request_distributions/#{id}", headers: headers)
+          delete("/api/v1/request_distributions/#{id}", headers:)
 
           expect(status).to eq(422)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank

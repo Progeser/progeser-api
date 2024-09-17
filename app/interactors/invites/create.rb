@@ -19,9 +19,7 @@ class Invites::Create < ApplicationInteractor
   tee :send_mail
 
   def create_invite!(invite_params)
-    invite = Invite.create!(invite_params)
-
-    invite
+    Invite.create!(invite_params)
   end
 
   def send_mail(invite)

@@ -1,5 +1,5 @@
 
-plant_stage_1:
+plant_stage1:
   id: 1
   name: sprout
   duration: 28
@@ -15,7 +15,7 @@ plant_stage_1:
     zone: *2
     time: *3
 
-plant_stage_2:
+plant_stage2:
   id: 2
   name: seedling
   duration: 19
@@ -31,7 +31,7 @@ plant_stage_2:
     zone: *2
     time: *3
 
-plant_stage_7:
+plant_stage7:
   id: 7
   name: sprout
   duration: 11
@@ -47,7 +47,7 @@ plant_stage_7:
     zone: *2
     time: *3
 
-plant_stage_8:
+plant_stage8:
   id: 8
   name: seedling
   duration: 12
@@ -63,7 +63,7 @@ plant_stage_8:
     zone: *2
     time: *3
 
-plant_stage_9:
+plant_stage9:
   id: 9
   name: vegetative
   duration: 25
@@ -79,7 +79,7 @@ plant_stage_9:
     zone: *2
     time: *3
 
-plant_stage_10:
+plant_stage10:
   id: 10
   name: budding
   duration: 9
@@ -95,7 +95,7 @@ plant_stage_10:
     zone: *2
     time: *3
 
-plant_stage_11:
+plant_stage11:
   id: 11
   name: flowering
   duration: 5
@@ -111,7 +111,7 @@ plant_stage_11:
     zone: *2
     time: *3
 
-plant_stage_12:
+plant_stage12:
   id: 12
   name: ripening
   duration: 10
@@ -127,7 +127,7 @@ plant_stage_12:
     zone: *2
     time: *3
 
-plant_stage_13:
+plant_stage13:
   id: 13
   name: sprout
   duration: 26
@@ -143,7 +143,7 @@ plant_stage_13:
     zone: *2
     time: *3
 
-plant_stage_14:
+plant_stage14:
   id: 14
   name: seedling
   duration: 26
@@ -159,7 +159,7 @@ plant_stage_14:
     zone: *2
     time: *3
 
-plant_stage_15:
+plant_stage15:
   id: 15
   name: vegetative
   duration: 26
@@ -175,7 +175,7 @@ plant_stage_15:
     zone: *2
     time: *3
 
-plant_stage_16:
+plant_stage16:
   id: 16
   name: budding
   duration: 19
@@ -191,7 +191,7 @@ plant_stage_16:
     zone: *2
     time: *3
 
-plant_stage_17:
+plant_stage17:
   id: 17
   name: flowering
   duration: 9
@@ -207,7 +207,7 @@ plant_stage_17:
     zone: *2
     time: *3
 
-plant_stage_18:
+plant_stage18:
   id: 18
   name: ripening
   duration: 11
@@ -223,7 +223,7 @@ plant_stage_18:
     zone: *2
     time: *3
 
-plant_stage_3:
+plant_stage3:
   id: 3
   name: vegetative
   duration: 21
@@ -239,7 +239,7 @@ plant_stage_3:
     zone: *2
     time: *3
 
-plant_stage_4:
+plant_stage4:
   id: 4
   name: budding
   duration: 10
@@ -255,7 +255,7 @@ plant_stage_4:
     zone: *2
     time: *3
 
-plant_stage_5:
+plant_stage5:
   id: 5
   name: flowering
   duration: 17
@@ -271,7 +271,7 @@ plant_stage_5:
     zone: *2
     time: *3
 
-plant_stage_6:
+plant_stage6:
   id: 6
   name: ripening
   duration: 30

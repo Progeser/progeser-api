@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Api/V1/Requests', type: :request do
-  let!(:request) { requests(:request_1) }
+  let!(:request) { requests(:request1) }
   let!(:id)      { request.id }
 
   describe 'GET api/v1/requests' do
@@ -12,7 +12,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
         it 'gets requests with pagination params' do
           get(
             '/api/v1/requests',
-            headers: headers,
+            headers:,
             params: {
               page: {
                 number: 1,
@@ -24,16 +24,16 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           expect(status).to eq(200)
 
           expect(response.parsed_body.count).to eq(2)
-          expect(response.headers.dig('Pagination-Current-Page')).to eq(1)
-          expect(response.headers.dig('Pagination-Per')).to eq(2)
-          expect(response.headers.dig('Pagination-Total-Pages')).to eq(1)
-          expect(response.headers.dig('Pagination-Total-Count')).to eq(2)
+          expect(response.headers['Pagination-Current-Page']).to eq(1)
+          expect(response.headers['Pagination-Per']).to eq(2)
+          expect(response.headers['Pagination-Total-Pages']).to eq(1)
+          expect(response.headers['Pagination-Total-Count']).to eq(2)
         end
 
         it 'gets requests filtered by status' do
           get(
             '/api/v1/requests',
-            headers: headers,
+            headers:,
             params: {
               filter: {
                 status: :accepted
@@ -48,7 +48,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
         it 'gets requests sorted by name' do
           get(
             '/api/v1/requests',
-            headers: headers,
+            headers:,
             params: {
               sort: 'name'
             }
@@ -56,14 +56,14 @@ RSpec.describe 'Api/V1/Requests', type: :request do
 
           expect(status).to eq(200)
 
-          names = response.parsed_body.map { |request| request.dig('name') }
+          names = response.parsed_body.pluck('name')
           expect(names).to eq(names.sort)
         end
 
         it 'gets requests sorted in descending order by plant_name' do
           get(
             '/api/v1/requests',
-            headers: headers,
+            headers:,
             params: {
               sort: '-plant_name'
             }
@@ -71,14 +71,14 @@ RSpec.describe 'Api/V1/Requests', type: :request do
 
           expect(status).to eq(200)
 
-          plant_names = response.parsed_body.map { |request| request.dig('plant_name') }
+          plant_names = response.parsed_body.pluck('plant_name')
           expect(plant_names).to eq(plant_names.sort.reverse)
         end
 
         it 'gets requests sorted in descending order by status' do
           get(
             '/api/v1/requests',
-            headers: headers,
+            headers:,
             params: {
               sort: '-status'
             }
@@ -86,14 +86,14 @@ RSpec.describe 'Api/V1/Requests', type: :request do
 
           expect(status).to eq(200)
 
-          statuses = response.parsed_body.map { |request| request.dig('status') }
+          statuses = response.parsed_body.pluck('status')
           expect(statuses).to eq(statuses.sort.reverse)
         end
 
         it 'gets requests sorted by due_date' do
           get(
             '/api/v1/requests',
-            headers: headers,
+            headers:,
             params: {
               sort: 'due_date'
             }
@@ -101,14 +101,14 @@ RSpec.describe 'Api/V1/Requests', type: :request do
 
           expect(status).to eq(200)
 
-          due_dates = response.parsed_body.map { |request| request.dig('due_date') }
+          due_dates = response.parsed_body.pluck('due_date')
           expect(due_dates).to eq(due_dates.sort)
         end
       end
 
       it_behaves_like 'with authenticated requester' do
         it 'can get my requests' do
-          get('/api/v1/requests', headers: headers)
+          get('/api/v1/requests', headers:)
 
           expect(status).to eq(200)
           expect(response.parsed_body.count).to eq(1)
@@ -121,10 +121,10 @@ RSpec.describe 'Api/V1/Requests', type: :request do
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t get number of requests to handle' do
-          get('/api/v1/requests/requests_to_handle_count', headers: headers)
+          get('/api/v1/requests/requests_to_handle_count', headers:)
 
           expect(status).to eq(403)
-          expect(JSON.parse(response.body).dig('error', 'message')).not_to be_blank
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -134,7 +134,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t get a request of another author' do
-          get("/api/v1/requests/#{id}", headers: headers)
+          get("/api/v1/requests/#{id}", headers:)
 
           expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -152,7 +152,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
 
           post(
             '/api/v1/requests',
-            headers: headers,
+            headers:,
             params: {
               plant_stage_id: plant_stage.id,
               name: 'My request',
@@ -169,7 +169,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           request = Request.last
           expect(response.body).to eq(request.to_blueprint)
           expect(request.author).to eq(user)
-          expect(request.handler).to eq(nil)
+          expect(request.handler).to be_nil
           expect(request.plant_stage).to eq(plant_stage)
           expect(request.name).to eq('My request')
           expect(request.plant_name).to eq(plant.name)
@@ -185,7 +185,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
         it 'can create a request from a non-existing plant_stage' do
           post(
             '/api/v1/requests',
-            headers: headers,
+            headers:,
             params: {
               name: 'My request',
               plant_name: 'My non-existing plant',
@@ -203,8 +203,8 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           request = Request.last
           expect(response.body).to eq(request.to_blueprint)
           expect(request.author).to eq(user)
-          expect(request.handler).to eq(nil)
-          expect(request.plant_stage).to eq(nil)
+          expect(request.handler).to be_nil
+          expect(request.plant_stage).to be_nil
           expect(request.name).to eq('My request')
           expect(request.plant_name).to eq('My non-existing plant')
           expect(request.plant_stage_name).to eq('My stage name')
@@ -224,7 +224,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
 
           post(
             '/api/v1/requests',
-            headers: headers,
+            headers:,
             params: {
               plant_stage_id: plant_stage.id,
               name: 'My request',
@@ -241,8 +241,8 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           request = Request.last
           expect(response.body).to eq(request.to_blueprint)
           expect(request.author).to eq(user)
-          expect(request.handler).to eq(nil)
-          expect(response.parsed_body.dig('plant_id')).to eq(plant.id)
+          expect(request.handler).to be_nil
+          expect(response.parsed_body['plant_id']).to eq(plant.id)
           expect(request.plant_stage).to eq(plant_stage)
           expect(request.name).to eq('My request')
           expect(request.plant_name).to eq(plant.name)
@@ -258,7 +258,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
         it 'can create a request from a non-existing plant_stage' do
           post(
             '/api/v1/requests',
-            headers: headers,
+            headers:,
             params: {
               name: 'My request',
               plant_name: 'My non-existing plant',
@@ -276,9 +276,9 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           request = Request.last
           expect(response.body).to eq(request.to_blueprint)
           expect(request.author).to eq(user)
-          expect(request.handler).to eq(nil)
-          expect(response.parsed_body.dig('plant_id')).to eq(nil)
-          expect(request.plant_stage).to eq(nil)
+          expect(request.handler).to be_nil
+          expect(response.parsed_body['plant_id']).to be_nil
+          expect(request.plant_stage).to be_nil
           expect(request.name).to eq('My request')
           expect(request.plant_name).to eq('My non-existing plant')
           expect(request.plant_stage_name).to eq('My stage name')
@@ -297,7 +297,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
         it 'fails to create a request with missing params' do
           post(
             '/api/v1/requests',
-            headers: headers,
+            headers:,
             params: {
               name: nil,
               plant_name: nil,
@@ -321,7 +321,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t update a request of another author' do
-          put("/api/v1/requests/#{id}", headers: headers)
+          put("/api/v1/requests/#{id}", headers:)
 
           expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -334,7 +334,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
         it 'fails to update a request with missing params' do
           put(
             "/api/v1/requests/#{id}",
-            headers: headers,
+            headers:,
             params: {
               name: nil,
               plant_name: nil,
@@ -355,13 +355,13 @@ RSpec.describe 'Api/V1/Requests', type: :request do
   end
 
   describe 'POST api/v1/requests/:id/accept' do
-    let!(:request) { requests(:request_2) }
+    let!(:request) { requests(:request2) }
     let!(:id)      { request.id }
 
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t accept a request' do
-          post("/api/v1/requests/#{id}/accept", headers: headers)
+          post("/api/v1/requests/#{id}/accept", headers:)
 
           expect(status).to eq(403)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -374,7 +374,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
         it 'can\'t accept a non-pending request' do
           request.update(status: :refused)
 
-          post("/api/v1/requests/#{id}/accept", headers: headers)
+          post("/api/v1/requests/#{id}/accept", headers:)
 
           expect(status).to eq(422)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -384,14 +384,14 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           request.update(plant_stage: PlantStage.first)
           request.request_distributions.destroy_all
 
-          post("/api/v1/requests/#{id}/accept", headers: headers)
+          post("/api/v1/requests/#{id}/accept", headers:)
 
           expect(status).to eq(422)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
 
         it 'can\'t accept a request without plant stage' do
-          post("/api/v1/requests/#{id}/accept", headers: headers)
+          post("/api/v1/requests/#{id}/accept", headers:)
 
           expect(status).to eq(422)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -401,13 +401,13 @@ RSpec.describe 'Api/V1/Requests', type: :request do
   end
 
   describe 'POST api/v1/requests/:id/refuse' do
-    let!(:request) { requests(:request_2) }
+    let!(:request) { requests(:request2) }
     let!(:id)      { request.id }
 
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t refuse a request' do
-          post("/api/v1/requests/#{id}/refuse", headers: headers)
+          post("/api/v1/requests/#{id}/refuse", headers:)
 
           expect(status).to eq(403)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -420,7 +420,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
         it 'can\'t refuse a non-pending request' do
           request.update(status: :refused)
 
-          post("/api/v1/requests/#{id}/refuse", headers: headers)
+          post("/api/v1/requests/#{id}/refuse", headers:)
 
           expect(status).to eq(422)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -430,13 +430,13 @@ RSpec.describe 'Api/V1/Requests', type: :request do
   end
 
   describe 'POST api/v1/requests/:id/cancel' do
-    let!(:request) { requests(:request_2) }
+    let!(:request) { requests(:request2) }
     let!(:id)      { request.id }
 
     context 'when 200' do
       it_behaves_like 'with authenticated requester' do
         it 'can cancel a pending request' do
-          post("/api/v1/requests/#{id}/cancel", headers: headers)
+          post("/api/v1/requests/#{id}/cancel", headers:)
 
           expect(status).to eq(200)
 
@@ -449,7 +449,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           request.update(plant_stage: PlantStage.first)
           request.update(status: :accepted)
 
-          post("/api/v1/requests/#{id}/cancel", headers: headers)
+          post("/api/v1/requests/#{id}/cancel", headers:)
 
           expect(status).to eq(200)
 
@@ -465,7 +465,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
         it 'can\'t cancel a non pending, accepted or in_cancelation request' do
           request.update(status: :refused)
 
-          post("/api/v1/requests/#{id}/cancel", headers: headers)
+          post("/api/v1/requests/#{id}/cancel", headers:)
 
           expect(status).to eq(422)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -475,13 +475,13 @@ RSpec.describe 'Api/V1/Requests', type: :request do
   end
 
   describe 'POST api/v1/requests/:id/complete' do
-    let!(:request) { requests(:request_2) }
+    let!(:request) { requests(:request2) }
     let!(:id)      { request.id }
 
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t complete a request' do
-          post("/api/v1/requests/#{id}/complete", headers: headers)
+          post("/api/v1/requests/#{id}/complete", headers:)
 
           expect(status).to eq(403)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -492,7 +492,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
     context 'when 422' do
       it_behaves_like 'with authenticated grower' do
         it 'can\'t complete a non-accepted request' do
-          post("/api/v1/requests/#{id}/complete", headers: headers)
+          post("/api/v1/requests/#{id}/complete", headers:)
 
           expect(status).to eq(422)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -505,7 +505,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
     context 'when 403' do
       it_behaves_like 'with authenticated grower' do
         it 'can\'t delete a non-pending request' do
-          delete("/api/v1/requests/#{id}", headers: headers)
+          delete("/api/v1/requests/#{id}", headers:)
 
           expect(status).to eq(403)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -516,7 +516,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t delete a request' do
-          delete("/api/v1/requests/#{id}", headers: headers)
+          delete("/api/v1/requests/#{id}", headers:)
 
           expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -531,7 +531,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
 
           allow_any_instance_of(Request).to receive(:destroy).and_return(false)
 
-          delete("/api/v1/requests/#{id}", headers: headers)
+          delete("/api/v1/requests/#{id}", headers:)
 
           expect(status).to eq(422)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank

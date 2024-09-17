@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class Users::RequesterTest < ActiveSupport::TestCase
   # Setups
   def setup
-    @user = users(:user_1)
+    @user = users(:user1)
   end
 
   # Validations
@@ -18,7 +20,7 @@ class Users::RequesterTest < ActiveSupport::TestCase
   end
 
   test 'invalid with existing email' do
-    @user.email = users(:user_2).email
+    @user.email = users(:user2).email
     assert_not @user.valid?
     assert_not_empty @user.errors[:email]
   end
@@ -99,6 +101,6 @@ end
 # Indexes
 #
 #  index_users_on_discarded_at    (discarded_at)
-#  index_users_on_email           (email)
+#  index_users_on_email           (email) UNIQUE
 #  index_users_on_remember_token  (remember_token)
 #

@@ -20,7 +20,7 @@ class Api::V1::PasswordsController < ApiController
     user = User.find_by!(confirmation_token: params[:confirmation_token])
 
     render_interactor_result(
-      Passwords::Reset.call(password_params: password_params.to_h, user: user),
+      Passwords::Reset.call(password_params: password_params.to_h, user:),
       opts: { view: :with_token }
     )
   end

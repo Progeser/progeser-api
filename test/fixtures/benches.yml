@@ -1,5 +1,5 @@
 
-bench_1:
+bench1:
   id: 1
   greenhouse_id: 1
   name: My big greenhouse - bench 1
@@ -17,7 +17,7 @@ bench_1:
     zone: *2
     time: *3
 
-bench_2:
+bench2:
   id: 2
   greenhouse_id: 1
   name: My big greenhouse - bench 2
@@ -36,7 +36,7 @@ bench_2:
     zone: *2
     time: *3
 
-bench_3:
+bench3:
   id: 3
   greenhouse_id: 2
   name: My small greenhouse - bench 1
@@ -54,7 +54,7 @@ bench_3:
     zone: *2
     time: *3
 
-bench_4:
+bench4:
   id: 4
   greenhouse_id: 2
   name: My small greenhouse - bench 2
@@ -73,7 +73,7 @@ bench_4:
     zone: *2
     time: *3
 
-bench_5:
+bench5:
   id: 5
   greenhouse_id: 1
   name: My big greenhouse - bench 3
@@ -90,7 +90,7 @@ bench_5:
     zone: *2
     time: *3
 
-bench_6:
+bench6:
   id: 6
   greenhouse_id: 2
   name: My small greenhouse - bench 3

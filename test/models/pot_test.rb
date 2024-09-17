@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class PotTest < ActiveSupport::TestCase
   # Setups
   def setup
-    @pot = pots(:pot_1)
+    @pot = pots(:pot1)
   end
 
   # Validations

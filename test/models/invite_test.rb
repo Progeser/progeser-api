@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class InviteTest < ActiveSupport::TestCase
   # Setups
   def setup
-    @invite = invites(:invite_1)
+    @invite = invites(:invite1)
   end
 
   # Validations
@@ -18,7 +20,7 @@ class InviteTest < ActiveSupport::TestCase
   end
 
   test 'invalid with existing email' do
-    @invite.email = invites(:invite_2).email
+    @invite.email = invites(:invite2).email
     assert_not @invite.valid?
     assert_not_empty @invite.errors[:email]
   end

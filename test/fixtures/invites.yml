@@ -1,5 +1,5 @@
 
-invite_1:
+invite1:
   id: 1
   email: invite+requester@progeser.com
   invitation_token: CyF6A6R7t47cjpth4GHdvfaq
@@ -17,7 +17,7 @@ invite_1:
     zone: *2
     time: *3
 
-invite_2:
+invite2:
   id: 2
   email: invite+grower@progeser.com
   invitation_token: T8kze4NacBFaSzTBJdGEhTnJ
@@ -35,7 +35,7 @@ invite_2:
     zone: *2
     time: *3
 
-invite_3:
+invite3:
   id: 3
   email: leena.ryan@ratke.com
   invitation_token: JNVNmRthHJzce1Rf6z5mxA5S

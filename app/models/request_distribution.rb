@@ -12,22 +12,18 @@ class RequestDistribution < ApplicationRecord
   # Associations
   belongs_to :request,
              class_name: 'Request',
-             foreign_key: 'request_id',
              inverse_of: :request_distributions
 
   belongs_to :bench,
              class_name: 'Bench',
-             foreign_key: 'bench_id',
              inverse_of: :request_distributions
 
   belongs_to :plant_stage,
              class_name: 'PlantStage',
-             foreign_key: 'plant_stage_id',
              inverse_of: :request_distributions
 
   belongs_to :pot,
              class_name: 'Pot',
-             foreign_key: 'pot_id',
              inverse_of: :request_distributions,
              optional: true
 
@@ -45,7 +41,7 @@ class RequestDistribution < ApplicationRecord
     return if area.nil?
     return if bench&.area.nil?
 
-    sum = bench.request_distributions.map(&:area).sum
+    sum = bench.request_distributions.sum(&:area)
     sum += area if new_record? # area isn't included in previous operation if record isn't persisted
     return if sum <= bench.area
 

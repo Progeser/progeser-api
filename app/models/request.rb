@@ -19,18 +19,15 @@ class Request < ApplicationRecord
   # Associations
   belongs_to :author,
              class_name: 'User',
-             foreign_key: 'author_id',
              inverse_of: :authored_requests
 
   belongs_to :handler,
              class_name: 'Users::Grower',
-             foreign_key: 'handler_id',
              inverse_of: :handled_requests,
              optional: true
 
   belongs_to :plant_stage,
              class_name: 'PlantStage',
-             foreign_key: 'plant_stage_id',
              inverse_of: :requests,
              optional: true
 
@@ -40,7 +37,6 @@ class Request < ApplicationRecord
 
   has_many :request_distributions,
            class_name: 'RequestDistribution',
-           foreign_key: 'request_id',
            inverse_of: :request,
            dependent: :destroy
 

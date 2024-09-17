@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Api/V1/Plants', type: :request do
-  let!(:plant) { plants(:plant_1) }
+  let!(:plant) { plants(:plant1) }
   let!(:id) { plant.id }
 
   describe 'GET api/v1/plants' do
@@ -12,7 +12,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
         it 'get plants with pagination params' do
           get(
             '/api/v1/plants',
-            headers: headers,
+            headers:,
             params: {
               page: {
                 number: 1,
@@ -24,10 +24,10 @@ RSpec.describe 'Api/V1/Plants', type: :request do
           expect(status).to eq(200)
 
           expect(response.parsed_body.count).to eq(2)
-          expect(response.headers.dig('Pagination-Current-Page')).to eq(1)
-          expect(response.headers.dig('Pagination-Per')).to eq(2)
-          expect(response.headers.dig('Pagination-Total-Pages')).to eq(2)
-          expect(response.headers.dig('Pagination-Total-Count')).to eq(3)
+          expect(response.headers['Pagination-Current-Page']).to eq(1)
+          expect(response.headers['Pagination-Per']).to eq(2)
+          expect(response.headers['Pagination-Total-Pages']).to eq(2)
+          expect(response.headers['Pagination-Total-Count']).to eq(3)
         end
       end
     end
@@ -37,7 +37,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t create a plant' do
-          post('/api/v1/plants', headers: headers)
+          post('/api/v1/plants', headers:)
 
           expect(status).to eq(403)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -65,7 +65,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
         it 'fails to create a plant with missing params' do
           post(
             '/api/v1/plants',
-            headers: headers,
+            headers:,
             params: {
               name: nil,
               plant_stages_attributes: nil
@@ -83,7 +83,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t update a plant' do
-          put("/api/v1/plants/#{id}", headers: headers)
+          put("/api/v1/plants/#{id}", headers:)
 
           expect(status).to eq(403)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -112,7 +112,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
         it 'fails to update a plant with missing params' do
           put(
             "/api/v1/plants/#{id}",
-            headers: headers,
+            headers:,
             params: {
               name: nil
             }
@@ -125,7 +125,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
         it 'can\'t delete a plant_stage with ongoing requests' do
           put(
             "/api/v1/plants/#{id}",
-            headers: headers,
+            headers:,
             params: {
               plant_stages_attributes: {
                 id: 6,
@@ -145,7 +145,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t delete a plant' do
-          delete("/api/v1/plants/#{id}", headers: headers)
+          delete("/api/v1/plants/#{id}", headers:)
 
           expect(status).to eq(403)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -154,7 +154,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
 
       it_behaves_like 'with authenticated grower' do
         it 'can\'t delete a plant with ongoing requests' do
-          delete("/api/v1/plants/#{id}", headers: headers)
+          delete("/api/v1/plants/#{id}", headers:)
 
           expect(status).to eq(403)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -171,7 +171,7 @@ RSpec.describe 'Api/V1/Plants', type: :request do
         it 'fails to delete a plant' do
           allow_any_instance_of(Plant).to receive(:destroy).and_return(false)
 
-          delete("/api/v1/plants/#{id}", headers: headers)
+          delete("/api/v1/plants/#{id}", headers:)
 
           expect(status).to eq(422)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank

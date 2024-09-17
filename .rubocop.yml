@@ -15,11 +15,11 @@ require:
   - rubocop-rspec
 
 AllCops:
+  NewCops: enable
   Exclude:
     - Rakefile
     - Gemfile
     - 'config/**/*'
-    - 'test/**/*'
     - 'db/schema.rb'
     - 'bin/*'
     - 'vendor/**/*'
@@ -29,16 +29,8 @@ AllCops:
 #
 Style/Documentation:
   Enabled: false
-
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
-
-Style/HashEachMethods:
-  Enabled: true
-Style/HashTransformKeys:
-  Enabled: true
-Style/HashTransformValues:
-  Enabled: true
 
 # Layout
 #
@@ -52,8 +44,7 @@ Layout/HashAlignment:
   EnforcedHashRocketStyle: table
 
 Layout/LineLength:
-  Max: 100
-  IgnoredPatterns: ['(\A|\s)#'] # ignored comment line
+  AllowedPatterns: ['(\A|\s)#'] # ignored comment line
 
 # Metrics
 #
@@ -71,18 +62,11 @@ Metrics/AbcSize:
     - "db/migrate/*"
 
 Metrics/BlockLength:
-  Enabled: true
   Exclude:
     - "spec/**/*"
 
 Metrics/CyclomaticComplexity:
-  Enabled: true
   Max: 10
-
-# Rails
-#
-Rails/InverseOf:
-  Enabled: false
 
 # RSpec
 #
@@ -92,5 +76,3 @@ RSpec/ExampleLength:
   Enabled: false
 RSpec/AnyInstance:
   Enabled: false
-RSpec/MessageSpies:
-  EnforcedStyle: receive

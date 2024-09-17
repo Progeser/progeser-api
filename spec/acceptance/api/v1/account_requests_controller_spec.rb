@@ -8,29 +8,29 @@ resource 'Account Requests' do
   header 'Accept',       'application/json'
   header 'Content-Type', 'application/json'
 
-  let!(:user)       { users(:user_2) }
+  let!(:user)       { users(:user2) }
   let!(:user_token) { Doorkeeper::AccessToken.create!(resource_owner_id: user.id) }
 
-  let!(:account_request) { account_requests(:account_request_1) }
+  let!(:account_request) { account_requests(:account_request1) }
   let!(:id)              { account_request.id }
 
   get '/api/v1/account_requests' do
     parameter :'page[number]',
-              "The number of the desired page\n\n"\
-              "If used, additional information is returned in the response headers:\n"\
-              "`Pagination-Current-Page`: the current page number\n"\
-              "`Pagination-Per`: the number of records per page\n"\
-              "`Pagination-Total-Pages`: the total number of pages\n"\
+              "The number of the desired page\n\n" \
+              "If used, additional information is returned in the response headers:\n" \
+              "`Pagination-Current-Page`: the current page number\n" \
+              "`Pagination-Per`: the number of records per page\n" \
+              "`Pagination-Total-Pages`: the total number of pages\n" \
               '`Pagination-Total-Count`: the total number of records',
               with_example: true,
               type: :integer,
               default: 1
     parameter :'page[size]',
-              "The number of elements in a page\n\n"\
-              "If used, additional information is returned in the response headers:\n"\
-              "`Pagination-Current-Page`: the current page number\n"\
-              "`Pagination-Per`: the number of records per page\n"\
-              "`Pagination-Total-Pages`: the total number of pages\n"\
+              "The number of elements in a page\n\n" \
+              "If used, additional information is returned in the response headers:\n" \
+              "`Pagination-Current-Page`: the current page number\n" \
+              "`Pagination-Per`: the number of records per page\n" \
+              "`Pagination-Total-Pages`: the total number of pages\n" \
               '`Pagination-Total-Count`: the total number of records',
               with_example: true,
               type: :integer,
@@ -56,7 +56,7 @@ resource 'Account Requests' do
 
       expect(status).to eq(200)
       expect(
-        JSON.parse(response_body).dig('pending_account_requests_count')
+        JSON.parse(response_body)['pending_account_requests_count']
       ).to eq(AccountRequest.where(accepted: false).count)
     end
   end
@@ -91,26 +91,28 @@ resource 'Account Requests' do
       expect(status).to eq(201)
 
       response = JSON.parse(response_body)
-      expect(response.dig('email')).to eq(email)
-      expect(response.dig('first_name')).to eq(first_name)
-      expect(response.dig('last_name')).to eq(last_name)
-      expect(response.dig('comment')).to eq(comment)
+      expect(response['email']).to eq(email)
+      expect(response['first_name']).to eq(first_name)
+      expect(response['last_name']).to eq(last_name)
+      expect(response['comment']).to eq(comment)
     end
   end
 
   post '/api/v1/account_requests/:id/accept' do
+    before { allow(Mailjet::Send).to receive(:create).and_return(nil) }
+
     example 'Accept an account request and send an email' do
       authentication :basic, "Bearer #{user_token.token}"
-
-      expect(Mailjet::Send).to receive(:create).and_return(nil)
 
       do_request
 
       expect(status).to eq(200)
 
+      expect(Mailjet::Send).to have_received(:create).once
+
       account_request.reload
-      expect(JSON.parse(response_body).dig('accepted')).to eq(true)
-      expect(account_request.accepted).to eq(true)
+      expect(JSON.parse(response_body)['accepted']).to be(true)
+      expect(account_request.accepted).to be(true)
     end
   end
 

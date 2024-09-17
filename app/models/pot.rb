@@ -18,7 +18,6 @@ class Pot < ApplicationRecord
   # Associations
   has_many :request_distributions,
            class_name: 'RequestDistribution',
-           foreign_key: 'pot_id',
            inverse_of: :pot,
            dependent: :restrict_with_error
 end

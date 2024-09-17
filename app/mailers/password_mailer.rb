@@ -17,7 +17,7 @@ class PasswordMailer < ApplicationMailer
       receiver_email: user.email,
       subject: t('mailers.password_mailer.reset_password.subject'),
       template_id: 1_098_517,
-      variables: variables
+      variables:
     )
   end
 end

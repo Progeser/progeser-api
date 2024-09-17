@@ -5,7 +5,7 @@ class ApiController < ActionController::API
   before_action :doorkeeper_authorize!
 
   # Pundit
-  include Pundit
+  include Pundit::Authorization
   after_action :verify_authorized
   after_action :verify_policy_scoped, except: :create
 
@@ -36,7 +36,7 @@ class ApiController < ActionController::API
   def render_error(model_or_message, code: 400)
     error = {
       error: {
-        code: code,
+        code:,
         status: Rack::Utils::HTTP_STATUS_CODES[code]
       }
     }

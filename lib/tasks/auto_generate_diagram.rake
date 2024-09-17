@@ -6,9 +6,6 @@
 if Rails.env.development?
   RailsERD.load_tasks
 
-  # TMP Fix for Rails 6.
-  Rake::Task['erd:load_models'].clear
-
   namespace :erd do
     task load_models: :environment do
       say 'Loading application environment...'

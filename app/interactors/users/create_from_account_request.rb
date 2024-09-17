@@ -30,7 +30,7 @@ class Users::CreateFromAccountRequest < ApplicationInteractor
       password_confirmation: user_params[:password_confirmation]
     )
 
-    { user: user, account_request: account_request }
+    { user:, account_request: }
   end
 
   def destroy_account_request!(user:, account_request:)

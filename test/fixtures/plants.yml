@@ -1,5 +1,5 @@
 
-plant_1:
+plant1:
   id: 1
   name: Carrot
   created_at: !ruby/object:ActiveSupport::TimeWithZone
@@ -12,7 +12,7 @@ plant_1:
     zone: *2
     time: *3
 
-plant_2:
+plant2:
   id: 2
   name: Cauliflower
   created_at: !ruby/object:ActiveSupport::TimeWithZone
@@ -25,7 +25,7 @@ plant_2:
     zone: *2
     time: *3
 
-plant_3:
+plant3:
   id: 3
   name: Red cabbage
   created_at: !ruby/object:ActiveSupport::TimeWithZone

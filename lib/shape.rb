@@ -13,7 +13,7 @@ class Shape
       record_params.merge(area: params[:area])
     else
       area = Shape.new(params[:shape]).area(params[:dimensions])
-      record_params.merge(area: area)
+      record_params.merge(area:)
     end
   end
 
@@ -44,8 +44,8 @@ class Shape
 
   class InvalidDimensionsNumber < ActiveRecord::ActiveRecordError
     def initialize(given_number, expected_number)
-      message = 'Dimensions number is incorrect '\
-        "(given #{given_number}, expected #{expected_number})"
+      message = 'Dimensions number is incorrect ' \
+                "(given #{given_number}, expected #{expected_number})"
 
       super(message)
     end

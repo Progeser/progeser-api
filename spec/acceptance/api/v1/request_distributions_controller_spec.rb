@@ -8,31 +8,31 @@ resource 'RequestDistributions' do
   header 'Accept',       'application/json'
   header 'Content-Type', 'application/json'
 
-  let!(:user)       { users(:user_2) }
+  let!(:user)       { users(:user2) }
   let!(:user_token) { Doorkeeper::AccessToken.create!(resource_owner_id: user.id) }
 
-  let!(:request)      { requests(:request_1) }
+  let!(:request)      { requests(:request1) }
   let!(:request_id)   { request.id }
   let!(:distribution) { request.request_distributions.first }
   let!(:id)           { distribution.id }
 
   get '/api/v1/requests/:request_id/request_distributions' do
     parameter :'page[number]',
-              "The number of the desired page\n\n"\
-              "If used, additional information is returned in the response headers:\n"\
-              "`Pagination-Current-Page`: the current page number\n"\
-              "`Pagination-Per`: the number of records per page\n"\
-              "`Pagination-Total-Pages`: the total number of pages\n"\
+              "The number of the desired page\n\n" \
+              "If used, additional information is returned in the response headers:\n" \
+              "`Pagination-Current-Page`: the current page number\n" \
+              "`Pagination-Per`: the number of records per page\n" \
+              "`Pagination-Total-Pages`: the total number of pages\n" \
               '`Pagination-Total-Count`: the total number of records',
               with_example: true,
               type: :integer,
               default: 1
     parameter :'page[size]',
-              "The number of elements in a page\n\n"\
-              "If used, additional information is returned in the response headers:\n"\
-              "`Pagination-Current-Page`: the current page number\n"\
-              "`Pagination-Per`: the number of records per page\n"\
-              "`Pagination-Total-Pages`: the total number of pages\n"\
+              "The number of elements in a page\n\n" \
+              "If used, additional information is returned in the response headers:\n" \
+              "`Pagination-Current-Page`: the current page number\n" \
+              "`Pagination-Per`: the number of records per page\n" \
+              "`Pagination-Total-Pages`: the total number of pages\n" \
               '`Pagination-Total-Count`: the total number of records',
               with_example: true,
               type: :integer,
@@ -65,16 +65,16 @@ resource 'RequestDistributions' do
     parameter :bench_id, 'ID of the bench where the specimens are placed', with_example: true
     parameter :plant_stage_id, 'ID of the plant_stage of the experiment', with_example: true
     parameter :pot_id,
-              "(Optional) ID of the pot used for the experiment\n"\
+              "(Optional) ID of the pot used for the experiment\n" \
               'If used, following param `pot_quantity` is required',
               with_example: true
     parameter :pot_quantity,
-              "(Optional) Number of pots used for the experiment\n"\
+              "(Optional) Number of pots used for the experiment\n" \
               'If used, previous param `pot_id` is required',
               with_example: true,
               type: :integer
     parameter :area,
-              "(Optional) Total area of the experiment\n"\
+              "(Optional) Total area of the experiment\n" \
               'If used, previous params `pot_id` and `pot_quantity` will be ignored',
               with_example: true,
               type: :number
@@ -96,12 +96,12 @@ resource 'RequestDistributions' do
       expect(response_body).to eq(RequestDistribution.last.to_blueprint)
 
       response = JSON.parse(response_body)
-      expect(response.dig('bench_id')).to eq(bench_id)
-      expect(response.dig('greenhouse_id')).to eq(Bench.first.greenhouse_id)
-      expect(response.dig('plant_stage_id')).to eq(plant_stage_id)
-      expect(response.dig('pot_id')).to eq(pot_id)
-      expect(response.dig('pot_quantity')).to eq(pot_quantity)
-      expect(response.dig('area')).not_to be_blank
+      expect(response['bench_id']).to eq(bench_id)
+      expect(response['greenhouse_id']).to eq(Bench.first.greenhouse_id)
+      expect(response['plant_stage_id']).to eq(plant_stage_id)
+      expect(response['pot_id']).to eq(pot_id)
+      expect(response['pot_quantity']).to eq(pot_quantity)
+      expect(response['area']).not_to be_blank
     end
   end
 
@@ -109,16 +109,16 @@ resource 'RequestDistributions' do
     parameter :bench_id, 'ID of the bench where the specimens are placed', with_example: true
     parameter :plant_stage_id, 'ID of the plant_stage of the experiment', with_example: true
     parameter :pot_id,
-              "(Optional) ID of the pot used for the experiment\n"\
+              "(Optional) ID of the pot used for the experiment\n" \
               'If used, following param `pot_quantity` is required',
               with_example: true
     parameter :pot_quantity,
-              "(Optional) Number of pots used for the experiment\n"\
+              "(Optional) Number of pots used for the experiment\n" \
               'If used, previous param `pot_id` is required',
               with_example: true,
               type: :integer
     parameter :area,
-              "(Optional) Total area of the experiment\n"\
+              "(Optional) Total area of the experiment\n" \
               'If used, previous params `pot_id` and `pot_quantity` will be ignored',
               with_example: true,
               type: :number

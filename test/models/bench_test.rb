@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class BenchTest < ActiveSupport::TestCase
   # Setups
   def setup
-    @bench = benches(:bench_1)
+    @bench = benches(:bench1)
   end
 
   # Validations
@@ -26,7 +28,7 @@ class BenchTest < ActiveSupport::TestCase
     @bench.area = nil
     assert_not @bench.valid?
     assert_not_empty @bench.errors[:area]
-   end
+  end
 
   test 'invalid with incorrect area value' do
     @bench.area = 0
