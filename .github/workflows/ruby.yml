@@ -1,0 +1,66 @@
+name: Ruby
+
+on:
+  push:
+    branches: [ master ]
+  pull_request: {}
+
+env:
+  DATABASE_URL: postgres://postgres:test@127.0.0.1:5432/test
+  BASE_URL: localhost:3000
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3.5
+          bundler-cache: true
+      - name: Run rubocop
+        run: bundle exec rubocop
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3.5
+          bundler-cache: true
+      - name: bundler-audit
+        run: bundle exec bundle audit check --update
+      - name: Brakeman
+        run: bundle exec brakeman
+
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_PASSWORD: test
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3.5
+          bundler-cache: true
+      - name: Create database
+        run: bundle exec bin/rails db:create db:migrate RAILS_ENV=test
+      - name: Run tests
+        run: bundle exec rails test:prepare && bundle exec rails test && bundle exec rspec
+      - name: SimpleCov+ Action
+        uses: joshmfrankel/simplecov-check-action@main
+        with:
+          minimum_suite_coverage: 100
+          github_token: ${{ secrets.GITHUB_TOKEN }}

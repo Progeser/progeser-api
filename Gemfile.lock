@@ -374,11 +374,15 @@ GEM
       connection_pool (>= 2.2.5, < 3)
       rack (~> 2.0)
       redis (>= 4.5.0, < 5)
-    simplecov (0.17.1)
+    simplecov (0.22.0)
       docile (~> 1.1)
-      json (>= 1.8, < 3)
-      simplecov-html (~> 0.10.0)
-    simplecov-html (0.10.2)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.13.1)
+    simplecov-json (0.2.3)
+      json
+      simplecov
+    simplecov_json_formatter (0.1.4)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -445,7 +449,8 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rspec
   sidekiq (~> 6.2)
-  simplecov (~> 0.17.1)
+  simplecov
+  simplecov-json
   sprockets-rails
   state_machines-activerecord (~> 0.6.0)
   tzinfo-data

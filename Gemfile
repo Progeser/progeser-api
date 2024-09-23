@@ -65,7 +65,8 @@ group :development, :test do
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails'
   gem 'rspec_api_documentation', '~> 6.1'
-  gem 'simplecov', '~> 0.17.1', require: false
+  gem 'simplecov', require: false
+  gem 'simplecov-json', require: false
   gem 'faker', '~> 2.7'
 end
 
