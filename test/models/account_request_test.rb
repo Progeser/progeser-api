@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class AccountRequestTest < ActiveSupport::TestCase
   # Setups
   def setup
-    @account_request = account_requests(:account_request_1)
+    @account_request = account_requests(:account_request1)
   end
 
   # Validations
@@ -18,7 +20,7 @@ class AccountRequestTest < ActiveSupport::TestCase
   end
 
   test 'invalid with existing email' do
-    @account_request.email = account_requests(:account_request_2).email
+    @account_request.email = account_requests(:account_request2).email
     assert_not @account_request.valid?
     assert_not_empty @account_request.errors[:email]
   end

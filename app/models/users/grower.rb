@@ -30,6 +30,6 @@ end
 # Indexes
 #
 #  index_users_on_discarded_at    (discarded_at)
-#  index_users_on_email           (email)
+#  index_users_on_email           (email) UNIQUE
 #  index_users_on_remember_token  (remember_token)
 #

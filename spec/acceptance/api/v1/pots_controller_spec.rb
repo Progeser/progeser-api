@@ -8,29 +8,29 @@ resource 'Pots' do
   header 'Accept',       'application/json'
   header 'Content-Type', 'application/json'
 
-  let!(:user)       { users(:user_2) }
+  let!(:user)       { users(:user2) }
   let!(:user_token) { Doorkeeper::AccessToken.create!(resource_owner_id: user.id) }
 
-  let!(:pot) { pots(:pot_1) }
+  let!(:pot) { pots(:pot1) }
   let!(:id)  { pot.id }
 
   get '/api/v1/pots' do
     parameter :'page[number]',
-              "The number of the desired page\n\n"\
-              "If used, additional information is returned in the response headers:\n"\
-              "`Pagination-Current-Page`: the current page number\n"\
-              "`Pagination-Per`: the number of records per page\n"\
-              "`Pagination-Total-Pages`: the total number of pages\n"\
+              "The number of the desired page\n\n" \
+              "If used, additional information is returned in the response headers:\n" \
+              "`Pagination-Current-Page`: the current page number\n" \
+              "`Pagination-Per`: the number of records per page\n" \
+              "`Pagination-Total-Pages`: the total number of pages\n" \
               '`Pagination-Total-Count`: the total number of records',
               with_example: true,
               type: :integer,
               default: 1
     parameter :'page[size]',
-              "The number of elements in a page\n\n"\
-              "If used, additional information is returned in the response headers:\n"\
-              "`Pagination-Current-Page`: the current page number\n"\
-              "`Pagination-Per`: the number of records per page\n"\
-              "`Pagination-Total-Pages`: the total number of pages\n"\
+              "The number of elements in a page\n\n" \
+              "If used, additional information is returned in the response headers:\n" \
+              "`Pagination-Current-Page`: the current page number\n" \
+              "`Pagination-Per`: the number of records per page\n" \
+              "`Pagination-Total-Pages`: the total number of pages\n" \
               '`Pagination-Total-Count`: the total number of records',
               with_example: true,
               type: :integer,
@@ -62,12 +62,12 @@ resource 'Pots' do
   post '/api/v1/pots' do
     parameter :name, 'Name of the pot', with_example: true
     parameter :shape,
-              "Shape of the pot\n\n"\
+              "Shape of the pot\n\n" \
               'If `other` given, `area` param should be passed',
               with_example: true,
               enum: Pot.shape.values
     parameter :area,
-              "(Optional) Area of the pot (in square centimeters)\n\n"\
+              "(Optional) Area of the pot (in square centimeters)\n\n" \
               'If used, following `dimensions` parameter will be ignored',
               with_example: true,
               type: :number
@@ -93,23 +93,23 @@ resource 'Pots' do
       expect(response_body).to eq(Pot.last.to_blueprint)
 
       response = JSON.parse(response_body)
-      expect(response.dig('name')).to eq(name)
+      expect(response['name']).to eq(name)
       expect(response.dig('shape', 'name')).not_to be_blank
       expect(response.dig('shape', 'dimension_names')).not_to be_blank
-      expect(response.dig('dimensions')).to eq(dimensions)
-      expect(response.dig('area')).to eq(dimensions.inject(:*).to_f.to_s)
+      expect(response['dimensions']).to eq(dimensions)
+      expect(response['area']).to eq(dimensions.inject(:*).to_f.to_s)
     end
   end
 
   put '/api/v1/pots/:id' do
     parameter :name, 'Name of the pot', with_example: true
     parameter :shape,
-              "Shape of the pot\n\n"\
+              "Shape of the pot\n\n" \
               'If `other` given, `area` param should be passed',
               with_example: true,
               enum: Pot.shape.values
     parameter :area,
-              "(Optional) Area of the pot (in square centimeters)\n\n"\
+              "(Optional) Area of the pot (in square centimeters)\n\n" \
               'If used, following `dimensions` parameter will be ignored',
               with_example: true,
               type: :number

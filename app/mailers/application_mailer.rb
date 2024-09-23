@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationMailer < ActionMailer::Base
-  default from: ENV['MAIL_FROM']
+  default from: ENV.fetch('MAIL_FROM', nil)
   layout 'mailer'
 
   # rubocop: disable Metrics/MethodLength
@@ -9,8 +9,8 @@ class ApplicationMailer < ActionMailer::Base
     Mailjet::Send.create(
       messages: [{
         From: {
-          Email: ENV['MAIL_FROM'],
-          Name: ENV['MAIL_SENDER_NAME']
+          Email: ENV.fetch('MAIL_FROM', nil),
+          Name: ENV.fetch('MAIL_SENDER_NAME', nil)
         },
         To: [{
           Email: receiver_email
@@ -33,7 +33,7 @@ class ApplicationMailer < ActionMailer::Base
 
   def frontend_url(path, token)
     URI::HTTPS.build(
-      host: ENV['FRONT_BASE_URL'],
+      host: ENV.fetch('FRONT_BASE_URL', nil),
       path: path + token
     ).to_s
   end

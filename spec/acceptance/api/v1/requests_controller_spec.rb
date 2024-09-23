@@ -8,29 +8,29 @@ resource 'Requests' do
   header 'Accept',       'application/json'
   header 'Content-Type', 'application/json'
 
-  let!(:user)       { users(:user_2) }
+  let!(:user)       { users(:user2) }
   let!(:user_token) { Doorkeeper::AccessToken.create!(resource_owner_id: user.id) }
 
-  let!(:request) { requests(:request_1) }
+  let!(:request) { requests(:request1) }
   let!(:id)      { request.id }
 
   get '/api/v1/requests' do
     parameter :'page[number]',
-              "The number of the desired page\n\n"\
-              "If used, additional information is returned in the response headers:\n"\
-              "`Pagination-Current-Page`: the current page number\n"\
-              "`Pagination-Per`: the number of records per page\n"\
-              "`Pagination-Total-Pages`: the total number of pages\n"\
+              "The number of the desired page\n\n" \
+              "If used, additional information is returned in the response headers:\n" \
+              "`Pagination-Current-Page`: the current page number\n" \
+              "`Pagination-Per`: the number of records per page\n" \
+              "`Pagination-Total-Pages`: the total number of pages\n" \
               '`Pagination-Total-Count`: the total number of records',
               with_example: true,
               type: :integer,
               default: 1
     parameter :'page[size]',
-              "The number of elements in a page\n\n"\
-              "If used, additional information is returned in the response headers:\n"\
-              "`Pagination-Current-Page`: the current page number\n"\
-              "`Pagination-Per`: the number of records per page\n"\
-              "`Pagination-Total-Pages`: the total number of pages\n"\
+              "The number of elements in a page\n\n" \
+              "If used, additional information is returned in the response headers:\n" \
+              "`Pagination-Current-Page`: the current page number\n" \
+              "`Pagination-Per`: the number of records per page\n" \
+              "`Pagination-Total-Pages`: the total number of pages\n" \
               '`Pagination-Total-Count`: the total number of records',
               with_example: true,
               type: :integer,
@@ -65,10 +65,10 @@ resource 'Requests' do
 
       parsed_body = JSON.parse(response_body)
       expect(
-        parsed_body.dig('pending_requests_count')
+        parsed_body['pending_requests_count']
       ).to eq(Request.where(status: :pending).count)
       expect(
-        parsed_body.dig('in_cancelation_requests_count')
+        parsed_body['in_cancelation_requests_count']
       ).to eq(Request.where(status: :in_cancelation).count)
     end
   end
@@ -127,14 +127,14 @@ resource 'Requests' do
       expect(response_body).to eq(Request.last.to_blueprint)
 
       response = JSON.parse(response_body)
-      expect(response.dig('plant_stage_id')).to eq(plant_stage_id)
-      expect(response.dig('plant_id')).to eq(Plant.last.id)
-      expect(response.dig('name')).to eq(name)
-      expect(response.dig('due_date')).to eq(due_date.strftime('%F'))
-      expect(response.dig('quantity')).to eq(quantity)
-      expect(response.dig('comment')).to eq(comment)
-      expect(response.dig('temperature')).to eq(temperature)
-      expect(response.dig('photoperiod')).to eq(photoperiod)
+      expect(response['plant_stage_id']).to eq(plant_stage_id)
+      expect(response['plant_id']).to eq(Plant.last.id)
+      expect(response['name']).to eq(name)
+      expect(response['due_date']).to eq(due_date.strftime('%F'))
+      expect(response['quantity']).to eq(quantity)
+      expect(response['comment']).to eq(comment)
+      expect(response['temperature']).to eq(temperature)
+      expect(response['photoperiod']).to eq(photoperiod)
     end
   end
 
@@ -179,8 +179,8 @@ resource 'Requests' do
       expect(response_body).to eq(request.to_blueprint)
       expect(request.name).to eq(name)
       expect(request.due_date).to eq(due_date)
-      expect(request.quantity).to eq(request.quantity)
-      expect(request.comment).to eq(request.comment)
+      expect(request.quantity).to eq(quantity)
+      expect(request.comment).to eq(comment)
     end
   end
 
@@ -225,8 +225,8 @@ resource 'Requests' do
       request.update(status: :pending)
     end
 
-    example "Cancel a request\n"\
-            'If the request is already accepted and the current user is a requester, '\
+    example "Cancel a request\n" \
+            'If the request is already accepted and the current user is a requester, ' \
             'the request will be set as `in_cancelation`' do
       authentication :basic, "Bearer #{user_token.token}"
 

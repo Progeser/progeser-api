@@ -8,29 +8,29 @@ resource 'Greenhouses' do
   header 'Accept',       'application/json'
   header 'Content-Type', 'application/json'
 
-  let!(:user)       { users(:user_2) }
+  let!(:user)       { users(:user2) }
   let!(:user_token) { Doorkeeper::AccessToken.create!(resource_owner_id: user.id) }
 
-  let!(:greenhouse) { greenhouses(:greenhouse_1) }
+  let!(:greenhouse) { greenhouses(:greenhouse1) }
   let!(:id)         { greenhouse.id }
 
   get '/api/v1/greenhouses' do
     parameter :'page[number]',
-              "The number of the desired page\n\n"\
-              "If used, additional information is returned in the response headers:\n"\
-              "`Pagination-Current-Page`: the current page number\n"\
-              "`Pagination-Per`: the number of records per page\n"\
-              "`Pagination-Total-Pages`: the total number of pages\n"\
+              "The number of the desired page\n\n" \
+              "If used, additional information is returned in the response headers:\n" \
+              "`Pagination-Current-Page`: the current page number\n" \
+              "`Pagination-Per`: the number of records per page\n" \
+              "`Pagination-Total-Pages`: the total number of pages\n" \
               '`Pagination-Total-Count`: the total number of records',
               with_example: true,
               type: :integer,
               default: 1
     parameter :'page[size]',
-              "The number of elements in a page\n\n"\
-              "If used, additional information is returned in the response headers:\n"\
-              "`Pagination-Current-Page`: the current page number\n"\
-              "`Pagination-Per`: the number of records per page\n"\
-              "`Pagination-Total-Pages`: the total number of pages\n"\
+              "The number of elements in a page\n\n" \
+              "If used, additional information is returned in the response headers:\n" \
+              "`Pagination-Current-Page`: the current page number\n" \
+              "`Pagination-Per`: the number of records per page\n" \
+              "`Pagination-Total-Pages`: the total number of pages\n" \
               '`Pagination-Total-Count`: the total number of records',
               with_example: true,
               type: :integer,
@@ -80,10 +80,10 @@ resource 'Greenhouses' do
       expect(response_body).to eq(Greenhouse.last.to_blueprint)
 
       response = JSON.parse(response_body)
-      expect(response.dig('name')).to eq(name)
-      expect(response.dig('width')).to eq(width)
-      expect(response.dig('height')).to eq(height)
-      expect(response.dig('occupancy')).to eq('0.0')
+      expect(response['name']).to eq(name)
+      expect(response['width']).to eq(width)
+      expect(response['height']).to eq(height)
+      expect(response['occupancy']).to eq('0.0')
     end
   end
 

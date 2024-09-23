@@ -37,7 +37,7 @@ class Api::V1::UsersController < ApiController
 
   def render_invite_interactor_result(invite)
     render_interactor_result(
-      Users::CreateFromInvite.call(user_params: invite_params.to_h, invite: invite),
+      Users::CreateFromInvite.call(user_params: invite_params.to_h, invite:),
       status: :created,
       opts: { view: :with_token }
     )
@@ -47,7 +47,7 @@ class Api::V1::UsersController < ApiController
     render_interactor_result(
       Users::CreateFromAccountRequest.call(
         user_params: account_request_params.to_h,
-        account_request: account_request
+        account_request:
       ),
       status: :created,
       opts: { view: :with_token }

@@ -9,7 +9,7 @@ RSpec.describe 'Api/V1/Users', type: :request do
         it 'gets users with pagination params' do
           get(
             '/api/v1/users',
-            headers: headers,
+            headers:,
             params: {
               page: {
                 number: 1,
@@ -21,28 +21,28 @@ RSpec.describe 'Api/V1/Users', type: :request do
           expect(status).to eq(200)
 
           expect(response.parsed_body.count).to eq(2)
-          expect(response.headers.dig('Pagination-Current-Page')).to eq(1)
-          expect(response.headers.dig('Pagination-Per')).to eq(2)
-          expect(response.headers.dig('Pagination-Total-Pages')).to eq(2)
-          expect(response.headers.dig('Pagination-Total-Count')).to eq(3)
+          expect(response.headers['Pagination-Current-Page']).to eq(1)
+          expect(response.headers['Pagination-Per']).to eq(2)
+          expect(response.headers['Pagination-Total-Pages']).to eq(2)
+          expect(response.headers['Pagination-Total-Count']).to eq(3)
         end
       end
 
       it_behaves_like 'with authenticated requester' do
         it 'gets the authenticated user only' do
-          get('/api/v1/users', headers: headers)
+          get('/api/v1/users', headers:)
 
           expect(status).to eq(200)
 
           expect(response.parsed_body.count).to eq(1)
-          expect(response.parsed_body.first.dig('id')).to eq(user.id)
+          expect(response.parsed_body.first['id']).to eq(user.id)
         end
       end
     end
   end
 
   describe 'POST /api/v1/users/:invitation_token/create_from_invite' do
-    let!(:invite)           { invites(:invite_1) }
+    let!(:invite)           { invites(:invite1) }
     let!(:invitation_token) { invite.invitation_token }
 
     context 'when 400' do
@@ -101,8 +101,8 @@ RSpec.describe 'Api/V1/Users', type: :request do
         expect(User.find_by(email: invite.email)).to be_nil
       end
 
-      it 'rollbacks the invite deletion '\
-      '& the user creation if the access token can\'t be created' do
+      it 'rollbacks the invite deletion ' \
+         '& the user creation if the access token can\'t be created' do
         allow(Doorkeeper::AccessToken).to receive(:create!).and_raise(ActiveRecord::RecordInvalid)
 
         post(
@@ -124,7 +124,7 @@ RSpec.describe 'Api/V1/Users', type: :request do
   end
 
   describe 'POST /api/v1/users/:invitation_token/create_from_account_request' do
-    let!(:account_request) { account_requests(:account_request_1) }
+    let!(:account_request) { account_requests(:account_request1) }
     let!(:creation_token)  { account_request.creation_token }
 
     context 'when 400' do
@@ -144,7 +144,7 @@ RSpec.describe 'Api/V1/Users', type: :request do
     end
 
     context 'when 403' do
-      let!(:account_request) { account_requests(:account_request_2) }
+      let!(:account_request) { account_requests(:account_request2) }
       let!(:creation_token)  { account_request.creation_token }
 
       it 'can\'t create a user from unaccepted account_request' do
@@ -198,8 +198,8 @@ RSpec.describe 'Api/V1/Users', type: :request do
         expect(User.find_by(email: account_request.email)).to be_nil
       end
 
-      it 'rollbacks the account request deletion '\
-      '& the user creation if the access token can\'t be created' do
+      it 'rollbacks the account request deletion ' \
+         '& the user creation if the access token can\'t be created' do
         allow(Doorkeeper::AccessToken).to receive(:create!).and_raise(ActiveRecord::RecordInvalid)
 
         post(

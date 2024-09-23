@@ -30,7 +30,7 @@ class Users::CreateFromInvite < ApplicationInteractor
       password_confirmation: user_params[:password_confirmation]
     )
 
-    { user: user, invite: invite }
+    { user:, invite: }
   end
 
   def destroy_invite!(user:, invite:)

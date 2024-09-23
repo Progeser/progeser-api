@@ -16,8 +16,8 @@ class User < ApplicationRecord
   # Validations
   validates :email,
             presence: true,
-            uniqueness: true,
-            email: { message: :email_invalid }
+            uniqueness: { case_sensitive: false },
+            format: { with: URI::MailTo::EMAIL_REGEXP }
 
   validates :password,
             presence: true,
@@ -35,7 +35,7 @@ class User < ApplicationRecord
             presence: true
 
   # Associations
-  has_many :access_tokens,
+  has_many :access_tokens, # rubocop:disable Rails/InverseOf
            class_name: 'Doorkeeper::AccessToken',
            foreign_key: :resource_owner_id,
            dependent: :destroy
@@ -106,6 +106,6 @@ end
 # Indexes
 #
 #  index_users_on_discarded_at    (discarded_at)
-#  index_users_on_email           (email)
+#  index_users_on_email           (email) UNIQUE
 #  index_users_on_remember_token  (remember_token)
 #

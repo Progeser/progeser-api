@@ -1,5 +1,5 @@
 
-request_1:
+request1:
   id: 1
   author_id: 2
   handler_id: 2
@@ -23,7 +23,7 @@ request_1:
     zone: *2
     time: *3
 
-request_2:
+request2:
   id: 2
   author_id: 1
   handler_id: 

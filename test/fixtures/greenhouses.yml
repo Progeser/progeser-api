@@ -1,5 +1,5 @@
 
-greenhouse_1:
+greenhouse1:
   id: 1
   name: My big greenhouse
   width: 1000
@@ -15,7 +15,7 @@ greenhouse_1:
     zone: *2
     time: *3
 
-greenhouse_2:
+greenhouse2:
   id: 2
   name: My small greenhouse
   width: 500

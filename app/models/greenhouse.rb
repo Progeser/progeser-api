@@ -13,7 +13,6 @@ class Greenhouse < ApplicationRecord
   # Associations
   has_many :benches,
            class_name: 'Bench',
-           foreign_key: 'greenhouse_id',
            inverse_of: :greenhouse,
            dependent: :destroy
 

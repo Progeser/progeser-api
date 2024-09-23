@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class RequestTest < ActiveSupport::TestCase
   # Setups
   def setup
-    @request = requests(:request_1)
+    @request = requests(:request1)
   end
 
   # Validations

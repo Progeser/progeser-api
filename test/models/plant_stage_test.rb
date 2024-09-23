@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class PlantStageTest < ActiveSupport::TestCase
   # Setups
   def setup
-    @plant_stage = plant_stages(:plant_stage_1)
+    @plant_stage = plant_stages(:plant_stage1)
   end
 
   # Validations

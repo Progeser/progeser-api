@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Api/V1/Pots', type: :request do
-  let!(:pot) { pots(:pot_1) }
+  let!(:pot) { pots(:pot1) }
   let!(:id)  { pot.id }
 
   describe 'GET api/v1/pots' do
@@ -12,7 +12,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
         it 'get pots with pagination params' do
           get(
             '/api/v1/pots',
-            headers: headers,
+            headers:,
             params: {
               page: {
                 number: 1,
@@ -24,10 +24,10 @@ RSpec.describe 'Api/V1/Pots', type: :request do
           expect(status).to eq(200)
 
           expect(response.parsed_body.count).to eq(2)
-          expect(response.headers.dig('Pagination-Current-Page')).to eq(1)
-          expect(response.headers.dig('Pagination-Per')).to eq(2)
-          expect(response.headers.dig('Pagination-Total-Pages')).to eq(3)
-          expect(response.headers.dig('Pagination-Total-Count')).to eq(5)
+          expect(response.headers['Pagination-Current-Page']).to eq(1)
+          expect(response.headers['Pagination-Per']).to eq(2)
+          expect(response.headers['Pagination-Total-Pages']).to eq(3)
+          expect(response.headers['Pagination-Total-Count']).to eq(5)
         end
       end
     end
@@ -35,7 +35,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t get pots' do
-          get('/api/v1/pots', headers: headers)
+          get('/api/v1/pots', headers:)
 
           expect(status).to eq(403)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -48,7 +48,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t get a pot' do
-          get("/api/v1/pots/#{id}", headers: headers)
+          get("/api/v1/pots/#{id}", headers:)
 
           expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -63,7 +63,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
         it 'creates a square pot given its dimensions' do
           post(
             '/api/v1/pots',
-            headers: headers,
+            headers:,
             params: {
               name: 'my square pot',
               shape: 'square',
@@ -85,7 +85,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
         it 'creates a square pot given its area' do
           post(
             '/api/v1/pots',
-            headers: headers,
+            headers:,
             params: {
               name: 'my square pot',
               shape: 'square',
@@ -100,14 +100,14 @@ RSpec.describe 'Api/V1/Pots', type: :request do
           expect(response.body).to eq(pot.to_blueprint)
           expect(pot.name).to eq('my square pot')
           expect(pot.shape).to eq('square')
-          expect(pot.dimensions).to eq(nil)
+          expect(pot.dimensions).to be_nil
           expect(pot.area).to eq(100.0)
         end
 
         it 'creates a rectangular pot given its dimensions' do
           post(
             '/api/v1/pots',
-            headers: headers,
+            headers:,
             params: {
               name: 'my rectangular pot',
               shape: 'rectangle',
@@ -129,7 +129,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
         it 'creates a rectangular pot given its area' do
           post(
             '/api/v1/pots',
-            headers: headers,
+            headers:,
             params: {
               name: 'my rectangular pot',
               shape: 'rectangle',
@@ -144,14 +144,14 @@ RSpec.describe 'Api/V1/Pots', type: :request do
           expect(response.body).to eq(pot.to_blueprint)
           expect(pot.name).to eq('my rectangular pot')
           expect(pot.shape).to eq('rectangle')
-          expect(pot.dimensions).to eq(nil)
+          expect(pot.dimensions).to be_nil
           expect(pot.area).to eq(110.0)
         end
 
         it 'creates a circular pot given its dimensions' do
           post(
             '/api/v1/pots',
-            headers: headers,
+            headers:,
             params: {
               name: 'my circular pot',
               shape: 'circle',
@@ -167,13 +167,13 @@ RSpec.describe 'Api/V1/Pots', type: :request do
           expect(pot.name).to eq('my circular pot')
           expect(pot.shape).to eq('circle')
           expect(pot.dimensions).to eq([10])
-          expect(pot.area).to eq(31.4159265358979)
+          expect(pot.area.to_f).to eq(31.41592653589793)
         end
 
         it 'creates a circular pot given its area' do
           post(
             '/api/v1/pots',
-            headers: headers,
+            headers:,
             params: {
               name: 'my circular pot',
               shape: 'circle',
@@ -188,14 +188,14 @@ RSpec.describe 'Api/V1/Pots', type: :request do
           expect(response.body).to eq(pot.to_blueprint)
           expect(pot.name).to eq('my circular pot')
           expect(pot.shape).to eq('circle')
-          expect(pot.dimensions).to eq(nil)
+          expect(pot.dimensions).to be_nil
           expect(pot.area).to eq(120.0)
         end
 
         it 'creates a triangular pot given its dimensions' do
           post(
             '/api/v1/pots',
-            headers: headers,
+            headers:,
             params: {
               name: 'my triangular pot',
               shape: 'triangle',
@@ -217,7 +217,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
         it 'creates a triangular pot given its area' do
           post(
             '/api/v1/pots',
-            headers: headers,
+            headers:,
             params: {
               name: 'my triangular pot',
               shape: 'triangle',
@@ -232,14 +232,14 @@ RSpec.describe 'Api/V1/Pots', type: :request do
           expect(response.body).to eq(pot.to_blueprint)
           expect(pot.name).to eq('my triangular pot')
           expect(pot.shape).to eq('triangle')
-          expect(pot.dimensions).to eq(nil)
+          expect(pot.dimensions).to be_nil
           expect(pot.area).to eq(130.0)
         end
 
         it 'creates an other pot given its area' do
           post(
             '/api/v1/pots',
-            headers: headers,
+            headers:,
             params: {
               name: 'my other pot',
               shape: 'other',
@@ -254,7 +254,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
           expect(response.body).to eq(pot.to_blueprint)
           expect(pot.name).to eq('my other pot')
           expect(pot.shape).to eq('other')
-          expect(pot.dimensions).to eq(nil)
+          expect(pot.dimensions).to be_nil
           expect(pot.area).to eq(140.0)
         end
       end
@@ -263,7 +263,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t create a pot' do
-          post('/api/v1/pots', headers: headers)
+          post('/api/v1/pots', headers:)
 
           expect(status).to eq(403)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -276,7 +276,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
         it 'fails to create a pot with dimensions & invalid shape' do
           post(
             '/api/v1/pots',
-            headers: headers,
+            headers:,
             params: {
               name: 'my foobar pot',
               shape: 'foobar',
@@ -292,7 +292,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
         it 'fails to create an other pot with no `area` given' do
           post(
             '/api/v1/pots',
-            headers: headers,
+            headers:,
             params: {
               name: 'my other pot',
               shape: 'other',
@@ -308,7 +308,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
         it 'fails to create a pot with invalid dimensions number' do
           post(
             '/api/v1/pots',
-            headers: headers,
+            headers:,
             params: {
               name: 'my square pot',
               shape: 'square',
@@ -324,7 +324,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
         it 'fails to create a pot with area & invalid shape' do
           post(
             '/api/v1/pots',
-            headers: headers,
+            headers:,
             params: {
               name: 'my foobar pot',
               shape: 'foobar',
@@ -346,7 +346,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
         it 'can\'t update a pot with ongoing requests' do
           put(
             "/api/v1/pots/#{id}",
-            headers: headers,
+            headers:,
             params: {
               area: '100.0'
             }
@@ -361,7 +361,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t update a pot' do
-          put("/api/v1/pots/#{id}", headers: headers)
+          put("/api/v1/pots/#{id}", headers:)
 
           expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -374,7 +374,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
     context 'when 403' do
       it_behaves_like 'with authenticated grower' do
         it 'can\'t delete a pot with ongoing requests' do
-          delete("/api/v1/pots/#{id}", headers: headers)
+          delete("/api/v1/pots/#{id}", headers:)
 
           expect(status).to eq(403)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -385,7 +385,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t delete a pot' do
-          delete("/api/v1/pots/#{id}", headers: headers)
+          delete("/api/v1/pots/#{id}", headers:)
 
           expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -402,7 +402,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
         it 'fails to delete a pot' do
           allow_any_instance_of(Pot).to receive(:destroy).and_return(false)
 
-          delete("/api/v1/pots/#{id}", headers: headers)
+          delete("/api/v1/pots/#{id}", headers:)
 
           expect(status).to eq(422)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank

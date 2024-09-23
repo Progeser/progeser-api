@@ -1,5 +1,5 @@
 
-user_2:
+user2:
   id: 2
   email: dev+grower@progeser.com
   encrypted_password: "$2a$12$/1.8Kj10CXryn3VCJea3WuXjxYQTELbrSSfsYrzzIpWGMk73y.Pqi"
@@ -20,7 +20,7 @@ user_2:
     zone: *2
     time: *3
 
-user_1:
+user1:
   id: 1
   email: dev+requester@progeser.com
   encrypted_password: "$2a$12$ogAZLpfd7v6dDablqAc.QefwbWLO/AHj/P.4OtrQUz3w4dUJxWCHy"
@@ -41,7 +41,7 @@ user_1:
     zone: *2
     time: *3
 
-user_3:
+user3:
   id: 3
   email: anonymized3
   encrypted_password: anonymized
@@ -87,6 +87,6 @@ user_3:
 # Indexes
 #
 #  index_users_on_discarded_at    (discarded_at)
-#  index_users_on_email           (email)
+#  index_users_on_email           (email) UNIQUE
 #  index_users_on_remember_token  (remember_token)
 #

@@ -18,7 +18,7 @@ class Passwords::Reset < ApplicationInteractor
   try :create_token!, catch: ActiveRecord::RecordInvalid
 
   def update_password!(password_params:, user:)
-    user.update_password!(password_params)
+    user.update_password!(**password_params)
 
     user
   end

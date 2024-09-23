@@ -9,8 +9,8 @@ class ApplicationInteractor
 
   # internal: Define a contract for the input of this interactor using `dry-validation`
   #
-  def self.input(&block)
-    @input_schema = Class.new(Dry::Validation::Contract, &block).new
+  def self.input(&)
+    @input_schema = Class.new(Dry::Validation::Contract, &).new
   end
 
   # Default input for shaped records interactors.
@@ -31,8 +31,8 @@ class ApplicationInteractor
 
   # Call the interactor with its arguments.
   #
-  def self.call(*args)
-    new.call(*args)
+  def self.call(*)
+    new.call(*)
   end
 
   private
@@ -47,7 +47,7 @@ class ApplicationInteractor
     result = self.class.input_schema.call(input)
 
     if result.success?
-      Success(result.values)
+      Success(result.values.data)
     else
       Failure(result)
     end

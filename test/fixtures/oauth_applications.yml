@@ -1,0 +1,16 @@
+
+application:
+  id: 1
+  name: ProGeSer
+  uid: VkU79vCSfXw0rkYEOBbjMWflqsvBbznAr340OZ_3yAU
+  secret: Cqzm5WAbDs3Dq8URddDOXdHTFAUOtnqPsAZl-a7vbpQ
+  confidential: false
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2024-09-17 17:23:36.266132000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2024-09-17 17:23:36.266132000 Z
+    zone: *2
+    time: *3

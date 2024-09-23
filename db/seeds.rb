@@ -5,6 +5,15 @@ if Rails.env.development?
   DatabaseCleaner.strategy = :truncation
   DatabaseCleaner.clean
 
+  # Doorkeeper Application for OAuth 2 authentication
+  Doorkeeper::Application.find_or_initialize_by(
+    name: 'ProGeSer'
+  ).update!(
+    uid: 'VkU79vCSfXw0rkYEOBbjMWflqsvBbznAr340OZ_3yAU',
+    secret: 'Cqzm5WAbDs3Dq8URddDOXdHTFAUOtnqPsAZl-a7vbpQ',
+    confidential: false
+  )
+
   # Users
   Users::Requester.create!(
     role: :requester,
@@ -117,9 +126,9 @@ if Rails.env.development?
   )
 
   # Benches
-  Greenhouse.all.each do |greenhouse|
+  Greenhouse.find_each do |greenhouse|
     Bench.create!(
-      greenhouse: greenhouse,
+      greenhouse:,
       name: "#{greenhouse.name} - bench 1",
       shape: :square,
       dimensions: [200],
@@ -127,7 +136,7 @@ if Rails.env.development?
     )
 
     Bench.create!(
-      greenhouse: greenhouse,
+      greenhouse:,
       name: "#{greenhouse.name} - bench 2",
       shape: :rectangle,
       dimensions: [500, 100],
@@ -135,7 +144,7 @@ if Rails.env.development?
     )
 
     Bench.create!(
-      greenhouse: greenhouse,
+      greenhouse:,
       name: "#{greenhouse.name} - bench 3",
       shape: :other,
       area: 100_000
@@ -151,7 +160,7 @@ if Rails.env.development?
 
   # PlantStages
   stage_names = %w[sprout seedling vegetative budding flowering ripening]
-  Plant.all.each do |plant|
+  Plant.find_each do |plant|
     stage_names.each do |stage_name|
       plant.plant_stages.create!(
         name: stage_name,

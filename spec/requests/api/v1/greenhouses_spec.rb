@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Api/V1/Greenhouses', type: :request do
-  let!(:greenhouse) { greenhouses(:greenhouse_1) }
+  let!(:greenhouse) { greenhouses(:greenhouse1) }
   let!(:id)         { greenhouse.id }
 
   describe 'GET api/v1/greenhouses' do
@@ -12,7 +12,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
         it 'get greenhouses with pagination params' do
           get(
             '/api/v1/greenhouses',
-            headers: headers,
+            headers:,
             params: {
               page: {
                 number: 1,
@@ -24,10 +24,10 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
           expect(status).to eq(200)
 
           expect(response.parsed_body.count).to eq(2)
-          expect(response.headers.dig('Pagination-Current-Page')).to eq(1)
-          expect(response.headers.dig('Pagination-Per')).to eq(2)
-          expect(response.headers.dig('Pagination-Total-Pages')).to eq(1)
-          expect(response.headers.dig('Pagination-Total-Count')).to eq(2)
+          expect(response.headers['Pagination-Current-Page']).to eq(1)
+          expect(response.headers['Pagination-Per']).to eq(2)
+          expect(response.headers['Pagination-Total-Pages']).to eq(1)
+          expect(response.headers['Pagination-Total-Count']).to eq(2)
         end
       end
     end
@@ -35,7 +35,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t get greenhouses' do
-          get('/api/v1/greenhouses', headers: headers)
+          get('/api/v1/greenhouses', headers:)
 
           expect(status).to eq(403)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -48,7 +48,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t get a greenhouse' do
-          get("/api/v1/greenhouses/#{id}", headers: headers)
+          get("/api/v1/greenhouses/#{id}", headers:)
 
           expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -61,7 +61,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t create a greenhouse' do
-          post('/api/v1/greenhouses', headers: headers)
+          post('/api/v1/greenhouses', headers:)
 
           expect(status).to eq(403)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -74,7 +74,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
         it 'fails to create a greenhouse with invalid params' do
           post(
             '/api/v1/greenhouses',
-            headers: headers,
+            headers:,
             params: {
               name: 'foobar',
               width: 100,
@@ -93,7 +93,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t update a greenhouse' do
-          put("/api/v1/greenhouses/#{id}", headers: headers)
+          put("/api/v1/greenhouses/#{id}", headers:)
 
           expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -106,7 +106,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
         it 'fails to update a greenhouse with invalid params' do
           put(
             "/api/v1/greenhouses/#{id}",
-            headers: headers,
+            headers:,
             params: {
               name: 'foobar',
               width: -1,
@@ -125,7 +125,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
     context 'when 403' do
       it_behaves_like 'with authenticated grower' do
         it 'can\'t delete a greenhouse with ongoing requests' do
-          delete("/api/v1/greenhouses/#{id}", headers: headers)
+          delete("/api/v1/greenhouses/#{id}", headers:)
 
           expect(status).to eq(403)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -136,7 +136,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t delete a greenhouse' do
-          delete("/api/v1/greenhouses/#{id}", headers: headers)
+          delete("/api/v1/greenhouses/#{id}", headers:)
 
           expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -153,7 +153,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
         it 'fails to delete a greenhouse' do
           allow_any_instance_of(Greenhouse).to receive(:destroy).and_return(false)
 
-          delete("/api/v1/greenhouses/#{id}", headers: headers)
+          delete("/api/v1/greenhouses/#{id}", headers:)
 
           expect(status).to eq(422)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank

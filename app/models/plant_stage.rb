@@ -14,18 +14,15 @@ class PlantStage < ApplicationRecord
   # Associations
   belongs_to :plant,
              class_name: 'Plant',
-             foreign_key: 'plant_id',
              inverse_of: :plant_stages
 
   has_many :requests,
            class_name: 'Request',
-           foreign_key: 'plant_stage_id',
            inverse_of: :plant_stage,
            dependent: :restrict_with_error
 
   has_many :request_distributions,
            class_name: 'RequestDistribution',
-           foreign_key: 'plant_stage_id',
            inverse_of: :plant_stage,
            dependent: :restrict_with_error
 end

@@ -13,14 +13,10 @@ class ShapeBlueprint < Blueprinter::Base
   end
 
   field :dimension_names do |shape|
-    dimension_names = []
-
-    shape::DIMENSIONS_NAMES.each do |dimension_name|
-      dimension_names << I18n.t(
+    shape::DIMENSIONS_NAMES.map do |dimension_name|
+      I18n.t(
         "shape.#{shape.to_s.demodulize.downcase}.#{dimension_name}"
       )
     end
-
-    dimension_names
   end
 end

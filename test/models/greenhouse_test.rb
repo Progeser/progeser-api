@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class GreenhouseTest < ActiveSupport::TestCase
   # Setups
   def setup
-    @greenhouse = greenhouses(:greenhouse_1)
+    @greenhouse = greenhouses(:greenhouse1)
   end
 
   # Validations

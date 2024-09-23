@@ -8,7 +8,7 @@ resource 'Passwords' do
   header 'Accept',       'application/json'
   header 'Content-Type', 'application/json'
 
-  let!(:user)       { users(:user_1) }
+  let!(:user)       { users(:user1) }
   let!(:user_token) { Doorkeeper::AccessToken.create!(resource_owner_id: user.id) }
 
   post '/api/v1/passwords/forgot' do
@@ -17,12 +17,14 @@ resource 'Passwords' do
     let(:email)    { user.email }
     let(:raw_post) { params.to_json }
 
-    example 'Send an email to reset user password' do
-      expect(Mailjet::Send).to receive(:create).and_return(nil)
+    before { allow(Mailjet::Send).to receive(:create).and_return(nil) }
 
+    example 'Send an email to reset user password' do
       do_request
 
       expect(status).to eq(204)
+
+      expect(Mailjet::Send).to have_received(:create).once
     end
   end
 
@@ -42,14 +44,14 @@ resource 'Passwords' do
     let(:raw_post) { params.to_json }
 
     example 'Set new password' do
-      expect(user.authenticated?('password')).to eq(true)
+      expect(user.authenticated?('password')).to be(true)
 
       do_request
 
       expect(status).to eq(200)
 
       user.reload
-      expect(user.authenticated?('foobar')).to eq(true)
+      expect(user.authenticated?('foobar')).to be(true)
       expect(response_body).to eq(user.to_blueprint(view: :with_token))
 
       response = JSON.parse(response_body)
@@ -73,13 +75,13 @@ resource 'Passwords' do
     example 'Update password for current user' do
       authentication :basic, "Bearer #{user_token.token}"
 
-      expect(user.authenticated?('newPassword')).to eq(false)
+      expect(user.authenticated?('newPassword')).to be(false)
 
       do_request
 
       expect(status).to eq(204)
       user.reload
-      expect(user.authenticated?('newPassword')).to eq(true)
+      expect(user.authenticated?('newPassword')).to be(true)
     end
   end
 end

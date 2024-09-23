@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Api/V1/Invites', type: :request do
-  let!(:invite) { invites(:invite_1) }
+  let!(:invite) { invites(:invite1) }
   let!(:id)     { invite.id }
 
   describe 'GET api/v1/invites' do
@@ -12,7 +12,7 @@ RSpec.describe 'Api/V1/Invites', type: :request do
         it 'get invites with pagination params' do
           get(
             '/api/v1/invites',
-            headers: headers,
+            headers:,
             params: {
               page: {
                 number: 1,
@@ -24,16 +24,16 @@ RSpec.describe 'Api/V1/Invites', type: :request do
           expect(status).to eq(200)
 
           expect(response.parsed_body.count).to eq(2)
-          expect(response.headers.dig('Pagination-Current-Page')).to eq(1)
-          expect(response.headers.dig('Pagination-Per')).to eq(2)
-          expect(response.headers.dig('Pagination-Total-Pages')).to eq(2)
-          expect(response.headers.dig('Pagination-Total-Count')).to eq(3)
+          expect(response.headers['Pagination-Current-Page']).to eq(1)
+          expect(response.headers['Pagination-Per']).to eq(2)
+          expect(response.headers['Pagination-Total-Pages']).to eq(2)
+          expect(response.headers['Pagination-Total-Count']).to eq(3)
         end
 
         it 'get invites with the right pagination headers when the last page is full' do
           get(
             '/api/v1/invites',
-            headers: headers,
+            headers:,
             params: {
               page: {
                 number: 2,
@@ -45,10 +45,10 @@ RSpec.describe 'Api/V1/Invites', type: :request do
           expect(status).to eq(200)
 
           expect(response.parsed_body.count).to eq(1)
-          expect(response.headers.dig('Pagination-Current-Page')).to eq(2)
-          expect(response.headers.dig('Pagination-Per')).to eq(1)
-          expect(response.headers.dig('Pagination-Total-Pages')).to eq(3)
-          expect(response.headers.dig('Pagination-Total-Count')).to eq(3)
+          expect(response.headers['Pagination-Current-Page']).to eq(2)
+          expect(response.headers['Pagination-Per']).to eq(1)
+          expect(response.headers['Pagination-Total-Pages']).to eq(3)
+          expect(response.headers['Pagination-Total-Count']).to eq(3)
         end
       end
     end
@@ -56,7 +56,7 @@ RSpec.describe 'Api/V1/Invites', type: :request do
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t get invites' do
-          get('/api/v1/invites', headers: headers)
+          get('/api/v1/invites', headers:)
 
           expect(status).to eq(403)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -69,7 +69,7 @@ RSpec.describe 'Api/V1/Invites', type: :request do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t get an invite' do
-          get("/api/v1/invites/#{id}", headers: headers)
+          get("/api/v1/invites/#{id}", headers:)
 
           expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -95,7 +95,7 @@ RSpec.describe 'Api/V1/Invites', type: :request do
         it 'fails to create an invite with missing params' do
           post(
             '/api/v1/invites',
-            headers: headers,
+            headers:,
             params: {
               email: nil,
               role: nil,
@@ -114,7 +114,7 @@ RSpec.describe 'Api/V1/Invites', type: :request do
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t create an invite' do
-          post('/api/v1/invites', headers: headers)
+          post('/api/v1/invites', headers:)
 
           expect(status).to eq(403)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -127,7 +127,7 @@ RSpec.describe 'Api/V1/Invites', type: :request do
         it 'fails to create an invite with invalid params' do
           post(
             '/api/v1/invites',
-            headers: headers,
+            headers:,
             params: {
               email: 'foo',
               role: 'foo',
@@ -148,7 +148,7 @@ RSpec.describe 'Api/V1/Invites', type: :request do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t retry sending the invite email' do
-          post("/api/v1/invites/#{id}/retry", headers: headers)
+          post("/api/v1/invites/#{id}/retry", headers:)
 
           expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -161,7 +161,7 @@ RSpec.describe 'Api/V1/Invites', type: :request do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t delete an invite' do
-          delete("/api/v1/invites/#{id}", headers: headers)
+          delete("/api/v1/invites/#{id}", headers:)
 
           expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -174,7 +174,7 @@ RSpec.describe 'Api/V1/Invites', type: :request do
         it 'fails to delete an invite' do
           allow_any_instance_of(Invite).to receive(:destroy).and_return(false)
 
-          delete("/api/v1/invites/#{id}", headers: headers)
+          delete("/api/v1/invites/#{id}", headers:)
 
           expect(status).to eq(422)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank

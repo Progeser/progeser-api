@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module ProgeserApi
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
+    config.load_defaults 7.2
 
     # Eager load shapes classes in /lib.
     config.eager_load_paths << Rails.root.join('lib')

@@ -1,5 +1,5 @@
 
-pot_1:
+pot1:
   id: 1
   name: My square pot
   shape: square
@@ -16,7 +16,7 @@ pot_1:
   dimensions:
   - 7
 
-pot_2:
+pot2:
   id: 2
   name: My rectangular pot
   shape: rectangle
@@ -34,7 +34,7 @@ pot_2:
   - 8
   - 10
 
-pot_3:
+pot3:
   id: 3
   name: My circular pot
   shape: circle
@@ -51,7 +51,7 @@ pot_3:
   dimensions:
   - 10
 
-pot_4:
+pot4:
   id: 4
   name: My triangular pot
   shape: triangle
@@ -69,7 +69,7 @@ pot_4:
   - 8
   - 10
 
-pot_5:
+pot5:
   id: 5
   name: My other pot
   shape: other

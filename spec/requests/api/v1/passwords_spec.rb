@@ -102,8 +102,8 @@ RSpec.describe 'Api/V1/Passwords', type: :request do
 
         user.reload
         expect(user.confirmation_token).not_to be_nil
-        expect(user.authenticated?('password')).to eq(true)
-        expect(user.authenticated?('newPassword')).to eq(false)
+        expect(user.authenticated?('password')).to be(true)
+        expect(user.authenticated?('newPassword')).to be(false)
       end
     end
   end
@@ -113,7 +113,7 @@ RSpec.describe 'Api/V1/Passwords', type: :request do
       it 'fails to update password with missing params' do
         put(
           '/api/v1/passwords/',
-          headers: headers,
+          headers:,
           params: {
             current_password: 'password',
             password: '',
@@ -130,7 +130,7 @@ RSpec.describe 'Api/V1/Passwords', type: :request do
       it 'can\'t update password with invalid current password' do
         put(
           '/api/v1/passwords',
-          headers: headers,
+          headers:,
           params: {
             current_password: 'foobar'
           }
@@ -145,7 +145,7 @@ RSpec.describe 'Api/V1/Passwords', type: :request do
       it 'fails to update password if confirmation doesn\'t match' do
         put(
           '/api/v1/passwords',
-          headers: headers,
+          headers:,
           params: {
             current_password: 'password',
             password: 'newPassword',

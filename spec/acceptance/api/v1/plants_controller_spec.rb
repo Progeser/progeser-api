@@ -8,29 +8,29 @@ resource 'Plants' do
   header 'Accept',       'application/json'
   header 'Content-Type', 'application/json'
 
-  let!(:user)       { users(:user_2) }
+  let!(:user)       { users(:user2) }
   let!(:user_token) { Doorkeeper::AccessToken.create!(resource_owner_id: user.id) }
 
-  let!(:plant) { plants(:plant_1) }
+  let!(:plant) { plants(:plant1) }
   let!(:id)    { plant.id }
 
   get '/api/v1/plants' do
     parameter :'page[number]',
-              "The number of the desired page\n\n"\
-              "If used, additional information is returned in the response headers:\n"\
-              "`Pagination-Current-Page`: the current page number\n"\
-              "`Pagination-Per`: the number of records per page\n"\
-              "`Pagination-Total-Pages`: the total number of pages\n"\
+              "The number of the desired page\n\n" \
+              "If used, additional information is returned in the response headers:\n" \
+              "`Pagination-Current-Page`: the current page number\n" \
+              "`Pagination-Per`: the number of records per page\n" \
+              "`Pagination-Total-Pages`: the total number of pages\n" \
               '`Pagination-Total-Count`: the total number of records',
               with_example: true,
               type: :integer,
               default: 1
     parameter :'page[size]',
-              "The number of elements in a page\n\n"\
-              "If used, additional information is returned in the response headers:\n"\
-              "`Pagination-Current-Page`: the current page number\n"\
-              "`Pagination-Per`: the number of records per page\n"\
-              "`Pagination-Total-Pages`: the total number of pages\n"\
+              "The number of elements in a page\n\n" \
+              "If used, additional information is returned in the response headers:\n" \
+              "`Pagination-Current-Page`: the current page number\n" \
+              "`Pagination-Per`: the number of records per page\n" \
+              "`Pagination-Total-Pages`: the total number of pages\n" \
               '`Pagination-Total-Count`: the total number of records',
               with_example: true,
               type: :integer,
@@ -45,7 +45,7 @@ resource 'Plants' do
 
       expect(response_body).to eq(Plant.to_blueprint)
       expect(JSON.parse(response_body).count).to eq(Plant.count)
-      expect(JSON.parse(response_body).first.dig('plant_stages')).not_to be_blank
+      expect(JSON.parse(response_body).first['plant_stages']).not_to be_blank
     end
   end
 
@@ -57,14 +57,14 @@ resource 'Plants' do
 
       expect(status).to eq(200)
       expect(response_body).to eq(plant.to_blueprint)
-      expect(JSON.parse(response_body).dig('plant_stages')).not_to be_blank
+      expect(JSON.parse(response_body)['plant_stages']).not_to be_blank
     end
   end
 
   post '/api/v1/plants' do
     parameter :name, 'Name of the plant', with_example: true
     parameter :plant_stages_attributes,
-              "Plant stages attributes\n"\
+              "Plant stages attributes\n" \
               'A plant stage should have a name, a duration and a position',
               with_example: true,
               type: :array,
@@ -90,19 +90,19 @@ resource 'Plants' do
       expect(response_body).to eq(Plant.last.to_blueprint)
 
       response = JSON.parse(response_body)
-      expect(response.dig('name')).to eq(name)
-      expect(response.dig('plant_stages').count).to eq(2)
+      expect(response['name']).to eq(name)
+      expect(response['plant_stages'].count).to eq(2)
     end
   end
 
   put '/api/v1/plants/:id' do
     parameter :name, 'Name of the plant', with_example: true
     parameter :plant_stages_attributes,
-              "Plant stages attributes\n"\
-              "A plant stage should have a name, a duration and a position\n"\
-              "To update attributes of an existing stage, its `id` should be passed\n"\
-              'To update the `position` of a specific stage, you can simply pass it alone; '\
-              "other positions will be automatically scaled\n"\
+              "Plant stages attributes\n" \
+              "A plant stage should have a name, a duration and a position\n" \
+              "To update attributes of an existing stage, its `id` should be passed\n" \
+              'To update the `position` of a specific stage, you can simply pass it alone; ' \
+              "other positions will be automatically scaled\n" \
               'To destroy an existing stage, `_destroy` param should be set to true',
               with_example: true,
               type: :array,
