@@ -6,7 +6,7 @@ ruby '3.3.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 7.2.0'
 # Use Puma as the app server
-gem 'puma', '~> 6.4', '>= 6.4.2'
+gem 'puma', '~> 6.4'
 # A PostgreSQL client library for Ruby
 gem 'pg', '~> 1.1'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
