@@ -51,6 +51,7 @@ Rails.application.routes.draw do
         post :complete, on: :member
         resources :request_distributions, only: %i[index show create update destroy]
       end
+      resources :buildings, only: %i[index show create update destroy]
     end
   end
 end
