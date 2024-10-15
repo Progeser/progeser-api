@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_17_152029) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_15_114805) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -38,6 +38,13 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_17_152029) do
     t.index ["greenhouse_id"], name: "index_benches_on_greenhouse_id"
   end
 
+  create_table "buildings", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "description"
+  end
+
   create_table "greenhouses", force: :cascade do |t|
     t.string "name", null: false
     t.integer "width", null: false
@@ -45,6 +52,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_17_152029) do
     t.decimal "occupancy", default: "0.0", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "building_id"
+    t.index ["building_id"], name: "index_greenhouses_on_building_id"
   end
 
   create_table "invites", force: :cascade do |t|
@@ -180,6 +189,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_17_152029) do
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
+  add_foreign_key "greenhouses", "buildings"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_grants", "users", column: "resource_owner_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
