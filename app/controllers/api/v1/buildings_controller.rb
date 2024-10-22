@@ -1,37 +1,43 @@
+# frozen_string_literal: true
+
 class Api::V1::BuildingsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   before_action :set_building, only: [:show, :update, :destroy]
 
   def index
-    buildings = Building.all
-    render json: buildings, status: :ok
+    buildings = policy_scope(Building)
+    authorize buildings
+    render json: apply_fetcheable(buildings).to_blueprint, status: :ok
   end
 
   def show
-    render json: @building, status: :ok
+    render json: @building.to_blueprint, status: :ok
   end
 
   def create
     building = Building.new(building_params)
     if building.save
-      render json: building, status: :created
+      render json: @building.to_blueprint, status: :created
     else
-      render json: { errors: building.errors.full_messages }, status: :unprocessable_entity
+      render_validation_error(@building)
     end
   end
 
   def update
     if @building.update(building_params)
-      render json: @building, status: :ok
+      render json: @building.to_blueprint, status: :ok
     else
-      render json: { errors: @building.errors.full_messages }, status: :unprocessable_entity
+      render_validation_error(@building)
     end
   end
 
   def destroy
-    @building.destroy
-    head :no_content
+    if @building.destroy
+      head :no_content
+    else
+      render_validation_error(@building)
+    end
   end
 
   private
