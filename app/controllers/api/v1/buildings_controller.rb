@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Api::V1::BuildingsController < ApplicationController
+  include Pundit
+
   skip_before_action :verify_authenticity_token
 
   before_action :set_building, only: [:show, :update, :destroy]
