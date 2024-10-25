@@ -47,6 +47,6 @@ class Api::V1::BuildingsController < ApiController
   end
 
   def building_params
-    params.require(:building).permit(:name, :description)
+    params.require(:building).permit(%i[name description])
   end
 end
