@@ -1,10 +1,7 @@
-greenhouse1:
+building1:
   id: 1
-  name: My big greenhouse
-  width: 1000
-  height: 2000
-  occupancy: !ruby/object:BigDecimal 18:0.0
-  building_id: 1
+  name: Main Office Building
+  description: Central office for all greenhouse operations
   created_at: !ruby/object:ActiveSupport::TimeWithZone
     utc: &1 2019-12-30 17:50:24.796535000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone
@@ -15,13 +12,10 @@ greenhouse1:
     zone: *2
     time: *3
 
-greenhouse2:
+building2:
   id: 2
-  name: My small greenhouse
-  width: 500
-  height: 500
-  occupancy: !ruby/object:BigDecimal 18:0.0
-  building_id: 2
+  name: Secondary Storage Building
+  description: Storage area for equipment and supplies
   created_at: !ruby/object:ActiveSupport::TimeWithZone
     utc: &1 2019-12-30 17:50:24.918348000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone
