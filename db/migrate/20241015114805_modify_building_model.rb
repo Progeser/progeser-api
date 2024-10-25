@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 class ModifyBuildingModel < ActiveRecord::Migration[6.0]
   def change
-    remove_column :buildings, :location, :string
+    change_table :buildings, :location
 
     add_column :buildings, :description, :text
   end
 end
-

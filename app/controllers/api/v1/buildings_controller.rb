@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class Api::V1::BuildingsController < ApiController
-
-  before_action :set_building, only: [:show, :update, :destroy]
+  before_action :set_building, only: %i[show update destroy]
 
   def index
     buildings = policy_scope(Building)

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Greenhouse < ApplicationRecord
   # Associations
   belongs_to :building
@@ -14,7 +15,6 @@ class Greenhouse < ApplicationRecord
     100
   end
 end
-
 
 # == Schema Information
 #

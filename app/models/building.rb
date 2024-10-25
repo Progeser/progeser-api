@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Building < ApplicationRecord
   # Associations
   has_many :greenhouses, dependent: :destroy
@@ -5,7 +7,6 @@ class Building < ApplicationRecord
   # Validations
   validates :name, presence: true
 end
-
 
 # == Schema Information
 #

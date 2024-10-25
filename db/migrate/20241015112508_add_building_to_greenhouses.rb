@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddBuildingToGreenhouses < ActiveRecord::Migration[6.0]
   def change
     add_reference :greenhouses, :building, foreign_key: true
@@ -6,9 +8,10 @@ class AddBuildingToGreenhouses < ActiveRecord::Migration[6.0]
       dir.up do
         building = Building.create!(name: 'Default Building', location: 'Default Location')
 
-        Greenhouse.update_all(building_id: building.id)
+        Greenhouse.find_each do |greenhouse|
+          greenhouse.update!(building:)
+        end
       end
     end
   end
 end
-
