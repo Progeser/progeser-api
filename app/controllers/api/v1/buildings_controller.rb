@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
-class Api::V1::BuildingsController < ApplicationController
-  include Pundit
-
-  skip_before_action :verify_authenticity_token
+class Api::V1::BuildingsController < ApiController
 
   before_action :set_building, only: [:show, :update, :destroy]
 
@@ -18,11 +15,12 @@ class Api::V1::BuildingsController < ApplicationController
   end
 
   def create
+    authorize Building
     building = Building.new(building_params)
     if building.save
-      render json: @building.to_blueprint, status: :created
+      render json: building.to_blueprint, status: :created
     else
-      render_validation_error(@building)
+      render_validation_error(building)
     end
   end
 
@@ -45,9 +43,8 @@ class Api::V1::BuildingsController < ApplicationController
   private
 
   def set_building
-    @building = Building.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    render json: { error: 'Building not found' }, status: :not_found
+    @building = policy_scope(Building).find(params[:id])
+    authorize @building
   end
 
   def building_params
