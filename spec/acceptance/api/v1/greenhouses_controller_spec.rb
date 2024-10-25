@@ -63,10 +63,12 @@ resource 'Greenhouses' do
     parameter :name, 'Name of the greenhouse', with_example: true
     parameter :width, 'Width of the greenhouse', with_example: true, type: :integer
     parameter :height, 'Height of the greenhouse', with_example: true, type: :integer
+    parameter :building_id, 'ID of the building where the greenhouse is located', with_example: true, type: :integer
 
     let(:name)   { 'My new greenhouse' }
     let(:width)  { 100 }
     let(:height) { 200 }
+    let(:building_id) { buildings(:building1).id }
 
     let(:raw_post) { params.to_json }
 

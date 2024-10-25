@@ -50,6 +50,6 @@ class Api::V1::GreenhousesController < ApiController
   end
 
   def greenhouse_params
-    params.permit(%i[name width height])
+    params.permit(%i[name width height building_id])
   end
 end
