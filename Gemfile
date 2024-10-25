@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.3.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.2.0'
+gem 'rails', '~> 7.2.1.1'
 # Use Puma as the app server
 gem 'puma', '~> 6.4'
 # A PostgreSQL client library for Ruby
@@ -13,6 +13,9 @@ gem 'pg', '~> 1.1'
 gem 'sprockets-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
+
+# Use Active Model has_secure_password
+gem 'webrick', '>= 1.8.2'
 
 # An OAuth 2 provider for Rails and Grape
 gem 'doorkeeper', '~> 5.7'
