@@ -17,21 +17,21 @@ resource 'Buildings' do
   get '/api/v1/buildings' do
     parameter :'page[number]',
               "The number of the desired page\n\n" \
-                "If used, additional information is returned in the response headers:\n" \
-                "`Pagination-Current-Page`: the current page number\n" \
-                "`Pagination-Per`: the number of records per page\n" \
-                "`Pagination-Total-Pages`: the total number of pages\n" \
-                '`Pagination-Total-Count`: the total number of records',
+              "If used, additional information is returned in the response headers:\n" \
+              "`Pagination-Current-Page`: the current page number\n" \
+              "`Pagination-Per`: the number of records per page\n" \
+              "`Pagination-Total-Pages`: the total number of pages\n" \
+              '`Pagination-Total-Count`: the total number of records',
               with_example: true,
               type: :integer,
               default: 1
     parameter :'page[size]',
               "The number of elements in a page\n\n" \
-                "If used, additional information is returned in the response headers:\n" \
-                "`Pagination-Current-Page`: the current page number\n" \
-                "`Pagination-Per`: the number of records per page\n" \
-                "`Pagination-Total-Pages`: the total number of pages\n" \
-                '`Pagination-Total-Count`: the total number of records',
+              "If used, additional information is returned in the response headers:\n" \
+              "`Pagination-Current-Page`: the current page number\n" \
+              "`Pagination-Per`: the number of records per page\n" \
+              "`Pagination-Total-Pages`: the total number of pages\n" \
+              '`Pagination-Total-Count`: the total number of records',
               with_example: true,
               type: :integer,
               default: FetcheableOnApi.configuration.pagination_default_size
@@ -112,5 +112,4 @@ resource 'Buildings' do
       expect { building.reload }.to raise_exception(ActiveRecord::RecordNotFound)
     end
   end
-
 end
