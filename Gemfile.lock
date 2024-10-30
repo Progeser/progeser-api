@@ -454,7 +454,6 @@ DEPENDENCIES
   sprockets-rails
   state_machines-activerecord (~> 0.6.0)
   tzinfo-data
-  webrick (>= 1.8.2)
 
 RUBY VERSION
    ruby 3.3.5p100
