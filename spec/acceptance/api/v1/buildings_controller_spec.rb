@@ -105,11 +105,25 @@ resource 'Buildings' do
   end
 
   delete '/api/v1/buildings/:id' do
-    example 'Delete a building' do
+    let!(:building_without_requests) { Building.create!(name: 'Test Building', description: 'A building without requests') }
+
+    before do
+      # Création d'un bâtiment et d'une serre sans `request_distributions`
+      greenhouse = building_without_requests.greenhouses.create!(name: 'Test Greenhouse', width: 10, height: 10)
+
+      bench = greenhouse.benches.create!(
+        name: 'Valid Bench',
+        shape: 'circle',
+        area: 10.0
+      )
+    end
+
+    example 'Delete a building without associated requests' do
       authentication :basic, "Bearer #{user_token.token}"
-      do_request
+      do_request(id: building_without_requests.id)
+
       expect(status).to eq(204)
-      expect { building.reload }.to raise_exception(ActiveRecord::RecordNotFound)
+      expect(Building.find_by(id: building_without_requests.id)).to be_nil
     end
   end
 end

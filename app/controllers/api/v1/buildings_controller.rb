@@ -35,6 +35,7 @@ class Api::V1::BuildingsController < ApiController
     if @building.destroy
       head :no_content
     else
+      Rails.logger.error("Building destroy failed: #{@building.errors.full_messages}")
       render_validation_error(@building)
     end
   end
