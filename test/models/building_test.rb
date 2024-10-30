@@ -31,11 +31,8 @@ end
 # Table name: buildings
 #
 #  id          :bigint           not null, primary key
-#  name        :string           not null
-#  description :text
+#  name        :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  description :text
 #
-# Indexes
-#
-#  index_buildings_on_name  (name)
