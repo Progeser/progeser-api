@@ -67,6 +67,21 @@ RSpec.describe 'Api/V1/Buildings', type: :request do
         end
       end
     end
+
+    context 'when validation fails' do
+      it_behaves_like 'with authenticated grower' do
+        it 'returns validation error for invalid building data' do
+          post(
+            '/api/v1/buildings',
+            headers:,
+            params: { building: { name: '' } }
+          )
+
+          expect(status).to eq(422)
+          expect(response.parsed_body.dig('error', 'message')).to include('name' => ['doit être rempli(e)'])
+        end
+      end
+    end
   end
 
   describe 'PUT api/v1/buildings/:id' do
@@ -80,6 +95,21 @@ RSpec.describe 'Api/V1/Buildings', type: :request do
         end
       end
     end
+
+    context 'when validation fails' do
+      it_behaves_like 'with authenticated grower' do
+        it 'returns validation error for invalid update data' do
+          put(
+            "/api/v1/buildings/#{id}",
+            headers:,
+            params: { building: { name: '' } }
+          )
+
+          expect(status).to eq(422)
+          expect(response.parsed_body.dig('error', 'message')).to include('name' => ['doit être rempli(e)'])
+        end
+      end
+    end
   end
 
   describe 'DELETE api/v1/buildings/:id' do
@@ -89,6 +119,25 @@ RSpec.describe 'Api/V1/Buildings', type: :request do
           delete("/api/v1/buildings/#{id}", headers:)
           expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
+        end
+      end
+    end
+
+    context 'when validation fails' do
+      it_behaves_like 'with authenticated grower' do
+        before do
+          allow_any_instance_of(Building).to receive(:destroy).and_return(false)
+          building.errors.add(:base, 'cannot delete building with ongoing requests')
+        end
+
+        it 'returns validation error on destroy' do
+          delete("/api/v1/buildings/#{id}", headers:)
+
+          expect(status).to eq(403)
+          expect(
+            response.parsed_body.dig('error', 'message')
+          ).to include('request_distributions' =>
+                                                  ["can't delete a building with ongoing requests"])
         end
       end
     end
