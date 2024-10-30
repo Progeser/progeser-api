@@ -105,13 +105,14 @@ resource 'Buildings' do
   end
 
   delete '/api/v1/buildings/:id' do
-    let!(:building_without_requests) { Building.create!(name: 'Test Building', description: 'A building without requests') }
+    let!(:building_without_requests) do
+      Building.create!(name: 'Test Building', description: 'A building without requests')
+    end
 
     before do
-      # Création d'un bâtiment et d'une serre sans `request_distributions`
       greenhouse = building_without_requests.greenhouses.create!(name: 'Test Greenhouse', width: 10, height: 10)
 
-      bench = greenhouse.benches.create!(
+      greenhouse.benches.create!(
         name: 'Valid Bench',
         shape: 'circle',
         area: 10.0

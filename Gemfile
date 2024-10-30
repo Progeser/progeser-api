@@ -14,9 +14,6 @@ gem 'sprockets-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
-# Use Active Model has_secure_password
-gem 'webrick', '>= 1.8.2'
-
 # An OAuth 2 provider for Rails and Grape
 gem 'doorkeeper', '~> 5.7'
 gem 'doorkeeper-i18n', '~> 5.2'
