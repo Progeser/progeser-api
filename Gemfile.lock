@@ -442,7 +442,6 @@ DEPENDENCIES
   rack-cors (~> 1.1)
   rails (~> 7.2.1.1)
   rails-erd (~> 1.6)
-  rexml (>= 3.3.9)
   rspec-rails
   rspec_api_documentation (~> 6.1)
   rubocop

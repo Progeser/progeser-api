@@ -32,8 +32,7 @@ class Api::V1::BuildingsController < ApiController
   end
 
   def destroy
-    return unless @building.destroy
-
+    @building.destroy
     head :no_content
   end
 
