@@ -66,11 +66,20 @@ end
 #
 # Table name: greenhouses
 #
-#  id         :bigint           not null, primary key
-#  name       :string           not null
-#  width      :integer          not null
-#  height     :integer          not null
-#  occupancy  :decimal(, )      default(0.0), not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :bigint           not null, primary key
+#  name        :string           not null
+#  width       :integer          not null
+#  height      :integer          not null
+#  occupancy   :decimal(, )      default(0.0), not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  building_id :bigint
+#
+# Indexes
+#
+#  index_greenhouses_on_building_id  (building_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (building_id => buildings.id)
 #

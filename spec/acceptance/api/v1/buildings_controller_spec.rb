@@ -2,8 +2,8 @@
 
 require 'acceptance_helper'
 
-resource 'Greenhouses' do
-  explanation 'Greenhouses resource'
+resource 'Buildings' do
+  explanation 'Buildings resource'
 
   header 'Accept',       'application/json'
   header 'Content-Type', 'application/json'
@@ -11,10 +11,10 @@ resource 'Greenhouses' do
   let!(:user)       { users(:user2) }
   let!(:user_token) { Doorkeeper::AccessToken.create!(resource_owner_id: user.id) }
 
-  let!(:greenhouse) { greenhouses(:greenhouse1) }
-  let!(:id)         { greenhouse.id }
+  let!(:building) { buildings(:building1) }
+  let!(:id)       { building.id }
 
-  get '/api/v1/greenhouses' do
+  get '/api/v1/buildings' do
     parameter :'page[number]',
               "The number of the desired page\n\n" \
               "If used, additional information is returned in the response headers:\n" \
@@ -36,99 +36,95 @@ resource 'Greenhouses' do
               type: :integer,
               default: FetcheableOnApi.configuration.pagination_default_size
 
-    example 'Get all greenhouses' do
+    example 'Get all buildings' do
       authentication :basic, "Bearer #{user_token.token}"
 
       do_request
 
       expect(status).to eq(200)
-
-      expect(response_body).to eq(Greenhouse.to_blueprint)
-      expect(JSON.parse(response_body).count).to eq(Greenhouse.count)
+      expect(response_body).to eq(Building.to_blueprint)
+      expect(JSON.parse(response_body).count).to eq(Building.count)
     end
   end
 
-  get '/api/v1/greenhouses/:id' do
-    example 'Get a greenhouse' do
+  get '/api/v1/buildings/:id' do
+    example 'Get a building' do
       authentication :basic, "Bearer #{user_token.token}"
 
       do_request
 
       expect(status).to eq(200)
-      expect(response_body).to eq(greenhouse.to_blueprint)
+      expect(response_body).to eq(building.to_blueprint)
     end
   end
 
-  post '/api/v1/greenhouses' do
-    parameter :name, 'Name of the greenhouse', with_example: true
-    parameter :width, 'Width of the greenhouse', with_example: true, type: :integer
-    parameter :height, 'Height of the greenhouse', with_example: true, type: :integer
-    parameter :building_id, 'ID of the building where the greenhouse is located', with_example: true, type: :integer
+  post '/api/v1/buildings' do
+    parameter :name, 'Name of the building', with_example: true
+    parameter :description, 'Description of the building', with_example: true
 
-    let(:name)   { 'My new greenhouse' }
-    let(:width)  { 100 }
-    let(:height) { 200 }
-    let(:building_id) { buildings(:building1).id }
+    let(:name)        { 'New Building' }
+    let(:description) { 'A new description for the building' }
 
     let(:raw_post) { params.to_json }
 
-    example 'Create a greenhouse' do
+    example 'Create a building' do
       authentication :basic, "Bearer #{user_token.token}"
 
       do_request
 
       expect(status).to eq(201)
-
-      expect(response_body).to eq(Greenhouse.last.to_blueprint)
+      expect(response_body).to eq(Building.last.to_blueprint)
 
       response = JSON.parse(response_body)
       expect(response['name']).to eq(name)
-      expect(response['width']).to eq(width)
-      expect(response['height']).to eq(height)
-      expect(response['occupancy']).to eq('0.0')
+      expect(response['description']).to eq(description)
     end
   end
 
-  put '/api/v1/greenhouses/:id' do
-    parameter :name, 'The new name of the greenhouse', with_example: true
-    parameter :width, 'The new width of the greenhouse', with_example: true, type: :integer
-    parameter :height, 'The new height of the greenhouse', with_example: true, type: :integer
+  put '/api/v1/buildings/:id' do
+    parameter :name, 'Updated name of the building', with_example: true
+    parameter :description, 'Updated description of the building', with_example: true
 
-    let(:name)   { 'Updated name' }
-    let(:width)  { 100 }
-    let(:height) { 200 }
+    let(:name)        { 'Updated Building Name' }
+    let(:description) { 'Updated building description' }
 
     let(:raw_post) { params.to_json }
 
-    example 'Update a greenhouse' do
+    example 'Update a building' do
       authentication :basic, "Bearer #{user_token.token}"
 
       do_request
 
       expect(status).to eq(200)
 
-      greenhouse.reload
-      expect(response_body).to eq(greenhouse.to_blueprint)
-      expect(greenhouse.name).to eq(name)
-      expect(greenhouse.width).to eq(width)
-      expect(greenhouse.height).to eq(height)
-      expect(greenhouse.occupancy).to eq(greenhouse.compute_occupancy)
+      building.reload
+      expect(response_body).to eq(building.to_blueprint)
+      expect(building.name).to eq(name)
+      expect(building.description).to eq(description)
     end
   end
 
-  delete '/api/v1/greenhouses/:id' do
-    before do
-      greenhouse.benches.flat_map(&:request_distributions).map(&:destroy)
+  delete '/api/v1/buildings/:id' do
+    let!(:building_without_requests) do
+      Building.create!(name: 'Test Building', description: 'A building without requests')
     end
 
-    example 'Delete a greenhouse' do
-      authentication :basic, "Bearer #{user_token.token}"
+    before do
+      greenhouse = building_without_requests.greenhouses.create!(name: 'Test Greenhouse', width: 10, height: 10)
 
-      do_request
+      greenhouse.benches.create!(
+        name: 'Valid Bench',
+        shape: 'circle',
+        area: 10.0
+      )
+    end
+
+    example 'Delete a building without associated requests' do
+      authentication :basic, "Bearer #{user_token.token}"
+      do_request(id: building_without_requests.id)
 
       expect(status).to eq(204)
-
-      expect { greenhouse.reload }.to raise_exception(ActiveRecord::RecordNotFound)
+      expect(Building.find_by(id: building_without_requests.id)).to be_nil
     end
   end
 end

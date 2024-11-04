@@ -3,13 +3,14 @@
 require 'rails_helper'
 
 RSpec.describe 'Api/V1/Greenhouses', type: :request do
+  let!(:building) { buildings(:building1) }
   let!(:greenhouse) { greenhouses(:greenhouse1) }
   let!(:id)         { greenhouse.id }
 
   describe 'GET api/v1/greenhouses' do
     context 'when 200' do
       it_behaves_like 'with authenticated grower' do
-        it 'get greenhouses with pagination params' do
+        it 'gets greenhouses with pagination params' do
           get(
             '/api/v1/greenhouses',
             headers:,
@@ -22,7 +23,6 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
           )
 
           expect(status).to eq(200)
-
           expect(response.parsed_body.count).to eq(2)
           expect(response.headers['Pagination-Current-Page']).to eq(1)
           expect(response.headers['Pagination-Per']).to eq(2)
@@ -78,7 +78,8 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
             params: {
               name: 'foobar',
               width: 100,
-              height: -1
+              height: -1,
+              building_id: building.id
             }
           )
 
@@ -110,7 +111,8 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
             params: {
               name: 'foobar',
               width: -1,
-              height: 100
+              height: 100,
+              building_id: building.id
             }
           )
 
