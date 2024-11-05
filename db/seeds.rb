@@ -117,7 +117,7 @@ if Rails.env.development?
     description: 'The main building that houses the primary operations.'
   )
 
-  building2 = Building.create!(
+  Building.create!(
     name: 'Secondary Building',
     description: 'A secondary building for auxiliary functions and storage.'
   )
@@ -138,7 +138,7 @@ if Rails.env.development?
   # Benches
   [greenhouse1, greenhouse2].each do |greenhouse|
     Bench.create!(
-      greenhouse: greenhouse,
+      greenhouse:,
       name: "#{greenhouse.name} - bench 1",
       shape: :square,
       dimensions: [200],
@@ -146,7 +146,7 @@ if Rails.env.development?
     )
 
     Bench.create!(
-      greenhouse: greenhouse,
+      greenhouse:,
       name: "#{greenhouse.name} - bench 2",
       shape: :rectangle,
       dimensions: [500, 100],
@@ -154,7 +154,7 @@ if Rails.env.development?
     )
 
     Bench.create!(
-      greenhouse: greenhouse,
+      greenhouse:,
       name: "#{greenhouse.name} - bench 3",
       shape: :other,
       area: 100_000
