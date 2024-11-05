@@ -5,7 +5,6 @@ if Rails.env.development?
   DatabaseCleaner.strategy = :truncation
   DatabaseCleaner.clean
 
-  # Doorkeeper Application for OAuth 2 authentication
   Doorkeeper::Application.find_or_initialize_by(
     name: 'ProGeSer'
   ).update!(
@@ -112,21 +111,32 @@ if Rails.env.development?
     area: 120
   )
 
+  # Créer des bâtiments avec description
+  building1 = Building.create!(
+    name: 'Main Building',
+    description: 'The main building that houses the primary operations.'
+  )
+
+  Building.create!(
+    name: 'Secondary Building',
+    description: 'A secondary building for auxiliary functions and storage.'
+  )
+
   # Greenhouses
-  Greenhouse.create!(
+  greenhouse1 = building1.greenhouses.create!(
     name: 'My big greenhouse',
     width: 1000,
     height: 2000
   )
 
-  Greenhouse.create!(
+  greenhouse2 = building1.greenhouses.create!(
     name: 'My small greenhouse',
     width: 500,
     height: 500
   )
 
   # Benches
-  Greenhouse.find_each do |greenhouse|
+  [greenhouse1, greenhouse2].each do |greenhouse|
     Bench.create!(
       greenhouse:,
       name: "#{greenhouse.name} - bench 1",
