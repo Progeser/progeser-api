@@ -37,7 +37,7 @@ resource 'Greenhouses' do
               with_example: true,
               type: :integer,
               default: FetcheableOnApi.configuration.pagination_default_size
-    parameter :building_id, 'ID of the building whose greenhouses are being fetched', with_example: true, 
+    parameter :building_id, 'ID of the building whose greenhouses are being fetched', with_example: true,
 required: true, type: :integer
 
     example 'Get all greenhouses for a specific building' do
