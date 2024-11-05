@@ -51,7 +51,7 @@ class Api::V1::GreenhousesController < ApiController
   end
 
   def set_building
-    @building = policy_scope(Building).find(params[:building_id])
+    @building = Building.find(params[:building_id])
   end
 
   def greenhouse_params

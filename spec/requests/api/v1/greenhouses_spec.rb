@@ -10,12 +10,11 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
   describe 'GET api/v1/greenhouses' do
     context 'when 200' do
       it_behaves_like 'with authenticated grower' do
-        it 'gets greenhouses with pagination and building_id' do
+        it 'gets greenhouses with pagination params' do
           get(
-            '/api/v1/greenhouses',
+            "/api/v1/buildings/#{building.id}/greenhouses",
             headers:,
             params: {
-              building_id: building.id,
               page: {
                 number: 1,
                 size: 2
@@ -24,12 +23,11 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
           )
 
           expect(status).to eq(200)
-          greenhouses = Greenhouse.where(building_id: building.id)
-          expect(response.parsed_body.count).to eq(greenhouses.count)
+          expect(response.parsed_body.count).to eq(1)
           expect(response.headers['Pagination-Current-Page']).to eq(1)
           expect(response.headers['Pagination-Per']).to eq(2)
-          expect(response.headers['Pagination-Total-Pages']).to be_present
-          expect(response.headers['Pagination-Total-Count']).to be_present
+          expect(response.headers['Pagination-Total-Pages']).to eq(1)
+          expect(response.headers['Pagination-Total-Count']).to eq(1)
         end
       end
     end
@@ -37,7 +35,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t get greenhouses' do
-          get('/api/v1/greenhouses', headers:)
+          get("/api/v1/buildings/#{building.id}/greenhouses", headers:)
 
           expect(status).to eq(403)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -63,8 +61,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t create a greenhouse' do
-          post('/api/v1/greenhouses', headers:)
-
+          post("/api/v1/buildings/#{building.id}/greenhouses", headers:)
           expect(status).to eq(403)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
@@ -75,7 +72,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
       it_behaves_like 'with authenticated grower' do
         it 'fails to create a greenhouse with invalid params' do
           post(
-            '/api/v1/greenhouses',
+            "/api/v1/buildings/#{building.id}/greenhouses",
             headers:,
             params: {
               name: 'foobar',
