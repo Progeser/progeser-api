@@ -55,14 +55,14 @@ class Api::V1::PlantsController < ApiController
   def create_params
     params.permit(
       :name,
-      plant_stages_attributes: %i[name duration position]
+      plant_stages: %i[name duration position]
     )
   end
 
   def update_params
     params.permit(
       :name,
-      plant_stages_attributes: %i[id _destroy name duration position]
+      plant_stages: %i[id _destroy name duration position]
     )
   end
 end
