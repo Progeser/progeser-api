@@ -37,10 +37,6 @@ Rails.application.routes.draw do
 
       resources :shapes, only: :index
 
-      resources :greenhouses, only: %i[index show create update destroy], shallow: true do
-        resources :benches, only: %i[index show create update destroy]
-      end
-
       resources :plants, only: %i[index show create update destroy]
 
       resources :requests, only: %i[index show create update destroy], shallow: true do
@@ -51,7 +47,11 @@ Rails.application.routes.draw do
         post :complete, on: :member
         resources :request_distributions, only: %i[index show create update destroy]
       end
-      resources :buildings, only: %i[index show create update destroy]
+      resources :buildings, only: %i[index show create update destroy], shallow: true do
+        resources :greenhouses, only: %i[index show create update destroy], shallow: true do
+          resources :benches, only: %i[index show create update destroy]
+        end
+      end
     end
   end
 end

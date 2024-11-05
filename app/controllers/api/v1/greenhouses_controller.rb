@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 class Api::V1::GreenhousesController < ApiController
-  before_action :set_greenhouse, except: %i[index create]
+  before_action :set_greenhouse, only: %i[show update destroy]
+  before_action :set_building, only: %i[index create]
 
   def index
-    greenhouses = policy_scope(Greenhouse)
+    greenhouses = policy_scope(@building.greenhouses)
     authorize greenhouses
 
     render json: apply_fetcheable(greenhouses).to_blueprint
@@ -47,6 +48,10 @@ class Api::V1::GreenhousesController < ApiController
   def set_greenhouse
     @greenhouse = policy_scope(Greenhouse).find(params[:id])
     authorize(@greenhouse)
+  end
+
+  def set_building
+    @building = policy_scope(Building).find(params[:building_id])
   end
 
   def greenhouse_params
