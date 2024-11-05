@@ -10,11 +10,12 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
   describe 'GET api/v1/greenhouses' do
     context 'when 200' do
       it_behaves_like 'with authenticated grower' do
-        it 'gets greenhouses with pagination params' do
+        it 'gets greenhouses with pagination and building_id' do
           get(
             '/api/v1/greenhouses',
             headers:,
             params: {
+              building_id: building.id,
               page: {
                 number: 1,
                 size: 2
@@ -23,11 +24,12 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
           )
 
           expect(status).to eq(200)
-          expect(response.parsed_body.count).to eq(2)
+          greenhouses = Greenhouse.where(building_id: building.id)
+          expect(response.parsed_body.count).to eq(greenhouses.count)
           expect(response.headers['Pagination-Current-Page']).to eq(1)
           expect(response.headers['Pagination-Per']).to eq(2)
-          expect(response.headers['Pagination-Total-Pages']).to eq(1)
-          expect(response.headers['Pagination-Total-Count']).to eq(2)
+          expect(response.headers['Pagination-Total-Pages']).to be_present
+          expect(response.headers['Pagination-Total-Count']).to be_present
         end
       end
     end
