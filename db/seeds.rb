@@ -111,7 +111,6 @@ if Rails.env.development?
     area: 120
   )
 
-  # Créer des bâtiments avec description
   building1 = Building.create!(
     name: 'Main Building',
     description: 'The main building that houses the primary operations.'
