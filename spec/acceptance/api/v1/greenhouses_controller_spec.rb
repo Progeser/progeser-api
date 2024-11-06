@@ -13,8 +13,10 @@ resource 'Greenhouses' do
 
   let!(:greenhouse) { greenhouses(:greenhouse1) }
   let!(:id)         { greenhouse.id }
+  let!(:building)   { buildings(:building1) }
+  let!(:building_id) { building.id }
 
-  get '/api/v1/greenhouses' do
+  get '/api/v1/buildings/:building_id/greenhouses' do
     parameter :'page[number]',
               "The number of the desired page\n\n" \
               "If used, additional information is returned in the response headers:\n" \
@@ -35,16 +37,19 @@ resource 'Greenhouses' do
               with_example: true,
               type: :integer,
               default: FetcheableOnApi.configuration.pagination_default_size
+    parameter :building_id, 'ID of the building whose greenhouses are being fetched', with_example: true,
+required: true, type: :integer
 
-    example 'Get all greenhouses' do
+    example 'Get all greenhouses for a specific building' do
       authentication :basic, "Bearer #{user_token.token}"
 
-      do_request
+      do_request(building_id:)
 
       expect(status).to eq(200)
 
-      expect(response_body).to eq(Greenhouse.to_blueprint)
-      expect(JSON.parse(response_body).count).to eq(Greenhouse.count)
+      greenhouses = Greenhouse.where(building_id:)
+      expect(response_body).to eq(greenhouses.to_blueprint)
+      expect(JSON.parse(response_body).count).to eq(greenhouses.count)
     end
   end
 
@@ -59,7 +64,7 @@ resource 'Greenhouses' do
     end
   end
 
-  post '/api/v1/greenhouses' do
+  post '/api/v1/buildings/:building_id/greenhouses' do
     parameter :name, 'Name of the greenhouse', with_example: true
     parameter :width, 'Width of the greenhouse', with_example: true, type: :integer
     parameter :height, 'Height of the greenhouse', with_example: true, type: :integer
@@ -68,7 +73,7 @@ resource 'Greenhouses' do
     let(:name)   { 'My new greenhouse' }
     let(:width)  { 100 }
     let(:height) { 200 }
-    let(:building_id) { buildings(:building1).id }
+    let(:building_id) { building.id }
 
     let(:raw_post) { params.to_json }
 
