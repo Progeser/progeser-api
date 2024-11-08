@@ -54,6 +54,6 @@ class Api::V1::BenchesController < ApiController
   end
 
   def bench_params
-    params.permit(:name, dimensions: [])
+    params.permit(:name, dimensions: [], positions: [])
   end
 end

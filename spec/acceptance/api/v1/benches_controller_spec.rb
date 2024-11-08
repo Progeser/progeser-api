@@ -68,8 +68,14 @@ resource 'Benches' do
               with_example: true,
               type: :array,
               items: { type: :integer }
+    parameter :positions,
+              '(Optional) Position of the bench (in pixel)',
+              with_example: true,
+              type: :array,
+              items: { type: :integer }
     let(:name) { 'my rectangular bench' }
     let(:dimensions) { [100, 200] }
+    let(:positions) { [50, 20] }
     let(:raw_post) { params.to_json }
 
     example 'Create a bench with its area in the given greenhouse' do
