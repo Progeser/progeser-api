@@ -3,10 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe 'Api/V1/RequestDistributions', type: :request do
-  let!(:request)      { requests(:request1) }
-  let!(:request_id)   { request.id }
+  let!(:request) { requests(:request1) }
+  let!(:request_id) { request.id }
   let!(:distribution) { request.request_distributions.first }
-  let!(:id)           { distribution.id }
+  let!(:id) { distribution.id }
 
   describe 'GET api/v1/requests/:request_id/request_distributions' do
     context 'when 200' do
@@ -127,13 +127,16 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
     context 'when 422' do
       it_behaves_like 'with authenticated grower' do
         it 'distributions can\'t have a sum of areas greater than their bench area' do
+          dimensions = Bench.first.dimensions
+          area = dimensions[0] * dimensions[1]
+
           post(
             "/api/v1/requests/#{request_id}/request_distributions",
             headers:,
             params: {
               bench_id: Bench.first.id,
               plant_stage_id: request.plant_stage_id,
-              area: Bench.first.area
+              area:
             }
           )
 

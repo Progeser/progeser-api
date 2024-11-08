@@ -18,29 +18,30 @@ class BenchTest < ActiveSupport::TestCase
     assert @bench.valid?, @bench.errors.messages
   end
 
-  test 'invalid without shape' do
-    @bench.shape = nil
+  test 'invalid without dimensions' do
+    @bench.dimensions = nil
     assert_not @bench.valid?
-    assert_not_empty @bench.errors[:shape]
+    assert_includes @bench.errors[:dimensions], "doit être rempli(e)"
   end
 
-  test 'invalid without area' do
-    @bench.area = nil
+  test 'invalid with wrong number of dimensions' do
+    @bench.dimensions = [10]
     assert_not @bench.valid?
-    assert_not_empty @bench.errors[:area]
+    assert_includes @bench.errors[:dimensions], 'should contain exactly two elements: length and width'
+
+    @bench.dimensions = [10, 20, 30]
+    assert_not @bench.valid?
+    assert_includes @bench.errors[:dimensions], 'should contain exactly two elements: length and width'
   end
 
-  test 'invalid with incorrect area value' do
-    @bench.area = 0
+  test 'invalid with non-positive dimensions' do
+    @bench.dimensions = [10, -20]
     assert_not @bench.valid?
-    assert_not_empty @bench.errors[:area]
-  end
+    assert_includes @bench.errors[:dimensions], 'each dimension must be greater than 0'
 
-  # Enumerize
-  test 'invalid with incorrect shape value' do
-    @bench.shape = 'foo'
+    @bench.dimensions = [0, 30]
     assert_not @bench.valid?
-    assert_not_empty @bench.errors[:shape]
+    assert_includes @bench.errors[:dimensions], 'each dimension must be greater than 0'
   end
 end
 

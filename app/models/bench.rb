@@ -1,15 +1,11 @@
 # frozen_string_literal: true
 
 class Bench < ApplicationRecord
-  # Enumerize
-  extend Enumerize
-  enumerize :shape,
-            in: Pot.shape.values
-
   # Validations
-  validates :shape, presence: true
-
-  validates :area, numericality: { greater_than: 0 }
+  validates :dimensions,
+            presence: true,
+            length: { is: 2, message: 'should contain exactly two elements: length and width' }
+  validate :dimensions_must_be_positive
 
   validates_associated :request_distributions,
                        message: 'sum of distributions areas can\'t be greater than bench area'
@@ -23,6 +19,14 @@ class Bench < ApplicationRecord
            class_name: 'RequestDistribution',
            inverse_of: :bench,
            dependent: :restrict_with_error
+  # Checks
+  def dimensions_must_be_positive
+    return unless dimensions
+
+    return unless dimensions.any? { |d| d <= 0 }
+
+    errors.add(:dimensions, 'each dimension must be greater than 0')
+  end
 end
 
 # == Schema Information

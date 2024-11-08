@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_15_114805) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_08_112507) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,8 +30,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_15_114805) do
   create_table "benches", force: :cascade do |t|
     t.bigint "greenhouse_id"
     t.string "name"
-    t.string "shape", null: false
-    t.decimal "area", null: false
     t.integer "dimensions", array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,9 +38,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_15_114805) do
 
   create_table "buildings", force: :cascade do |t|
     t.string "name"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "description"
   end
 
   create_table "greenhouses", force: :cascade do |t|
