@@ -2,5 +2,5 @@
 
 class BenchBlueprint < Base
   # Fields
-  fields :name, :dimensions
+  fields :name, :dimensions, :positions
 end

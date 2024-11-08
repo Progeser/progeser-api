@@ -7,6 +7,11 @@ class Bench < ApplicationRecord
             length: { is: 2, message: 'should contain exactly two elements: length and width' }
   validate :dimensions_must_be_positive
 
+  validates :positions,
+            presence: true,
+            length: { is: 2, message: 'should contain exactly two elements: x and y' }
+  validate :positions_must_be_positive
+
   validates_associated :request_distributions,
                        message: 'sum of distributions areas can\'t be greater than bench area'
 
@@ -27,6 +32,14 @@ class Bench < ApplicationRecord
 
     errors.add(:dimensions, 'each dimension must be greater than 0')
   end
+
+  def positions_must_be_positive
+    return unless positions
+
+    return unless positions.any?(&:negative?)
+
+    errors.add(:positions, 'each dimension must be positive')
+  end
 end
 
 # == Schema Information
@@ -36,11 +49,10 @@ end
 #  id            :bigint           not null, primary key
 #  greenhouse_id :bigint
 #  name          :string
-#  shape         :string           not null
-#  area          :decimal(, )      not null
 #  dimensions    :integer          is an Array
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  positions     :integer          is an Array
 #
 # Indexes
 #

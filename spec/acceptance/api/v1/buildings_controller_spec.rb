@@ -114,7 +114,8 @@ resource 'Buildings' do
 
       greenhouse.benches.create!(
         name: 'Valid Bench',
-        dimensions: [10, 20]
+        dimensions: [10, 20],
+        positions: [200, 500]
       )
     end
 

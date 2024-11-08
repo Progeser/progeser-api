@@ -43,6 +43,22 @@ class BenchTest < ActiveSupport::TestCase
     assert_not @bench.valid?
     assert_includes @bench.errors[:dimensions], 'each dimension must be greater than 0'
   end
+
+  test 'invalid without position' do
+    @bench.positions = nil
+    assert_not @bench.valid?
+    assert_includes @bench.errors[:positions], "doit être rempli(e)"
+  end
+
+  test 'invalid with negative position' do
+    @bench.positions = [10, -20]
+    assert_not @bench.valid?
+    assert_includes @bench.errors[:positions], 'each dimension must be positive'
+
+    @bench.positions = [-1, 0]
+    assert_not @bench.valid?
+    assert_includes @bench.errors[:positions], 'each dimension must be positive'
+  end
 end
 
 # == Schema Information
@@ -52,11 +68,10 @@ end
 #  id            :bigint           not null, primary key
 #  greenhouse_id :bigint
 #  name          :string
-#  shape         :string           not null
-#  area          :decimal(, )      not null
 #  dimensions    :integer          is an Array
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  positions     :integer          is an Array
 #
 # Indexes
 #
