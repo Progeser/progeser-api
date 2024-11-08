@@ -3,10 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe 'Api/V1/Benches', type: :request do
-  let!(:greenhouse)    { greenhouses(:greenhouse1) }
+  let!(:greenhouse) { greenhouses(:greenhouse1) }
   let!(:greenhouse_id) { greenhouse.id }
-  let!(:bench)         { greenhouse.benches.first }
-  let!(:id)            { bench.id }
+  let!(:bench) { greenhouse.benches.first }
+  let!(:id) { bench.id }
 
   describe 'GET api/v1/greenhouses/:greenhouse_id/benches' do
     context 'when 200' do
@@ -92,8 +92,7 @@ RSpec.describe 'Api/V1/Benches', type: :request do
             headers:,
             params: {
               name: bench.name,
-              shape: bench.shape,
-              area: '1.0'
+              dimensions: [50, 20]
             },
             as: :json
           )

@@ -5,33 +5,33 @@ require 'acceptance_helper'
 resource 'Buildings' do
   explanation 'Buildings resource'
 
-  header 'Accept',       'application/json'
+  header 'Accept', 'application/json'
   header 'Content-Type', 'application/json'
 
-  let!(:user)       { users(:user2) }
+  let!(:user) { users(:user2) }
   let!(:user_token) { Doorkeeper::AccessToken.create!(resource_owner_id: user.id) }
 
   let!(:building) { buildings(:building1) }
-  let!(:id)       { building.id }
+  let!(:id) { building.id }
 
   get '/api/v1/buildings' do
     parameter :'page[number]',
               "The number of the desired page\n\n" \
-              "If used, additional information is returned in the response headers:\n" \
-              "`Pagination-Current-Page`: the current page number\n" \
-              "`Pagination-Per`: the number of records per page\n" \
-              "`Pagination-Total-Pages`: the total number of pages\n" \
-              '`Pagination-Total-Count`: the total number of records',
+                "If used, additional information is returned in the response headers:\n" \
+                "`Pagination-Current-Page`: the current page number\n" \
+                "`Pagination-Per`: the number of records per page\n" \
+                "`Pagination-Total-Pages`: the total number of pages\n" \
+                '`Pagination-Total-Count`: the total number of records',
               with_example: true,
               type: :integer,
               default: 1
     parameter :'page[size]',
               "The number of elements in a page\n\n" \
-              "If used, additional information is returned in the response headers:\n" \
-              "`Pagination-Current-Page`: the current page number\n" \
-              "`Pagination-Per`: the number of records per page\n" \
-              "`Pagination-Total-Pages`: the total number of pages\n" \
-              '`Pagination-Total-Count`: the total number of records',
+                "If used, additional information is returned in the response headers:\n" \
+                "`Pagination-Current-Page`: the current page number\n" \
+                "`Pagination-Per`: the number of records per page\n" \
+                "`Pagination-Total-Pages`: the total number of pages\n" \
+                '`Pagination-Total-Count`: the total number of records',
               with_example: true,
               type: :integer,
               default: FetcheableOnApi.configuration.pagination_default_size
@@ -62,7 +62,7 @@ resource 'Buildings' do
     parameter :name, 'Name of the building', with_example: true
     parameter :description, 'Description of the building', with_example: true
 
-    let(:name)        { 'New Building' }
+    let(:name) { 'New Building' }
     let(:description) { 'A new description for the building' }
 
     let(:raw_post) { params.to_json }
@@ -85,7 +85,7 @@ resource 'Buildings' do
     parameter :name, 'Updated name of the building', with_example: true
     parameter :description, 'Updated description of the building', with_example: true
 
-    let(:name)        { 'Updated Building Name' }
+    let(:name) { 'Updated Building Name' }
     let(:description) { 'Updated building description' }
 
     let(:raw_post) { params.to_json }
@@ -114,8 +114,7 @@ resource 'Buildings' do
 
       greenhouse.benches.create!(
         name: 'Valid Bench',
-        shape: 'circle',
-        area: 10.0
+        dimensions: [10, 20]
       )
     end
 
