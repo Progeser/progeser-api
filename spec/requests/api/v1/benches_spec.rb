@@ -70,6 +70,44 @@ RSpec.describe 'Api/V1/Benches', type: :request do
         end
       end
     end
+
+    context 'when 422' do
+      it_behaves_like 'with authenticated grower' do
+        it 'can\'t have a negative dimension' do
+          post(
+            "/api/v1/greenhouses/#{greenhouse_id}/benches",
+            headers:,
+            params: {
+              name: bench.name,
+              dimensions: [-5, 20],
+              positions: [10, 10]
+            },
+            as: :json
+          )
+
+          expect(status).to eq(422)
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
+        end
+      end
+
+      it_behaves_like 'with authenticated grower' do
+        it 'can\'t have a negative position' do
+          post(
+            "/api/v1/greenhouses/#{greenhouse_id}/benches",
+            headers:,
+            params: {
+              name: bench.name,
+              dimensions: [50, 20],
+              positions: [-10, 10]
+            },
+            as: :json
+          )
+
+          expect(status).to eq(422)
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
+        end
+      end
+    end
   end
 
   describe 'PUT api/v1/benches/:id' do
@@ -92,7 +130,8 @@ RSpec.describe 'Api/V1/Benches', type: :request do
             headers:,
             params: {
               name: bench.name,
-              dimensions: [50, 20]
+              dimensions: [50, 20],
+              positions: [10, 10]
             },
             as: :json
           )

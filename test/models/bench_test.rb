@@ -53,11 +53,11 @@ class BenchTest < ActiveSupport::TestCase
   test 'invalid with negative position' do
     @bench.positions = [10, -20]
     assert_not @bench.valid?
-    assert_includes @bench.errors[:positions], 'each dimension must be positive'
+    assert_includes @bench.errors[:positions], 'each position must be positive'
 
     @bench.positions = [-1, 0]
     assert_not @bench.valid?
-    assert_includes @bench.errors[:positions], 'each dimension must be positive'
+    assert_includes @bench.errors[:positions], 'each position must be positive'
   end
 end
 

@@ -38,7 +38,7 @@ class Bench < ApplicationRecord
 
     return unless positions.any?(&:negative?)
 
-    errors.add(:positions, 'each dimension must be positive')
+    errors.add(:positions, 'each position must be positive')
   end
 end
 
