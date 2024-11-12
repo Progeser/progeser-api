@@ -90,8 +90,10 @@ resource 'Benches' do
       response = JSON.parse(response_body)
       expect(response['name']).not_to be_blank
       expect(response['dimensions']).not_to be_blank
+      expect(response['positions']).not_to be_blank
       expect(response['name']).to eq(name)
       expect(response['dimensions']).to eq(dimensions)
+      expect(response['positions']).to eq(positions)
     end
   end
 
@@ -102,9 +104,15 @@ resource 'Benches' do
               with_example: true,
               type: :array,
               items: { type: :integer }
+    parameter :positions,
+              '(Optional) Position of the bench (in pixel)',
+              with_example: true,
+              type: :array,
+              items: { type: :integer }
 
     let(:name) { 'my square bench' }
     let(:dimensions) { [800, 500] }
+    let(:positions) { [50, 10] }
     let(:raw_post) { params.to_json }
 
     example 'Update a bench with its area' do
