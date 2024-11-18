@@ -75,7 +75,7 @@ resource 'Benches' do
               items: { type: :integer }
     let(:name) { 'my rectangular bench' }
     let(:dimensions) { [100, 200] }
-    let(:positions) { [50, 20] }
+    let(:positions) { [600, 20] }
     let(:raw_post) { params.to_json }
 
     example 'Create a bench with its area in the given greenhouse' do
@@ -94,6 +94,36 @@ resource 'Benches' do
       expect(response['name']).to eq(name)
       expect(response['dimensions']).to eq(dimensions)
       expect(response['positions']).to eq(positions)
+    end
+  end
+
+  post '/api/v1/greenhouses/:greenhouse_id/benches' do
+    parameter :name, '(Optional) Name of the bench', with_example: true
+    parameter :dimensions,
+              '(Optional) Dimensions of the bench (in centimeters)',
+              with_example: true,
+              type: :array,
+              items: { type: :integer }
+    parameter :positions,
+              '(Optional) Position of the bench (in pixel)',
+              with_example: true,
+              type: :array,
+              items: { type: :integer }
+
+    let(:name) { 'my overlapping bench' }
+    let(:dimensions) { [200, 200] }
+    let(:positions) { [120, 60] }
+    let(:raw_post) { params.to_json }
+
+    example 'Create a bench with overlaps' do
+      authentication :basic, "Bearer #{user_token.token}"
+
+      do_request
+
+      expect(status).to eq(422)
+
+      response = JSON.parse(response_body)
+      expect(response['error']).to eq('bench overlaps with an existing bench')
     end
   end
 
