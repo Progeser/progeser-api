@@ -11,29 +11,29 @@ resource 'Benches' do
   let!(:user) { users(:user2) }
   let!(:user_token) { Doorkeeper::AccessToken.create!(resource_owner_id: user.id) }
 
+  let!(:building) { buildings(:building1) }
+  let!(:building_id) { building.id }
   let!(:greenhouse) { greenhouses(:greenhouse1) }
   let!(:greenhouse_id) { greenhouse.id }
   let!(:bench) { greenhouse.benches.first }
   let!(:id) { bench.id }
 
-  get '/api/v1/greenhouses/:greenhouse_id/benches' do
-    parameter :'page[number]',
-              "The number of the desired page\n\n" \
-                "If used, additional information is returned in the response headers:\n" \
-                "`Pagination-Current-Page`: the current page number\n" \
-                "`Pagination-Per`: the number of records per page\n" \
-                "`Pagination-Total-Pages`: the total number of pages\n" \
-                '`Pagination-Total-Count`: the total number of records',
+  get '/api/v1/buildings/:building_id/greenhouses/:greenhouse_id/benches' do
+    parameter :'page[number]', "The number of the desired page\n\n" \
+      "If used, additional information is returned in the response headers:\n" \
+      "`Pagination-Current-Page`: the current page number\n" \
+      "`Pagination-Per`: the number of records per page\n" \
+      "`Pagination-Total-Pages`: the total number of pages\n" \
+      '`Pagination-Total-Count`: the total number of records',
               with_example: true,
               type: :integer,
               default: 1
-    parameter :'page[size]',
-              "The number of elements in a page\n\n" \
-                "If used, additional information is returned in the response headers:\n" \
-                "`Pagination-Current-Page`: the current page number\n" \
-                "`Pagination-Per`: the number of records per page\n" \
-                "`Pagination-Total-Pages`: the total number of pages\n" \
-                '`Pagination-Total-Count`: the total number of records',
+    parameter :'page[size]', "The number of elements in a page\n\n" \
+      "If used, additional information is returned in the response headers:\n" \
+      "`Pagination-Current-Page`: the current page number\n" \
+      "`Pagination-Per`: the number of records per page\n" \
+      "`Pagination-Total-Pages`: the total number of pages\n" \
+      '`Pagination-Total-Count`: the total number of records',
               with_example: true,
               type: :integer,
               default: FetcheableOnApi.configuration.pagination_default_size
@@ -50,7 +50,7 @@ resource 'Benches' do
     end
   end
 
-  get '/api/v1/benches/:id' do
+  get '/api/v1/buildings/:building_id/greenhouses/:greenhouse_id/benches/:id' do
     example 'Get a bench' do
       authentication :basic, "Bearer #{user_token.token}"
 
@@ -61,18 +61,13 @@ resource 'Benches' do
     end
   end
 
-  post '/api/v1/greenhouses/:greenhouse_id/benches' do
+  post '/api/v1/buildings/:building_id/greenhouses/:greenhouse_id/benches' do
     parameter :name, '(Optional) Name of the bench', with_example: true
-    parameter :dimensions,
-              '(Optional) Dimensions of the bench (in centimeters)',
-              with_example: true,
-              type: :array,
+    parameter :dimensions, '(Optional) Dimensions of the bench (in centimeters)', with_example: true, type: :array,
               items: { type: :integer }
-    parameter :positions,
-              '(Optional) Position of the bench (in pixel)',
-              with_example: true,
-              type: :array,
+    parameter :positions, '(Optional) Position of the bench (in pixel)', with_example: true, type: :array,
               items: { type: :integer }
+
     let(:name) { 'my rectangular bench' }
     let(:dimensions) { [100, 200] }
     let(:positions) { [600, 20] }
@@ -97,55 +92,19 @@ resource 'Benches' do
     end
   end
 
-  post '/api/v1/greenhouses/:greenhouse_id/benches' do
-    parameter :name, '(Optional) Name of the bench', with_example: true
-    parameter :dimensions,
-              '(Optional) Dimensions of the bench (in centimeters)',
-              with_example: true,
-              type: :array,
-              items: { type: :integer }
-    parameter :positions,
-              '(Optional) Position of the bench (in pixel)',
-              with_example: true,
-              type: :array,
-              items: { type: :integer }
-
-    let(:name) { 'my overlapping bench' }
-    let(:dimensions) { [200, 200] }
-    let(:positions) { [120, 60] }
-    let(:raw_post) { params.to_json }
-
-    example 'Create a bench with overlaps' do
-      authentication :basic, "Bearer #{user_token.token}"
-
-      do_request
-
-      expect(status).to eq(422)
-
-      response = JSON.parse(response_body)
-      expect(response['error']).to eq('bench overlaps with an existing bench')
-    end
-  end
-
-  put '/api/v1/benches/:id' do
+  put '/api/v1/buildings/:building_id/greenhouses/:greenhouse_id/benches/:id' do
     parameter :name, 'Name of the bench', with_example: true
-    parameter :dimensions,
-              '(Optional) Dimensions of the bench (in centimeters)',
-              with_example: true,
-              type: :array,
+    parameter :dimensions, '(Optional) Dimensions of the bench (in centimeters)', with_example: true, type: :array,
               items: { type: :integer }
-    parameter :positions,
-              '(Optional) Position of the bench (in pixel)',
-              with_example: true,
-              type: :array,
+    parameter :positions, '(Optional) Position of the bench (in pixel)', with_example: true, type: :array,
               items: { type: :integer }
 
     let(:name) { 'my square bench' }
-    let(:dimensions) { [800, 500] }
-    let(:positions) { [50, 10] }
+    let(:dimensions) { [100, 300] }
+    let(:positions) { [100, 800] }
     let(:raw_post) { params.to_json }
 
-    example 'Update a bench with its area' do
+    example 'Update a bench' do
       authentication :basic, "Bearer #{user_token.token}"
 
       do_request
@@ -156,10 +115,11 @@ resource 'Benches' do
       expect(response_body).to eq(bench.to_blueprint)
       expect(bench.name).to eq(name)
       expect(bench.dimensions).to eq(dimensions)
+      expect(bench.positions).to eq(positions)
     end
   end
 
-  delete '/api/v1/benches/:id' do
+  delete '/api/v1/buildings/:building_id/greenhouses/:greenhouse_id/benches/:id' do
     before do
       bench.request_distributions.destroy_all
     end

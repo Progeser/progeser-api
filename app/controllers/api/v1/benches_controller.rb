@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Api::V1::BenchesController < ApiController
-  before_action :set_greenhouse, only: %i[index create]
-  before_action :set_bench, only: %i[show update destroy]
+  before_action :set_greenhouse, only: %i[index create update]
+  before_action :set_bench, only: %i[show destroy update]
 
   def index
     benches = policy_scope(@greenhouse.benches)
@@ -29,7 +29,11 @@ class Api::V1::BenchesController < ApiController
   end
 
   def update
-    if @bench.update(bench_params)
+    @bench.assign_attributes(bench_params)
+
+    if overlapping_bench_exists?
+      render json: { error: 'bench overlaps with an existing bench' }, status: :unprocessable_entity
+    elsif @bench.save
       render json: @bench.to_blueprint
     else
       render_validation_error(@bench)
@@ -63,7 +67,9 @@ class Api::V1::BenchesController < ApiController
     new_bench_position = @bench.positions
     new_bench_dimensions = @bench.dimensions
 
-    Bench.find_each do |bench|
+    @greenhouse.benches.each do |bench|
+      next if bench == @bench
+
       existing_bench_position = bench.positions
       existing_bench_dimensions = bench.dimensions
 
