@@ -27,11 +27,11 @@ class BenchTest < ActiveSupport::TestCase
   test 'invalid with wrong number of dimensions' do
     @bench.dimensions = [10]
     assert_not @bench.valid?
-    assert_includes @bench.errors[:dimensions], 'should contain exactly two elements: length and width'
+    assert_includes @bench.errors[:dimensions], 'doit contenir exactement deux éléments: longueur et largeur'
 
     @bench.dimensions = [10, 20, 30]
     assert_not @bench.valid?
-    assert_includes @bench.errors[:dimensions], 'should contain exactly two elements: length and width'
+    assert_includes @bench.errors[:dimensions], 'doit contenir exactement deux éléments: longueur et largeur'
   end
 
   test 'invalid with non-positive dimensions' do
