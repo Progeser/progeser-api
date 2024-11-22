@@ -27,59 +27,70 @@ fr:
           attributes:
             request_distributions:
               at_least_one: Au moins 1 request_distribution est requise
+        bench:
+          attributes:
+            dimensions:
+              incorrect_size: "doit contenir exactement deux éléments: longueur et largeur"
+              not_positive: "chaque dimension doit être supérieure à 0"
+            positions:
+              incorrect_size: "doit contenir exactement deux éléments : x et y"
+              not_positive: "chaque position doit être positive"
+            request_distributions:
+              invalid_distribution: "la somme des aires de distribution ne peut pas être supérieure à l'aire du banc"
+            positions_overlap: "le banc chevauche un banc existant"
   date:
     abbr_day_names:
-    - dim
-    - lun
-    - mar
-    - mer
-    - jeu
-    - ven
-    - sam
+      - dim
+      - lun
+      - mar
+      - mer
+      - jeu
+      - ven
+      - sam
     abbr_month_names:
-    -
-    - jan.
-    - fév.
-    - mar.
-    - avr.
-    - mai
-    - juin
-    - juil.
-    - août
-    - sept.
-    - oct.
-    - nov.
-    - déc.
+      -
+      - jan.
+      - fév.
+      - mar.
+      - avr.
+      - mai
+      - juin
+      - juil.
+      - août
+      - sept.
+      - oct.
+      - nov.
+      - déc.
     day_names:
-    - dimanche
-    - lundi
-    - mardi
-    - mercredi
-    - jeudi
-    - vendredi
-    - samedi
+      - dimanche
+      - lundi
+      - mardi
+      - mercredi
+      - jeudi
+      - vendredi
+      - samedi
     formats:
       default: "%d/%m/%Y"
       short: "%e %b"
       long: "%e %B %Y"
     month_names:
-    -
-    - janvier
-    - février
-    - mars
-    - avril
-    - mai
-    - juin
-    - juillet
-    - août
-    - septembre
-    - octobre
-    - novembre
-    - décembre
+      -
+      - janvier
+      - février
+      - mars
+      - avril
+      - mai
+      - juin
+      - juillet
+      - août
+      - septembre
+      - octobre
+      - novembre
+      - décembre
     order:
-    - :day
-    - :month
-    - :year
+      - :day
+      - :month
+      - :year
   datetime:
     distance_in_words:
       about_x_hours:

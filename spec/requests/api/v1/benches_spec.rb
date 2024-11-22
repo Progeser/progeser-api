@@ -122,7 +122,8 @@ RSpec.describe 'Api/V1/Benches', type: :request do
 
         it 'returns an error about overlapping bench' do
           expect(status).to eq(422)
-          expect(response.parsed_body.dig('error', 'message', 'positions').first).to eq('bench overlaps with an existing bench')
+          expect(response.parsed_body.dig('error', 'message', 'positions').first)
+            .to eq('bench overlaps with an existing bench')
         end
       end
     end
@@ -176,7 +177,8 @@ RSpec.describe 'Api/V1/Benches', type: :request do
 
         it 'returns an error about overlapping bench' do
           expect(status).to eq(422)
-          expect(response.parsed_body.dig('error', 'message', 'positions').first).to eq('bench overlaps with an existing bench')
+          expect(response.parsed_body.dig('error', 'message',
+                                          'positions').first).to eq('bench overlaps with an existing bench')
         end
       end
     end
