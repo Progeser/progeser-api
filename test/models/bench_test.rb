@@ -21,7 +21,7 @@ class BenchTest < ActiveSupport::TestCase
   test 'invalid without dimensions' do
     @bench.dimensions = nil
     assert_not @bench.valid?
-    assert_includes @bench.errors[:dimensions], "doit être rempli(e)"
+    assert_includes @bench.errors[:dimensions], 'doit être rempli(e)'
   end
 
   test 'invalid with wrong number of dimensions' do
@@ -47,7 +47,7 @@ class BenchTest < ActiveSupport::TestCase
   test 'invalid without position' do
     @bench.positions = nil
     assert_not @bench.valid?
-    assert_includes @bench.errors[:positions], "doit être rempli(e)"
+    assert_includes @bench.errors[:positions], 'doit être rempli(e)'
   end
 
   test 'invalid with negative position' do
@@ -58,6 +58,17 @@ class BenchTest < ActiveSupport::TestCase
     @bench.positions = [-1, 0]
     assert_not @bench.valid?
     assert_includes @bench.errors[:positions], 'each position must be positive'
+  end
+
+  test 'invalid when overlapping with another bench in the same greenhouse' do
+    overlapping_bench = Bench.new(
+      greenhouse: @bench.greenhouse,
+      name: 'my test',
+      positions: @bench.positions,
+      dimensions: [50, 20]
+    )
+    assert_not overlapping_bench.valid?
+    assert_includes overlapping_bench.errors[:positions], 'bench overlaps with an existing bench'
   end
 end
 

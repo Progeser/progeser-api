@@ -4,9 +4,9 @@ bench1:
   name: My big greenhouse - bench 1
   dimensions:
     - 200
-    - 500
-  positions:
     - 100
+  positions:
+    - 10
     - 50
   created_at: !ruby/object:ActiveSupport::TimeWithZone
     utc: &1 2019-12-30 18:06:47.130479000 Z
@@ -23,11 +23,11 @@ bench2:
   greenhouse_id: 1
   name: My big greenhouse - bench 2
   dimensions:
-    - 500
+    - 100
     - 100
   positions:
-    - 55
-    - 20
+    - 200
+    - 200
   created_at: !ruby/object:ActiveSupport::TimeWithZone
     utc: &1 2019-12-30 18:06:47.133846000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone
@@ -83,11 +83,11 @@ bench5:
   greenhouse_id: 1
   name: My big greenhouse - bench 3
   dimensions:
-    - 500
+    - 200
     - 100
   positions:
-    - 0
-    - 90
+    - 600
+    - 100
   created_at: !ruby/object:ActiveSupport::TimeWithZone
     utc: &1 2020-01-06 13:27:55.355182000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone

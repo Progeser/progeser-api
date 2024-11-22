@@ -70,7 +70,7 @@ resource 'Benches' do
 
     let(:name) { 'my rectangular bench' }
     let(:dimensions) { [100, 200] }
-    let(:positions) { [600, 20] }
+    let(:positions) { [900, 20] }
     let(:raw_post) { params.to_json }
 
     example 'Create a bench with its area in the given greenhouse' do
