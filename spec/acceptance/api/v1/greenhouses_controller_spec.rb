@@ -43,7 +43,7 @@ resource 'Greenhouses' do
     example 'Get all greenhouses for a specific building' do
       authentication :basic, "Bearer #{user_token.token}"
 
-      do_request(building_id:)
+      do_request
 
       expect(status).to eq(200)
 
@@ -57,7 +57,7 @@ resource 'Greenhouses' do
     example 'Get a greenhouse' do
       authentication :basic, "Bearer #{user_token.token}"
 
-      do_request(building_id: building_id, id: id)
+      do_request
 
       expect(status).to eq(200)
       expect(response_body).to eq(greenhouse.to_blueprint)
@@ -79,7 +79,7 @@ resource 'Greenhouses' do
     example 'Create a greenhouse' do
       authentication :basic, "Bearer #{user_token.token}"
 
-      do_request(building_id: building_id)
+      do_request
 
       expect(status).to eq(201)
 
@@ -107,7 +107,7 @@ resource 'Greenhouses' do
     example 'Update a greenhouse' do
       authentication :basic, "Bearer #{user_token.token}"
 
-      do_request(building_id: building_id, id: id)
+      do_request
 
       expect(status).to eq(200)
 
@@ -128,7 +128,7 @@ resource 'Greenhouses' do
     example 'Delete a greenhouse' do
       authentication :basic, "Bearer #{user_token.token}"
 
-      do_request(building_id: building_id, id: id)
+      do_request
 
       expect(status).to eq(204)
 
