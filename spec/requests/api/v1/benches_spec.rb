@@ -3,26 +3,16 @@
 require 'rails_helper'
 
 RSpec.describe 'Api/V1/Benches', type: :request do
-  let!(:setup) do
-    building = buildings(:building1)
-    greenhouse = greenhouses(:greenhouse1)
-    bench = greenhouse.benches.first
-
-    {
-      building_id: building.id,
-      greenhouse_id: greenhouse.id,
-      bench_id: bench.id,
-      bench_name: bench.name,
-      bench: bench
-    }
-  end
+  let!(:building) { buildings(:building1) }
+  let!(:greenhouse) { greenhouses(:greenhouse1) }
+  let!(:bench) { greenhouse.benches.first }
 
   describe 'GET api/v1/buildings/:building_id/greenhouses/:greenhouse_id/benches' do
     context 'when 200' do
       it_behaves_like 'with authenticated grower' do
         it 'gets benches in the given greenhouse with pagination params' do
           get(
-            "/api/v1/buildings/#{setup[:building_id]}/greenhouses/#{setup[:greenhouse_id]}/benches",
+            "/api/v1/buildings/#{building.id}/greenhouses/#{greenhouse.id}/benches",
             headers:,
             params: {
               page: {
@@ -45,7 +35,7 @@ RSpec.describe 'Api/V1/Benches', type: :request do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t get benches' do
-          get("/api/v1/buildings/#{setup[:building_id]}/greenhouses/#{setup[:greenhouse_id]}/benches", headers:)
+          get("/api/v1/buildings/#{building.id}/greenhouses/#{greenhouse.id}/benches", headers:)
 
           expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -59,7 +49,7 @@ RSpec.describe 'Api/V1/Benches', type: :request do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t get a bench' do
           get(
-            "/api/v1/buildings/#{setup[:building_id]}/greenhouses/#{setup[:greenhouse_id]}/benches/#{setup[:bench_id]}", headers:)
+            "/api/v1/buildings/#{building.id}/greenhouses/#{greenhouse.id}/benches/#{bench.id}", headers:)
 
           expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -72,7 +62,7 @@ RSpec.describe 'Api/V1/Benches', type: :request do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t create a bench' do
-          post("/api/v1/buildings/#{setup[:building_id]}/greenhouses/#{setup[:greenhouse_id]}/benches", headers:)
+          post("/api/v1/buildings/#{building.id}/greenhouses/#{greenhouse.id}/benches", headers:)
 
           expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -84,10 +74,10 @@ RSpec.describe 'Api/V1/Benches', type: :request do
       it_behaves_like 'with authenticated grower' do
         it 'can\'t have a negative dimension' do
           post(
-            "/api/v1/buildings/#{setup[:building_id]}/greenhouses/#{setup[:greenhouse_id]}/benches",
+            "/api/v1/buildings/#{building.id}/greenhouses/#{greenhouse.id}/benches",
             headers:,
             params: {
-              name: setup[:bench_name],
+              name: :bench_name,
               dimensions: [-5, 20],
               positions: [10, 10]
             },
@@ -102,10 +92,10 @@ RSpec.describe 'Api/V1/Benches', type: :request do
       it_behaves_like 'with authenticated grower' do
         it 'can\'t have a negative position' do
           post(
-            "/api/v1/buildings/#{setup[:building_id]}/greenhouses/#{setup[:greenhouse_id]}/benches",
+            "/api/v1/buildings/#{building.id}/greenhouses/#{greenhouse.id}/benches",
             headers:,
             params: {
-              name: setup[:bench_name],
+              name: :bench_name,
               dimensions: [50, 20],
               positions: [-10, 10]
             },
@@ -119,14 +109,14 @@ RSpec.describe 'Api/V1/Benches', type: :request do
 
       it_behaves_like 'with authenticated grower' do
         before do
-          # Créer un banc qui chevauche le banc existant
+          # Create a bench that overlaps the existing bench
           post(
-            "/api/v1/buildings/#{setup[:building_id]}/greenhouses/#{setup[:greenhouse_id]}/benches",
+            "/api/v1/buildings/#{building.id}/greenhouses/#{greenhouse.id}/benches",
             headers:,
             params: {
               name: 'Overlapping Bench',
               dimensions: [50, 20],
-              positions: [setup[:bench].positions[0], setup[:bench].positions[1]] # même position que le banc existant
+              positions: [bench.positions[0], bench.positions[1]] # same position as existing bench
             },
             as: :json
           )
@@ -145,7 +135,7 @@ RSpec.describe 'Api/V1/Benches', type: :request do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t update a bench' do
           put(
-            "/api/v1/buildings/#{setup[:building_id]}/greenhouses/#{setup[:greenhouse_id]}/benches/#{setup[:bench_id]}",
+            "/api/v1/buildings/#{building.id}/greenhouses/#{greenhouse.id}/benches/#{bench.id}",
             headers:
           )
 
@@ -159,10 +149,10 @@ RSpec.describe 'Api/V1/Benches', type: :request do
       it_behaves_like 'with authenticated grower' do
         it 'can\'t have an area lower than the sum of distributions areas' do
           put(
-            "/api/v1/buildings/#{setup[:building_id]}/greenhouses/#{setup[:greenhouse_id]}/benches/#{setup[:bench_id]}",
+            "/api/v1/buildings/#{building.id}/greenhouses/#{greenhouse.id}/benches/#{bench.id}",
             headers:,
             params: {
-              name: setup[:bench_name],
+              name: :bench_name,
               dimensions: [25, 30],
               positions: [10, 10]
             },
@@ -176,14 +166,14 @@ RSpec.describe 'Api/V1/Benches', type: :request do
 
       it_behaves_like 'with authenticated grower' do
         before do
-          # Tenter la mise à jour d'un banc pour qu'il chevauche un autre banc existant
+          # Attempt to update a bench to overlap another existing bench
           put(
-            "/api/v1/buildings/#{setup[:building_id]}/greenhouses/#{setup[:greenhouse_id]}/benches/#{setup[:bench_id]}",
+            "/api/v1/buildings/#{building.id}/greenhouses/#{greenhouse.id}/benches/#{bench.id}",
             headers:,
             params: {
               name: 'Updated Bench',
               dimensions: [50, 20],
-              positions: [setup[:bench].positions[0], setup[:bench].positions[1]] # même position qu'un banc existant
+              positions: [bench.positions[0], bench.positions[1]] # same position as an existing bench
             },
             as: :json
           )
@@ -202,7 +192,7 @@ RSpec.describe 'Api/V1/Benches', type: :request do
       it_behaves_like 'with authenticated grower' do
         it 'can\'t delete a bench with ongoing requests' do
           delete(
-            "/api/v1/buildings/#{setup[:building_id]}/greenhouses/#{setup[:greenhouse_id]}/benches/#{setup[:bench_id]}",
+            "/api/v1/buildings/#{building.id}/greenhouses/#{greenhouse.id}/benches/#{bench.id}",
             headers:
           )
 
@@ -216,7 +206,7 @@ RSpec.describe 'Api/V1/Benches', type: :request do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t delete a bench' do
           delete(
-            "/api/v1/buildings/#{setup[:building_id]}/greenhouses/#{setup[:greenhouse_id]}/benches/#{setup[:bench_id]}",
+            "/api/v1/buildings/#{building.id}/greenhouses/#{greenhouse.id}/benches/#{bench.id}",
             headers:
           )
 
@@ -229,14 +219,14 @@ RSpec.describe 'Api/V1/Benches', type: :request do
     context 'when 422' do
       it_behaves_like 'with authenticated grower' do
         before do
-          setup[:bench].request_distributions.map(&:destroy)
+          bench.request_distributions.map(&:destroy)
         end
 
         it 'fails to delete a bench' do
           allow_any_instance_of(Bench).to receive(:destroy).and_return(false)
 
           delete(
-            "/api/v1/buildings/#{setup[:building_id]}/greenhouses/#{setup[:greenhouse_id]}/benches/#{setup[:bench_id]}",
+            "/api/v1/buildings/#{building.id}/greenhouses/#{greenhouse.id}/benches/#{bench.id}",
             headers:
           )
 
