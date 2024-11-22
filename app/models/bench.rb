@@ -5,7 +5,7 @@ class Bench < ApplicationRecord
   validates :dimensions,
             presence: true,
             length: { is: 2, message: 'should contain exactly two elements: length and width' }
-  validate :dimensions_must_be_positive
+  validate :dimensions_must_be_strictly_positive
 
   validates :positions,
             presence: true,
@@ -25,7 +25,7 @@ class Bench < ApplicationRecord
            inverse_of: :bench,
            dependent: :restrict_with_error
   # Checks
-  def dimensions_must_be_positive
+  def dimensions_must_be_strictly_positive
     return unless dimensions
 
     return unless dimensions.any? { |d| d <= 0 }
