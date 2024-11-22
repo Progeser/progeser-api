@@ -53,7 +53,7 @@ resource 'Greenhouses' do
     end
   end
 
-  get '/api/v1/buildings/:building_id/greenhouses/:id' do
+  get '/api/v1/greenhouses/:id' do
     example 'Get a greenhouse' do
       authentication :basic, "Bearer #{user_token.token}"
 
@@ -93,7 +93,7 @@ resource 'Greenhouses' do
     end
   end
 
-  put '/api/v1/buildings/:building_id/greenhouses/:id' do
+  put '/api/v1/greenhouses/:id' do
     parameter :name, 'The new name of the greenhouse', with_example: true
     parameter :width, 'The new width of the greenhouse', with_example: true, type: :integer
     parameter :height, 'The new height of the greenhouse', with_example: true, type: :integer
@@ -120,7 +120,7 @@ resource 'Greenhouses' do
     end
   end
 
-  delete '/api/v1/buildings/:building_id/greenhouses/:id' do
+  delete '/api/v1/greenhouses/:id' do
     before do
       greenhouse.benches.flat_map(&:request_distributions).map(&:destroy)
     end
