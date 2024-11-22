@@ -4,16 +4,18 @@ class Bench < ApplicationRecord
   # Validations
   validates :dimensions,
             presence: true,
-            length: { is: 2, message: 'should contain exactly two elements: length and width' }
+            length: { is: 2, message: I18n.t('activerecord.errors.models.bench.attributes.dimensions.incorrect_size') }
   validate :dimensions_must_be_strictly_positive
 
   validates :positions,
             presence: true,
-            length: { is: 2, message: 'should contain exactly two elements: x and y' }
+            length: { is: 2, message: I18n.t('activerecord.errors.models.bench.attributes.positions.incorrect_size') }
   validate :positions_must_be_positive
 
   validates_associated :request_distributions,
-                       message: 'sum of distributions areas can\'t be greater than bench area'
+                       message: I18n.t(
+                         'activerecord.errors.models.bench.attributes.request_distributions.invalid_distribution'
+                       )
 
   validate :overlapping_bench_exists, on: %i[create update]
 
