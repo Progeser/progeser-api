@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Api::V1::BenchesController < ApiController
-  before_action :set_greenhouse, only: %i[index create update]
+  before_action :set_greenhouse, only: %i[index create]
   before_action :set_bench, only: %i[show destroy update]
 
   def index

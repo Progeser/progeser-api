@@ -11,14 +11,12 @@ resource 'Benches' do
   let!(:user) { users(:user2) }
   let!(:user_token) { Doorkeeper::AccessToken.create!(resource_owner_id: user.id) }
 
-  let!(:building) { buildings(:building1) }
-  let!(:building_id) { building.id }
   let!(:greenhouse) { greenhouses(:greenhouse1) }
   let!(:greenhouse_id) { greenhouse.id }
   let!(:bench) { greenhouse.benches.first }
   let!(:id) { bench.id }
 
-  get '/api/v1/buildings/:building_id/greenhouses/:greenhouse_id/benches' do
+  get '/api/v1/greenhouses/:greenhouse_id/benches' do
     parameter :'page[number]', "The number of the desired page\n\n" \
       "If used, additional information is returned in the response headers:\n" \
       "`Pagination-Current-Page`: the current page number\n" \
@@ -50,7 +48,7 @@ resource 'Benches' do
     end
   end
 
-  get '/api/v1/buildings/:building_id/greenhouses/:greenhouse_id/benches/:id' do
+  get '/api/v1/benches/:id' do
     example 'Get a bench' do
       authentication :basic, "Bearer #{user_token.token}"
 
@@ -61,7 +59,7 @@ resource 'Benches' do
     end
   end
 
-  post '/api/v1/buildings/:building_id/greenhouses/:greenhouse_id/benches' do
+  post '/api/v1/greenhouses/:greenhouse_id/benches' do
     parameter :name, '(Optional) Name of the bench', with_example: true
     parameter :dimensions, '(Optional) Dimensions of the bench (in centimeters)', with_example: true, type: :array,
               items: { type: :integer }
@@ -92,7 +90,7 @@ resource 'Benches' do
     end
   end
 
-  put '/api/v1/buildings/:building_id/greenhouses/:greenhouse_id/benches/:id' do
+  put '/api/v1/benches/:id' do
     parameter :name, 'Name of the bench', with_example: true
     parameter :dimensions, '(Optional) Dimensions of the bench (in centimeters)', with_example: true, type: :array,
               items: { type: :integer }
@@ -119,7 +117,7 @@ resource 'Benches' do
     end
   end
 
-  delete '/api/v1/buildings/:building_id/greenhouses/:greenhouse_id/benches/:id' do
+  delete '/api/v1/benches/:id' do
     before do
       bench.request_distributions.destroy_all
     end
