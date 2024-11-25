@@ -5,6 +5,7 @@ account_request1:
   creation_token: WjhB23fxsMKKzfL1w6CyyVe5
   first_name: Manon
   last_name: Rousseau
+  password_digest: password
   comment: Good evening, London. Allow me first to apologize for this interruption.
     I do, like many of you, appreciate the comforts of every day routine- the security
     of the familiar, the tranquility of repetition. I enjoy them as much as any bloke.
@@ -134,15 +135,17 @@ account_request3:
 #
 # Table name: account_requests
 #
-#  id             :bigint           not null, primary key
-#  email          :string           not null
-#  creation_token :string           not null
-#  first_name     :string
-#  last_name      :string
-#  comment        :text
-#  accepted       :boolean          default(FALSE), not null
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
+#  id              :bigint           not null, primary key
+#  email           :string           not null
+#  creation_token  :string           not null
+#  first_name      :string
+#  last_name       :string
+#  comment         :text
+#  accepted        :boolean          default(FALSE), not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  laboratory      :string
+#  password_digest :string
 #
 # Indexes
 #

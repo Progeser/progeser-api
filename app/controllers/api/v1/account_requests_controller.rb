@@ -56,6 +56,7 @@ class Api::V1::AccountRequestsController < ApiController
   end
 
   def account_request_params
-    params.permit(%i[email first_name last_name comment])
+    params.permit(:email, :first_name, :last_name, :comment, :laboratory, :password)
   end
 end
+
