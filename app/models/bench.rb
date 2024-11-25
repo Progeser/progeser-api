@@ -49,26 +49,20 @@ class Bench < ApplicationRecord
     return if errors[:dimensions].any? || errors[:positions].any?
     return unless greenhouse
 
-    new_bench_position = positions
-    new_bench_dimensions = dimensions
+    if greenhouse.benches.any? do |other_bench|
+      next if other_bench == self
 
-    if greenhouse.benches.any? do |bench|
-      next if bench == self
-
-      existing_bench_position = bench.positions
-      existing_bench_dimensions = bench.dimensions
-
-      positions_overlap?(new_bench_position, new_bench_dimensions, existing_bench_position, existing_bench_dimensions)
+      positions_overlap?(other_bench)
     end
       errors.add(:positions, 'bench overlaps with an existing bench')
     end
   end
 
-  def positions_overlap?(pos1, dim1, pos2, dim2)
-    x1, y1 = pos1
-    width1, height1 = dim1
-    x2, y2 = pos2
-    width2, height2 = dim2
+  def positions_overlap?(other_bench)
+    x1, y1 = positions
+    width1, height1 = dimensions
+    x2, y2 = other_bench.positions
+    width2, height2 = other_bench.dimensions
 
     x1 < x2 + width2 && x1 + width1 > x2 && y1 < y2 + height2 && y1 + height1 > y2
   end
