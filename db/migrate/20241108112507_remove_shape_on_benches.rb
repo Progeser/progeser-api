@@ -3,8 +3,8 @@
 class RemoveShapeOnBenches < ActiveRecord::Migration[7.2]
   def change
     change_table :benches, bulk: true do |t|
-      t.remove :benches, :shape, type: :string, null: false, default: ''
-      t.remove :benches, :area, type: :decimal, null: false
+      t.remove  :shape, type: :string, null: false, default: ''
+      t.remove  :area, type: :decimal, null: false, default: 0.0
     end
   end
 end
