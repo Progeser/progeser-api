@@ -59,4 +59,3 @@ class Api::V1::AccountRequestsController < ApiController
     params.permit(:email, :first_name, :last_name, :comment, :laboratory, :password)
   end
 end
-

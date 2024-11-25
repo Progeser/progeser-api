@@ -17,13 +17,10 @@ class AccountRequest < ApplicationRecord
   validates :accepted, inclusion: { in: [true, false] }
   validates :laboratory, presence: false, allow_nil: true
 
-  # On ne veut pas que le mot de passe soit renvoyé dans les réponses JSON.
-  # Nous allons l'exclure explicitement du blueprint.
   def as_json(options = {})
-    super(options.merge(except: [:password, :password_digest]))
+    super(options.merge(except: %i[password password_digest]))
   end
 end
-
 
 # == Schema Information
 #

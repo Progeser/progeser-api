@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
 class AddLaboratoryAndPasswordToAccountRequests < ActiveRecord::Migration[7.2]
   def change
-    add_column :account_requests, :laboratory, :string
-    add_column :account_requests, :password_digest, :string
+    change_table :account_requests, bulk: true do |t|
+      t.string :laboratory
+      t.string :password_digest
+    end
   end
 end
