@@ -35,9 +35,13 @@ class Api::V1::AccountRequestsController < ApiController
   end
 
   def accept
-    render_interactor_result(
-      AccountRequests::Accept.call(account_request: @account_request)
-    )
+    result = AccountRequests::Accept.call(account_request: @account_request)
+
+    if result.success?
+      render json: result.success.to_blueprint, status: :ok
+    else
+      render_error(result.failure[:error], code: 422)
+    end
   end
 
   def destroy
