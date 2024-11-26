@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_08_152148) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_25_195048) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,20 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_08_152148) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "distributions", force: :cascade do |t|
+    t.bigint "request_distribution_id"
+    t.bigint "bench_id"
+    t.bigint "pot_id"
+    t.integer "positions_on_bench", array: true
+    t.integer "dimensions", array: true
+    t.integer "seed_quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bench_id"], name: "index_distributions_on_bench_id"
+    t.index ["pot_id"], name: "index_distributions_on_pot_id"
+    t.index ["request_distribution_id"], name: "index_distributions_on_request_distribution_id"
   end
 
   create_table "greenhouses", force: :cascade do |t|
@@ -137,16 +151,10 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_08_152148) do
 
   create_table "request_distributions", force: :cascade do |t|
     t.bigint "request_id"
-    t.bigint "bench_id"
     t.bigint "plant_stage_id"
-    t.bigint "pot_id"
-    t.integer "pot_quantity"
-    t.decimal "area"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["bench_id"], name: "index_request_distributions_on_bench_id"
     t.index ["plant_stage_id"], name: "index_request_distributions_on_plant_stage_id"
-    t.index ["pot_id"], name: "index_request_distributions_on_pot_id"
     t.index ["request_id"], name: "index_request_distributions_on_request_id"
   end
 

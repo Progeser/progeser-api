@@ -16,8 +16,8 @@ class Pot < ApplicationRecord
   validates :area, numericality: { greater_than: 0 }
 
   # Associations
-  has_many :request_distributions,
-           class_name: 'RequestDistribution',
+  has_many :distributions,
+           class_name: 'Distribution',
            inverse_of: :pot,
            dependent: :restrict_with_error
 end
