@@ -5,16 +5,16 @@ require 'acceptance_helper'
 resource 'Greenhouses' do
   explanation 'Greenhouses resource'
 
-  header 'Accept',       'application/json'
+  header 'Accept', 'application/json'
   header 'Content-Type', 'application/json'
 
-  let!(:user)       { users(:user2) }
+  let!(:user) { users(:user2) }
   let!(:user_token) { Doorkeeper::AccessToken.create!(resource_owner_id: user.id) }
 
-  let!(:greenhouse) { greenhouses(:greenhouse1) }
-  let!(:id)         { greenhouse.id }
-  let!(:building)   { buildings(:building1) }
+  let!(:building) { buildings(:building1) }
   let!(:building_id) { building.id }
+  let!(:greenhouse) { greenhouses(:greenhouse1) }
+  let!(:id) { greenhouse.id }
 
   get '/api/v1/buildings/:building_id/greenhouses' do
     parameter :'page[number]',
@@ -38,12 +38,12 @@ resource 'Greenhouses' do
               type: :integer,
               default: FetcheableOnApi.configuration.pagination_default_size
     parameter :building_id, 'ID of the building whose greenhouses are being fetched', with_example: true,
-required: true, type: :integer
+              required: true, type: :integer
 
     example 'Get all greenhouses for a specific building' do
       authentication :basic, "Bearer #{user_token.token}"
 
-      do_request(building_id:)
+      do_request
 
       expect(status).to eq(200)
 
@@ -70,10 +70,9 @@ required: true, type: :integer
     parameter :height, 'Height of the greenhouse', with_example: true, type: :integer
     parameter :building_id, 'ID of the building where the greenhouse is located', with_example: true, type: :integer
 
-    let(:name)   { 'My new greenhouse' }
-    let(:width)  { 100 }
+    let(:name) { 'My new greenhouse' }
+    let(:width) { 100 }
     let(:height) { 200 }
-    let(:building_id) { building.id }
 
     let(:raw_post) { params.to_json }
 
@@ -99,8 +98,8 @@ required: true, type: :integer
     parameter :width, 'The new width of the greenhouse', with_example: true, type: :integer
     parameter :height, 'The new height of the greenhouse', with_example: true, type: :integer
 
-    let(:name)   { 'Updated name' }
-    let(:width)  { 100 }
+    let(:name) { 'Updated name' }
+    let(:width) { 100 }
     let(:height) { 200 }
 
     let(:raw_post) { params.to_json }

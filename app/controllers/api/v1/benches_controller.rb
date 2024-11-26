@@ -2,7 +2,7 @@
 
 class Api::V1::BenchesController < ApiController
   before_action :set_greenhouse, only: %i[index create]
-  before_action :set_bench,      only: %i[show update destroy]
+  before_action :set_bench, only: %i[show destroy update]
 
   def index
     benches = policy_scope(@greenhouse.benches)
@@ -16,18 +16,24 @@ class Api::V1::BenchesController < ApiController
   end
 
   def create
-    authorize Bench
+    @bench = @greenhouse.benches.new(bench_params)
+    authorize @bench
 
-    render_interactor_result(
-      ShapedRecords::Create.call(record: @greenhouse.benches.new, params: bench_params.to_h),
-      status: :created
-    )
+    if @bench.save
+      render json: @bench.to_blueprint, status: :created
+    else
+      render_validation_error(@bench)
+    end
   end
 
   def update
-    render_interactor_result(
-      ShapedRecords::Update.call(record: @bench, params: bench_params.to_h)
-    )
+    @bench.assign_attributes(bench_params)
+
+    if @bench.save
+      render json: @bench.to_blueprint
+    else
+      render_validation_error(@bench)
+    end
   end
 
   def destroy
@@ -50,6 +56,6 @@ class Api::V1::BenchesController < ApiController
   end
 
   def bench_params
-    params.permit(:name, :area, :shape, dimensions: [])
+    params.permit(:name, dimensions: [], positions: [])
   end
 end

@@ -32,19 +32,18 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_25_161702) do
   create_table "benches", force: :cascade do |t|
     t.bigint "greenhouse_id"
     t.string "name"
-    t.string "shape", null: false
-    t.decimal "area", null: false
     t.integer "dimensions", array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "positions", array: true
     t.index ["greenhouse_id"], name: "index_benches_on_greenhouse_id"
   end
 
   create_table "buildings", force: :cascade do |t|
     t.string "name"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "description"
   end
 
   create_table "greenhouses", force: :cascade do |t|

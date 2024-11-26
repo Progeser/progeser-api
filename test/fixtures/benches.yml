@@ -1,12 +1,13 @@
-
 bench1:
   id: 1
   greenhouse_id: 1
   name: My big greenhouse - bench 1
-  shape: square
-  area: !ruby/object:BigDecimal 18:0.4e5
   dimensions:
-  - 200
+    - 200
+    - 100
+  positions:
+    - 10
+    - 50
   created_at: !ruby/object:ActiveSupport::TimeWithZone
     utc: &1 2019-12-30 18:06:47.130479000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone
@@ -21,11 +22,12 @@ bench2:
   id: 2
   greenhouse_id: 1
   name: My big greenhouse - bench 2
-  shape: rectangle
-  area: !ruby/object:BigDecimal 18:0.5e5
   dimensions:
-  - 500
-  - 100
+    - 100
+    - 100
+  positions:
+    - 200
+    - 200
   created_at: !ruby/object:ActiveSupport::TimeWithZone
     utc: &1 2019-12-30 18:06:47.133846000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone
@@ -40,10 +42,12 @@ bench3:
   id: 3
   greenhouse_id: 2
   name: My small greenhouse - bench 1
-  shape: square
-  area: !ruby/object:BigDecimal 18:0.4e5
   dimensions:
-  - 200
+    - 200
+    - 200
+  positions:
+    - 800
+    - 50
   created_at: !ruby/object:ActiveSupport::TimeWithZone
     utc: &1 2019-12-30 18:06:47.135758000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone
@@ -58,11 +62,12 @@ bench4:
   id: 4
   greenhouse_id: 2
   name: My small greenhouse - bench 2
-  shape: rectangle
-  area: !ruby/object:BigDecimal 18:0.5e5
   dimensions:
-  - 500
-  - 100
+    - 500
+    - 100
+  positions:
+    - 2
+    - 75
   created_at: !ruby/object:ActiveSupport::TimeWithZone
     utc: &1 2019-12-30 18:06:47.137411000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone
@@ -77,9 +82,12 @@ bench5:
   id: 5
   greenhouse_id: 1
   name: My big greenhouse - bench 3
-  shape: other
-  area: !ruby/object:BigDecimal 18:0.1e6
-  dimensions: 
+  dimensions:
+    - 200
+    - 100
+  positions:
+    - 600
+    - 100
   created_at: !ruby/object:ActiveSupport::TimeWithZone
     utc: &1 2020-01-06 13:27:55.355182000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone
@@ -94,9 +102,12 @@ bench6:
   id: 6
   greenhouse_id: 2
   name: My small greenhouse - bench 3
-  shape: other
-  area: !ruby/object:BigDecimal 18:0.1e6
-  dimensions: 
+  dimensions:
+    - 500
+    - 100
+  positions:
+    - 100
+    - 50
   created_at: !ruby/object:ActiveSupport::TimeWithZone
     utc: &1 2020-01-06 13:28:03.811235000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone
@@ -114,11 +125,10 @@ bench6:
 #  id            :bigint           not null, primary key
 #  greenhouse_id :bigint
 #  name          :string
-#  shape         :string           not null
-#  area          :decimal(, )      not null
 #  dimensions    :integer          is an Array
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  positions     :integer          is an Array
 #
 # Indexes
 #

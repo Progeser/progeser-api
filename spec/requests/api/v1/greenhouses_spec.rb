@@ -5,7 +5,6 @@ require 'rails_helper'
 RSpec.describe 'Api/V1/Greenhouses', type: :request do
   let!(:building) { buildings(:building1) }
   let!(:greenhouse) { greenhouses(:greenhouse1) }
-  let!(:id)         { greenhouse.id }
 
   describe 'GET api/v1/greenhouses' do
     context 'when 200' do
@@ -48,7 +47,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t get a greenhouse' do
-          get("/api/v1/greenhouses/#{id}", headers:)
+          get("/api/v1/greenhouses/#{greenhouse.id}", headers:)
 
           expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -93,7 +92,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t update a greenhouse' do
-          put("/api/v1/greenhouses/#{id}", headers:)
+          put("/api/v1/greenhouses/#{greenhouse.id}", headers:)
 
           expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -105,7 +104,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
       it_behaves_like 'with authenticated grower' do
         it 'fails to update a greenhouse with invalid params' do
           put(
-            "/api/v1/greenhouses/#{id}",
+            "/api/v1/greenhouses/#{greenhouse.id}",
             headers:,
             params: {
               name: 'foobar',
@@ -126,7 +125,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
     context 'when 403' do
       it_behaves_like 'with authenticated grower' do
         it 'can\'t delete a greenhouse with ongoing requests' do
-          delete("/api/v1/greenhouses/#{id}", headers:)
+          delete("/api/v1/greenhouses/#{greenhouse.id}", headers:)
 
           expect(status).to eq(403)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -137,7 +136,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t delete a greenhouse' do
-          delete("/api/v1/greenhouses/#{id}", headers:)
+          delete("/api/v1/greenhouses/#{greenhouse.id}", headers:)
 
           expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -154,7 +153,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
         it 'fails to delete a greenhouse' do
           allow_any_instance_of(Greenhouse).to receive(:destroy).and_return(false)
 
-          delete("/api/v1/greenhouses/#{id}", headers:)
+          delete("/api/v1/greenhouses/#{greenhouse.id}", headers:)
 
           expect(status).to eq(422)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
