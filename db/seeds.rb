@@ -209,28 +209,18 @@ if Rails.env.development?
   # RequestDistributions
   RequestDistribution.create!(
     request: Request.first,
-    bench: Bench.first,
-    plant_stage: Request.first.plant_stage,
-    pot: Pot.first,
-    pot_quantity: 30,
-    area: Pot.first.area * 30
+    plant_stage: Request.first.plant_stage
   )
 
-  RequestDistribution.create!(
-    request: Request.first,
+  # Distributions
+  Distribution.create!(
+    request_distribution: RequestDistribution.first,
     bench: Bench.first,
-    plant_stage: Request.first.plant_stage,
-    pot: Pot.second,
-    pot_quantity: 20,
-    area: Pot.second.area * 20
+    pot: Pot.first,
+    positions_on_bench: [0, 0],
+    dimensions: [100, 100],
+    seed_quantity: 200
   )
 
   Request.first.update!(status: :accepted)
-
-  RequestDistribution.create!(
-    request: Request.second,
-    bench: Bench.first,
-    plant_stage: Plant.second.plant_stages.first,
-    area: 100
-  )
 end

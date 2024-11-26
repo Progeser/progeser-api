@@ -18,20 +18,20 @@ resource 'Benches' do
 
   get '/api/v1/greenhouses/:greenhouse_id/benches' do
     parameter :'page[number]', "The number of the desired page\n\n" \
-                               "If used, additional information is returned in the response headers:\n" \
-                               "`Pagination-Current-Page`: the current page number\n" \
-                               "`Pagination-Per`: the number of records per page\n" \
-                               "`Pagination-Total-Pages`: the total number of pages\n" \
-                               '`Pagination-Total-Count`: the total number of records',
+      "If used, additional information is returned in the response headers:\n" \
+      "`Pagination-Current-Page`: the current page number\n" \
+      "`Pagination-Per`: the number of records per page\n" \
+      "`Pagination-Total-Pages`: the total number of pages\n" \
+      '`Pagination-Total-Count`: the total number of records',
               with_example: true,
               type: :integer,
               default: 1
     parameter :'page[size]', "The number of elements in a page\n\n" \
-                             "If used, additional information is returned in the response headers:\n" \
-                             "`Pagination-Current-Page`: the current page number\n" \
-                             "`Pagination-Per`: the number of records per page\n" \
-                             "`Pagination-Total-Pages`: the total number of pages\n" \
-                             '`Pagination-Total-Count`: the total number of records',
+      "If used, additional information is returned in the response headers:\n" \
+      "`Pagination-Current-Page`: the current page number\n" \
+      "`Pagination-Per`: the number of records per page\n" \
+      "`Pagination-Total-Pages`: the total number of pages\n" \
+      '`Pagination-Total-Count`: the total number of records',
               with_example: true,
               type: :integer,
               default: FetcheableOnApi.configuration.pagination_default_size
@@ -98,7 +98,7 @@ resource 'Benches' do
               items: { type: :integer }
 
     let(:name) { 'my square bench' }
-    let(:dimensions) { [100, 300] }
+    let(:dimensions) { [300, 300] }
     let(:positions) { [100, 800] }
     let(:raw_post) { params.to_json }
 
@@ -119,7 +119,7 @@ resource 'Benches' do
 
   delete '/api/v1/benches/:id' do
     before do
-      bench.request_distributions.destroy_all
+      bench.distributions.destroy_all
     end
 
     example 'Delete a bench' do

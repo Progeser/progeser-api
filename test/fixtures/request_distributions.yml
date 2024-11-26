@@ -2,11 +2,7 @@
 request_distribution1:
   id: 1
   request_id: 1
-  bench_id: 1
   plant_stage_id: 6
-  pot_id: 1
-  pot_quantity: 30
-  area: !ruby/object:BigDecimal 18:0.147e4
   created_at: !ruby/object:ActiveSupport::TimeWithZone
     utc: &1 2020-02-25 21:03:27.754298000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone
@@ -20,11 +16,7 @@ request_distribution1:
 request_distribution2:
   id: 2
   request_id: 1
-  bench_id: 1
   plant_stage_id: 6
-  pot_id: 2
-  pot_quantity: 20
-  area: !ruby/object:BigDecimal 18:0.16e4
   created_at: !ruby/object:ActiveSupport::TimeWithZone
     utc: &1 2020-02-25 21:03:27.843552000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone
@@ -38,11 +30,7 @@ request_distribution2:
 request_distribution3:
   id: 3
   request_id: 2
-  bench_id: 1
   plant_stage_id: 7
-  pot_id: 
-  pot_quantity: 
-  area: !ruby/object:BigDecimal 18:0.1e3
   created_at: !ruby/object:ActiveSupport::TimeWithZone
     utc: &1 2020-02-25 21:04:53.101797000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone
@@ -59,18 +47,12 @@ request_distribution3:
 #
 #  id             :bigint           not null, primary key
 #  request_id     :bigint
-#  bench_id       :bigint
 #  plant_stage_id :bigint
-#  pot_id         :bigint
-#  pot_quantity   :integer
-#  area           :decimal(, )
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
 # Indexes
 #
-#  index_request_distributions_on_bench_id        (bench_id)
 #  index_request_distributions_on_plant_stage_id  (plant_stage_id)
-#  index_request_distributions_on_pot_id          (pot_id)
 #  index_request_distributions_on_request_id      (request_id)
 #

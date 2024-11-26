@@ -16,18 +16,18 @@ class PotPolicy < ApplicationPolicy
   def update?
     return false unless grower?
 
-    return true if record.request_distributions.empty?
+    return true if record.distributions.empty?
 
-    record.errors.add(:request_distributions, 'can\'t update a pot with ongoing requests')
+    record.errors.add(:distributions, 'can\'t update a pot with ongoing requests')
     false
   end
 
   def destroy?
     return false unless grower?
 
-    return true if record.request_distributions.empty?
+    return true if record.distributions.empty?
 
-    record.errors.add(:request_distributions, 'can\'t delete a pot with ongoing requests')
+    record.errors.add(:distributions, 'can\'t delete a pot with ongoing requests')
     false
   end
 

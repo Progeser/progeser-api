@@ -1,0 +1,33 @@
+distribution1:
+  id: 1
+  request_distribution_id: 1
+  bench_id: 1
+  pot_id: 1
+  dimensions:
+    - 200
+    - 100
+  positions_on_bench:
+    - 0
+    - 0
+  seed_quantity: 50
+
+# == Schema Information
+#
+# Table name: distributions
+#
+#  id                      :bigint           not null, primary key
+#  request_distribution_id :bigint
+#  bench_id                :bigint
+#  pot_id                  :bigint
+#  positions_on_bench      :integer          is an Array
+#  dimensions              :integer          is an Array
+#  seed_quantity           :integer
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#
+# Indexes
+#
+#  index_distributions_on_bench_id                 (bench_id)
+#  index_distributions_on_pot_id                   (pot_id)
+#  index_distributions_on_request_distribution_id  (request_distribution_id)
+#

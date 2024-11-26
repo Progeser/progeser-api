@@ -12,23 +12,35 @@ class Bench < ApplicationRecord
             length: { is: 2, message: I18n.t('activerecord.errors.models.bench.attributes.positions.incorrect_size') }
   validate :positions_must_be_positive
 
-  validates_associated :request_distributions,
-                       message: I18n.t(
-                         'activerecord.errors.models.bench.attributes.request_distributions.invalid_distribution'
-                       )
-
   validate :overlapping_bench_exists, on: %i[create update]
+
+  validate :distributions_areas_lower_than_bench_area, on: %i[update]
 
   # Associations
   belongs_to :greenhouse,
              class_name: 'Greenhouse',
              inverse_of: :benches
 
-  has_many :request_distributions,
-           class_name: 'RequestDistribution',
+  has_many :distributions,
+           class_name: 'Distribution',
            inverse_of: :bench,
            dependent: :restrict_with_error
+
   # Checks
+  def distributions_areas_lower_than_bench_area
+    return if errors[:dimensions].any?
+
+    if distributions.any? do |distribution|
+      width1, height1 = dimensions
+      x2, y2 = distribution.positions_on_bench
+      width2, height2 = distribution.dimensions
+
+      width1 < x2 + width2 || height1 < y2 + height2
+    end
+      errors.add(:dimensions, 'sum of distributions areas can\'t be greater than bench area')
+    end
+  end
+
   def dimensions_must_be_strictly_positive
     return unless dimensions
 

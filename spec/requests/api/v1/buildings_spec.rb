@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Api/V1/Buildings', type: :request do
   let!(:building) { buildings(:building1) }
-  let!(:id)       { building.id }
+  let!(:id) { building.id }
 
   describe 'GET api/v1/buildings' do
     context 'when 200' do
@@ -136,8 +136,7 @@ RSpec.describe 'Api/V1/Buildings', type: :request do
           expect(status).to eq(403)
           expect(
             response.parsed_body.dig('error', 'message')
-          ).to include('request_distributions' =>
-                                                  ["can't delete a building with ongoing requests"])
+          ).to include('distributions' => ["can't delete a building with ongoing requests"])
         end
       end
     end

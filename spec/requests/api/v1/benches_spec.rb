@@ -149,7 +149,7 @@ RSpec.describe 'Api/V1/Benches', type: :request do
             headers:,
             params: {
               name: :bench_name,
-              dimensions: [25, 30],
+              dimensions: [5, 3],
               positions: [10, 10]
             },
             as: :json
@@ -210,7 +210,7 @@ RSpec.describe 'Api/V1/Benches', type: :request do
     context 'when 422' do
       it_behaves_like 'with authenticated grower' do
         before do
-          bench.request_distributions.map(&:destroy)
+          bench.distributions.map(&:destroy)
         end
 
         it 'fails to delete a bench' do
