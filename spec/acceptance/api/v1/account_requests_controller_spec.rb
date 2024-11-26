@@ -100,6 +100,23 @@ resource 'Account Requests' do
       expect(response['last_name']).to eq(last_name)
       expect(response['comment']).to eq(comment)
       expect(response['laboratory']).to eq(laboratory)
+      expect(response).not_to have_key('password_digest')
+    end
+  end
+
+  post '/api/v1/account_requests/:id/accept' do
+    before { allow(Mailjet::Send).to receive(:create).and_return(nil) }
+
+    example 'Accept an account request and send an email' do
+      authentication :basic, "Bearer #{user_token.token}"
+
+      do_request
+
+      expect(status).to eq(200)
+
+      account_request.reload
+      expect(JSON.parse(response_body)['accepted']).to be(true)
+      expect(account_request.accepted).to be(true)
     end
   end
 

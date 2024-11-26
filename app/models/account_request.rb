@@ -16,10 +16,6 @@ class AccountRequest < ApplicationRecord
 
   validates :accepted, inclusion: { in: [true, false] }
   validates :laboratory, presence: false, allow_nil: true
-
-  def as_json(options = {})
-    super(options.merge(except: %i[password password_digest]))
-  end
 end
 
 # == Schema Information

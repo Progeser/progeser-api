@@ -50,6 +50,8 @@ class AccountRequestTest < ActiveSupport::TestCase
   end
 end
 
+
+
 # == Schema Information
 #
 # Table name: account_requests
