@@ -14,7 +14,7 @@ if Rails.env.development?
   )
 
   # Users
-  requester_user = Users::Requester.create!(
+  Users::Requester.create!(
     role: :requester,
     email: 'dev+requester@progeser.com',
     password: 'password',
@@ -24,7 +24,7 @@ if Rails.env.development?
     laboratory: 'My test lab'
   )
 
-  grower_user = Users::Grower.create!(
+  Users::Grower.create!(
     role: :grower,
     email: 'dev+grower@progeser.com',
     password: 'password',
@@ -62,34 +62,58 @@ if Rails.env.development?
 
   # AccountRequests
   AccountRequest.create!(
-    email: 'accepted_requester@progeser.com',
-    first_name: 'Accepted',
-    last_name: 'Requester',
-    comment: 'This account request has been accepted.',
-    accepted: true,
-    laboratory: 'Accepted Lab',
-    password: 'securepassword'
+    email: Faker::Internet.email,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    comment: Faker::Movies::VForVendetta.speech,
+    laboratory: 'My test lab',
+    password: 'password',
+    accepted: true
   )
 
   AccountRequest.create!(
-    email: 'pending_requester@progeser.com',
-    first_name: 'Pending',
-    last_name: 'Requester',
-    comment: 'This account request is pending review.',
-    accepted: false,
-    laboratory: 'Pending Lab',
-    password: 'securepassword'
+    email: Faker::Internet.email,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    comment: Faker::Movies::VForVendetta.speech,
+    laboratory: 'My test lab',
+    password: 'password'
   )
 
   # Pots
-  pots = [
-    { name: 'My square pot', shape: :square, dimensions: [7], area: 49 },
-    { name: 'My rectangular pot', shape: :rectangle, dimensions: [8, 10], area: 80 },
-    { name: 'My circular pot', shape: :circle, dimensions: [10], area: 10 * Math::PI },
-    { name: 'My triangular pot', shape: :triangle, dimensions: [8, 10], area: 40 },
-    { name: 'My other pot', shape: :other, area: 120 }
-  ]
-  pots.each { |pot_attrs| Pot.create!(pot_attrs) }
+  Pot.create!(
+    name: 'My square pot',
+    shape: :square,
+    dimensions: [7],
+    area: 49
+  )
+
+  Pot.create!(
+    name: 'My rectangular pot',
+    shape: :rectangle,
+    dimensions: [8, 10],
+    area: 80
+  )
+
+  Pot.create!(
+    name: 'My circular pot',
+    shape: :circle,
+    dimensions: [10],
+    area: 10 * Math::PI
+  )
+
+  Pot.create!(
+    name: 'My triangular pot',
+    shape: :triangle,
+    dimensions: [8, 10],
+    area: 40
+  )
+
+  Pot.create!(
+    name: 'My other pot',
+    shape: :other,
+    area: 120
+  )
 
   building1 = Building.create!(
     name: 'Main Building',
@@ -116,19 +140,32 @@ if Rails.env.development?
 
   # Benches
   [greenhouse1, greenhouse2].each do |greenhouse|
-    %w[1 2 3].each do |i|
-      Bench.create!(
-        greenhouse:,
-        name: "#{greenhouse.name} - bench #{i}",
-        shape: i == '1' ? :square : (i == '2' ? :rectangle : :other),
-        dimensions: i == '1' ? [200] : (i == '2' ? [500, 100] : []),
-        area: i == '1' ? 40_000 : (i == '2' ? 50_000 : 100_000)
-      )
-    end
+    Bench.create!(
+      greenhouse:,
+      name: "#{greenhouse.name} - bench 1",
+      shape: :square,
+      dimensions: [200],
+      area: 40_000
+    )
+
+    Bench.create!(
+      greenhouse:,
+      name: "#{greenhouse.name} - bench 2",
+      shape: :rectangle,
+      dimensions: [500, 100],
+      area: 50_000
+    )
+
+    Bench.create!(
+      greenhouse:,
+      name: "#{greenhouse.name} - bench 3",
+      shape: :other,
+      area: 100_000
+    )
   end
 
   # Plants
-  plants = 3.times.map do
+  3.times do
     Plant.create!(
       name: Faker::Food.vegetables
     )
@@ -136,61 +173,58 @@ if Rails.env.development?
 
   # PlantStages
   stage_names = %w[sprout seedling vegetative budding flowering ripening]
-  plants.each do |plant|
-    stage_names.each_with_index do |stage_name, index|
+  Plant.find_each do |plant|
+    stage_names.each do |stage_name|
       plant.plant_stages.create!(
         name: stage_name,
         duration: Faker::Number.between(from: 5, to: 30),
-        position: index + 1
+        position: stage_names.find_index(stage_name) + 1
       )
     end
   end
 
   # Requests
-  requests = [
-    {
-      author: grower_user,
-      handler: grower_user,
-      plant_stage: plants.first.plant_stages.last,
-      name: 'My first request',
-      plant_name: plants.first.name,
-      plant_stage_name: plants.first.plant_stages.last.name,
-      comment: Faker::Movies::LordOfTheRings.quote,
-      due_date: Date.current + 3.months,
-      quantity: 50,
-      temperature: 20,
-      photoperiod: 8
-    },
-    {
-      author: requester_user,
-      name: 'My new request',
-      plant_name: Faker::Food.vegetables,
-      plant_stage_name: 'budding',
-      comment: Faker::Movies::LordOfTheRings.quote,
-      due_date: Date.current + 2.months,
-      quantity: 200
-    }
-  ]
-  requests.each { |req_attrs| Request.create!(req_attrs) }
+  Request.create!(
+    author: Users::Grower.first,
+    handler: Users::Grower.first,
+    plant_stage: Plant.first.plant_stages.last,
+    name: 'My first request',
+    plant_name: Plant.first.name,
+    plant_stage_name: Plant.first.plant_stages.last.name,
+    comment: Faker::Movies::LordOfTheRings.quote,
+    due_date: Date.current + 3.months,
+    quantity: 50,
+    temperature: 20,
+    photoperiod: 8
+  )
+
+  Request.create!(
+    author: Users::Requester.first,
+    name: 'My new request',
+    plant_name: Faker::Food.vegetables,
+    plant_stage_name: 'budding',
+    comment: Faker::Movies::LordOfTheRings.quote,
+    due_date: Date.current + 2.months,
+    quantity: 200
+  )
 
   # RequestDistributions
-  pots = Pot.limit(2)
   RequestDistribution.create!(
     request: Request.first,
     bench: Bench.first,
     plant_stage: Request.first.plant_stage,
-    pot: pots.first,
+    pot: Pot.first,
     pot_quantity: 30,
-    area: pots.first.area * 30
+    area: Pot.first.area * 30
   )
 
   RequestDistribution.create!(
     request: Request.first,
     bench: Bench.first,
     plant_stage: Request.first.plant_stage,
-    pot: pots.second,
+    pot: Pot.second,
     pot_quantity: 20,
-    area: pots.second.area * 20
+    area: Pot.second.area * 20
   )
 
   Request.first.update!(status: :accepted)
@@ -198,7 +232,7 @@ if Rails.env.development?
   RequestDistribution.create!(
     request: Request.second,
     bench: Bench.first,
-    plant_stage: plants.second.plant_stages.first,
+    plant_stage: Plant.second.plant_stages.first,
     area: 100
   )
 end
