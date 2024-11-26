@@ -48,6 +48,12 @@ class AccountRequestTest < ActiveSupport::TestCase
     assert_not @account_request.valid?
     assert_not_empty @account_request.errors[:accepted]
   end
+
+  test 'invalid without password' do
+    @account_request.password = nil
+    assert_not @account_request.valid?
+    assert_not_empty @account_request.errors[:password]
+  end
 end
 
 # == Schema Information
