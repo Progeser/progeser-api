@@ -105,9 +105,7 @@ resource 'Account Requests' do
   end
 
   post '/api/v1/account_requests/:id/accept' do
-    before { allow(Mailjet::Send).to receive(:create).and_return(nil) }
-
-    example 'Accept an account request and send an email' do
+    example 'Accept an account request and create a user' do
       authentication :basic, "Bearer #{user_token.token}"
 
       do_request

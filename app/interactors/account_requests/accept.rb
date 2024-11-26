@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AccountRequests::Accept < ApplicationInteractor
   input do
     schema do
@@ -7,24 +9,19 @@ class AccountRequests::Accept < ApplicationInteractor
 
   around :database_transaction!
   step :validate_input!
-  step :accept_request!
-  step :create_user_from_request!
+
+  try :accept_request!, catch: ActiveRecord::RecordInvalid
+  try :create_user_from_request!, catch: ActiveRecord::RecordInvalid
 
   def accept_request!(input)
     account_request = input[:account_request]
+    account_request.update!(accepted: true)
 
-    if account_request.update(accepted: true)
-      # Retourner un Success avec l'account_request mis à jour
-      Success(account_request: account_request)
-    else
-      # Si la mise à jour échoue, retourner un Failure avec l'erreur
-      Failure(error: account_request.errors.full_messages.join(', '))
-    end
+    { account_request: }
   end
 
   def create_user_from_request!(input)
     account_request = input[:account_request]
-
     begin
       Users::Requester.create!(
         email: account_request.email,
@@ -34,10 +31,9 @@ class AccountRequests::Accept < ApplicationInteractor
         laboratory: account_request.laboratory,
         encrypted_password: account_request.password_digest
       )
-      Success(input)
     rescue ActiveRecord::RecordInvalid => e
-      Failure(error: e.record.errors.full_messages.join(', '))
+      return Failure(error: e.record.errors.full_messages.join(', '))
     end
-
+    account_request
   end
 end
