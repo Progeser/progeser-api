@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AccountRequests::Accept < ApplicationInteractor
   input do
     schema do

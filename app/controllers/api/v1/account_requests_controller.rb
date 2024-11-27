@@ -44,8 +44,6 @@ class Api::V1::AccountRequestsController < ApiController
     end
   end
 
-
-
   def destroy
     if @account_request.destroy
       head :no_content

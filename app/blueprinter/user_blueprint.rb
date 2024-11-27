@@ -8,8 +8,6 @@ class UserBlueprint < Base
   view :with_token do
     association :access_tokens,
                 name: :token,
-                blueprint: TokenBlueprint do |user, _options|
-      user.access_tokens.last
-    end
+                blueprint: TokenBlueprint
   end
 end
