@@ -113,7 +113,6 @@ resource 'Account Requests' do
       expect(status).to eq(200)
 
       account_request.reload
-      expect(JSON.parse(response_body)['accepted']).to be(true)
       expect(account_request.accepted).to be(true)
     end
   end

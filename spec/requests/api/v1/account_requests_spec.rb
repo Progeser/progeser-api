@@ -121,6 +121,17 @@ RSpec.describe 'Api/V1/AccountRequests', type: :request do
         end
       end
     end
+
+    context 'when 422' do
+      it_behaves_like 'with authenticated grower' do
+        it 'fails to accept an account request' do
+          post("/api/v1/account_requests/#{id}/accept", headers:)
+          post("/api/v1/account_requests/#{id}/accept", headers:)
+          expect(status).to eq(422)
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
+        end
+      end
+    end
   end
 
   describe 'DELETE api/v1/account_requests/:id' do
