@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_25_161702) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_27_095600) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,19 +55,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_25_161702) do
     t.datetime "updated_at", null: false
     t.bigint "building_id"
     t.index ["building_id"], name: "index_greenhouses_on_building_id"
-  end
-
-  create_table "invites", force: :cascade do |t|
-    t.string "email", null: false
-    t.string "invitation_token", null: false
-    t.string "role"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "laboratory"
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-    t.index ["email"], name: "index_invites_on_email", unique: true
-    t.index ["invitation_token"], name: "index_invites_on_invitation_token", unique: true
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
