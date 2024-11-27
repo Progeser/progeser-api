@@ -45,15 +45,6 @@ class User < ApplicationRecord
     encrypted_password.present?
   end
 
-  # Public instance methods
-  def create_token!
-    Doorkeeper::AccessToken.create!(
-      resource_owner_id: id,
-      use_refresh_token: true,
-      expires_in: Doorkeeper.configuration.access_token_expires_in
-    )
-  end
-
   def update_password!(password:, password_confirmation:)
     if password != password_confirmation
       errors.add(:password_confirmation, :confirmation, attribute: 'Password')
