@@ -44,42 +44,6 @@ if Rails.env.development?
   )
   discarded_user.discard
 
-  # Invites
-  Invite.create!(
-    role: :requester,
-    email: 'invite+requester@progeser.com',
-    first_name: 'Requester',
-    last_name: 'Invite',
-    laboratory: 'My test lab'
-  )
-
-  Invite.create!(
-    role: :grower,
-    email: 'invite+grower@progeser.com',
-    first_name: 'Grower',
-    last_name: 'Invite'
-  )
-
-  # AccountRequests
-  AccountRequest.create!(
-    email: Faker::Internet.email,
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    comment: Faker::Movies::VForVendetta.speech,
-    laboratory: 'My test lab',
-    password: 'password',
-    accepted: true
-  )
-
-  AccountRequest.create!(
-    email: Faker::Internet.email,
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    comment: Faker::Movies::VForVendetta.speech,
-    laboratory: 'My test lab',
-    password: 'password'
-  )
-
   # Pots
   Pot.create!(
     name: 'My square pot',

@@ -10,24 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_25_161702) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_02_122908) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "account_requests", force: :cascade do |t|
-    t.string "email", null: false
-    t.string "creation_token", null: false
-    t.string "first_name"
-    t.string "last_name"
-    t.text "comment"
-    t.boolean "accepted", default: false, null: false
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-    t.string "laboratory"
-    t.string "password_digest"
-    t.index ["creation_token"], name: "index_account_requests_on_creation_token", unique: true
-    t.index ["email"], name: "index_account_requests_on_email", unique: true
-  end
 
   create_table "benches", force: :cascade do |t|
     t.bigint "greenhouse_id"
@@ -41,9 +26,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_25_161702) do
 
   create_table "buildings", force: :cascade do |t|
     t.string "name"
-    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
   end
 
   create_table "greenhouses", force: :cascade do |t|
@@ -55,19 +40,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_25_161702) do
     t.datetime "updated_at", null: false
     t.bigint "building_id"
     t.index ["building_id"], name: "index_greenhouses_on_building_id"
-  end
-
-  create_table "invites", force: :cascade do |t|
-    t.string "email", null: false
-    t.string "invitation_token", null: false
-    t.string "role"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "laboratory"
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-    t.index ["email"], name: "index_invites_on_email", unique: true
-    t.index ["invitation_token"], name: "index_invites_on_invitation_token", unique: true
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
