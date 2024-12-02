@@ -19,6 +19,15 @@ class User < ApplicationRecord
             uniqueness: { case_sensitive: false },
             format: { with: URI::MailTo::EMAIL_REGEXP }
 
+  validates :password,
+            presence: true,
+            confirmation: true,
+            on: :create
+
+  validates :password_confirmation,
+            presence: true,
+            on: :create
+
   validates :role,
             :type,
             :first_name,
@@ -37,14 +46,11 @@ class User < ApplicationRecord
            inverse_of: :author,
            dependent: :destroy
 
+  # Callbacks
   after_discard :anonymize
 
-  validates :password, presence: true, confirmation: true, on: :create, unless: :skip_password_validation?
-
-  def skip_password_validation?
-    encrypted_password.present?
-  end
-
+  # check password_confirmation before using `update_password` method from Clearance::User
+  #
   def update_password!(password:, password_confirmation:)
     if password != password_confirmation
       errors.add(:password_confirmation, :confirmation, attribute: 'Password')
