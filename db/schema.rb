@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_02_122908) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_04_211606) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -125,7 +125,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_02_122908) do
   end
 
   create_table "requests", force: :cascade do |t|
-    t.bigint "author_id"
     t.bigint "handler_id"
     t.bigint "plant_stage_id"
     t.string "name"
@@ -139,7 +138,10 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_02_122908) do
     t.integer "photoperiod"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["author_id"], name: "index_requests_on_author_id"
+    t.string "requester_first_name", null: false
+    t.string "requester_last_name", null: false
+    t.string "requester_email", null: false
+    t.string "laboratory"
     t.index ["handler_id"], name: "index_requests_on_handler_id"
     t.index ["plant_stage_id"], name: "index_requests_on_plant_stage_id"
   end

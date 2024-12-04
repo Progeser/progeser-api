@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
       resources :plants, only: %i[index show create update destroy]
 
-      resources :requests, only: %i[index show create update destroy], shallow: true do
+      resources :requests, only: %i[index show create destroy], shallow: true do
         get :requests_to_handle_count, on: :collection
         post :accept, on: :member
         post :refuse, on: :member

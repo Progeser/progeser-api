@@ -39,10 +39,27 @@ class RequestTest < ActiveSupport::TestCase
     assert @request.valid?, @request.errors.messages
   end
 
-  test 'invalid without author' do
-    @request.author = nil
+  test 'valid without laboratory' do
+    @request.laboratory = nil
+    assert @request.valid?, @request.errors.messages
+  end
+
+  test 'invalid without requester_first_name' do
+    @request.requester_first_name = nil
     assert_not @request.valid?
-    assert_not_empty @request.errors[:author]
+    assert_not_empty @request.errors[:requester_first_name]
+  end
+
+  test 'invalid without requester_last_name' do
+    @request.requester_last_name = nil
+    assert_not @request.valid?
+    assert_not_empty @request.errors[:requester_last_name]
+  end
+
+  test 'invalid without requester_email' do
+    @request.requester_email = nil
+    assert_not @request.valid?
+    assert_not_empty @request.errors[:requester_email]
   end
 
   test 'invalid without name' do
@@ -101,30 +118,3 @@ class RequestTest < ActiveSupport::TestCase
     assert_not_empty @request.errors[:plant_stage]
   end
 end
-
-# == Schema Information
-#
-# Table name: requests
-#
-#  id               :bigint           not null, primary key
-#  author_id        :bigint
-#  handler_id       :bigint
-#  plant_stage_id   :bigint
-#  name             :string
-#  plant_name       :string
-#  plant_stage_name :string
-#  status           :string
-#  comment          :text
-#  due_date         :date
-#  quantity         :integer
-#  temperature      :integer
-#  photoperiod      :integer
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
-#
-# Indexes
-#
-#  index_requests_on_author_id       (author_id)
-#  index_requests_on_handler_id      (handler_id)
-#  index_requests_on_plant_stage_id  (plant_stage_id)
-#
