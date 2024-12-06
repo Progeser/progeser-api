@@ -37,6 +37,7 @@ class Api::V1::RequestsController < ApiController
 
   def create
     authorize Request
+    Rails.logger.debug { "Received params: #{params.inspect}" }
 
     request = Request.new(request_params)
 

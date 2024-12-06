@@ -10,14 +10,10 @@ class RequestPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    grower?
   end
 
   def create?
-    true
-  end
-
-  def update?
     true
   end
 
@@ -30,7 +26,7 @@ class RequestPolicy < ApplicationPolicy
   end
 
   def cancel?
-    true
+    grower?
   end
 
   def complete?
@@ -40,15 +36,17 @@ class RequestPolicy < ApplicationPolicy
   def destroy?
     return false unless grower?
 
-    return true if record.pending?
-
-    record.errors.add(:status, 'can\'t delete a non-pending request')
-    false
+    if record.pending?
+      true
+    else
+      record.errors.add(:status, 'can\'t delete a non-pending request')
+      false
+    end
   end
 
   class Scope < Scope
     def resolve
-      grower? ? scope.all : scope.where(author: user)
+      scope.all
     end
   end
 end
