@@ -146,8 +146,13 @@ if Rails.env.development?
   end
 
   # Requests
+  # db/seeds.rb
+
   Request.create!(
-    author: Users::Grower.first,
+    requester_first_name: 'John',
+    requester_last_name: 'Doe',
+    requester_email: 'john.doe@example.com',
+    laboratory: 'My lab',
     handler: Users::Grower.first,
     plant_stage: Plant.first.plant_stages.last,
     name: 'My first request',
@@ -161,7 +166,10 @@ if Rails.env.development?
   )
 
   Request.create!(
-    author: Users::Requester.first,
+    requester_first_name: 'Alice',
+    requester_last_name: 'Smith',
+    requester_email: 'alice.smith@example.com',
+    laboratory: 'My other lab',
     name: 'My new request',
     plant_name: Faker::Food.vegetables,
     plant_stage_name: 'budding',

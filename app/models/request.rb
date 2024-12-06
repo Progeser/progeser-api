@@ -14,13 +14,14 @@ class Request < ApplicationRecord
             :quantity,
             :plant_name,
             :plant_stage_name,
+            :requester_first_name,
+            :requester_last_name,
+            :requester_email,
             presence: true
 
-  # Associations
-  belongs_to :author,
-             class_name: 'User',
-             inverse_of: :authored_requests
+  validates :requester_email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
+  # Associations
   belongs_to :handler,
              class_name: 'Users::Grower',
              inverse_of: :handled_requests,
@@ -74,25 +75,27 @@ end
 #
 # Table name: requests
 #
-#  id               :bigint           not null, primary key
-#  author_id        :bigint
-#  handler_id       :bigint
-#  plant_stage_id   :bigint
-#  name             :string
-#  plant_name       :string
-#  plant_stage_name :string
-#  status           :string
-#  comment          :text
-#  due_date         :date
-#  quantity         :integer
-#  temperature      :integer
-#  photoperiod      :integer
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
+#  id                   :bigint           not null, primary key
+#  handler_id           :bigint
+#  plant_stage_id       :bigint
+#  name                 :string
+#  plant_name           :string
+#  plant_stage_name     :string
+#  status               :string
+#  comment              :text
+#  due_date             :date
+#  quantity             :integer
+#  temperature          :integer
+#  photoperiod          :integer
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  requester_first_name :string           not null
+#  requester_last_name  :string           not null
+#  requester_email      :string           not null
+#  laboratory           :string
 #
 # Indexes
 #
-#  index_requests_on_author_id       (author_id)
 #  index_requests_on_handler_id      (handler_id)
 #  index_requests_on_plant_stage_id  (plant_stage_id)
 #

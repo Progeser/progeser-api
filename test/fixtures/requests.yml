@@ -1,7 +1,10 @@
 
 request1:
   id: 1
-  author_id: 2
+  requester_first_name: John
+  requester_last_name: Doe
+  requester_email: john.doe@example.com
+  laboratory: Central Lab
   handler_id: 2
   plant_stage_id: 6
   name: My first request
@@ -25,9 +28,12 @@ request1:
 
 request2:
   id: 2
-  author_id: 1
-  handler_id: 
-  plant_stage_id: 
+  requester_first_name: Jane
+  requester_last_name: Smith
+  requester_email: jane.smith@example.com
+  laboratory: Secondary Lab
+  handler_id:
+  plant_stage_id:
   name: My new request
   plant_name: Endive
   plant_stage_name: budding
@@ -35,8 +41,8 @@ request2:
   comment: Many that live deserve death. And some that die deserve life
   due_date: 2020-04-13
   quantity: 200
-  temperature: 
-  photoperiod: 
+  temperature:
+  photoperiod:
   created_at: !ruby/object:ActiveSupport::TimeWithZone
     utc: &1 2020-02-13 00:04:57.684318000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone
