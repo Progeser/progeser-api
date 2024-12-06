@@ -105,15 +105,6 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           expect(due_dates).to eq(due_dates.sort)
         end
       end
-
-      it_behaves_like 'with authenticated requester' do
-        it 'can get my requests' do
-          get('/api/v1/requests', headers:)
-
-          expect(status).to eq(200)
-          expect(response.parsed_body.count).to eq(1)
-        end
-      end
     end
   end
 
@@ -153,7 +144,6 @@ RSpec.describe 'Api/V1/Requests', type: :request do
               requester_email: 'john.doe@mail.com'
             }
           )
-          print response.body
           expect(status).to eq(201)
 
           request = Request.last

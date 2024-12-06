@@ -67,16 +67,10 @@ class Api::V1::RequestsController < ApiController
   end
 
   def cancel
-    if @request.accepted? && current_user.requester?
-      @request.fire_state_event(:cancel_request)
-    else
-      @request.fire_state_event(:cancel)
-    end
-
-    if @request.errors.present?
-      render_validation_error(@request)
-    else
+    if @request.fire_state_event(:cancel)
       render json: @request.to_blueprint
+    else
+      render_validation_error(@request)
     end
   end
 
