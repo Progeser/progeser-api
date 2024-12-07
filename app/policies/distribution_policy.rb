@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class GreenhousePolicy < ApplicationPolicy
+class DistributionPolicy < ApplicationPolicy
   def index?
     grower?
   end
@@ -18,12 +18,7 @@ class GreenhousePolicy < ApplicationPolicy
   end
 
   def destroy?
-    return false unless grower?
-
-    return true if record.benches.flat_map(&:distributions).empty?
-
-    record.errors.add(:distributions, 'can\'t delete a greenhouse with ongoing requests')
-    false
+    grower?
   end
 
   class Scope < Scope

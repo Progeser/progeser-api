@@ -1,25 +1,26 @@
 # frozen_string_literal: true
 
 class Api::V1::RequestDistributionsController < ApiController
-  before_action :set_request,      only: %i[index create]
+  before_action :set_request, only: %i[create]
   before_action :set_distribution, only: %i[show update destroy]
 
   def index
-    request_distributions = policy_scope(@request.request_distributions)
+    request_distributions = policy_scope(RequestDistribution.all)
     authorize request_distributions
 
-    render json: apply_fetcheable(request_distributions).to_blueprint
+    render json: request_distributions.to_blueprint
   end
 
   def show
-    render json: @distribution.to_blueprint
+    render json: @request_distribution.to_blueprint
   end
 
   def create
     authorize RequestDistribution
 
-    distribution = @request.request_distributions.new(distribution_params)
-    distribution.area = compute_area(distribution)
+    distribution = RequestDistribution.new(distribution_params)
+    distribution.request = @request
+    distribution.seeds_left_to_plant = @request.quantity
 
     if distribution.save
       render json: distribution.to_blueprint, status: :created
@@ -29,21 +30,20 @@ class Api::V1::RequestDistributionsController < ApiController
   end
 
   def update
-    @distribution.assign_attributes(distribution_params)
-    @distribution.area = compute_area(@distribution)
+    @request_distribution.assign_attributes(distribution_params)
 
-    if @distribution.save
-      render json: @distribution.to_blueprint
+    if @request_distribution.save
+      render json: @request_distribution.to_blueprint
     else
-      render_validation_error(@distribution)
+      render_validation_error(@request_distribution)
     end
   end
 
   def destroy
-    if @distribution.destroy
+    if @request_distribution.destroy
       head :no_content
     else
-      render_validation_error(@distribution)
+      render_validation_error(@request_distribution)
     end
   end
 
@@ -54,22 +54,11 @@ class Api::V1::RequestDistributionsController < ApiController
   end
 
   def set_distribution
-    @distribution = policy_scope(RequestDistribution).find(params[:id])
-    authorize(@distribution)
+    @request_distribution = policy_scope(RequestDistribution).find(params[:id])
+    authorize(@request_distribution)
   end
 
   def distribution_params
-    params.permit(:bench_id, :plant_stage_id, :pot_id, :pot_quantity)
-  end
-
-  def compute_area(distribution)
-    return params[:area] if params[:area].present?
-
-    pot_quantity = distribution.pot_quantity
-    pot_area = distribution.pot&.area
-
-    return if pot_quantity.nil? || pot_area.nil?
-
-    pot_quantity * pot_area
+    params.permit(:plant_stage_id)
   end
 end

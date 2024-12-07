@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Api/V1/Pots', type: :request do
   let!(:pot) { pots(:pot1) }
-  let!(:id)  { pot.id }
+  let!(:id) { pot.id }
 
   describe 'GET api/v1/pots' do
     context 'when 200' do
@@ -396,7 +396,7 @@ RSpec.describe 'Api/V1/Pots', type: :request do
     context 'when 422' do
       it_behaves_like 'with authenticated grower' do
         before do
-          pot.request_distributions.map(&:destroy)
+          pot.distributions.map(&:destroy)
         end
 
         it 'fails to delete a pot' do

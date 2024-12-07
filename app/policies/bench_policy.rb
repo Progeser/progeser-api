@@ -20,9 +20,9 @@ class BenchPolicy < ApplicationPolicy
   def destroy?
     return false unless grower?
 
-    return true if record.request_distributions.empty?
+    return true if record.distributions.empty?
 
-    record.errors.add(:request_distributions, 'can\'t delete a bench with ongoing requests')
+    record.errors.add(:distributions, 'can\'t delete a bench with ongoing requests')
     false
   end
 

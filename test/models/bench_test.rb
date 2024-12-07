@@ -50,6 +50,16 @@ class BenchTest < ActiveSupport::TestCase
     assert_includes @bench.errors[:positions], 'doit être rempli(e)'
   end
 
+  test 'invalid with wrong number of positions' do
+    @bench.positions = [10]
+    assert_not @bench.valid?
+    assert_includes @bench.errors[:positions], 'doit contenir exactement deux éléments : x et y'
+
+    @bench.positions = [10, 20, 30]
+    assert_not @bench.valid?
+    assert_includes @bench.errors[:positions], 'doit contenir exactement deux éléments : x et y'
+  end
+
   test 'invalid with negative position' do
     @bench.positions = [10, -20]
     assert_not @bench.valid?
@@ -69,6 +79,12 @@ class BenchTest < ActiveSupport::TestCase
     )
     assert_not overlapping_bench.valid?
     assert_includes overlapping_bench.errors[:positions], 'bench overlaps with an existing bench'
+  end
+
+  test 'invalid when distributions areas is lower than bench area' do
+    @bench.dimensions = [10, 20]
+    assert_not @bench.valid?
+    assert_includes @bench.errors[:dimensions], 'sum of distributions areas can\'t be greater than bench area'
   end
 end
 

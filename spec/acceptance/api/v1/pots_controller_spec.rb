@@ -126,7 +126,7 @@ resource 'Pots' do
     let(:raw_post) { params.to_json }
 
     before do
-      pot.request_distributions.destroy_all
+      pot.distributions.destroy_all
     end
 
     example 'Update a pot with its area' do
@@ -146,7 +146,7 @@ resource 'Pots' do
 
   delete '/api/v1/pots/:id' do
     before do
-      pot.request_distributions.destroy_all
+      pot.distributions.destroy_all
     end
 
     example 'Delete a pot' do

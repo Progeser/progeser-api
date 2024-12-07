@@ -20,9 +20,9 @@ class BuildingPolicy < ApplicationPolicy
   def destroy?
     return false unless grower?
 
-    return true if record.greenhouses.flat_map(&:benches).flat_map(&:request_distributions).empty?
+    return true if record.greenhouses.flat_map(&:benches).flat_map(&:distributions).empty?
 
-    record.errors.add(:request_distributions, 'can\'t delete a building with ongoing requests')
+    record.errors.add(:distributions, 'can\'t delete a building with ongoing requests')
     false
   end
 

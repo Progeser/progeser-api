@@ -116,8 +116,15 @@ class Api::V1::RequestsController < ApiController
 
   def request_params
     params.permit(
-      :plant_stage_id, :name, :plant_name, :plant_stage_name, :quantity, :due_date,
-      :comment, :temperature, :photoperiod
+      :plant_stage_id,
+      :name,
+      :plant_name,
+      :plant_stage_name,
+      :quantity,
+      :due_date,
+      :comment,
+      :temperature,
+      :photoperiod
     )
   end
 

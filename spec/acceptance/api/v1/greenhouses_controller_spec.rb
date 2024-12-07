@@ -122,7 +122,7 @@ resource 'Greenhouses' do
 
   delete '/api/v1/greenhouses/:id' do
     before do
-      greenhouse.benches.flat_map(&:request_distributions).map(&:destroy)
+      greenhouse.benches.flat_map(&:distributions).map(&:destroy)
     end
 
     example 'Delete a greenhouse' do

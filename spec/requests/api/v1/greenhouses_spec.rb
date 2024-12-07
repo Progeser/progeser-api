@@ -147,7 +147,7 @@ RSpec.describe 'Api/V1/Greenhouses', type: :request do
     context 'when 422' do
       it_behaves_like 'with authenticated grower' do
         before do
-          greenhouse.benches.flat_map(&:request_distributions).map(&:destroy)
+          greenhouse.benches.flat_map(&:distributions).map(&:destroy)
         end
 
         it 'fails to delete a greenhouse' do

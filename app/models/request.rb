@@ -35,10 +35,10 @@ class Request < ApplicationRecord
           class_name: 'Plant',
           through: :plant_stage
 
-  has_many :request_distributions,
-           class_name: 'RequestDistribution',
-           inverse_of: :request,
-           dependent: :destroy
+  has_one :request_distribution,
+          class_name: 'RequestDistribution',
+          inverse_of: :request,
+          dependent: :destroy
 
   # State Machine
   state_machine initial: :pending, attribute: :status do
@@ -63,8 +63,7 @@ class Request < ApplicationRecord
     end
 
     state :accepted do
-      validates :request_distributions,
-                length: { minimum: 1, message: :at_least_one }
+      validates :request_distribution, presence: { message: :at_least_one }
       validates :plant_stage, presence: true
     end
   end

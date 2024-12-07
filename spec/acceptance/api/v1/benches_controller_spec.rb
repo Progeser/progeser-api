@@ -98,7 +98,7 @@ resource 'Benches' do
               items: { type: :integer }
 
     let(:name) { 'my square bench' }
-    let(:dimensions) { [100, 300] }
+    let(:dimensions) { [300, 300] }
     let(:positions) { [100, 800] }
     let(:raw_post) { params.to_json }
 
@@ -119,7 +119,7 @@ resource 'Benches' do
 
   delete '/api/v1/benches/:id' do
     before do
-      bench.request_distributions.destroy_all
+      bench.distributions.destroy_all
     end
 
     example 'Delete a bench' do

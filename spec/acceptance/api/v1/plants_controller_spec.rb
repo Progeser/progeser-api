@@ -5,14 +5,14 @@ require 'acceptance_helper'
 resource 'Plants' do
   explanation 'Plants resource'
 
-  header 'Accept',       'application/json'
+  header 'Accept', 'application/json'
   header 'Content-Type', 'application/json'
 
-  let!(:user)       { users(:user2) }
+  let!(:user) { users(:user2) }
   let!(:user_token) { Doorkeeper::AccessToken.create!(resource_owner_id: user.id) }
 
   let!(:plant) { plants(:plant1) }
-  let!(:id)    { plant.id }
+  let!(:id) { plant.id }
 
   get '/api/v1/plants' do
     parameter :'page[number]',
@@ -148,6 +148,7 @@ resource 'Plants' do
   delete '/api/v1/plants/:id' do
     before do
       plant.plant_stages.flat_map(&:requests).map(&:destroy)
+      plant.plant_stages.flat_map(&:request_distributions).map(&:destroy)
     end
 
     example 'Delete a plant' do
