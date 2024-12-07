@@ -5,31 +5,21 @@ require 'rails_helper'
 RSpec.describe 'Api/V1/RequestDistributions', type: :request do
   let!(:request) { requests(:request1) }
   let!(:request_id) { request.id }
-  let!(:distribution) { request.request_distributions.first }
-  let!(:id) { distribution.id }
+  let!(:request_distribution) { request.request_distribution }
+  let(:distributions) { request_distribution.distributions }
+  let!(:id) { request_distribution.id }
 
-  describe 'GET api/v1/requests/:request_id/request_distributions' do
+  describe 'GET api/v1/request_distributions' do
     context 'when 200' do
       it_behaves_like 'with authenticated grower' do
-        it 'gets request distributions with pagination params' do
+        it 'gets request distributions' do
           get(
-            "/api/v1/requests/#{request_id}/request_distributions",
-            headers:,
-            params: {
-              page: {
-                number: 1,
-                size: 2
-              }
-            }
+            '/api/v1/request_distributions',
+            headers:
           )
 
           expect(status).to eq(200)
-
           expect(response.parsed_body.count).to eq(2)
-          expect(response.headers['Pagination-Current-Page']).to eq(1)
-          expect(response.headers['Pagination-Per']).to eq(2)
-          expect(response.headers['Pagination-Total-Pages']).to eq(1)
-          expect(response.headers['Pagination-Total-Count']).to eq(2)
         end
       end
     end
@@ -37,7 +27,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t get request distributions' do
-          get('/api/v1/requests/2/request_distributions', headers:)
+          get('/api/v1/request_distributions', headers:)
 
           expect(status).to eq(403)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
@@ -103,9 +93,9 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
 
           expect(status).to eq(200)
 
-          distribution.reload
-          expect(response.body).to eq(distribution.to_blueprint)
-          expect(distribution.plant_stage).to eq(PlantStage.second)
+          request_distribution.reload
+          expect(response.body).to eq(request_distribution.to_blueprint)
+          expect(request_distribution.plant_stage).to eq(PlantStage.second)
         end
       end
     end
@@ -121,22 +111,25 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
       end
     end
 
-  end
-
-  describe 'DELETE api/v1/request_distributions/:id' do
-    context 'when 403' do
+    context 'when 422' do
       it_behaves_like 'with authenticated grower' do
-        it 'can\'t delete a distribution if it is the last one of the associated request' do
-          request.request_distributions.last.destroy
+        it 'can update a request distribution invalid args' do
+          put(
+            "/api/v1/request_distributions/#{id}",
+            headers:,
+            params: {
+              plant_stage_id: 100
+            }
+          )
 
-          delete("/api/v1/request_distributions/#{id}", headers:)
-
-          expect(status).to eq(403)
+          expect(status).to eq(422)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
+  end
 
+  describe 'DELETE api/v1/request_distributions/:id' do
     context 'when 404' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t delete a request distribution' do
@@ -151,11 +144,23 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
     context 'when 422' do
       it_behaves_like 'with authenticated grower' do
         it 'fails to delete a request distribution' do
+          request_distribution.distributions.each(&:destroy)
           allow_any_instance_of(RequestDistribution).to receive(:destroy).and_return(false)
 
           delete("/api/v1/request_distributions/#{id}", headers:)
 
           expect(status).to eq(422)
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
+        end
+      end
+    end
+
+    context 'when 403' do
+      it_behaves_like 'with authenticated grower' do
+        it 'can\'t delete a request distribution if it is associated distributions' do
+          delete("/api/v1/request_distributions/#{id}", headers:)
+
+          expect(status).to eq(403)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end

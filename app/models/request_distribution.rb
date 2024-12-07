@@ -7,7 +7,7 @@ class RequestDistribution < ApplicationRecord
   # Associations
   belongs_to :request,
              class_name: 'Request',
-             inverse_of: :request_distributions
+             inverse_of: :request_distribution
 
   belongs_to :plant_stage,
              class_name: 'PlantStage',
@@ -34,11 +34,12 @@ end
 #
 # Table name: request_distributions
 #
-#  id             :bigint           not null, primary key
-#  request_id     :bigint
-#  plant_stage_id :bigint
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
+#  id                  :bigint           not null, primary key
+#  request_id          :bigint
+#  plant_stage_id      :bigint
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  seeds_left_to_plant :integer
 #
 # Indexes
 #

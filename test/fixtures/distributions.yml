@@ -4,12 +4,12 @@ distribution1:
   bench_id: 1
   pot_id: 1
   dimensions:
-    - 200
-    - 100
+    - 40
+    - 40
   positions_on_bench:
     - 0
     - 0
-  seed_quantity: 50
+  seed_quantity: 40
 
 # == Schema Information
 #

@@ -81,34 +81,34 @@ if Rails.env.development?
     name: 'My square pot',
     shape: :square,
     dimensions: [7],
-    area: 49
+    area: 250
   )
 
   Pot.create!(
     name: 'My rectangular pot',
     shape: :rectangle,
     dimensions: [8, 10],
-    area: 80
+    area: 300
   )
 
   Pot.create!(
     name: 'My circular pot',
     shape: :circle,
     dimensions: [10],
-    area: 10 * Math::PI
+    area: 100 * Math::PI
   )
 
   Pot.create!(
     name: 'My triangular pot',
     shape: :triangle,
     dimensions: [8, 10],
-    area: 40
+    area: 400
   )
 
   Pot.create!(
     name: 'My other pot',
     shape: :other,
-    area: 120
+    area: 500
   )
 
   building1 = Building.create!(
@@ -205,7 +205,14 @@ if Rails.env.development?
   # RequestDistributions
   RequestDistribution.create!(
     request: Request.first,
-    plant_stage: Request.first.plant_stage
+    plant_stage: Request.first.plant_stage,
+    seeds_left_to_plant: 50
+  )
+
+  RequestDistribution.create!(
+    request: Request.second,
+    plant_stage: Request.first.plant_stage,
+    seeds_left_to_plant: 50
   )
 
   # Distributions
@@ -215,7 +222,16 @@ if Rails.env.development?
     pot: Pot.first,
     positions_on_bench: [0, 0],
     dimensions: [100, 100],
-    seed_quantity: 200
+    seed_quantity: 20
+  )
+
+  Distribution.create!(
+    request_distribution: RequestDistribution.second,
+    bench: Bench.second,
+    pot: Pot.first,
+    positions_on_bench: [0, 0],
+    dimensions: [100, 100],
+    seed_quantity: 50
   )
 
   Request.first.update!(status: :accepted)

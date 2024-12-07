@@ -30,11 +30,12 @@ end
 #
 # Table name: request_distributions
 #
-#  id             :bigint           not null, primary key
-#  request_id     :bigint
-#  plant_stage_id :bigint
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
+#  id                  :bigint           not null, primary key
+#  request_id          :bigint
+#  plant_stage_id      :bigint
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  seeds_left_to_plant :integer
 #
 # Indexes
 #

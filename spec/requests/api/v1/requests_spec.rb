@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Api/V1/Requests', type: :request do
   let!(:request) { requests(:request1) }
-  let!(:id)      { request.id }
+  let!(:id) { request.id }
 
   describe 'GET api/v1/requests' do
     context 'when 200' do
@@ -356,7 +356,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
 
   describe 'POST api/v1/requests/:id/accept' do
     let!(:request) { requests(:request2) }
-    let!(:id)      { request.id }
+    let!(:id) { request.id }
 
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
@@ -382,7 +382,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
 
         it 'can\'t accept a request without distributions' do
           request.update(plant_stage: PlantStage.first)
-          request.request_distributions.destroy_all
+          request.request_distribution.destroy
 
           post("/api/v1/requests/#{id}/accept", headers:)
 
@@ -402,7 +402,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
 
   describe 'POST api/v1/requests/:id/refuse' do
     let!(:request) { requests(:request2) }
-    let!(:id)      { request.id }
+    let!(:id) { request.id }
 
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
@@ -431,7 +431,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
 
   describe 'POST api/v1/requests/:id/cancel' do
     let!(:request) { requests(:request2) }
-    let!(:id)      { request.id }
+    let!(:id) { request.id }
 
     context 'when 200' do
       it_behaves_like 'with authenticated requester' do
@@ -476,7 +476,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
 
   describe 'POST api/v1/requests/:id/complete' do
     let!(:request) { requests(:request2) }
-    let!(:id)      { request.id }
+    let!(:id) { request.id }
 
     context 'when 403' do
       it_behaves_like 'with authenticated requester' do
