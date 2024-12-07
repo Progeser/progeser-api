@@ -12,35 +12,23 @@ class Bench < ApplicationRecord
             length: { is: 2, message: I18n.t('activerecord.errors.models.bench.attributes.positions.incorrect_size') }
   validate :positions_must_be_positive
 
-  validate :overlapping_bench_exists, on: %i[create update]
+  validates_associated :request_distributions,
+                       message: I18n.t(
+                         'activerecord.errors.models.bench.attributes.request_distributions.invalid_distribution'
+                       )
 
-  validate :distributions_areas_lower_than_bench_area, on: %i[update]
+  validate :overlapping_bench_exists, on: %i[create update]
 
   # Associations
   belongs_to :greenhouse,
              class_name: 'Greenhouse',
              inverse_of: :benches
 
-  has_many :distributions,
-           class_name: 'Distribution',
+  has_many :request_distributions,
+           class_name: 'RequestDistribution',
            inverse_of: :bench,
            dependent: :restrict_with_error
-
   # Checks
-  def distributions_areas_lower_than_bench_area
-    return if errors[:dimensions].any?
-
-    if distributions.any? do |distribution|
-      width1, height1 = dimensions
-      x2, y2 = distribution.positions_on_bench
-      width2, height2 = distribution.dimensions
-
-      width1 < x2 + width2 || height1 < y2 + height2
-    end
-      errors.add(:dimensions, 'sum of distributions areas can\'t be greater than bench area')
-    end
-  end
-
   def dimensions_must_be_strictly_positive
     return unless dimensions
 
@@ -61,26 +49,20 @@ class Bench < ApplicationRecord
     return if errors[:dimensions].any? || errors[:positions].any?
     return unless greenhouse
 
-    new_bench_position = positions
-    new_bench_dimensions = dimensions
+    if greenhouse.benches.any? do |other_bench|
+      next if other_bench == self
 
-    if greenhouse.benches.any? do |bench|
-      next if bench == self
-
-      existing_bench_position = bench.positions
-      existing_bench_dimensions = bench.dimensions
-
-      positions_overlap?(new_bench_position, new_bench_dimensions, existing_bench_position, existing_bench_dimensions)
+      positions_overlap?(other_bench)
     end
       errors.add(:positions, 'bench overlaps with an existing bench')
     end
   end
 
-  def positions_overlap?(pos1, dim1, pos2, dim2)
-    x1, y1 = pos1
-    width1, height1 = dim1
-    x2, y2 = pos2
-    width2, height2 = dim2
+  def positions_overlap?(other_bench)
+    x1, y1 = positions
+    width1, height1 = dimensions
+    x2, y2 = other_bench.positions
+    width2, height2 = other_bench.dimensions
 
     x1 < x2 + width2 && x1 + width1 > x2 && y1 < y2 + height2 && y1 + height1 > y2
   end

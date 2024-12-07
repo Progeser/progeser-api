@@ -28,6 +28,18 @@ class RequestDistribution < ApplicationRecord
 
     errors.add(:plant_stage, 'must be from requested plant')
   end
+
+  def distributions_areas_lower_than_bench_area
+    return if area.nil?
+    return if bench&.dimensions.nil?
+
+    bench_area = bench.dimensions.inject(:*)
+    sum = bench.request_distributions.sum(&:area)
+    sum += area if new_record? # area isn't included in previous operation if record isn't persisted
+    return if sum <= bench_area
+
+    errors.add(:bench, 'sum of distributions areas can\'t be greater than bench area')
+  end
 end
 
 # == Schema Information

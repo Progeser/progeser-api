@@ -23,6 +23,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_28_134849) do
     t.boolean "accepted", default: false, null: false
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.string "laboratory"
+    t.string "password_digest"
     t.index ["creation_token"], name: "index_account_requests_on_creation_token", unique: true
     t.index ["email"], name: "index_account_requests_on_email", unique: true
   end

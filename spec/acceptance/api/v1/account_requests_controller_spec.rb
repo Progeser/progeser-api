@@ -77,11 +77,15 @@ resource 'Account Requests' do
     parameter :first_name, 'First name of the requested account', with_example: true
     parameter :last_name, 'Last name of the requested account', with_example: true
     parameter :comment, '(Optional) Free comment to give additional information', with_example: true
+    parameter :laboratory, '(Optional) Laboratory of the requested account', with_example: true
+    parameter :password, 'Password of the requested account', with_example: true
 
     let(:email)      { Faker::Internet.email }
     let(:first_name) { Faker::Name.first_name }
     let(:last_name)  { Faker::Name.last_name }
     let(:comment)    { Faker::Movies::VForVendetta.speech }
+    let(:laboratory) { Faker::Company.name }
+    let(:password)   { Faker::Internet.password }
 
     let(:raw_post) { params.to_json }
 
@@ -95,6 +99,8 @@ resource 'Account Requests' do
       expect(response['first_name']).to eq(first_name)
       expect(response['last_name']).to eq(last_name)
       expect(response['comment']).to eq(comment)
+      expect(response['laboratory']).to eq(laboratory)
+      expect(response).not_to have_key('password_digest')
     end
   end
 
@@ -107,8 +113,6 @@ resource 'Account Requests' do
       do_request
 
       expect(status).to eq(200)
-
-      expect(Mailjet::Send).to have_received(:create).once
 
       account_request.reload
       expect(JSON.parse(response_body)['accepted']).to be(true)

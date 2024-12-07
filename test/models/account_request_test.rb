@@ -48,21 +48,29 @@ class AccountRequestTest < ActiveSupport::TestCase
     assert_not @account_request.valid?
     assert_not_empty @account_request.errors[:accepted]
   end
+
+  test 'invalid without password' do
+    @account_request.password = nil
+    assert_not @account_request.valid?
+    assert_not_empty @account_request.errors[:password]
+  end
 end
 
 # == Schema Information
 #
 # Table name: account_requests
 #
-#  id             :bigint           not null, primary key
-#  email          :string           not null
-#  creation_token :string           not null
-#  first_name     :string
-#  last_name      :string
-#  comment        :text
-#  accepted       :boolean          default(FALSE), not null
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
+#  id              :bigint           not null, primary key
+#  email           :string           not null
+#  creation_token  :string           not null
+#  first_name      :string
+#  last_name       :string
+#  comment         :text
+#  accepted        :boolean          default(FALSE), not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  laboratory      :string
+#  password_digest :string
 #
 # Indexes
 #
