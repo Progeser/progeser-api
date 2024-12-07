@@ -13,7 +13,11 @@ class Distribution < ApplicationRecord
             length: { is: 2, message: I18n.t('activerecord.errors.models.bench.attributes.positions.incorrect_size') }
   validate :positions_must_be_positive
 
+  validate :validate_seeds_left_to_plant, on: %i[create update]
+
   validate :overlapping_distribution_exists, on: %i[create update]
+
+  validate :distribution_within_bench_bounds, on: %i[create update]
 
   # Associations
   belongs_to :bench,
@@ -28,6 +32,38 @@ class Distribution < ApplicationRecord
              class_name: 'Pot',
              inverse_of: :distributions,
              optional: true
+
+  after_create :decrement_seeds_left_to_plant
+  before_update :update_seeds_left_to_plant, if: :will_save_change_to_seed_quantity?
+  before_destroy :increase_seeds_left_to_plant
+
+  private
+
+  def increase_seeds_left_to_plant
+    request_distribution.seeds_left_to_plant += seed_quantity
+    request_distribution.save
+  end
+
+  def decrement_seeds_left_to_plant
+    request_distribution.seeds_left_to_plant -= seed_quantity
+    request_distribution.save
+  end
+
+  def update_seeds_left_to_plant
+    change_in_quantity = seed_quantity - seed_quantity_was
+    request_distribution.seeds_left_to_plant -= change_in_quantity
+    request_distribution.save
+  end
+
+  def validate_seeds_left_to_plant
+    return if errors[:seed_quantity].any?
+
+    quantity_change = seed_quantity - (seed_quantity_was || 0)
+
+    return if request_distribution.seeds_left_to_plant >= quantity_change
+
+    errors.add(:seed_quantity, 'not enough seeds left to plant for this request')
+  end
 
   def dimensions_must_be_strictly_positive
     return unless dimensions
@@ -65,6 +101,19 @@ class Distribution < ApplicationRecord
     width2, height2 = other_distribution.dimensions
 
     x1 < x2 + width2 && x1 + width1 > x2 && y1 < y2 + height2 && y1 + height1 > y2
+  end
+
+  def distribution_within_bench_bounds
+    return if errors[:dimensions].any? || errors[:positions_on_bench].any?
+    return unless bench
+
+    bench_dimensions = bench.dimensions
+    x, y = positions_on_bench
+    width, height = dimensions
+
+    return unless x + width > bench_dimensions[0] || y + height > bench_dimensions[1]
+
+    errors.add(:positions_on_bench, 'distribution exceeds the bounds of the bench')
   end
 end
 

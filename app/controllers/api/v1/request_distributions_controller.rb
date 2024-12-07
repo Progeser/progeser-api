@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 class Api::V1::RequestDistributionsController < ApiController
-  before_action :set_request, only: %i[index create]
+  before_action :set_request, only: %i[create]
   before_action :set_distribution, only: %i[show update destroy]
 
   def index
-    request_distributions = policy_scope(@request.request_distributions)
+    request_distributions = policy_scope(RequestDistribution.all)
     authorize request_distributions
 
-    render json: apply_fetcheable(request_distributions).to_blueprint
+    render json: request_distributions.to_blueprint
   end
 
   def show
@@ -18,7 +18,9 @@ class Api::V1::RequestDistributionsController < ApiController
   def create
     authorize RequestDistribution
 
-    distribution = @request.request_distributions.new(distribution_params)
+    distribution = RequestDistribution.new(distribution_params)
+    distribution.request = @request
+    distribution.seeds_left_to_plant = @request.quantity
 
     if distribution.save
       render json: distribution.to_blueprint, status: :created

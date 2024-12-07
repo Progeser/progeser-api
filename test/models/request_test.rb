@@ -90,9 +90,9 @@ class RequestTest < ActiveSupport::TestCase
 
   # State Machine
   test 'can\'t be accepted without at least one request distribution' do
-    @request.request_distributions = []
+    @request.request_distribution = nil
     assert_not @request.valid?
-    assert_not_empty @request.errors[:request_distributions]
+    assert_not_empty @request.errors[:request_distribution]
   end
 
   test 'can\'t be accepted without a plant stage' do

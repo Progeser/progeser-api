@@ -6,6 +6,9 @@ class DistributionTest < ActiveSupport::TestCase
   # Setups
   def setup
     @distribution = distributions(:distribution1)
+    @request_distribution = request_distributions(:request_distribution1)
+    @bench = benches(:bench1)
+    @pot = pots(:pot1)
   end
 
   test 'invalid without seed quantity' do
@@ -74,6 +77,49 @@ class DistributionTest < ActiveSupport::TestCase
     @distribution.positions_on_bench = [-1, 0]
     assert_not @distribution.valid?
     assert_includes @distribution.errors[:positions_on_bench], 'each position must be positive'
+  end
+
+  test 'invalid since there are not enough seeds left' do
+    distribution = Distribution.new(
+      request_distribution: @request_distribution,
+      bench: @bench,
+      pot: @pot,
+      positions_on_bench: [5, 5],
+      dimensions: [10, 20],
+      seed_quantity: 100
+    )
+
+    assert_not distribution.valid?
+    assert_includes distribution.errors[:seed_quantity], 'not enough seeds left to plant for this request'
+  end
+
+  test 'invalid when overlapping with another distribution in the same bench' do
+    overlapping_distribution = Distribution.new(
+      request_distribution: @request_distribution,
+      bench: @bench,
+      pot: @pot,
+      positions_on_bench: [0, 0],
+      dimensions: [10, 20],
+      seed_quantity: 100
+    )
+
+    assert_not overlapping_distribution.valid?
+    assert_includes overlapping_distribution.errors[:positions_on_bench], 'distribution overlaps with an existing distribution'
+  end
+
+  test 'invalid when distribution outside bench' do
+    distribution = Distribution.new(
+      request_distribution: @request_distribution,
+      bench: @bench,
+      pot: @pot,
+      positions_on_bench: [500, 500],
+      dimensions: [10, 20],
+      seed_quantity: 100
+    )
+
+    assert_not distribution.valid?
+    assert_includes distribution.errors[:positions_on_bench], 'distribution exceeds the bounds of the bench'
+
   end
 end
 

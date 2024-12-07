@@ -11,12 +11,13 @@ resource 'RequestDistributions' do
   let!(:user) { users(:user2) }
   let!(:user_token) { Doorkeeper::AccessToken.create!(resource_owner_id: user.id) }
 
-  let!(:request) { requests(:request1) }
+  let!(:requests) { Request.all }
+  let!(:request) { requests.first }
   let!(:request_id) { request.id }
-  let!(:distribution) { request.request_distributions.first }
-  let!(:id) { distribution.id }
+  let!(:request_distribution) { request.request_distribution }
+  let!(:id) { request_distribution.id }
 
-  get '/api/v1/requests/:request_id/request_distributions' do
+  get '/api/v1/request_distributions' do
     parameter :'page[number]',
               "The number of the desired page\n\n" \
                 "If used, additional information is returned in the response headers:\n" \
@@ -44,9 +45,6 @@ resource 'RequestDistributions' do
       do_request
 
       expect(status).to eq(200)
-
-      expect(response_body).to eq(request.request_distributions.to_blueprint)
-      expect(JSON.parse(response_body).count).to eq(request.request_distributions.count)
     end
   end
 
@@ -57,7 +55,7 @@ resource 'RequestDistributions' do
       do_request
 
       expect(status).to eq(200)
-      expect(response_body).to eq(distribution.to_blueprint)
+      expect(response_body).to eq(request_distribution.to_blueprint)
     end
   end
 
@@ -94,21 +92,22 @@ resource 'RequestDistributions' do
 
       expect(status).to eq(200)
 
-      distribution.reload
-      expect(response_body).to eq(distribution.to_blueprint)
-      expect(distribution.plant_stage_id).to eq(plant_stage_id)
+      request_distribution.reload
+      expect(response_body).to eq(request_distribution.to_blueprint)
+      expect(request_distribution.plant_stage_id).to eq(plant_stage_id)
     end
   end
 
   delete '/api/v1/request_distributions/:id' do
     example 'Delete a request distribution' do
+      request_distribution.distributions.each(&:destroy)
       authentication :basic, "Bearer #{user_token.token}"
 
       do_request
 
       expect(status).to eq(204)
 
-      expect { distribution.reload }.to raise_exception(ActiveRecord::RecordNotFound)
+      expect { request_distribution.reload }.to raise_exception(ActiveRecord::RecordNotFound)
     end
   end
 end

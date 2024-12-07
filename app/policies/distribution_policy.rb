@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class RequestDistributionPolicy < ApplicationPolicy
+class DistributionPolicy < ApplicationPolicy
   def index?
     grower?
   end
@@ -18,14 +18,7 @@ class RequestDistributionPolicy < ApplicationPolicy
   end
 
   def destroy?
-    return false unless grower?
-
-    if record.distributions.count.zero?
-      true
-    else
-      record.errors.add(:request, 'can\'t delete request_distribution if there are any left distributions')
-      false
-    end
+    grower?
   end
 
   class Scope < Scope
