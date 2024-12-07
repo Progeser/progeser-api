@@ -104,7 +104,8 @@ class DistributionTest < ActiveSupport::TestCase
     )
 
     assert_not overlapping_distribution.valid?
-    assert_includes overlapping_distribution.errors[:positions_on_bench], 'distribution overlaps with an existing distribution'
+    assert_includes overlapping_distribution.errors[:positions_on_bench],
+                    'distribution overlaps with an existing distribution'
   end
 
   test 'invalid when distribution outside bench' do
@@ -119,7 +120,6 @@ class DistributionTest < ActiveSupport::TestCase
 
     assert_not distribution.valid?
     assert_includes distribution.errors[:positions_on_bench], 'distribution exceeds the bounds of the bench'
-
   end
 end
 

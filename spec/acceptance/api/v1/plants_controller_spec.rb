@@ -17,21 +17,21 @@ resource 'Plants' do
   get '/api/v1/plants' do
     parameter :'page[number]',
               "The number of the desired page\n\n" \
-                "If used, additional information is returned in the response headers:\n" \
-                "`Pagination-Current-Page`: the current page number\n" \
-                "`Pagination-Per`: the number of records per page\n" \
-                "`Pagination-Total-Pages`: the total number of pages\n" \
-                '`Pagination-Total-Count`: the total number of records',
+              "If used, additional information is returned in the response headers:\n" \
+              "`Pagination-Current-Page`: the current page number\n" \
+              "`Pagination-Per`: the number of records per page\n" \
+              "`Pagination-Total-Pages`: the total number of pages\n" \
+              '`Pagination-Total-Count`: the total number of records',
               with_example: true,
               type: :integer,
               default: 1
     parameter :'page[size]',
               "The number of elements in a page\n\n" \
-                "If used, additional information is returned in the response headers:\n" \
-                "`Pagination-Current-Page`: the current page number\n" \
-                "`Pagination-Per`: the number of records per page\n" \
-                "`Pagination-Total-Pages`: the total number of pages\n" \
-                '`Pagination-Total-Count`: the total number of records',
+              "If used, additional information is returned in the response headers:\n" \
+              "`Pagination-Current-Page`: the current page number\n" \
+              "`Pagination-Per`: the number of records per page\n" \
+              "`Pagination-Total-Pages`: the total number of pages\n" \
+              '`Pagination-Total-Count`: the total number of records',
               with_example: true,
               type: :integer,
               default: FetcheableOnApi.configuration.pagination_default_size
@@ -65,7 +65,7 @@ resource 'Plants' do
     parameter :name, 'Name of the plant', with_example: true
     parameter :plant_stages_attributes,
               "Plant stages attributes\n" \
-                'A plant stage should have a name, a duration and a position',
+              'A plant stage should have a name, a duration and a position',
               with_example: true,
               type: :array,
               items: { type: :object }
@@ -99,11 +99,11 @@ resource 'Plants' do
     parameter :name, 'Name of the plant', with_example: true
     parameter :plant_stages_attributes,
               "Plant stages attributes\n" \
-                "A plant stage should have a name, a duration and a position\n" \
-                "To update attributes of an existing stage, its `id` should be passed\n" \
-                'To update the `position` of a specific stage, you can simply pass it alone; ' \
-                "other positions will be automatically scaled\n" \
-                'To destroy an existing stage, `_destroy` param should be set to true',
+              "A plant stage should have a name, a duration and a position\n" \
+              "To update attributes of an existing stage, its `id` should be passed\n" \
+              'To update the `position` of a specific stage, you can simply pass it alone; ' \
+              "other positions will be automatically scaled\n" \
+              'To destroy an existing stage, `_destroy` param should be set to true',
               with_example: true,
               type: :array,
               items: { type: :object }

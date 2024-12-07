@@ -36,7 +36,7 @@ RSpec.describe 'Api/V1/Distributions', type: :request do
   end
 
   describe 'POST /api/v1/distributions/:distribution_id' do
-    context '404' do
+    context 'when 403' do
       it_behaves_like 'with authenticated requester' do
         it 'can\'t create a distribution' do
           post('/api/v1/distributions', headers:)
