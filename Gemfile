@@ -27,8 +27,6 @@ gem 'clearance', '~> 2.5'
 # Minimal authorization through OO design and pure Ruby classes
 gem 'pundit', '~> 2.1'
 
-gem 'rails-html-sanitizer', '>= 1.6.1'
-
 # Optimized JSON
 gem 'oj', '~> 3.10'
 
