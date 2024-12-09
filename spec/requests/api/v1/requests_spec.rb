@@ -105,15 +105,6 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           expect(due_dates).to eq(due_dates.sort)
         end
       end
-
-      it_behaves_like 'with authenticated requester' do
-        it 'can get my requests' do
-          get('/api/v1/requests', headers:)
-
-          expect(status).to eq(200)
-          expect(response.parsed_body.count).to eq(1)
-        end
-      end
     end
   end
 
@@ -124,19 +115,6 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           get('/api/v1/requests/requests_to_handle_count', headers:)
 
           expect(status).to eq(403)
-          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
-        end
-      end
-    end
-  end
-
-  describe 'GET api/v1/requests/:id' do
-    context 'when 404' do
-      it_behaves_like 'with authenticated requester' do
-        it 'can\'t get a request of another author' do
-          get("/api/v1/requests/#{id}", headers:)
-
-          expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
@@ -160,15 +138,16 @@ RSpec.describe 'Api/V1/Requests', type: :request do
               due_date: Date.current + 6.months,
               comment: 'My comment',
               temperature: 10,
-              photoperiod: 4
+              photoperiod: 4,
+              requester_first_name: 'John',
+              requester_last_name: 'Doe',
+              requester_email: 'john.doe@mail.com'
             }
           )
-
           expect(status).to eq(201)
 
           request = Request.last
           expect(response.body).to eq(request.to_blueprint)
-          expect(request.author).to eq(user)
           expect(request.handler).to be_nil
           expect(request.plant_stage).to eq(plant_stage)
           expect(request.name).to eq('My request')
@@ -180,6 +159,9 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           expect(request.comment).to eq('My comment')
           expect(request.temperature).to eq(10)
           expect(request.photoperiod).to eq(4)
+          expect(request.requester_first_name).to eq('John')
+          expect(request.requester_last_name).to eq('Doe')
+          expect(request.requester_email).to eq('john.doe@mail.com')
         end
 
         it 'can create a request from a non-existing plant_stage' do
@@ -194,7 +176,10 @@ RSpec.describe 'Api/V1/Requests', type: :request do
               due_date: Date.current + 6.months,
               comment: 'My comment',
               temperature: 10,
-              photoperiod: 4
+              photoperiod: 4,
+              requester_first_name: 'John',
+              requester_last_name: 'Doe',
+              requester_email: 'john.doe@mail.com'
             }
           )
 
@@ -202,7 +187,6 @@ RSpec.describe 'Api/V1/Requests', type: :request do
 
           request = Request.last
           expect(response.body).to eq(request.to_blueprint)
-          expect(request.author).to eq(user)
           expect(request.handler).to be_nil
           expect(request.plant_stage).to be_nil
           expect(request.name).to eq('My request')
@@ -214,6 +198,9 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           expect(request.comment).to eq('My comment')
           expect(request.temperature).to eq(10)
           expect(request.photoperiod).to eq(4)
+          expect(request.requester_first_name).to eq('John')
+          expect(request.requester_last_name).to eq('Doe')
+          expect(request.requester_email).to eq('john.doe@mail.com')
         end
       end
 
@@ -232,7 +219,10 @@ RSpec.describe 'Api/V1/Requests', type: :request do
               due_date: Date.current + 6.months,
               comment: 'My comment',
               temperature: 10,
-              photoperiod: 4
+              photoperiod: 4,
+              requester_first_name: 'John',
+              requester_last_name: 'Doe',
+              requester_email: 'john.doe@mail.com'
             }
           )
 
@@ -240,7 +230,6 @@ RSpec.describe 'Api/V1/Requests', type: :request do
 
           request = Request.last
           expect(response.body).to eq(request.to_blueprint)
-          expect(request.author).to eq(user)
           expect(request.handler).to be_nil
           expect(response.parsed_body['plant_id']).to eq(plant.id)
           expect(request.plant_stage).to eq(plant_stage)
@@ -253,6 +242,9 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           expect(request.comment).to eq('My comment')
           expect(request.temperature).to eq(10)
           expect(request.photoperiod).to eq(4)
+          expect(request.requester_first_name).to eq('John')
+          expect(request.requester_last_name).to eq('Doe')
+          expect(request.requester_email).to eq('john.doe@mail.com')
         end
 
         it 'can create a request from a non-existing plant_stage' do
@@ -267,7 +259,10 @@ RSpec.describe 'Api/V1/Requests', type: :request do
               due_date: Date.current + 6.months,
               comment: 'My comment',
               temperature: 10,
-              photoperiod: 4
+              photoperiod: 4,
+              requester_first_name: 'John',
+              requester_last_name: 'Doe',
+              requester_email: 'john.doe@mail.com'
             }
           )
 
@@ -275,7 +270,6 @@ RSpec.describe 'Api/V1/Requests', type: :request do
 
           request = Request.last
           expect(response.body).to eq(request.to_blueprint)
-          expect(request.author).to eq(user)
           expect(request.handler).to be_nil
           expect(response.parsed_body['plant_id']).to be_nil
           expect(request.plant_stage).to be_nil
@@ -288,6 +282,9 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           expect(request.comment).to eq('My comment')
           expect(request.temperature).to eq(10)
           expect(request.photoperiod).to eq(4)
+          expect(request.requester_first_name).to eq('John')
+          expect(request.requester_last_name).to eq('Doe')
+          expect(request.requester_email).to eq('john.doe@mail.com')
         end
       end
     end
@@ -306,44 +303,10 @@ RSpec.describe 'Api/V1/Requests', type: :request do
               due_date: nil,
               comment: nil,
               temperature: nil,
-              photoperiod: nil
-            }
-          )
-
-          expect(status).to eq(422)
-          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
-        end
-      end
-    end
-  end
-
-  describe 'PUT api/v1/requests/:id' do
-    context 'when 404' do
-      it_behaves_like 'with authenticated requester' do
-        it 'can\'t update a request of another author' do
-          put("/api/v1/requests/#{id}", headers:)
-
-          expect(status).to eq(404)
-          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
-        end
-      end
-    end
-
-    context 'when 422' do
-      it_behaves_like 'with authenticated grower' do
-        it 'fails to update a request with missing params' do
-          put(
-            "/api/v1/requests/#{id}",
-            headers:,
-            params: {
-              name: nil,
-              plant_name: nil,
-              plant_stage_name: nil,
-              quantity: nil,
-              due_date: nil,
-              comment: nil,
-              temperature: nil,
-              photoperiod: nil
+              photoperiod: nil,
+              requester_first_name: nil,
+              requester_last_name: nil,
+              requester_email: nil
             }
           )
 
@@ -433,33 +396,6 @@ RSpec.describe 'Api/V1/Requests', type: :request do
     let!(:request) { requests(:request2) }
     let!(:id)      { request.id }
 
-    context 'when 200' do
-      it_behaves_like 'with authenticated requester' do
-        it 'can cancel a pending request' do
-          post("/api/v1/requests/#{id}/cancel", headers:)
-
-          expect(status).to eq(200)
-
-          request.reload
-          expect(response.body).to eq(request.to_blueprint)
-          expect(request.status).to eq(:canceled)
-        end
-
-        it 'can ask to cancel an accepted request' do
-          request.update(plant_stage: PlantStage.first)
-          request.update(status: :accepted)
-
-          post("/api/v1/requests/#{id}/cancel", headers:)
-
-          expect(status).to eq(200)
-
-          request.reload
-          expect(response.body).to eq(request.to_blueprint)
-          expect(request.status).to eq(:in_cancelation)
-        end
-      end
-    end
-
     context 'when 422' do
       it_behaves_like 'with authenticated grower' do
         it 'can\'t cancel a non pending, accepted or in_cancelation request' do
@@ -518,7 +454,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
         it 'can\'t delete a request' do
           delete("/api/v1/requests/#{id}", headers:)
 
-          expect(status).to eq(404)
+          expect(status).to eq(403)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end

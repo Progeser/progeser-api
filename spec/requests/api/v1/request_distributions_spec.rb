@@ -118,7 +118,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
         it 'can\'t create a request distribution' do
           post("/api/v1/requests/#{request_id}/request_distributions", headers:)
 
-          expect(status).to eq(404)
+          expect(status).to eq(403)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
