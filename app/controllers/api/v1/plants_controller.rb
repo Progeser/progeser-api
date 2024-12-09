@@ -2,6 +2,8 @@
 
 class Api::V1::PlantsController < ApiController
   before_action :set_plant, except: %i[index create]
+  skip_before_action :doorkeeper_authorize!, only: :index
+  skip_after_action :verify_authorized, only: :index
 
   def index
     plants = policy_scope(Plant)

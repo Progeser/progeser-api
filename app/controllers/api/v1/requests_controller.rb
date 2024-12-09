@@ -2,6 +2,8 @@
 
 class Api::V1::RequestsController < ApiController
   skip_after_action :verify_policy_scoped, only: :requests_to_handle_count
+  skip_before_action :doorkeeper_authorize!, only: :create
+  skip_after_action :verify_authorized, only: :create
 
   before_action :set_request, except: %i[index requests_to_handle_count create]
 
@@ -36,7 +38,6 @@ class Api::V1::RequestsController < ApiController
   end
 
   def create
-    authorize Request
     request = Request.new(request_params)
 
     plant_attributes_from_params(request)
