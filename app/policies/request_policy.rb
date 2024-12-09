@@ -46,7 +46,7 @@ class RequestPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      grower? ? scope.all : scope.none
+      scope.all
     end
   end
 end
