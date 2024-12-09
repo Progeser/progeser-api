@@ -118,3 +118,32 @@ class RequestTest < ActiveSupport::TestCase
     assert_not_empty @request.errors[:plant_stage]
   end
 end
+
+# == Schema Information
+#
+# Table name: requests
+#
+#  id                   :bigint           not null, primary key
+#  handler_id           :bigint
+#  plant_stage_id       :bigint
+#  name                 :string
+#  plant_name           :string
+#  plant_stage_name     :string
+#  status               :string
+#  comment              :text
+#  due_date             :date
+#  quantity             :integer
+#  temperature          :integer
+#  photoperiod          :integer
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  requester_first_name :string           default(""), not null
+#  requester_last_name  :string           default(""), not null
+#  requester_email      :string           default(""), not null
+#  laboratory           :string
+#
+# Indexes
+#
+#  index_requests_on_handler_id      (handler_id)
+#  index_requests_on_plant_stage_id  (plant_stage_id)
+#
