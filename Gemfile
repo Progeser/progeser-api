@@ -36,9 +36,6 @@ gem 'blueprinter'
 # Soft deletes for ActiveRecord
 gem 'discard'
 
-# Mailjet Ruby wrapper
-gem 'mailjet', '~> 1.5', '>= 1.5.4'
-
 # Simple, efficient background processing for Ruby
 gem 'sidekiq', '~> 6.2'
 

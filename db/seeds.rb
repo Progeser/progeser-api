@@ -44,42 +44,6 @@ if Rails.env.development?
   )
   discarded_user.discard
 
-  # Invites
-  Invite.create!(
-    role: :requester,
-    email: 'invite+requester@progeser.com',
-    first_name: 'Requester',
-    last_name: 'Invite',
-    laboratory: 'My test lab'
-  )
-
-  Invite.create!(
-    role: :grower,
-    email: 'invite+grower@progeser.com',
-    first_name: 'Grower',
-    last_name: 'Invite'
-  )
-
-  # AccountRequests
-  AccountRequest.create!(
-    email: Faker::Internet.email,
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    comment: Faker::Movies::VForVendetta.speech,
-    laboratory: 'My test lab',
-    password: 'password',
-    accepted: true
-  )
-
-  AccountRequest.create!(
-    email: Faker::Internet.email,
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    comment: Faker::Movies::VForVendetta.speech,
-    laboratory: 'My test lab',
-    password: 'password'
-  )
-
   # Pots
   Pot.create!(
     name: 'My square pot',
@@ -182,8 +146,13 @@ if Rails.env.development?
   end
 
   # Requests
+  # db/seeds.rb
+
   Request.create!(
-    author: Users::Grower.first,
+    requester_first_name: 'John',
+    requester_last_name: 'Doe',
+    requester_email: 'john.doe@example.com',
+    laboratory: 'My lab',
     handler: Users::Grower.first,
     plant_stage: Plant.first.plant_stages.last,
     name: 'My first request',
@@ -197,7 +166,10 @@ if Rails.env.development?
   )
 
   Request.create!(
-    author: Users::Requester.first,
+    requester_first_name: 'Alice',
+    requester_last_name: 'Smith',
+    requester_email: 'alice.smith@example.com',
+    laboratory: 'My other lab',
     name: 'My new request',
     plant_name: Faker::Food.vegetables,
     plant_stage_name: 'budding',

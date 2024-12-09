@@ -33,6 +33,7 @@ class Users::GrowerTest < ActiveSupport::TestCase
 
   test 'invalid without password' do
     @user.password = nil
+    @user.encrypted_password = nil
     assert_not @user.valid?
     assert_not_empty @user.errors[:password]
   end

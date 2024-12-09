@@ -106,6 +106,16 @@ resource 'Requests' do
               '(Optional) Photoperiod of cultivation desired (in hour/day)',
               with_example: true,
               type: :integer
+    parameter :requester_first_name,
+              'First name of the requester',
+              with_example: true,
+              type: :string
+    parameter :requester_last_name, 'Last name of the requester',
+              with_example: true,
+              type: :string
+    parameter :requester_email, 'Email of the requester',
+              with_example: true,
+              type: :string
 
     let(:plant_stage_id) { Plant.last.plant_stages.last.id }
     let(:name)           { 'My request' }
@@ -114,12 +124,14 @@ resource 'Requests' do
     let(:comment)        { 'The specimens have to be in perfect condition, please be careful!' }
     let(:temperature)    { 35 }
     let(:photoperiod)    { 12 }
+    let(:requester_first_name) { 'John' }
+    let(:requester_last_name)  { 'Doe' }
+    let(:requester_email)      { 'john.doe@mail.com' }
 
     let(:raw_post) { params.to_json }
 
     example 'Create a request' do
       authentication :basic, "Bearer #{user_token.token}"
-
       do_request
 
       expect(status).to eq(201)
@@ -135,52 +147,6 @@ resource 'Requests' do
       expect(response['comment']).to eq(comment)
       expect(response['temperature']).to eq(temperature)
       expect(response['photoperiod']).to eq(photoperiod)
-    end
-  end
-
-  put '/api/v1/requests/:id' do
-    parameter :plant_stage_id, 'ID of the requested plant_stage', with_example: true
-    parameter :name, 'Name of the request', with_example: true
-    parameter :plant_name,
-              'Name of the requested plant (ignored if plant_stage_id given)',
-              with_example: true
-    parameter :plant_stage_name,
-              'Name of the requested plant stage (ignored if plant_stage_id given)',
-              with_example: true
-    parameter :due_date, 'Due date of the request', with_example: true, type: :date
-    parameter :quantity, 'Quantity of plants desired', with_example: true, type: :integer
-    parameter :comment,
-              '(Optional) Free comment to give additional information',
-              with_example: true
-    parameter :temperature,
-              '(Optional) Temperature of cultivation desired',
-              with_example: true,
-              type: :integer
-    parameter :photoperiod,
-              '(Optional) Photoperiod of cultivation desired (in hour/day)',
-              with_example: true,
-              type: :integer
-
-    let(:name)           { 'My updated request' }
-    let(:due_date)       { Date.current + 6.months }
-    let(:quantity)       { 150 }
-    let(:comment)        { 'After all, this is less urgent, but I need more specimens!' }
-
-    let(:raw_post) { params.to_json }
-
-    example 'Update a request' do
-      authentication :basic, "Bearer #{user_token.token}"
-
-      do_request
-
-      expect(status).to eq(200)
-
-      request.reload
-      expect(response_body).to eq(request.to_blueprint)
-      expect(request.name).to eq(name)
-      expect(request.due_date).to eq(due_date)
-      expect(request.quantity).to eq(quantity)
-      expect(request.comment).to eq(comment)
     end
   end
 
@@ -225,7 +191,7 @@ resource 'Requests' do
       request.update(status: :pending)
     end
 
-    example "Cancel a request\n" \
+    example 'Cancel a request' \
             'If the request is already accepted and the current user is a requester, ' \
             'the request will be set as `in_cancelation`' do
       authentication :basic, "Bearer #{user_token.token}"

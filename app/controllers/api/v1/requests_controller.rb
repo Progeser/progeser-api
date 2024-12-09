@@ -37,8 +37,7 @@ class Api::V1::RequestsController < ApiController
 
   def create
     authorize Request
-
-    request = Request.new(request_params.merge(author: current_user))
+    request = Request.new(request_params)
 
     plant_attributes_from_params(request)
 
@@ -46,18 +45,6 @@ class Api::V1::RequestsController < ApiController
       render json: request.to_blueprint, status: :created
     else
       render_validation_error(request)
-    end
-  end
-
-  def update
-    @request.assign_attributes(request_params)
-
-    plant_attributes_from_params(@request)
-
-    if @request.save
-      render json: @request.to_blueprint
-    else
-      render_validation_error(@request)
     end
   end
 
@@ -78,16 +65,10 @@ class Api::V1::RequestsController < ApiController
   end
 
   def cancel
-    if @request.accepted? && current_user.requester?
-      @request.fire_state_event(:cancel_request)
-    else
-      @request.fire_state_event(:cancel)
-    end
-
-    if @request.errors.present?
-      render_validation_error(@request)
-    else
+    if @request.fire_state_event(:cancel)
       render json: @request.to_blueprint
+    else
+      render_validation_error(@request)
     end
   end
 
@@ -117,7 +98,8 @@ class Api::V1::RequestsController < ApiController
   def request_params
     params.permit(
       :plant_stage_id, :name, :plant_name, :plant_stage_name, :quantity, :due_date,
-      :comment, :temperature, :photoperiod
+      :comment, :temperature, :photoperiod, :requester_first_name, :requester_last_name,
+      :requester_email, :laboratory
     )
   end
 

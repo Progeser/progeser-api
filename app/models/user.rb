@@ -49,15 +49,6 @@ class User < ApplicationRecord
   # Callbacks
   after_discard :anonymize
 
-  # Public instance methods
-  def create_token!
-    Doorkeeper::AccessToken.create!(
-      resource_owner_id: id,
-      use_refresh_token: true,
-      expires_in: Doorkeeper.configuration.access_token_expires_in
-    )
-  end
-
   # check password_confirmation before using `update_password` method from Clearance::User
   #
   def update_password!(password:, password_confirmation:)

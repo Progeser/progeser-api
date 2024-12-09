@@ -9,29 +9,14 @@ Rails.application.routes.draw do
     namespace :v1 do
       resource :me, controller: 'me', only: %i[show update destroy]
 
-      resource :passwords, only: :update do
-        post '/forgot', action: :forgot
-        put '/:confirmation_token/reset', action: :reset
-      end
-
-      resources :invites, only: %i[index show create destroy] do
-        get '/token/:invitation_token', action: :token, on: :collection
-        post :retry, on: :member
-      end
+      resource :passwords, only: :update
 
       resources :account_requests, only: %i[index show create destroy] do
         get :pending_account_requests_count, on: :collection
         post :accept, on: :member
       end
 
-      resources :users, only: :index do
-        post '/:invitation_token/create_from_invite',
-             on: :collection,
-             action: :create_from_invite
-        post '/:creation_token/create_from_account_request',
-             on: :collection,
-             action: :create_from_account_request
-      end
+      resources :users, only: :index
 
       resources :pots, only: %i[index show create update destroy]
 
@@ -39,7 +24,7 @@ Rails.application.routes.draw do
 
       resources :plants, only: %i[index show create update destroy]
 
-      resources :requests, only: %i[index show create update destroy], shallow: true do
+      resources :requests, only: %i[index show create destroy], shallow: true do
         get :requests_to_handle_count, on: :collection
         post :accept, on: :member
         post :refuse, on: :member
