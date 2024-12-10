@@ -4,7 +4,7 @@ bench1:
   name: My big greenhouse - bench 1
   dimensions:
     - 200
-    - 100
+    - 200
   positions:
     - 10
     - 50
@@ -26,8 +26,8 @@ bench2:
     - 100
     - 100
   positions:
-    - 200
-    - 200
+    - 300
+    - 300
   created_at: !ruby/object:ActiveSupport::TimeWithZone
     utc: &1 2019-12-30 18:06:47.133846000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone

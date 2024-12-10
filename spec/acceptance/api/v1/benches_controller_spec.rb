@@ -87,6 +87,7 @@ resource 'Benches' do
       expect(response['name']).to eq(name)
       expect(response['dimensions']).to eq(dimensions)
       expect(response['positions']).to eq(positions)
+      expect(response['greenhouse_id']).to eq(greenhouse_id)
     end
   end
 
@@ -98,8 +99,8 @@ resource 'Benches' do
               items: { type: :integer }
 
     let(:name) { 'my square bench' }
-    let(:dimensions) { [100, 300] }
-    let(:positions) { [100, 800] }
+    let(:dimensions) { [300, 300] }
+    let(:positions) { [1200, 50] }
     let(:raw_post) { params.to_json }
 
     example 'Update a bench' do
@@ -114,6 +115,7 @@ resource 'Benches' do
       expect(bench.name).to eq(name)
       expect(bench.dimensions).to eq(dimensions)
       expect(bench.positions).to eq(positions)
+      expect(bench.greenhouse_id).to eq(greenhouse_id)
     end
   end
 

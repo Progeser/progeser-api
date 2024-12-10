@@ -16,7 +16,7 @@ resource 'RequestDistributions' do
   let!(:distribution) { request.request_distributions.first }
   let!(:id)           { distribution.id }
 
-  get '/api/v1/requests/:request_id/request_distributions' do
+  get '/api/v1/request_distributions' do
     parameter :'page[number]',
               "The number of the desired page\n\n" \
               "If used, additional information is returned in the response headers:\n" \
@@ -45,8 +45,8 @@ resource 'RequestDistributions' do
 
       expect(status).to eq(200)
 
-      expect(response_body).to eq(request.request_distributions.to_blueprint)
-      expect(JSON.parse(response_body).count).to eq(request.request_distributions.count)
+      expect(response_body).to eq(RequestDistribution.all.to_blueprint)
+      expect(JSON.parse(response_body).count).to eq(RequestDistribution.count)
     end
   end
 
@@ -73,16 +73,19 @@ resource 'RequestDistributions' do
               'If used, previous param `pot_id` is required',
               with_example: true,
               type: :integer
-    parameter :area,
-              "(Optional) Total area of the experiment\n" \
-              'If used, previous params `pot_id` and `pot_quantity` will be ignored',
-              with_example: true,
-              type: :number
+    parameter :positions_on_bench, 'Positions on Bench', with_example: true, type: :array, items: { type: :object }
+    parameter :dimensions, 'Dimensions', with_example: true, type: :array, items: { type: :object }
 
     let(:bench_id) { Bench.first.id }
     let(:plant_stage_id) { request.plant_stage.plant.plant_stages.first.id }
     let(:pot_id) { Pot.first.id }
     let(:pot_quantity) { 30 }
+    let(:positions_on_bench) do
+      [150, 50]
+    end
+    let(:dimensions) do
+      [10, 10]
+    end
 
     let(:raw_post) { params.to_json }
 
@@ -96,12 +99,15 @@ resource 'RequestDistributions' do
       expect(response_body).to eq(RequestDistribution.last.to_blueprint)
 
       response = JSON.parse(response_body)
+
       expect(response['bench_id']).to eq(bench_id)
       expect(response['greenhouse_id']).to eq(Bench.first.greenhouse_id)
       expect(response['plant_stage_id']).to eq(plant_stage_id)
       expect(response['pot_id']).to eq(pot_id)
       expect(response['pot_quantity']).to eq(pot_quantity)
-      expect(response['area']).not_to be_blank
+      expect(response['positions_on_bench']).to eq(positions_on_bench)
+      expect(response['dimensions']).to eq(dimensions)
+      expect(response['request_id']).to eq(request_id)
     end
   end
 
@@ -117,16 +123,19 @@ resource 'RequestDistributions' do
               'If used, previous param `pot_id` is required',
               with_example: true,
               type: :integer
-    parameter :area,
-              "(Optional) Total area of the experiment\n" \
-              'If used, previous params `pot_id` and `pot_quantity` will be ignored',
-              with_example: true,
-              type: :number
+    parameter :positions_on_bench, 'Positions on Bench', with_example: true, type: :array, items: { type: :object }
+    parameter :dimensions, 'Dimensions', with_example: true, type: :array, items: { type: :object }
 
     let(:bench_id) { Bench.last.id }
     let(:plant_stage_id) { request.plant_stage.plant.plant_stages.second.id }
     let(:pot_id) { Pot.second.id }
     let(:pot_quantity) { 20 }
+    let(:positions_on_bench) do
+      [150, 50]
+    end
+    let(:dimensions) do
+      [10, 10]
+    end
 
     let(:raw_post) { params.to_json }
 
@@ -143,7 +152,9 @@ resource 'RequestDistributions' do
       expect(distribution.plant_stage_id).to eq(plant_stage_id)
       expect(distribution.pot_id).to eq(pot_id)
       expect(distribution.pot_quantity).to eq(pot_quantity)
-      expect(distribution.area).not_to be_blank
+      expect(distribution.positions_on_bench).to eq(positions_on_bench)
+      expect(distribution.dimensions).to eq(dimensions)
+      expect(distribution.request_id).to eq(request_id)
     end
   end
 

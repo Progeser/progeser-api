@@ -2,12 +2,25 @@
 
 class RequestDistribution < ApplicationRecord
   # Validations
-  validates :area, numericality: { greater_than: 0 }
+  validates :pot_quantity, presence: true, numericality: { greater_than: 0 }
 
-  validates :pot_quantity, presence: true, if: -> { pot.present? }
+  validate :plant_stage_from_request
 
-  validate :plant_stage_from_request,
-           :distributions_areas_lower_than_bench_area
+  validates :dimensions,
+            presence: true,
+            length: { is: 2, message: I18n.t('activerecord.errors.models.bench.attributes.dimensions.incorrect_size') }
+  validate :dimensions_must_be_strictly_positive
+
+  validates :positions_on_bench,
+            presence: true,
+            length: { is: 2, message: I18n.t('activerecord.errors.models.bench.attributes.positions.incorrect_size') }
+  validate :positions_must_be_positive
+
+  validate :validate_seeds_left_to_plant, on: %i[create update]
+
+  validate :overlapping_distribution_exists, on: %i[create update]
+
+  validate :distribution_within_bench_bounds, on: %i[create update]
 
   # Associations
   belongs_to :request,
@@ -24,10 +37,21 @@ class RequestDistribution < ApplicationRecord
 
   belongs_to :pot,
              class_name: 'Pot',
-             inverse_of: :request_distributions,
-             optional: true
+             inverse_of: :request_distributions
 
   # Private instance methods
+
+  def validate_seeds_left_to_plant
+    return if errors[:pot_quantity].any?
+
+    quantity_change = pot_quantity - (pot_quantity_was || 0)
+
+    total_pot_quantity = request.request_distributions.where.not(id:).sum(:pot_quantity)
+
+    return if request.quantity >= quantity_change + total_pot_quantity
+
+    errors.add(:pot_quantity, 'not enough seeds left to plant for this request')
+  end
 
   private
 
@@ -38,16 +62,55 @@ class RequestDistribution < ApplicationRecord
     errors.add(:plant_stage, 'must be from requested plant')
   end
 
-  def distributions_areas_lower_than_bench_area
-    return if area.nil?
-    return if bench&.dimensions.nil?
+  def dimensions_must_be_strictly_positive
+    return unless dimensions
 
-    bench_area = bench.dimensions.inject(:*)
-    sum = bench.request_distributions.sum(&:area)
-    sum += area if new_record? # area isn't included in previous operation if record isn't persisted
-    return if sum <= bench_area
+    return unless dimensions.any? { |d| d <= 0 }
 
-    errors.add(:bench, 'sum of distributions areas can\'t be greater than bench area')
+    errors.add(:dimensions, 'each dimension must be greater than 0')
+  end
+
+  def positions_must_be_positive
+    return unless positions_on_bench
+
+    return unless positions_on_bench.any?(&:negative?)
+
+    errors.add(:positions_on_bench, 'each position must be positive')
+  end
+
+  def overlapping_distribution_exists
+    return if errors[:dimensions].any? || errors[:positions_on_bench].any?
+    return unless bench
+
+    if bench.request_distributions.any? do |other_distribution|
+      next if other_distribution == self
+
+      positions_overlap?(other_distribution)
+    end
+      errors.add(:positions_on_bench, 'distribution overlaps with an existing distribution')
+    end
+  end
+
+  def positions_overlap?(other_distribution)
+    x1, y1 = positions_on_bench
+    width1, height1 = dimensions
+    x2, y2 = other_distribution.positions_on_bench
+    width2, height2 = other_distribution.dimensions
+
+    x1 < x2 + width2 && x1 + width1 > x2 && y1 < y2 + height2 && y1 + height1 > y2
+  end
+
+  def distribution_within_bench_bounds
+    return if errors[:dimensions].any? || errors[:positions_on_bench].any?
+    return unless bench
+
+    bench_dimensions = bench.dimensions
+    x, y = positions_on_bench
+    width, height = dimensions
+
+    return unless x + width > bench_dimensions[0] || y + height > bench_dimensions[1]
+
+    errors.add(:positions_on_bench, 'distribution exceeds the bounds of the bench')
   end
 end
 
@@ -55,15 +118,16 @@ end
 #
 # Table name: request_distributions
 #
-#  id             :bigint           not null, primary key
-#  request_id     :bigint
-#  bench_id       :bigint
-#  plant_stage_id :bigint
-#  pot_id         :bigint
-#  pot_quantity   :integer
-#  area           :decimal(, )
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
+#  id                 :bigint           not null, primary key
+#  request_id         :bigint
+#  bench_id           :bigint
+#  plant_stage_id     :bigint
+#  pot_id             :bigint
+#  pot_quantity       :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  positions_on_bench :integer          is an Array
+#  dimensions         :integer          is an Array
 #
 # Indexes
 #
