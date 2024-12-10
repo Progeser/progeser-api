@@ -13,7 +13,7 @@ request1:
   status: accepted
   comment: I didn't think it would end this way.
   due_date: 2020-05-13
-  quantity: 50
+  quantity: 100
   temperature: 20
   photoperiod: 8
   created_at: !ruby/object:ActiveSupport::TimeWithZone

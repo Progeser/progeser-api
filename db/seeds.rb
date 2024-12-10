@@ -148,8 +148,9 @@ if Rails.env.development?
     requester_email: 'alice.smith@example.com',
     laboratory: 'My other lab',
     name: 'My new request',
-    plant_name: Faker::Food.vegetables,
-    plant_stage_name: 'budding',
+    plant_name: Plant.last.name,
+    plant_stage_name: Plant.last.plant_stages.last.name,
+    plant_stage: Plant.last.plant_stages.last,
     comment: Faker::Movies::LordOfTheRings.quote,
     due_date: Date.current + 2.months,
     quantity: 200
@@ -162,7 +163,8 @@ if Rails.env.development?
     plant_stage: Request.first.plant_stage,
     pot: Pot.first,
     pot_quantity: 30,
-    area: Pot.first.area * 30
+    positions_on_bench: [0, 0],
+    dimensions: [50, 50]
   )
 
   RequestDistribution.create!(
@@ -171,15 +173,19 @@ if Rails.env.development?
     plant_stage: Request.first.plant_stage,
     pot: Pot.second,
     pot_quantity: 20,
-    area: Pot.second.area * 20
+    positions_on_bench: [100, 50],
+    dimensions: [50, 20]
   )
 
   Request.first.update!(status: :accepted)
 
   RequestDistribution.create!(
     request: Request.second,
-    bench: Bench.first,
-    plant_stage: Plant.second.plant_stages.first,
-    area: 100
+    bench: Bench.second,
+    plant_stage: Request.second.plant_stage,
+    pot: Pot.second,
+    pot_quantity: 20,
+    positions_on_bench: [0, 10],
+    dimensions: [20, 30]
   )
 end

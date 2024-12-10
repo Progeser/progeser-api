@@ -115,9 +115,10 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_16_104204) do
     t.bigint "plant_stage_id"
     t.bigint "pot_id"
     t.integer "pot_quantity"
-    t.decimal "area"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "positions_on_bench", array: true
+    t.integer "dimensions", array: true
     t.index ["bench_id"], name: "index_request_distributions_on_bench_id"
     t.index ["plant_stage_id"], name: "index_request_distributions_on_plant_stage_id"
     t.index ["pot_id"], name: "index_request_distributions_on_pot_id"

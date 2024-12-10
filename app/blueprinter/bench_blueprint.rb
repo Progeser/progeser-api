@@ -2,5 +2,5 @@
 
 class BenchBlueprint < Base
   # Fields
-  fields :name, :dimensions, :positions
+  fields :name, :dimensions, :positions, :greenhouse_id
 end

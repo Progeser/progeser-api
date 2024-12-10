@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class Api::V1::RequestDistributionsController < ApiController
-  before_action :set_request,      only: %i[index create]
+  before_action :set_request,      only: %i[create]
   before_action :set_distribution, only: %i[show update destroy]
 
   def index
-    request_distributions = policy_scope(@request.request_distributions)
+    request_distributions = policy_scope(RequestDistribution.all)
     authorize request_distributions
 
     render json: apply_fetcheable(request_distributions).to_blueprint
@@ -19,7 +19,6 @@ class Api::V1::RequestDistributionsController < ApiController
     authorize RequestDistribution
 
     distribution = @request.request_distributions.new(distribution_params)
-    distribution.area = compute_area(distribution)
 
     if distribution.save
       render json: distribution.to_blueprint, status: :created
@@ -30,7 +29,6 @@ class Api::V1::RequestDistributionsController < ApiController
 
   def update
     @distribution.assign_attributes(distribution_params)
-    @distribution.area = compute_area(@distribution)
 
     if @distribution.save
       render json: @distribution.to_blueprint
@@ -59,17 +57,6 @@ class Api::V1::RequestDistributionsController < ApiController
   end
 
   def distribution_params
-    params.permit(:bench_id, :plant_stage_id, :pot_id, :pot_quantity)
-  end
-
-  def compute_area(distribution)
-    return params[:area] if params[:area].present?
-
-    pot_quantity = distribution.pot_quantity
-    pot_area = distribution.pot&.area
-
-    return if pot_quantity.nil? || pot_area.nil?
-
-    pot_quantity * pot_area
+    params.permit(:bench_id, :plant_stage_id, :pot_id, :pot_quantity, positions_on_bench: [], dimensions: [])
   end
 end
