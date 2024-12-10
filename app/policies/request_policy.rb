@@ -13,10 +13,6 @@ class RequestPolicy < ApplicationPolicy
     grower?
   end
 
-  def create?
-    true
-  end
-
   def accept?
     grower?
   end
