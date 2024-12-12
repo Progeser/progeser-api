@@ -69,11 +69,13 @@ class RequestDistributionTest < ActiveSupport::TestCase
   test 'invalid with wrong number of dimensions' do
     @request_distribution.dimensions = [10]
     assert_not @request_distribution.valid?
-    assert_includes @request_distribution.errors[:dimensions], 'doit contenir exactement deux éléments: longueur et largeur'
+    assert_includes @request_distribution.errors[:dimensions],
+                    'doit contenir exactement deux éléments: longueur et largeur'
 
     @request_distribution.dimensions = [10, 20, 30]
     assert_not @request_distribution.valid?
-    assert_includes @request_distribution.errors[:dimensions], 'doit contenir exactement deux éléments: longueur et largeur'
+    assert_includes @request_distribution.errors[:dimensions],
+                    'doit contenir exactement deux éléments: longueur et largeur'
   end
 
   test 'invalid with non-positive dimensions' do

@@ -214,7 +214,7 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
             headers:,
             params: {
               bench_id: nil,
-              plant_stage_id: nil,
+              plant_stage_id: nil
             }
           )
 
