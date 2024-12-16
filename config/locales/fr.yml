@@ -35,8 +35,6 @@ fr:
             positions:
               incorrect_size: "doit contenir exactement deux éléments : x et y"
               not_positive: "chaque position doit être positive"
-            request_distributions:
-              invalid_distribution: "la somme des aires de distribution ne peut pas être supérieure à l'aire du banc"
             positions_overlap: "le banc chevauche un banc existant"
   date:
     abbr_day_names:

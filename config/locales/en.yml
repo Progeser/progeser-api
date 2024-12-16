@@ -26,6 +26,4 @@ en:
             positions:
               incorrect_size: "should contain exactly two elements: x and y"
               not_positive: "each position must be positive"
-            request_distributions:
-              invalid_distribution: "sum of distributions areas can't be greater than bench area"
             positions_overlap: "bench overlaps with an existing bench"
