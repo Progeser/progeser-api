@@ -106,6 +106,7 @@ class Api::V1::RequestsController < ApiController
 
   def plant_attributes_from_params(request)
     return if request_params[:plant_stage_id].blank?
+
     plant_stage = policy_scope(PlantStage).find(request_params[:plant_stage_id])
     request.plant_stage_name = plant_stage.name
     request.plant_name = plant_stage.plant.name

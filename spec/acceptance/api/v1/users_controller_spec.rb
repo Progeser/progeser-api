@@ -71,7 +71,6 @@ resource 'Users' do
     parameter :password, 'The user password', with_example: true
     parameter :password_confirmation, 'The user password confirmation', with_example: true
 
-
     let(:email)      { 'test@test.com' }
     let(:first_name) { 'Test' }
     let(:last_name)  { 'User' }
@@ -89,7 +88,6 @@ resource 'Users' do
       expect(JSON.parse(response_body)['email']).to eq(email)
       expect(JSON.parse(response_body)['first_name']).to eq(first_name)
       expect(JSON.parse(response_body)['last_name']).to eq(last_name)
-
     end
   end
 

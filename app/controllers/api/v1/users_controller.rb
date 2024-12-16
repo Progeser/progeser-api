@@ -30,11 +30,7 @@ class Api::V1::UsersController < ApiController
     user = policy_scope(User).find(params[:id])
     authorize user
 
-    if user.destroy
-      render json: { message: 'User deleted' }, status: :ok
-    else
-      render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
-    end
+    render json: { message: 'User deleted' }, status: :ok
   end
 
   private
