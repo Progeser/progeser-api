@@ -31,6 +31,8 @@ class Bench < ApplicationRecord
 
     width1, height1 = dimensions
 
+    width1, height1 = dimensions
+
     if request_distributions.any? do |request_distribution|
       x2, y2 = request_distribution.positions_on_bench
       width2, height2 = request_distribution.dimensions
