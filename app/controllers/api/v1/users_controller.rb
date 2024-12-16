@@ -14,8 +14,7 @@ class Api::V1::UsersController < ApiController
   end
 
   def create
-    user_params = create_params
-    user = User.new(user_params)
+    user = User.new(create_params)
 
     authorize user
 
@@ -30,7 +29,11 @@ class Api::V1::UsersController < ApiController
     user = policy_scope(User).find(params[:id])
     authorize user
 
-    render json: { message: 'User deleted' }, status: :ok
+    if user.destroy
+      render json: { message: 'User deleted' }, status: :ok
+    else
+      render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   private

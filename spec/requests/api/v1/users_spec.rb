@@ -123,5 +123,20 @@ RSpec.describe 'Api/V1/Users', type: :request do
         expect(status).to eq(401)
       end
     end
+
+    context 'when 422' do
+      it_behaves_like 'with authenticated grower' do
+        it 'fails to delete user' do
+          allow_any_instance_of(User).to receive(:destroy).and_return(false)
+
+          delete(
+            '/api/v1/users/1',
+            headers:
+          )
+
+          expect(status).to eq(422)
+        end
+      end
+    end
   end
 end
