@@ -31,8 +31,9 @@ class Bench < ApplicationRecord
   def distributions_areas_lower_than_bench_area
     return if errors[:dimensions].any?
 
+    width1, height1 = dimensions
+
     if request_distributions.any? do |request_distribution|
-      width1, height1 = dimensions
       x2, y2 = request_distribution.positions_on_bench
       width2, height2 = request_distribution.dimensions
 
