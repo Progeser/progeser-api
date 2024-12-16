@@ -32,7 +32,7 @@ class RequestDistributionTest < ActiveSupport::TestCase
     assert_not_empty @request_distribution.errors[:pot_quantity]
   end
 
-  test 'invalid wit pot quantity lee than 0' do
+  test 'invalid wit pot quantity less than 0' do
     @request_distribution.pot_quantity = -1
     assert_not @request_distribution.valid?
     assert_not_empty @request_distribution.errors[:pot_quantity]
