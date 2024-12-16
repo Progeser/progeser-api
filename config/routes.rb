@@ -16,7 +16,7 @@ Rails.application.routes.draw do
         post :accept, on: :member
       end
 
-      resources :users, only: :index
+      resources :users, only: %i[index show create destroy]
 
       resources :pots, only: %i[index show create update destroy]
 

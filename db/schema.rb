@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_04_211606) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_16_104204) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,9 +26,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_04_211606) do
 
   create_table "buildings", force: :cascade do |t|
     t.string "name"
-    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
   end
 
   create_table "greenhouses", force: :cascade do |t|
@@ -138,9 +138,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_04_211606) do
     t.integer "photoperiod"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "requester_first_name", default: "", null: false
-    t.string "requester_last_name", default: "", null: false
-    t.string "requester_email", default: "", null: false
+    t.string "requester_first_name", null: false
+    t.string "requester_last_name", null: false
+    t.string "requester_email", null: false
     t.string "laboratory"
     t.index ["handler_id"], name: "index_requests_on_handler_id"
     t.index ["plant_stage_id"], name: "index_requests_on_plant_stage_id"
@@ -151,11 +151,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_04_211606) do
     t.string "encrypted_password", limit: 128, null: false
     t.string "confirmation_token", limit: 128
     t.string "remember_token", limit: 128, null: false
-    t.string "role"
     t.string "first_name"
     t.string "last_name"
-    t.string "type"
-    t.string "laboratory"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.datetime "discarded_at", precision: nil

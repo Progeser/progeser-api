@@ -5,11 +5,8 @@ user2:
   encrypted_password: "$2a$12$/1.8Kj10CXryn3VCJea3WuXjxYQTELbrSSfsYrzzIpWGMk73y.Pqi"
   confirmation_token: 
   remember_token: 5bf6d687b34c92ec9473c212bdc335a3477e7fe9
-  role: grower
   last_name: ProGeSer
   first_name: Grower
-  type: Users::Grower
-  laboratory: 
   created_at: !ruby/object:ActiveSupport::TimeWithZone
     utc: &1 2019-10-30 16:57:33.569980000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone
@@ -26,11 +23,8 @@ user1:
   encrypted_password: "$2a$12$ogAZLpfd7v6dDablqAc.QefwbWLO/AHj/P.4OtrQUz3w4dUJxWCHy"
   confirmation_token: 
   remember_token: b65a042d9bbbdc77243c27b1cff7d4ecb5badf6e
-  role: requester
   last_name: ProGeSer
   first_name: Requester
-  type: Users::Requester
-  laboratory: My test lab
   created_at: !ruby/object:ActiveSupport::TimeWithZone
     utc: &1 2019-10-30 16:57:33.316242000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone
@@ -47,11 +41,8 @@ user3:
   encrypted_password: anonymized
   confirmation_token: 
   remember_token: anonymized
-  role: requester
-  last_name: 
+  last_name:
   first_name: 
-  type: Users::Requester
-  laboratory: My test lab
   created_at: !ruby/object:ActiveSupport::TimeWithZone
     utc: &1 2019-10-31 15:40:41.545001000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone
@@ -75,11 +66,8 @@ user3:
 #  encrypted_password :string(128)      not null
 #  confirmation_token :string(128)
 #  remember_token     :string(128)      not null
-#  role               :string
 #  first_name         :string
 #  last_name          :string
-#  type               :string
-#  laboratory         :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  discarded_at       :datetime
