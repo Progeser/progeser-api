@@ -30,44 +30,9 @@ RSpec.describe 'Api/V1/Benches', type: :request do
         end
       end
     end
-
-    context 'when 404' do
-      it_behaves_like 'with authenticated requester' do
-        it 'can\'t get benches' do
-          get("/api/v1/greenhouses/#{greenhouse.id}/benches", headers:)
-
-          expect(status).to eq(404)
-          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
-        end
-      end
-    end
-  end
-
-  describe 'GET api/v1/benches/:id' do
-    context 'when 404' do
-      it_behaves_like 'with authenticated requester' do
-        it 'can\'t get a bench' do
-          get("/api/v1/benches/#{bench.id}", headers:)
-
-          expect(status).to eq(404)
-          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
-        end
-      end
-    end
   end
 
   describe 'POST api/v1/greenhouses/:greenhouse_id/benches' do
-    context 'when 404' do
-      it_behaves_like 'with authenticated requester' do
-        it 'can\'t create a bench' do
-          post("/api/v1/greenhouses/#{greenhouse.id}/benches", headers:)
-
-          expect(status).to eq(404)
-          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
-        end
-      end
-    end
-
     context 'when 422' do
       it_behaves_like 'with authenticated grower' do
         it 'can\'t have a negative dimension' do
@@ -130,17 +95,6 @@ RSpec.describe 'Api/V1/Benches', type: :request do
   end
 
   describe 'PUT api/v1/benches/:id' do
-    context 'when 404' do
-      it_behaves_like 'with authenticated requester' do
-        it 'can\'t update a bench' do
-          put("/api/v1/benches/#{bench.id}", headers:)
-
-          expect(status).to eq(404)
-          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
-        end
-      end
-    end
-
     context 'when 422' do
       it_behaves_like 'with authenticated grower' do
         it 'can\'t have an area lower than the sum of distributions areas' do
@@ -191,17 +145,6 @@ RSpec.describe 'Api/V1/Benches', type: :request do
           delete("/api/v1/benches/#{bench.id}", headers:)
 
           expect(status).to eq(403)
-          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
-        end
-      end
-    end
-
-    context 'when 404' do
-      it_behaves_like 'with authenticated requester' do
-        it 'can\'t delete a bench' do
-          delete("/api/v1/benches/#{bench.id}", headers:)
-
-          expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end

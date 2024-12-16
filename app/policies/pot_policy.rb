@@ -2,20 +2,18 @@
 
 class PotPolicy < ApplicationPolicy
   def index?
-    grower?
+    true
   end
 
   def show?
-    grower?
+    true
   end
 
   def create?
-    grower?
+    true
   end
 
   def update?
-    return false unless grower?
-
     return true if record.request_distributions.empty?
 
     record.errors.add(:request_distributions, 'can\'t update a pot with ongoing requests')
@@ -23,8 +21,6 @@ class PotPolicy < ApplicationPolicy
   end
 
   def destroy?
-    return false unless grower?
-
     return true if record.request_distributions.empty?
 
     record.errors.add(:request_distributions, 'can\'t delete a pot with ongoing requests')
@@ -33,7 +29,7 @@ class PotPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      grower? ? scope.all : scope.none
+      scope.all
     end
   end
 end

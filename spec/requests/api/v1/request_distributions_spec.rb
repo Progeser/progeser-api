@@ -33,30 +33,6 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
         end
       end
     end
-
-    context 'when 403' do
-      it_behaves_like 'with authenticated requester' do
-        it 'can\'t get request distributions' do
-          get('/api/v1/requests/2/request_distributions', headers:)
-
-          expect(status).to eq(403)
-          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
-        end
-      end
-    end
-  end
-
-  describe 'GET api/v1/request_distributions/:id' do
-    context 'when 404' do
-      it_behaves_like 'with authenticated requester' do
-        it 'can\'t get a request distribution' do
-          get("/api/v1/request_distributions/#{id}", headers:)
-
-          expect(status).to eq(404)
-          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
-        end
-      end
-    end
   end
 
   describe 'POST api/v1/requests/:request_id/request_distributions' do
@@ -109,17 +85,6 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
           expect(distribution.pot).to be_nil
           expect(distribution.pot_quantity).to be_nil
           expect(distribution.area).to eq(150)
-        end
-      end
-    end
-
-    context 'when 404' do
-      it_behaves_like 'with authenticated requester' do
-        it 'can\'t create a request distribution' do
-          post("/api/v1/requests/#{request_id}/request_distributions", headers:)
-
-          expect(status).to eq(403)
-          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
     end
@@ -206,17 +171,6 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
       end
     end
 
-    context 'when 404' do
-      it_behaves_like 'with authenticated requester' do
-        it 'can\'t update a request distribution' do
-          put("/api/v1/request_distributions/#{id}", headers:)
-
-          expect(status).to eq(404)
-          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
-        end
-      end
-    end
-
     context 'when 422' do
       it_behaves_like 'with authenticated grower' do
         it 'fails to update a request distribution with missing params' do
@@ -246,17 +200,6 @@ RSpec.describe 'Api/V1/RequestDistributions', type: :request do
           delete("/api/v1/request_distributions/#{id}", headers:)
 
           expect(status).to eq(403)
-          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
-        end
-      end
-    end
-
-    context 'when 404' do
-      it_behaves_like 'with authenticated requester' do
-        it 'can\'t delete a request distribution' do
-          delete("/api/v1/request_distributions/#{id}", headers:)
-
-          expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end

@@ -10,16 +10,14 @@ class PlantPolicy < ApplicationPolicy
   end
 
   def create?
-    grower?
+    true
   end
 
   def update?
-    grower?
+    true
   end
 
   def destroy?
-    return false unless grower?
-
     return true if record.plant_stages.flat_map(&:request_distributions).empty?
 
     record.errors.add(:request_distributions, 'can\'t delete a plant with ongoing requests')

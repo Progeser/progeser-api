@@ -44,7 +44,6 @@ resource 'Me' do
       expect(response_body).to eq(user.to_blueprint)
       expect(user.first_name).to eq(first_name)
       expect(user.last_name).to eq(last_name)
-      expect(user.laboratory).to eq(laboratory)
     end
   end
 
@@ -62,7 +61,6 @@ resource 'Me' do
       expect(user.encrypted_password).to eq('anonymized')
       expect(user.first_name).to be_nil
       expect(user.last_name).to be_nil
-      expect(user.laboratory).to be_nil
     end
   end
 end

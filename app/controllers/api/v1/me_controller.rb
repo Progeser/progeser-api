@@ -32,10 +32,6 @@ class Api::V1::MeController < ApiController
   private
 
   def update_params
-    if current_user.requester?
-      params.permit(%i[first_name last_name laboratory])
-    else
-      params.permit(%i[first_name last_name])
-    end
+    params.permit(%i[first_name last_name])
   end
 end

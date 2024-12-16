@@ -31,30 +31,6 @@ RSpec.describe 'Api/V1/Pots', type: :request do
         end
       end
     end
-
-    context 'when 403' do
-      it_behaves_like 'with authenticated requester' do
-        it 'can\'t get pots' do
-          get('/api/v1/pots', headers:)
-
-          expect(status).to eq(403)
-          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
-        end
-      end
-    end
-  end
-
-  describe 'GET api/v1/pots/:id' do
-    context 'when 404' do
-      it_behaves_like 'with authenticated requester' do
-        it 'can\'t get a pot' do
-          get("/api/v1/pots/#{id}", headers:)
-
-          expect(status).to eq(404)
-          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
-        end
-      end
-    end
   end
 
   describe 'POST api/v1/pots' do
@@ -260,17 +236,6 @@ RSpec.describe 'Api/V1/Pots', type: :request do
       end
     end
 
-    context 'when 403' do
-      it_behaves_like 'with authenticated requester' do
-        it 'can\'t create a pot' do
-          post('/api/v1/pots', headers:)
-
-          expect(status).to eq(403)
-          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
-        end
-      end
-    end
-
     context 'when 422' do
       it_behaves_like 'with authenticated grower' do
         it 'fails to create a pot with dimensions & invalid shape' do
@@ -357,17 +322,6 @@ RSpec.describe 'Api/V1/Pots', type: :request do
         end
       end
     end
-
-    context 'when 404' do
-      it_behaves_like 'with authenticated requester' do
-        it 'can\'t update a pot' do
-          put("/api/v1/pots/#{id}", headers:)
-
-          expect(status).to eq(404)
-          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
-        end
-      end
-    end
   end
 
   describe 'DELETE api/v1/pots/:id' do
@@ -377,17 +331,6 @@ RSpec.describe 'Api/V1/Pots', type: :request do
           delete("/api/v1/pots/#{id}", headers:)
 
           expect(status).to eq(403)
-          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
-        end
-      end
-    end
-
-    context 'when 404' do
-      it_behaves_like 'with authenticated requester' do
-        it 'can\'t delete a pot' do
-          delete("/api/v1/pots/#{id}", headers:)
-
-          expect(status).to eq(404)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
       end
