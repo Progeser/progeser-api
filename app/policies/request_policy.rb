@@ -6,32 +6,30 @@ class RequestPolicy < ApplicationPolicy
   end
 
   def requests_to_handle_count?
-    grower?
+    true
   end
 
   def show?
-    grower?
+    true
   end
 
   def accept?
-    grower?
+    true
   end
 
   def refuse?
-    grower?
+    true
   end
 
   def cancel?
-    grower?
+    true
   end
 
   def complete?
-    grower?
+    true
   end
 
   def destroy?
-    return false unless grower?
-
     if record.pending?
       true
     else

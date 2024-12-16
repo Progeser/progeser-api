@@ -9,6 +9,10 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
+  def create?
+    true
+  end
+
   def update?
     true
   end
@@ -19,7 +23,7 @@ class UserPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      grower? ? scope.all : scope.where(id: user.id)
+      scope.all
     end
   end
 end

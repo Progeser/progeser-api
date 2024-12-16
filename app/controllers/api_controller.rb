@@ -64,11 +64,9 @@ class ApiController < ActionController::API
   end
 
   def unauthorized(exception)
-    if exception.record.is_a?(ActiveRecord::Base) && exception.record.errors.present?
-      return render_error(exception.record, code: 403)
-    end
+    return unless exception.record.is_a?(ActiveRecord::Base) && exception.record.errors.present?
 
-    render_error(exception.message, code: 403)
+    render_error(exception.record, code: 403)
   end
 
   def not_found(exception)

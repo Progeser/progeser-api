@@ -2,24 +2,22 @@
 
 class BuildingPolicy < ApplicationPolicy
   def index?
-    grower?
+    true
   end
 
   def show?
-    grower?
+    true
   end
 
   def create?
-    grower?
+    true
   end
 
   def update?
-    grower?
+    true
   end
 
   def destroy?
-    return false unless grower?
-
     return true if record.greenhouses.flat_map(&:benches).flat_map(&:request_distributions).empty?
 
     record.errors.add(:request_distributions, 'can\'t delete a building with ongoing requests')
@@ -28,7 +26,7 @@ class BuildingPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      grower? ? scope.all : scope.none
+      scope.all
     end
   end
 end

@@ -2,6 +2,6 @@
 
 class ShapePolicy < ApplicationPolicy
   def index?
-    grower?
+    true
   end
 end

@@ -7,12 +7,6 @@ class User < ApplicationRecord
   # Discard
   include Discard::Model
 
-  # Enumerize
-  extend Enumerize
-  enumerize :role,
-            in: %i[requester grower],
-            predicates: true
-
   # Validations
   validates :email,
             presence: true,
@@ -28,9 +22,7 @@ class User < ApplicationRecord
             presence: true,
             on: :create
 
-  validates :role,
-            :type,
-            :first_name,
+  validates :first_name,
             :last_name,
             presence: true
 
@@ -64,7 +56,6 @@ class User < ApplicationRecord
     self.remember_token     = 'anonymized'
     self.first_name         = nil
     self.last_name          = nil
-    self.laboratory         = nil
 
     save(validate: false)
   end
@@ -79,11 +70,8 @@ end
 #  encrypted_password :string(128)      not null
 #  confirmation_token :string(128)
 #  remember_token     :string(128)      not null
-#  role               :string
 #  first_name         :string
 #  last_name          :string
-#  type               :string
-#  laboratory         :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  discarded_at       :datetime

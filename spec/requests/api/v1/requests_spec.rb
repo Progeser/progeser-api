@@ -108,19 +108,6 @@ RSpec.describe 'Api/V1/Requests', type: :request do
     end
   end
 
-  describe 'GET api/v1/requests/requests_to_handle_count' do
-    context 'when 403' do
-      it_behaves_like 'with authenticated requester' do
-        it 'can\'t get number of requests to handle' do
-          get('/api/v1/requests/requests_to_handle_count', headers:)
-
-          expect(status).to eq(403)
-          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
-        end
-      end
-    end
-  end
-
   describe 'POST api/v1/requests' do
     context 'when 201' do
       it_behaves_like 'with authenticated grower' do
@@ -321,17 +308,6 @@ RSpec.describe 'Api/V1/Requests', type: :request do
     let!(:request) { requests(:request2) }
     let!(:id)      { request.id }
 
-    context 'when 403' do
-      it_behaves_like 'with authenticated requester' do
-        it 'can\'t accept a request' do
-          post("/api/v1/requests/#{id}/accept", headers:)
-
-          expect(status).to eq(403)
-          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
-        end
-      end
-    end
-
     context 'when 422' do
       it_behaves_like 'with authenticated grower' do
         it 'can\'t accept a non-pending request' do
@@ -366,17 +342,6 @@ RSpec.describe 'Api/V1/Requests', type: :request do
   describe 'POST api/v1/requests/:id/refuse' do
     let!(:request) { requests(:request2) }
     let!(:id)      { request.id }
-
-    context 'when 403' do
-      it_behaves_like 'with authenticated requester' do
-        it 'can\'t refuse a request' do
-          post("/api/v1/requests/#{id}/refuse", headers:)
-
-          expect(status).to eq(403)
-          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
-        end
-      end
-    end
 
     context 'when 422' do
       it_behaves_like 'with authenticated grower' do
@@ -413,17 +378,6 @@ RSpec.describe 'Api/V1/Requests', type: :request do
   describe 'POST api/v1/requests/:id/complete' do
     let!(:request) { requests(:request2) }
     let!(:id)      { request.id }
-
-    context 'when 403' do
-      it_behaves_like 'with authenticated requester' do
-        it 'can\'t complete a request' do
-          post("/api/v1/requests/#{id}/complete", headers:)
-
-          expect(status).to eq(403)
-          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
-        end
-      end
-    end
 
     context 'when 422' do
       it_behaves_like 'with authenticated grower' do

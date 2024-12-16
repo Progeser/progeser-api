@@ -17,11 +17,8 @@ end
 #  encrypted_password :string(128)      not null
 #  confirmation_token :string(128)
 #  remember_token     :string(128)      not null
-#  role               :string
 #  first_name         :string
 #  last_name          :string
-#  type               :string
-#  laboratory         :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  discarded_at       :datetime

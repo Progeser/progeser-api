@@ -2,24 +2,22 @@
 
 class RequestDistributionPolicy < ApplicationPolicy
   def index?
-    grower?
+    true
   end
 
   def show?
-    grower?
+    true
   end
 
   def create?
-    grower?
+    true
   end
 
   def update?
-    grower?
+    true
   end
 
   def destroy?
-    return false unless grower?
-
     return true unless record.request.accepted?
 
     return true if record.request.request_distributions.count > 1
@@ -30,7 +28,7 @@ class RequestDistributionPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      grower? ? scope.all : scope.none
+      scope.all
     end
   end
 end

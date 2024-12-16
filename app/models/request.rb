@@ -89,9 +89,9 @@ end
 #  photoperiod          :integer
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
-#  requester_first_name :string           default(""), not null
-#  requester_last_name  :string           default(""), not null
-#  requester_email      :string           default(""), not null
+#  requester_first_name :string           not null
+#  requester_last_name  :string           not null
+#  requester_email      :string           not null
 #  laboratory           :string
 #
 # Indexes

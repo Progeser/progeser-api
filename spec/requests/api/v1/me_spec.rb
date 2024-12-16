@@ -32,8 +32,7 @@ RSpec.describe 'Api/V1/Me', type: :request do
           headers:,
           params: {
             first_name: 'my new first name',
-            last_name: 'my new last name',
-            laboratory: 'laboratory'
+            last_name: 'my new last name'
           }
         )
 
@@ -43,7 +42,6 @@ RSpec.describe 'Api/V1/Me', type: :request do
         expect(response.body).to eq(user.to_blueprint)
         expect(user.first_name).to eq('my new first name')
         expect(user.last_name).to eq('my new last name')
-        expect(user.laboratory).to be_nil
       end
     end
 
