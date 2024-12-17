@@ -41,8 +41,8 @@ user3:
   encrypted_password: anonymized
   confirmation_token: 
   remember_token: anonymized
-  last_name:
-  first_name: 
+  last_name: Anonymized
+  first_name: Anonymized
   created_at: !ruby/object:ActiveSupport::TimeWithZone
     utc: &1 2019-10-31 15:40:41.545001000 Z
     zone: &2 !ruby/object:ActiveSupport::TimeZone

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FirstNameLastNameNotNull < ActiveRecord::Migration[7.2]
   def up
     change_table :users, bulk: true do |t|
