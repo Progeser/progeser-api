@@ -122,7 +122,7 @@ resource 'Requests' do
     let(:due_date)       { Date.current + 6.months }
     let(:quantity)       { 150 }
     let(:comment)        { 'The specimens have to be in perfect condition, please be careful!' }
-    let(:temperature)    { 35 }
+    let(:temperature)    { 'froid'}
     let(:photoperiod)    { 12 }
     let(:requester_first_name) { 'John' }
     let(:requester_last_name)  { 'Doe' }
