@@ -73,8 +73,8 @@ end
 #  encrypted_password :string(128)      not null
 #  confirmation_token :string(128)
 #  remember_token     :string(128)      not null
-#  first_name         :string
-#  last_name          :string
+#  first_name         :string           not null
+#  last_name          :string           not null
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  discarded_at       :datetime
