@@ -37,11 +37,11 @@ class BenchTest < ActiveSupport::TestCase
   test 'invalid with non-positive dimensions' do
     @bench.dimensions = [10, -20]
     assert_not @bench.valid?
-    assert_includes @bench.errors[:dimensions], 'each dimension must be greater than 0'
+    assert_includes @bench.errors[:dimensions], 'chaque dimension doit être supérieure à 0'
 
     @bench.dimensions = [0, 30]
     assert_not @bench.valid?
-    assert_includes @bench.errors[:dimensions], 'each dimension must be greater than 0'
+    assert_includes @bench.errors[:dimensions], 'chaque dimension doit être supérieure à 0'
   end
 
   test 'invalid without position' do

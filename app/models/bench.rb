@@ -2,10 +2,7 @@
 
 class Bench < ApplicationRecord
   # Validations
-  validates :dimensions,
-            presence: true,
-            length: { is: 2, message: I18n.t('activerecord.errors.models.bench.attributes.dimensions.incorrect_size') }
-  validate :dimensions_must_be_strictly_positive
+  include ValidateDimensionsConcern
 
   validates :positions,
             presence: true,
@@ -41,14 +38,6 @@ class Bench < ApplicationRecord
     end
       errors.add(:dimensions, 'sum of distributions areas can\'t be greater than bench area')
     end
-  end
-
-  def dimensions_must_be_strictly_positive
-    return unless dimensions
-
-    return unless dimensions.any? { |d| d <= 0 }
-
-    errors.add(:dimensions, 'each dimension must be greater than 0')
   end
 
   def positions_must_be_positive

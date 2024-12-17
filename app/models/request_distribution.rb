@@ -2,14 +2,11 @@
 
 class RequestDistribution < ApplicationRecord
   # Validations
+  include ValidateDimensionsConcern
+
   validates :pot_quantity, presence: true, numericality: { greater_than: 0 }
 
   validate :plant_stage_from_request
-
-  validates :dimensions,
-            presence: true,
-            length: { is: 2, message: I18n.t('activerecord.errors.models.bench.attributes.dimensions.incorrect_size') }
-  validate :dimensions_must_be_strictly_positive
 
   validates :positions_on_bench,
             presence: true,
@@ -60,14 +57,6 @@ class RequestDistribution < ApplicationRecord
     return if request.plant.plant_stages.include?(plant_stage)
 
     errors.add(:plant_stage, 'must be from requested plant')
-  end
-
-  def dimensions_must_be_strictly_positive
-    return unless dimensions
-
-    return unless dimensions.any? { |d| d <= 0 }
-
-    errors.add(:dimensions, 'each dimension must be greater than 0')
   end
 
   def positions_must_be_positive

@@ -29,13 +29,15 @@ fr:
               at_least_one: Au moins 1 request_distribution est requise
         bench:
           attributes:
-            dimensions:
-              incorrect_size: "doit contenir exactement deux éléments: longueur et largeur"
-              not_positive: "chaque dimension doit être supérieure à 0"
             positions:
               incorrect_size: "doit contenir exactement deux éléments : x et y"
               not_positive: "chaque position doit être positive"
             positions_overlap: "le banc chevauche un banc existant"
+      concern:
+        attributes:
+          dimensions:
+            incorrect_size: "doit contenir exactement deux éléments: longueur et largeur"
+            not_positive: "chaque dimension doit être supérieure à 0"
   date:
     abbr_day_names:
       - dim

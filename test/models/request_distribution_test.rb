@@ -81,11 +81,11 @@ class RequestDistributionTest < ActiveSupport::TestCase
   test 'invalid with non-positive dimensions' do
     @request_distribution.dimensions = [10, -20]
     assert_not @request_distribution.valid?
-    assert_includes @request_distribution.errors[:dimensions], 'each dimension must be greater than 0'
+    assert_includes @request_distribution.errors[:dimensions], 'chaque dimension doit être supérieure à 0'
 
     @request_distribution.dimensions = [0, 30]
     assert_not @request_distribution.valid?
-    assert_includes @request_distribution.errors[:dimensions], 'each dimension must be greater than 0'
+    assert_includes @request_distribution.errors[:dimensions], 'chaque dimension doit être supérieure à 0'
   end
 
   test 'invalid without positions_on_bench' do
