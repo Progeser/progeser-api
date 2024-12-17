@@ -124,7 +124,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
               quantity: 150,
               due_date: Date.current + 6.months,
               comment: 'My comment',
-              temperature: 'chaud',
+              temperature: 'Chaud',
               photoperiod: 4,
               requester_first_name: 'John',
               requester_last_name: 'Doe',
@@ -144,7 +144,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           expect(request.quantity).to eq(150)
           expect(request.due_date).to eq(Date.current + 6.months)
           expect(request.comment).to eq('My comment')
-          expect(request.temperature).to eq('chaud')
+          expect(request.temperature).to eq('Chaud')
           expect(request.photoperiod).to eq(4)
           expect(request.requester_first_name).to eq('John')
           expect(request.requester_last_name).to eq('Doe')
@@ -162,7 +162,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
               quantity: 150,
               due_date: Date.current + 6.months,
               comment: 'My comment',
-              temperature: 'chaud',
+              temperature: 'Chaud',
               photoperiod: 4,
               requester_first_name: 'John',
               requester_last_name: 'Doe',
@@ -183,7 +183,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           expect(request.quantity).to eq(150)
           expect(request.due_date).to eq(Date.current + 6.months)
           expect(request.comment).to eq('My comment')
-          expect(request.temperature).to eq('chaud')
+          expect(request.temperature).to eq('Chaud')
           expect(request.photoperiod).to eq(4)
           expect(request.requester_first_name).to eq('John')
           expect(request.requester_last_name).to eq('Doe')
@@ -205,7 +205,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
               quantity: 150,
               due_date: Date.current + 6.months,
               comment: 'My comment',
-              temperature: 'chaud',
+              temperature: 'Chaud',
               photoperiod: 4,
               requester_first_name: 'John',
               requester_last_name: 'Doe',
@@ -227,7 +227,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           expect(request.quantity).to eq(150)
           expect(request.due_date).to eq(Date.current + 6.months)
           expect(request.comment).to eq('My comment')
-          expect(request.temperature).to eq('chaud')
+          expect(request.temperature).to eq('Chaud')
           expect(request.photoperiod).to eq(4)
           expect(request.requester_first_name).to eq('John')
           expect(request.requester_last_name).to eq('Doe')
@@ -245,7 +245,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
               quantity: 150,
               due_date: Date.current + 6.months,
               comment: 'My comment',
-              temperature: 'chaud',
+              temperature: 'Chaud',
               photoperiod: 4,
               requester_first_name: 'John',
               requester_last_name: 'Doe',
@@ -267,7 +267,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           expect(request.quantity).to eq(150)
           expect(request.due_date).to eq(Date.current + 6.months)
           expect(request.comment).to eq('My comment')
-          expect(request.temperature).to eq('chaud')
+          expect(request.temperature).to eq('Chaud')
           expect(request.photoperiod).to eq(4)
           expect(request.requester_first_name).to eq('John')
           expect(request.requester_last_name).to eq('Doe')

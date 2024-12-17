@@ -138,7 +138,7 @@ if Rails.env.development?
     comment: Faker::Movies::LordOfTheRings.quote,
     due_date: Date.current + 3.months,
     quantity: 50,
-    temperature: 'chaud',
+    temperature: 'Chaud',
     photoperiod: 8
   )
 
