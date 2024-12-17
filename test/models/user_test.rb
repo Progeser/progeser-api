@@ -3,9 +3,52 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  # Setup
+  def setup
+    @user = users(:user2)
+  end
+
+  # Validations
+  test 'valid user' do
+    assert @user.valid?, @user.errors.messages
+  end
+
+  test 'invalid without email' do
+    @user.email = nil
+    assert_not @user.valid?
+    assert_not_empty @user.errors[:email]
+  end
+
+  test 'invalid with existing email' do
+    @user.email = users(:user1).email
+    assert_not @user.valid?
+    assert_not_empty @user.errors[:email]
+  end
+
+  test 'invalid with incorrect email value' do
+    @user.email = 'foo'
+    assert_not @user.valid?
+    assert_not_empty @user.errors[:email]
+  end
+
+  test 'invalid without password' do
+    @user.password = nil
+    @user.encrypted_password = nil
+    assert_not @user.valid?
+    assert_not_empty @user.errors[:password]
+  end
+
+  test 'invalid without first_name' do
+    @user.first_name = nil
+    assert_not @user.valid?
+    assert_not_empty @user.errors[:first_name]
+  end
+
+  test 'invalid without last_name' do
+    @user.last_name = nil
+    assert_not @user.valid?
+    assert_not_empty @user.errors[:last_name]
+  end
 end
 
 # == Schema Information
@@ -28,4 +71,3 @@ end
 #  index_users_on_discarded_at    (discarded_at)
 #  index_users_on_email           (email) UNIQUE
 #  index_users_on_remember_token  (remember_token)
-#

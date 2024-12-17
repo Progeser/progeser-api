@@ -2,7 +2,7 @@
 
 class Api::V1::UsersController < ApiController
   def index
-    users = policy_scope(User)
+    users = policy_scope(User).kept
     authorize users
     render json: apply_fetcheable(users).to_blueprint
   end
@@ -21,18 +21,18 @@ class Api::V1::UsersController < ApiController
     if user.save
       render json: user.to_blueprint, status: :created
     else
-      render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+      render_validation_error(user)
     end
   end
 
   def destroy
-    user = policy_scope(User).find(params[:id])
+    user = policy_scope(User).kept.find(params[:id])
     authorize user
 
-    if user.destroy
-      render json: { message: 'User deleted' }, status: :ok
+    if current_user.discard
+      head :no_content
     else
-      render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+      render_validation_error(user)
     end
   end
 

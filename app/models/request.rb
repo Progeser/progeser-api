@@ -23,7 +23,7 @@ class Request < ApplicationRecord
 
   # Associations
   belongs_to :handler,
-             class_name: 'Users::Grower',
+             class_name: 'User',
              inverse_of: :handled_requests,
              optional: true
 

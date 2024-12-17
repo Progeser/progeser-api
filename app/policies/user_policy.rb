@@ -9,11 +9,11 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
-  def create?
+  def update?
     true
   end
 
-  def update?
+  def create?
     true
   end
 

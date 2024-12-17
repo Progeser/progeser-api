@@ -13,7 +13,7 @@ if Rails.env.development?
     confidential: false
   )
 
-  Users::Grower.create!(
+  User.create!(
     email: 'dev+grower@progeser.com',
     password: 'password',
     password_confirmation: 'password',
@@ -130,7 +130,7 @@ if Rails.env.development?
     requester_last_name: 'Doe',
     requester_email: 'john.doe@example.com',
     laboratory: 'My lab',
-    handler: Users::Grower.first,
+    handler: User.first,
     plant_stage: Plant.first.plant_stages.last,
     name: 'My first request',
     plant_name: Plant.first.name,

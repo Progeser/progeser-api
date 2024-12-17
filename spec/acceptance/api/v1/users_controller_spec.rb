@@ -40,8 +40,8 @@ resource 'Users' do
 
       expect(status).to eq(200)
 
-      expect(response_body).to eq(User.to_blueprint)
-      expect(JSON.parse(response_body).count).to eq(User.count)
+      expect(response_body).to eq(User.kept.to_blueprint)
+      expect(JSON.parse(response_body).count).to eq(User.kept.count)
     end
   end
 
@@ -101,8 +101,7 @@ resource 'Users' do
 
       do_request
 
-      expect(status).to eq(200)
-      expect(JSON.parse(response_body)['message']).to eq('User deleted')
+      expect(status).to eq(204)
     end
   end
 end

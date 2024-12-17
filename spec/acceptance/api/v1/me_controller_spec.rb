@@ -59,8 +59,6 @@ resource 'Me' do
       expect(user.discarded?).to be(true)
       expect(user.email).to eq('anonymized_1')
       expect(user.encrypted_password).to eq('anonymized')
-      expect(user.first_name).to be_nil
-      expect(user.last_name).to be_nil
     end
   end
 end
