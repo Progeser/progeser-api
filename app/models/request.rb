@@ -8,7 +8,7 @@ class Request < ApplicationRecord
             default: :pending
 
   enumerize :temperature,
-            in: %i[chaud froid extérieur autre],
+            in: %i[Chaud Froid Extérieur Autre],
             predicates: true,
             scope: true
 
