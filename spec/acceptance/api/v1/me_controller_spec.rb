@@ -8,7 +8,9 @@ resource 'Me' do
   header 'Accept',       'application/json'
   header 'Content-Type', 'application/json'
 
-  let!(:user)       { users(:user1) }
+  let!(:user) { users(:user1) }
+  let!(:user_last_name) { user.last_name }
+  let!(:user_first_name) { user.first_name }
   let!(:user_token) { Doorkeeper::AccessToken.create!(resource_owner_id: user.id) }
 
   get '/api/v1/me' do
@@ -59,8 +61,8 @@ resource 'Me' do
       expect(user.discarded?).to be(true)
       expect(user.email).to eq('anonymized_1')
       expect(user.encrypted_password).to eq('anonymized')
-      expect(user.first_name).to be_nil
-      expect(user.last_name).to be_nil
+      expect(user.first_name).to eq(user_first_name)
+      expect(user.last_name).to eq(user_last_name)
     end
   end
 end

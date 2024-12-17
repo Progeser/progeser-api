@@ -23,8 +23,8 @@ RSpec.describe 'Api/V1/Users', type: :request do
           expect(response.parsed_body.count).to eq(2)
           expect(response.headers['Pagination-Current-Page']).to eq(1)
           expect(response.headers['Pagination-Per']).to eq(2)
-          expect(response.headers['Pagination-Total-Pages']).to eq(2)
-          expect(response.headers['Pagination-Total-Count']).to eq(3)
+          expect(response.headers['Pagination-Total-Pages']).to eq(1)
+          expect(response.headers['Pagination-Total-Count']).to eq(2)
         end
       end
     end
@@ -33,7 +33,7 @@ RSpec.describe 'Api/V1/Users', type: :request do
   describe 'GET api/v1/users/:id' do
     context 'when 404' do
       it_behaves_like 'with authenticated grower' do
-        it 'gets a user' do
+        it 'cannot get a user' do
           get(
             '/api/v1/users/0',
             headers:
@@ -45,7 +45,7 @@ RSpec.describe 'Api/V1/Users', type: :request do
     end
 
     context 'when 401' do
-      it 'gets a user' do
+      it 'cannot get a user' do
         get(
           '/api/v1/users/0',
           headers:
@@ -127,13 +127,11 @@ RSpec.describe 'Api/V1/Users', type: :request do
     context 'when 422' do
       it_behaves_like 'with authenticated grower' do
         it 'fails to delete user' do
-          allow_any_instance_of(User).to receive(:destroy).and_return(false)
-
+          allow_any_instance_of(User).to receive(:discard).and_return(false)
           delete(
             '/api/v1/users/1',
             headers:
           )
-
           expect(status).to eq(422)
         end
       end

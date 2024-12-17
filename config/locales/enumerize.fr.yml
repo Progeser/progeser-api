@@ -1,13 +1,5 @@
 fr:
   enumerize:
-    user:
-      role:
-        requester: demandeur
-        grower: serriste
-    invite:
-      role:
-        requester: demandeur
-        grower: serriste
     pot:
       shape:
         square: carré

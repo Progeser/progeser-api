@@ -32,8 +32,14 @@ class User < ApplicationRecord
            foreign_key: :resource_owner_id,
            dependent: :destroy
 
+  has_many :handled_requests,
+           class_name: 'Request',
+           foreign_key: 'handler_id',
+           inverse_of: :handler,
+           dependent: :destroy
+
   # Callbacks
-  after_discard :anonymize
+  after_discard :partial_anonymize
 
   # check password_confirmation before using `update_password` method from Clearance::User
   #
@@ -46,16 +52,13 @@ class User < ApplicationRecord
     update_password(password)
   end
 
-  # Private instance methods
   private
 
-  def anonymize
+  def partial_anonymize
     self.email              = "anonymized_#{id}"
     self.encrypted_password = 'anonymized'
     self.confirmation_token = nil
     self.remember_token     = 'anonymized'
-    self.first_name         = nil
-    self.last_name          = nil
 
     save(validate: false)
   end
@@ -70,8 +73,8 @@ end
 #  encrypted_password :string(128)      not null
 #  confirmation_token :string(128)
 #  remember_token     :string(128)      not null
-#  first_name         :string
-#  last_name          :string
+#  first_name         :string           not null
+#  last_name          :string           not null
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  discarded_at       :datetime
