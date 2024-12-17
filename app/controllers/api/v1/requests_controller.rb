@@ -49,6 +49,18 @@ class Api::V1::RequestsController < ApiController
     end
   end
 
+  def update
+    @request.assign_attributes(request_params)
+
+    plant_attributes_from_params(@request)
+
+    if @request.save
+      render json: @request.to_blueprint
+    else
+      render_validation_error(@request)
+    end
+  end
+
   def accept
     if @request.fire_state_event(:accept)
       render json: @request.to_blueprint
