@@ -14,7 +14,7 @@ request1:
   comment: I didn't think it would end this way.
   due_date: 2020-05-13
   quantity: 100
-  temperature: 20
+  temperature: "chaud"
   photoperiod: 8
   created_at: !ruby/object:ActiveSupport::TimeWithZone
     utc: &1 2020-02-13 00:04:08.434029000 Z
@@ -67,7 +67,7 @@ request2:
 #  comment              :text
 #  due_date             :date
 #  quantity             :integer
-#  temperature          :integer
+#  temperature          :string
 #  photoperiod          :integer
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null

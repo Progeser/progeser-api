@@ -20,7 +20,6 @@ class Api::V1::RequestsController < ApiController
   def index
     requests = policy_scope(Request)
     authorize requests
-
     render json: apply_fetcheable(requests).to_blueprint
   end
 
@@ -51,11 +50,9 @@ class Api::V1::RequestsController < ApiController
 
   def update
     @request.assign_attributes(request_params)
-
     plant_attributes_from_params(@request)
-
     if @request.save
-      render json: @request.to_blueprint
+      render json: @request.to_blueprint, status: :ok
     else
       render_validation_error(@request)
     end

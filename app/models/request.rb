@@ -7,6 +7,11 @@ class Request < ApplicationRecord
             in: %i[pending accepted refused in_cancelation canceled completed],
             default: :pending
 
+  enumerize :temperature,
+            in: %i[chaud froid extérieur autre],
+            predicates: true,
+            scope: true
+
   # Validations
   validates :name,
             :status,
@@ -85,7 +90,7 @@ end
 #  comment              :text
 #  due_date             :date
 #  quantity             :integer
-#  temperature          :integer
+#  temperature          :string
 #  photoperiod          :integer
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
@@ -98,4 +103,5 @@ end
 #
 #  index_requests_on_handler_id      (handler_id)
 #  index_requests_on_plant_stage_id  (plant_stage_id)
+#
 #

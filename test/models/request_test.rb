@@ -133,7 +133,7 @@ end
 #  comment              :text
 #  due_date             :date
 #  quantity             :integer
-#  temperature          :integer
+#  temperature          :string
 #  photoperiod          :integer
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
