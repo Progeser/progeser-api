@@ -2,22 +2,18 @@
 
 class Bench < ApplicationRecord
   # Validations
-  validates :dimensions,
-            presence: true,
-            length: { is: 2, message: I18n.t('activerecord.errors.models.bench.attributes.dimensions.incorrect_size') }
-  validate :dimensions_must_be_strictly_positive
+  include ValidateDimensionsConcern
 
   validates :positions,
             presence: true,
             length: { is: 2, message: I18n.t('activerecord.errors.models.bench.attributes.positions.incorrect_size') }
   validate :positions_must_be_positive
 
-  validates_associated :request_distributions,
-                       message: I18n.t(
-                         'activerecord.errors.models.bench.attributes.request_distributions.invalid_distribution'
-                       )
+  validates_associated :request_distributions, if: :dimensions_and_positions_valid?
 
   validate :overlapping_bench_exists, on: %i[create update]
+
+  validate :distributions_areas_lower_than_bench_area, on: %i[update]
 
   # Associations
   belongs_to :greenhouse,
@@ -29,12 +25,19 @@ class Bench < ApplicationRecord
            inverse_of: :bench,
            dependent: :restrict_with_error
   # Checks
-  def dimensions_must_be_strictly_positive
-    return unless dimensions
+  def distributions_areas_lower_than_bench_area
+    return if errors[:dimensions].any?
 
-    return unless dimensions.any? { |d| d <= 0 }
+    width1, height1 = dimensions
 
-    errors.add(:dimensions, 'each dimension must be greater than 0')
+    if request_distributions.any? do |request_distribution|
+      x2, y2 = request_distribution.positions_on_bench
+      width2, height2 = request_distribution.dimensions
+
+      width1 < x2 + width2 || height1 < y2 + height2
+    end
+      errors.add(:dimensions, 'sum of distributions areas can\'t be greater than bench area')
+    end
   end
 
   def positions_must_be_positive
@@ -65,6 +68,10 @@ class Bench < ApplicationRecord
     width2, height2 = other_bench.dimensions
 
     x1 < x2 + width2 && x1 + width1 > x2 && y1 < y2 + height2 && y1 + height1 > y2
+  end
+
+  def dimensions_and_positions_valid?
+    errors[:dimensions].empty? && errors[:positions].empty?
   end
 end
 

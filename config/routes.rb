@@ -30,8 +30,11 @@ Rails.application.routes.draw do
         post :refuse, on: :member
         post :cancel, on: :member
         post :complete, on: :member
-        resources :request_distributions, only: %i[index show create update destroy]
+        resources :request_distributions, only: %i[show create update destroy]
       end
+
+      resources :request_distributions, only: :index
+
       resources :buildings, only: %i[index show create update destroy], shallow: true do
         resources :greenhouses, only: %i[index show create update destroy], shallow: true do
           resources :benches, only: %i[index show create update destroy]

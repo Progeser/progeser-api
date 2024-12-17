@@ -37,11 +37,11 @@ class BenchTest < ActiveSupport::TestCase
   test 'invalid with non-positive dimensions' do
     @bench.dimensions = [10, -20]
     assert_not @bench.valid?
-    assert_includes @bench.errors[:dimensions], 'each dimension must be greater than 0'
+    assert_includes @bench.errors[:dimensions], 'chaque dimension doit être supérieure à 0'
 
     @bench.dimensions = [0, 30]
     assert_not @bench.valid?
-    assert_includes @bench.errors[:dimensions], 'each dimension must be greater than 0'
+    assert_includes @bench.errors[:dimensions], 'chaque dimension doit être supérieure à 0'
   end
 
   test 'invalid without position' do
@@ -58,6 +58,22 @@ class BenchTest < ActiveSupport::TestCase
     @bench.positions = [-1, 0]
     assert_not @bench.valid?
     assert_includes @bench.errors[:positions], 'each position must be positive'
+  end
+
+  test 'invalid with wrong number of positions' do
+    @bench.positions = [10]
+    assert_not @bench.valid?
+    assert_includes @bench.errors[:positions], 'doit contenir exactement deux éléments : x et y'
+
+    @bench.positions = [10, 20, 30]
+    assert_not @bench.valid?
+    assert_includes @bench.errors[:positions], 'doit contenir exactement deux éléments : x et y'
+  end
+
+  test 'invalid when distributions areas is lower than bench area' do
+    @bench.dimensions = [10, 20]
+    assert_not @bench.valid?
+    assert_includes @bench.errors[:dimensions], 'sum of distributions areas can\'t be greater than bench area'
   end
 
   test 'invalid when overlapping with another bench in the same greenhouse' do

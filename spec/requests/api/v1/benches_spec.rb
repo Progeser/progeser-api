@@ -50,9 +50,7 @@ RSpec.describe 'Api/V1/Benches', type: :request do
           expect(status).to eq(422)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
-      end
 
-      it_behaves_like 'with authenticated grower' do
         it 'can\'t have a negative position' do
           post(
             "/api/v1/greenhouses/#{greenhouse.id}/benches",
@@ -68,11 +66,8 @@ RSpec.describe 'Api/V1/Benches', type: :request do
           expect(status).to eq(422)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
         end
-      end
 
-      it_behaves_like 'with authenticated grower' do
-        before do
-          # Create a bench that overlaps the existing bench
+        it 'returns an error about overlapping bench' do
           post(
             "/api/v1/greenhouses/#{greenhouse.id}/benches",
             headers:,
@@ -83,9 +78,7 @@ RSpec.describe 'Api/V1/Benches', type: :request do
             },
             as: :json
           )
-        end
 
-        it 'returns an error about overlapping bench' do
           expect(status).to eq(422)
           expect(response.parsed_body.dig('error', 'message', 'positions').first)
             .to eq('bench overlaps with an existing bench')
@@ -97,42 +90,33 @@ RSpec.describe 'Api/V1/Benches', type: :request do
   describe 'PUT api/v1/benches/:id' do
     context 'when 422' do
       it_behaves_like 'with authenticated grower' do
+        it 'returns an error about overlapping bench' do
+          put(
+            "/api/v1/benches/#{bench.id}",
+            headers:,
+            params: {
+              positions: [300, 300]
+            },
+            as: :json
+          )
+
+          expect(status).to eq(422)
+          expect(response.parsed_body.dig('error', 'message', 'positions').first)
+            .to eq('bench overlaps with an existing bench')
+        end
+
         it 'can\'t have an area lower than the sum of distributions areas' do
           put(
             "/api/v1/benches/#{bench.id}",
             headers:,
             params: {
-              name: :bench_name,
-              dimensions: [25, 30],
-              positions: [10, 10]
+              dimensions: [5, 3]
             },
             as: :json
           )
 
           expect(status).to eq(422)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
-        end
-      end
-
-      it_behaves_like 'with authenticated grower' do
-        before do
-          # Attempt to update a bench to overlap another existing bench
-          put(
-            "/api/v1/benches/#{bench.id}",
-            headers:,
-            params: {
-              name: 'Updated Bench',
-              dimensions: [500, 200],
-              positions: [bench.positions[0], bench.positions[1]] # same position as an existing bench
-            },
-            as: :json
-          )
-        end
-
-        it 'returns an error about overlapping bench' do
-          expect(status).to eq(422)
-          expect(response.parsed_body.dig('error', 'message',
-                                          'positions').first).to eq('bench overlaps with an existing bench')
         end
       end
     end
