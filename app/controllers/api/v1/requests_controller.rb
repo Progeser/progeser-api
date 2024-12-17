@@ -20,7 +20,7 @@ class Api::V1::RequestsController < ApiController
   def index
     requests = policy_scope(Request)
     authorize requests
-    
+
     render json: apply_fetcheable(requests).to_blueprint
   end
 
