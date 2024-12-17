@@ -19,7 +19,7 @@ module ValidateDimensionsConcern
 
       return unless dimensions.any? { |d| d <= 0 }
 
-      errors.add(:dimensions, I18n.t('activerecord.errors.concern.attributes.dimensions.not_positive') )
+      errors.add(:dimensions, I18n.t('activerecord.errors.concern.attributes.dimensions.not_positive'))
     end
   end
 end
