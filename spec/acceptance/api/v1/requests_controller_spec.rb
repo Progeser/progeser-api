@@ -217,6 +217,7 @@ resource 'Requests' do
       request.reload
       expect(response_body).to eq(request.to_blueprint)
       expect(request.status).to eq(:completed)
+      expect(request.request_distributions).to be_empty
     end
   end
 

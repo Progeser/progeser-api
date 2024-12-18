@@ -50,12 +50,6 @@ if Rails.env.development?
     area: 40
   )
 
-  Pot.create!(
-    name: 'My other pot',
-    shape: :other,
-    area: 120
-  )
-
   building1 = Building.create!(
     name: 'Main Building',
     description: 'The main building that houses the primary operations.'

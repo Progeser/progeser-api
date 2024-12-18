@@ -73,6 +73,12 @@ class Request < ApplicationRecord
                 length: { minimum: 1, message: :at_least_one }
       validates :plant_stage, presence: true
     end
+
+    after_transition to: :completed, do: :cleanup_request_distributions
+  end
+
+  def cleanup_request_distributions
+    request_distributions.destroy_all
   end
 end
 
