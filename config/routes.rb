@@ -11,11 +11,6 @@ Rails.application.routes.draw do
 
       resource :passwords, only: :update
 
-      resources :account_requests, only: %i[index show create destroy] do
-        get :pending_account_requests_count, on: :collection
-        post :accept, on: :member
-      end
-
       resources :users, only: %i[index show create destroy]
 
       resources :pots, only: %i[index show create update destroy]

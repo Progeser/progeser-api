@@ -29,7 +29,7 @@ class Api::V1::UsersController < ApiController
     user = policy_scope(User).kept.find(params[:id])
     authorize user
 
-    if current_user.discard
+    if user.discard
       head :no_content
     else
       render_validation_error(user)
