@@ -105,6 +105,12 @@ class RequestTest < ActiveSupport::TestCase
     assert_not_empty @request.errors[:status]
   end
 
+  test 'invalid with incorrect temperature value' do
+    @request.temperature = 'foo'
+    assert_not @request.valid?
+    assert_not_empty @request.errors[:temperature]
+  end
+
   # State Machine
   test 'can\'t be accepted without at least one request distribution' do
     @request.request_distributions = []
