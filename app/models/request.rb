@@ -75,6 +75,8 @@ class Request < ApplicationRecord
     end
 
     after_transition to: :completed, do: :cleanup_request_distributions
+    after_transition to: :refused, do: :cleanup_request_distributions
+    after_transition to: :canceled, do: :cleanup_request_distributions
   end
 
   def cleanup_request_distributions
