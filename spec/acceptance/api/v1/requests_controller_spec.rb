@@ -183,6 +183,7 @@ resource 'Requests' do
       request.reload
       expect(response_body).to eq(request.to_blueprint)
       expect(request.status).to eq(:refused)
+      expect(request.request_distributions).to be_empty
     end
   end
 
@@ -203,6 +204,7 @@ resource 'Requests' do
       request.reload
       expect(response_body).to eq(request.to_blueprint)
       expect(request.status).to eq(:canceled)
+      expect(request.request_distributions).to be_empty
     end
   end
 
