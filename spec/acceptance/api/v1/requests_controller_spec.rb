@@ -238,7 +238,6 @@ resource 'Requests' do
   end
 
   put '/api/v1/requests/:id' do
-
     let!(:request3) { requests(:request3) }
     let(:id) { request3.id }
 
@@ -262,7 +261,7 @@ resource 'Requests' do
               type: :integer
 
     let(:plant_stage_id) { Plant.last.plant_stages.last.id }
-    let(:name)           { 'My request'}
+    let(:name)           { 'My request' }
     let(:plant_name)     { Plant.last.name }
     let(:plant_stage_name) { Plant.last.plant_stages.last.name }
     let(:due_date)       { Date.current + 6.months }

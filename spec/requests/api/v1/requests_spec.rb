@@ -451,13 +451,13 @@ RSpec.describe 'Api/V1/Requests', type: :request do
         end
       end
     end
+
     context 'when 422' do
       let!(:request3) { requests(:request3) }
       let!(:id) { request3.id }
 
       it_behaves_like 'with authenticated grower' do
         it 'fails to update a request' do
-
           allow_any_instance_of(Request).to receive(:update).and_return(false)
 
           put(
@@ -478,6 +478,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
         end
       end
     end
+
     context 'when 404' do
       it_behaves_like 'with authenticated grower' do
         it 'can\'t update a request that doesn\'t exist' do
@@ -499,6 +500,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
         end
       end
     end
+
     context 'when 401' do
       it_behaves_like 'without authentication' do
         it 'can\'t update a request' do
