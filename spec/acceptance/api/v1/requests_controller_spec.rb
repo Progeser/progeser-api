@@ -192,9 +192,7 @@ resource 'Requests' do
       request.update(status: :pending)
     end
 
-    example 'Cancel a request' \
-            'If the request is already accepted and the current user is a requester, ' \
-            'the request will be set as `in_cancelation`' do
+    example 'Cancel a request' do
       authentication :basic, "Bearer #{user_token.token}"
 
       do_request
@@ -236,6 +234,61 @@ resource 'Requests' do
       expect(status).to eq(204)
 
       expect { request.reload }.to raise_exception(ActiveRecord::RecordNotFound)
+    end
+  end
+
+  put '/api/v1/requests/:id' do
+
+    let!(:request3) { requests(:request3) }
+    let(:id) { request3.id }
+
+    parameter :plant_stage_id, 'ID of the requested plant_stage', with_example: true
+    parameter :name, 'Name of the request', with_example: true
+    parameter :plant_name,
+              'Name of the requested plant (ignored if plant_stage_id given)',
+              with_example: true
+    parameter :plant_stage_name,
+              'Name of the requested plant stage (ignored if plant_stage_id given)',
+              with_example: true
+    parameter :due_date, 'Due date of the request', with_example: true, type: :date
+    parameter :quantity, 'Quantity of plants desired', with_example: true, type: :integer
+    parameter :temperature,
+              '(Optional) Temperature of cultivation desired',
+              with_example: true,
+              type: :integer
+    parameter :photoperiod,
+              '(Optional) Photoperiod of cultivation desired (in hour/day)',
+              with_example: true,
+              type: :integer
+
+    let(:plant_stage_id) { Plant.last.plant_stages.last.id }
+    let(:name)           { 'My request'}
+    let(:plant_name)     { Plant.last.name }
+    let(:plant_stage_name) { Plant.last.plant_stages.last.name }
+    let(:due_date)       { Date.current + 6.months }
+    let(:quantity)       { 150 }
+    let(:temperature)    { 'Froid' }
+    let(:photoperiod)    { 12 }
+
+    let(:raw_post) { params.to_json }
+
+    example 'Update a request' do
+      authentication :basic, "Bearer #{user_token.token}"
+      do_request
+
+      expect(status).to eq(200)
+
+      request.reload
+
+      response = JSON.parse(response_body)
+      expect(response['plant_stage_id']).to eq(plant_stage_id)
+      expect(response['plant_stage_name']).to eq(plant_stage_name)
+      expect(response['plant_name']).to eq(plant_name)
+      expect(response['name']).to eq(name)
+      expect(response['due_date']).to eq(due_date.strftime('%F'))
+      expect(response['quantity']).to eq(quantity)
+      expect(response['temperature']).to eq(temperature)
+      expect(response['photoperiod']).to eq(photoperiod)
     end
   end
 end

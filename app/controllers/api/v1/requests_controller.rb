@@ -49,6 +49,14 @@ class Api::V1::RequestsController < ApiController
     end
   end
 
+  def update
+    if @request.update(update_request_params)
+      render json: @request.to_blueprint, status: :ok
+    else
+      render_validation_error(@request)
+    end
+  end
+
   def accept
     if @request.fire_state_event(:accept)
       render json: @request.to_blueprint
@@ -101,6 +109,13 @@ class Api::V1::RequestsController < ApiController
       :plant_stage_id, :name, :plant_name, :plant_stage_name, :quantity, :due_date,
       :comment, :temperature, :photoperiod, :requester_first_name, :requester_last_name,
       :requester_email, :laboratory
+    )
+  end
+
+  def update_request_params
+    params.permit(
+      :plant_stage_id, :name, :plant_name, :plant_stage_name,
+      :quantity, :due_date, :temperature, :photoperiod
     )
   end
 
