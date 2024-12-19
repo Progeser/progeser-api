@@ -27,11 +27,9 @@ resource 'Me' do
   put '/api/v1/me' do
     parameter :first_name, 'The new first name', with_example: true
     parameter :last_name,  'The new last name',  with_example: true
-    parameter :laboratory, 'The new laboratory (only for a requester)', with_example: true
 
     let(:first_name) { 'Updated first name' }
     let(:last_name)  { 'Updated last name' }
-    let(:laboratory) { 'Updated laboratory' }
 
     let(:raw_post) { params.to_json }
 

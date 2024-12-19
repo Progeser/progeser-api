@@ -26,8 +26,8 @@ RSpec.describe 'Api/V1/Requests', type: :request do
           expect(response.parsed_body.count).to eq(2)
           expect(response.headers['Pagination-Current-Page']).to eq(1)
           expect(response.headers['Pagination-Per']).to eq(2)
-          expect(response.headers['Pagination-Total-Pages']).to eq(1)
-          expect(response.headers['Pagination-Total-Count']).to eq(2)
+          expect(response.headers['Pagination-Total-Pages']).to eq(2)
+          expect(response.headers['Pagination-Total-Count']).to eq(3)
         end
 
         it 'gets requests filtered by status' do
@@ -191,7 +191,7 @@ RSpec.describe 'Api/V1/Requests', type: :request do
         end
       end
 
-      it_behaves_like 'with authenticated requester' do
+      it_behaves_like 'without authentication' do
         it 'can create a request from an existing plant_stage' do
           plant = Plant.last
           plant_stage = plant.plant_stages.last
@@ -403,13 +403,12 @@ RSpec.describe 'Api/V1/Requests', type: :request do
       end
     end
 
-    context 'when 404' do
-      it_behaves_like 'with authenticated requester' do
+    context 'when 401' do
+      it_behaves_like 'without authentication' do
         it 'can\'t delete a request' do
           delete("/api/v1/requests/#{id}", headers:)
 
-          expect(status).to eq(403)
-          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
+          expect(status).to eq(401)
         end
       end
     end
@@ -425,6 +424,99 @@ RSpec.describe 'Api/V1/Requests', type: :request do
 
           expect(status).to eq(422)
           expect(response.parsed_body.dig('error', 'message')).not_to be_blank
+        end
+      end
+    end
+  end
+
+  describe  'PUT api/v1/requests/:id' do
+    context 'when 403' do
+      it_behaves_like 'with authenticated grower' do
+        it 'can\'t update a request containing request_distributions' do
+          put(
+            "/api/v1/requests/#{id}",
+            headers:,
+            params: {
+              name: 'My request',
+              quantity: 150,
+              due_date: Date.current + 6.months,
+              comment: 'My comment',
+              temperature: 'Chaud',
+              photoperiod: 4
+            }
+          )
+
+          expect(status).to eq(403)
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
+        end
+      end
+    end
+
+    context 'when 422' do
+      let!(:request3) { requests(:request3) }
+      let!(:id) { request3.id }
+
+      it_behaves_like 'with authenticated grower' do
+        it 'fails to update a request' do
+          allow_any_instance_of(Request).to receive(:update).and_return(false)
+
+          put(
+            "/api/v1/requests/#{id}",
+            headers:,
+            params: {
+              name: 'My request',
+              quantity: 150,
+              due_date: Date.current + 6.months,
+              comment: 'My comment',
+              temperature: 'Chaud',
+              photoperiod: 4
+            }
+          )
+
+          expect(status).to eq(422)
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
+        end
+      end
+    end
+
+    context 'when 404' do
+      it_behaves_like 'with authenticated grower' do
+        it 'can\'t update a request that doesn\'t exist' do
+          put(
+            '/api/v1/requests/999',
+            headers:,
+            params: {
+              name: 'My request',
+              quantity: 150,
+              due_date: Date.current + 6.months,
+              comment: 'My comment',
+              temperature: 'Chaud',
+              photoperiod: 4
+            }
+          )
+
+          expect(status).to eq(404)
+          expect(response.parsed_body.dig('error', 'message')).not_to be_blank
+        end
+      end
+    end
+
+    context 'when 401' do
+      it_behaves_like 'without authentication' do
+        it 'can\'t update a request' do
+          put(
+            "/api/v1/requests/#{id}",
+            headers:,
+            params: {
+              name: 'My request',
+              quantity: 150,
+              due_date: Date.current + 6.months,
+              comment: 'My comment',
+              temperature: 'Chaud',
+              photoperiod: 4
+            }
+          )
+          expect(status).to eq(401)
         end
       end
     end
