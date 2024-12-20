@@ -147,7 +147,9 @@ if Rails.env.development?
     plant_stage: Plant.last.plant_stages.last,
     comment: Faker::Movies::LordOfTheRings.quote,
     due_date: Date.current + 2.months,
-    quantity: 200
+    quantity: 200,
+    temperature: 'Froid',
+    photoperiod: 16
   )
 
   # RequestDistributions
