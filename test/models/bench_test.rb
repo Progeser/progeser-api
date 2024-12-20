@@ -47,27 +47,27 @@ class BenchTest < ActiveSupport::TestCase
   test 'invalid without position' do
     @bench.positions = nil
     assert_not @bench.valid?
-    assert_includes @bench.errors[:positions], 'doit être rempli(e)'
+    assert_includes @bench.errors[:standardized_positions], 'doit être rempli(e)'
   end
 
   test 'invalid with negative position' do
     @bench.positions = [10, -20]
     assert_not @bench.valid?
-    assert_includes @bench.errors[:positions], 'each position must be positive'
+    assert_includes @bench.errors[:standardized_positions], 'chaque position doit être positive'
 
     @bench.positions = [-1, 0]
     assert_not @bench.valid?
-    assert_includes @bench.errors[:positions], 'each position must be positive'
+    assert_includes @bench.errors[:standardized_positions], 'chaque position doit être positive'
   end
 
   test 'invalid with wrong number of positions' do
     @bench.positions = [10]
     assert_not @bench.valid?
-    assert_includes @bench.errors[:positions], 'doit contenir exactement deux éléments : x et y'
+    assert_includes @bench.errors[:standardized_positions], 'doit contenir exactement deux éléments : x et y'
 
     @bench.positions = [10, 20, 30]
     assert_not @bench.valid?
-    assert_includes @bench.errors[:positions], 'doit contenir exactement deux éléments : x et y'
+    assert_includes @bench.errors[:standardized_positions], 'doit contenir exactement deux éléments : x et y'
   end
 
   test 'invalid when distributions areas is lower than bench area' do
