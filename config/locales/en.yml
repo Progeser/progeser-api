@@ -20,12 +20,12 @@ en:
               at_least_one: should have at least 1 plant_stage
         bench:
           attributes:
-            positions:
-              incorrect_size: "should contain exactly two elements: x and y"
-              not_positive: "each position must be positive"
             positions_overlap: "bench overlaps with an existing bench"
       concern:
         attributes:
           dimensions:
             incorrect_size: "should contain exactly two elements: length and width"
             not_positive: "each dimension must be greater than 0"
+          positions:
+            incorrect_size: "should contain exactly two elements: x and y"
+            not_positive: "each position must be positive"
