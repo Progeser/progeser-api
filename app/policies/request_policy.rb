@@ -29,6 +29,15 @@ class RequestPolicy < ApplicationPolicy
     true
   end
 
+  def update?
+    if record.request_distributions.exists?
+      record.errors.add(:base, 'cannot update a request with associated request distributions')
+      false
+    else
+      true
+    end
+  end
+
   def destroy?
     if record.pending?
       true

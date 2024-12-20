@@ -53,6 +53,33 @@ request2:
     zone: *2
     time: *3
 
+request3:
+  id: 3
+  requester_first_name: Alice
+  requester_last_name: Johnson
+  requester_email: alice.johnson@example.com
+  laboratory: Research Lab
+  handler_id: 3
+  plant_stage_id: 5
+  name: Research request
+  plant_name: Lettuce
+  plant_stage_name: germination
+  status: pending
+  comment: This is a request for research purposes.
+  due_date: 2021-06-15
+  quantity: 50
+  temperature: "Cool"
+  photoperiod: 12
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2021-01-20 14:35:08.434029000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2021-01-20 14:35:08.434029000 Z
+    zone: *2
+    time: *3
+
 # == Schema Information
 #
 # Table name: requests
