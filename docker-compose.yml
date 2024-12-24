@@ -1,63 +1,29 @@
-version: '3.6'
+version: '3.9'
 
 services:
   db:
-    restart: unless-stopped
-    networks:
-      - test-network
-    image: postgres:10
+    image: postgres:15
+    container_name: rails_db
     environment:
-      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
     volumes:
       - db_data:/var/lib/postgresql/data
-
-  redis:
-    restart: unless-stopped
-    networks:
-      - test-network
-    image: redis:5.0.7
+    restart: always
 
   web:
-    restart: unless-stopped
-    networks:
-      - test-network
-    build: .
-    volumes:
-      - .:/myapp
-      - gem_cache:/usr/local/bundle/gems
-      - node_modules:/app/node_modules
+    build:
+      context: .
+    container_name: rails_app
+    environment:
+      DATABASE_HOST: db
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: password
     ports:
       - "3000:3000"
-    env_file: .env
-    environment:
-      RAILS_ENV: development
     depends_on:
       - db
-      - redis
-
-  sidekiq:
-    restart: unless-stopped
-    networks:
-      - test-network
-    build: .
-    depends_on:
-      - web
-      - db
-      - redis
-    volumes:
-      - .:/app
-      - gem_cache:/usr/local/bundle/gems
-      - node_modules:/app/node_modules
-    env_file: .env
-    environment:
-      RAILS_ENV: development
-    entrypoint: ./entrypoints/sidekiq-entrypoint.sh
-
-networks:
-  test-network:
-    driver: bridge
+    restart: always
 
 volumes:
-  gem_cache:
   db_data:
-  node_modules:
