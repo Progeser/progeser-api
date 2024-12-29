@@ -50,6 +50,7 @@ class Api::V1::RequestsController < ApiController
   end
 
   def update
+    @request.handler_id = current_user.id
     plant_attributes_from_params(@request)
     if @request.update(request_params)
       render json: @request.to_blueprint, status: :ok
@@ -59,6 +60,7 @@ class Api::V1::RequestsController < ApiController
   end
 
   def accept
+    @request.handler_id = current_user.id
     if @request.fire_state_event(:accept)
       render json: @request.to_blueprint
     else
@@ -67,6 +69,7 @@ class Api::V1::RequestsController < ApiController
   end
 
   def refuse
+    @request.handler_id = current_user.id
     if @request.fire_state_event(:refuse)
       render json: @request.to_blueprint
     else
@@ -75,6 +78,7 @@ class Api::V1::RequestsController < ApiController
   end
 
   def cancel
+    @request.handler_id = current_user.id
     if @request.fire_state_event(:cancel)
       render json: @request.to_blueprint
     else
@@ -83,6 +87,7 @@ class Api::V1::RequestsController < ApiController
   end
 
   def complete
+    @request.handler_id = current_user.id
     if @request.fire_state_event(:complete)
       render json: @request.to_blueprint
     else
