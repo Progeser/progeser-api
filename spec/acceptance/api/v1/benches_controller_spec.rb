@@ -16,6 +16,8 @@ resource 'Benches' do
   let!(:bench) { greenhouse.benches.first }
   let!(:id) { bench.id }
 
+  let!(:request_distribution_ids) { bench.request_distributions.pluck(:id) }
+
   get '/api/v1/greenhouses/:greenhouse_id/benches' do
     parameter :'page[number]', "The number of the desired page\n\n" \
                                "If used, additional information is returned in the response headers:\n" \
@@ -88,6 +90,7 @@ resource 'Benches' do
       expect(response['dimensions']).to eq(dimensions)
       expect(response['positions']).to eq(positions)
       expect(response['greenhouse_id']).to eq(greenhouse_id)
+      expect(response['request_distribution_ids'].count).to eq(0)
     end
   end
 
