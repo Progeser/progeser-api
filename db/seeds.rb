@@ -45,6 +45,8 @@ if Rails.env.development?
       case shape
       when :square, :circle then [rand(5..20)]
       when :rectangle then [rand(5..20), rand(5..20)]
+      else
+        raise "Unknown shape: #{shape}"
       end
     area =
       case shape
