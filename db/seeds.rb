@@ -51,6 +51,8 @@ if Rails.env.development?
       when :square then dimensions[0]**2
       when :rectangle then dimensions[0] * dimensions[1]
       when :circle then (dimensions[0]**2) * Math::PI
+      else
+        raise "Unknown shape: #{shape}"
       end
 
     Pot.create!(
