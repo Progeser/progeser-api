@@ -10,7 +10,7 @@
 # Presentation
 
 ProGeSer API is part of the ProGeSer project, an application to manage greenhouses.
-You can find the front part [here](https://github.com/Progeser/progeser-front).
+You can find the front part [here](https://github.com/Progeser/progeser-front-rework).
 
 # Run the application
 
@@ -19,9 +19,9 @@ You can run the application in 2 ways.
 ## With Ruby
 
 ### Requirements
-* Ruby v 2.6.5
-* Bundler v. >= 1.2.0, < 3
-* Postgresql v. 10
+* Ruby v 3.3.5
+* Bundler v. >= 2.5.18
+* Postgresql v. 15.0.0
 
 ### How to run
 
@@ -61,8 +61,8 @@ To run integration tests, run the following:
 
 ### Requirements
 
-* Docker v. >=17.0.3
-* Docker Compose v. >= 1.20.0
+* Docker v. >=24.0.7
+* Docker Compose v. >= 2.23.0
 
 ### How to run
 
@@ -85,85 +85,3 @@ http://localhost:3000
 To see the endpoints documentation, you can go to: 
 
 http://localhost:3000/apidoc
-
-# Deploy the full application
-
-You only need docker-compose to run the full application, and a .env file.
-
-First, create a docker-compose.yml file to deploy the full application:
-
-```Dockerfile
-version: '3.6'
- 
- services:
-   db:
-     restart: unless-stopped
-     networks:
-       - progeser-network
-     image: postgres:10
-     environment:
-       POSTGRES_HOST_AUTH_METHOD: trust
-     volumes:
-       - db_data:/var/lib/postgresql/data
- 
-   redis:
-     restart: unless-stopped
-     networks:
-       - progeser-network
-     image: redis:5.0.7
- 
-   web:
-     restart: unless-stopped
-     networks:
-       - progeser-network
-     image: progeser/progeser-api-web
-     ports:
-       - "3000:3000"
-     env_file: .env
-     environment:
-       RAILS_ENV: development
-     depends_on:
-       - db
-       - redis
- 
-   sidekiq:
-     restart: unless-stopped
-     networks:
-       - progeser-network
-     image: progeser/progeser-api-sidekiq
-     depends_on:
-       - web
-       - db
-       - redis
-     env_file: .env
-     environment:
-       RAILS_ENV: development
- 
-   front:
-     restart: unless-stopped
-     image: progeser/progeser-front-dev
-     ports:
-     - "8888:80"
- 
- networks:
-   progeser-network:
-     driver: bridge
- 
- volumes:
-   db_data:
-```
-Then, create a .env file. You can find an exemple [here](https://github.com/Progeser/progeser-api/blob/master/.env.example).
-
-Finally, run the following : 
-
-`docker-compose run -d`
-
-To populate database and some fake data, run the following: 
-
-`docker-compose run web bundle exec rake db:create`
-
-`docker-compose run web bundle exec rake db:migrate`
-
-`docker-compose run web bundle exec rake db:seed`
-
-You can now navigate to http://localhost:8888
