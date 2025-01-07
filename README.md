@@ -1,4 +1,4 @@
-# ProGeSer API
+# Uniser API
 
 [![Build Status](https://travis-ci.org/Progeser/progeser-api.svg?branch=master)](https://travis-ci.org/Progeser/progeser-api)
 [![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=Progeser/progeser-api)](https://api.dependabot.com/badges/status?host=github&repo=Progeser/progeser-api)
