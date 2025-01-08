@@ -21,11 +21,8 @@ class Bench < ApplicationRecord
            inverse_of: :bench,
            dependent: :restrict_with_error
   # Checks
-
-  def dimensions_must_be_strictly_positive
-    return unless dimensions
-
-    width1, height1 = dimensions
+  def distributions_areas_lower_than_bench_area
+    return if errors[:dimensions].any?
 
     width1, height1 = dimensions
 
