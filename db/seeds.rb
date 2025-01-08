@@ -116,14 +116,14 @@ if Rails.env.development?
     greenhouse: greenhouse1,
     name: "Table 1 - #{greenhouse1.name}",
     dimensions: [500, 200],
-    positions: [0, 0]
+    positions: [10, 10]
   )
 
   Bench.create!(
     greenhouse: greenhouse1,
     name: "Table 2 - #{greenhouse1.name}",
     dimensions: [300, 150],
-    positions: [600, 0]
+    positions: [600, 10]
   )
 
   Bench.create!(
@@ -145,14 +145,14 @@ if Rails.env.development?
     greenhouse: greenhouse2,
     name: "Table 1 - #{greenhouse2.name}",
     dimensions: [300, 300],
-    positions: [0, 0]
+    positions: [10, 10]
   )
 
   Bench.create!(
     greenhouse: greenhouse2,
     name: "Table 2 - #{greenhouse2.name}",
     dimensions: [400, 200],
-    positions: [400, 0]
+    positions: [400, 10]
   )
 
   Bench.create!(
