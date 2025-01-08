@@ -97,11 +97,13 @@ class RequestDistributionTest < ActiveSupport::TestCase
   test 'invalid with wrong number of positions_on_bench' do
     @request_distribution.positions_on_bench = [10]
     assert_not @request_distribution.valid?
-    assert_includes @request_distribution.errors[:standardized_positions], 'doit contenir exactement deux éléments : x et y'
+    assert_includes @request_distribution.errors[:standardized_positions],
+                    'doit contenir exactement deux éléments : x et y'
 
     @request_distribution.positions_on_bench = [10, 20, 30]
     assert_not @request_distribution.valid?
-    assert_includes @request_distribution.errors[:standardized_positions], 'doit contenir exactement deux éléments : x et y'
+    assert_includes @request_distribution.errors[:standardized_positions],
+                    'doit contenir exactement deux éléments : x et y'
   end
 
   test 'invalid with non-positive positions_on_bench' do
