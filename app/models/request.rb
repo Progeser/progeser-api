@@ -71,6 +71,7 @@ class Request < ApplicationRecord
     state :accepted do
       validates :request_distributions,
                 length: { minimum: 1, message: :at_least_one }
+      validates :plant_stage, presence: true
     end
 
     after_transition to: :completed, do: :cleanup_request_distributions
