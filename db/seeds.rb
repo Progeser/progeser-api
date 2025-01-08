@@ -140,7 +140,6 @@ if Rails.env.development?
     positions: [525, 225]
   )
 
-
   Bench.create!(
     greenhouse: greenhouse2,
     name: "Table 1 - #{greenhouse2.name}",
