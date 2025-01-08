@@ -26,7 +26,8 @@ class RequestDistribution < ApplicationRecord
 
   belongs_to :plant_stage,
              class_name: 'PlantStage',
-             inverse_of: :request_distributions
+             inverse_of: :request_distributions,
+             optional: true
 
   belongs_to :pot,
              class_name: 'Pot',
