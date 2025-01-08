@@ -115,51 +115,51 @@ if Rails.env.development?
   Bench.create!(
     greenhouse: greenhouse1,
     name: "Table 1 - #{greenhouse1.name}",
-    dimensions: [500, 200],
-    positions: [10, 10]
+    dimensions: [495, 195],
+    positions: [15, 15]
   )
 
   Bench.create!(
     greenhouse: greenhouse1,
     name: "Table 2 - #{greenhouse1.name}",
     dimensions: [300, 150],
-    positions: [600, 10]
+    positions: [525, 15]
   )
 
   Bench.create!(
     greenhouse: greenhouse1,
     name: "Table 3 - #{greenhouse1.name}",
-    dimensions: [200, 200],
-    positions: [600, 300]
+    dimensions: [195, 195],
+    positions: [15, 225]
   )
 
   Bench.create!(
     greenhouse: greenhouse1,
     name: "Table 4 - #{greenhouse1.name}",
-    dimensions: [200, 200],
-    positions: [600, 550]
+    dimensions: [195, 195],
+    positions: [525, 225]
   )
 
-  # Benchs pour greenhouse2 (Petite serre principale)
+
   Bench.create!(
     greenhouse: greenhouse2,
     name: "Table 1 - #{greenhouse2.name}",
     dimensions: [300, 300],
-    positions: [10, 10]
+    positions: [15, 15]
   )
 
   Bench.create!(
     greenhouse: greenhouse2,
     name: "Table 2 - #{greenhouse2.name}",
-    dimensions: [400, 200],
-    positions: [400, 10]
+    dimensions: [390, 195],
+    positions: [330, 15]
   )
 
   Bench.create!(
     greenhouse: greenhouse2,
     name: "Table 3 - #{greenhouse2.name}",
-    dimensions: [200, 200],
-    positions: [810, 200]
+    dimensions: [195, 195],
+    positions: [15, 330]
   )
 
   # Plantes
