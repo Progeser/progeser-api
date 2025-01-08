@@ -3,15 +3,11 @@
 class RequestDistribution < ApplicationRecord
   # Validations
   include ValidateDimensionsConcern
+  include ValidatePositionsConcern
 
   validates :pot_quantity, presence: true, numericality: { greater_than: 0 }
 
   validate :plant_stage_from_request
-
-  validates :positions_on_bench,
-            presence: true,
-            length: { is: 2, message: I18n.t('activerecord.errors.models.bench.attributes.positions.incorrect_size') }
-  validate :positions_must_be_positive
 
   validate :validate_seeds_left_to_plant, on: %i[create update]
 
@@ -59,16 +55,8 @@ class RequestDistribution < ApplicationRecord
     errors.add(:plant_stage, 'must be from requested plant')
   end
 
-  def positions_must_be_positive
-    return unless positions_on_bench
-
-    return unless positions_on_bench.any?(&:negative?)
-
-    errors.add(:positions_on_bench, 'each position must be positive')
-  end
-
   def overlapping_distribution_exists
-    return if errors[:dimensions].any? || errors[:positions_on_bench].any?
+    return if errors[:dimensions].any? || errors[:standardized_positions].any?
     return unless bench
 
     if bench.request_distributions.any? do |other_distribution|
@@ -90,7 +78,7 @@ class RequestDistribution < ApplicationRecord
   end
 
   def distribution_within_bench_bounds
-    return if errors[:dimensions].any? || errors[:positions_on_bench].any?
+    return if errors[:dimensions].any? || errors[:standardized_positions].any?
     return unless bench
 
     bench_dimensions = bench.dimensions

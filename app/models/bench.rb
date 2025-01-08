@@ -3,11 +3,7 @@
 class Bench < ApplicationRecord
   # Validations
   include ValidateDimensionsConcern
-
-  validates :positions,
-            presence: true,
-            length: { is: 2, message: I18n.t('activerecord.errors.models.bench.attributes.positions.incorrect_size') }
-  validate :positions_must_be_positive
+  include ValidatePositionsConcern
 
   validates_associated :request_distributions, if: :dimensions_and_positions_valid?
 
@@ -40,16 +36,8 @@ class Bench < ApplicationRecord
     end
   end
 
-  def positions_must_be_positive
-    return unless positions
-
-    return unless positions.any?(&:negative?)
-
-    errors.add(:positions, 'each position must be positive')
-  end
-
   def overlapping_bench_exists
-    return if errors[:dimensions].any? || errors[:positions].any?
+    return if errors[:dimensions].any? || errors[:standardized_positions].any?
     return unless greenhouse
 
     if greenhouse.benches.any? do |other_bench|

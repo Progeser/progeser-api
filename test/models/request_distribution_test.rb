@@ -91,27 +91,29 @@ class RequestDistributionTest < ActiveSupport::TestCase
   test 'invalid without positions_on_bench' do
     @request_distribution.positions_on_bench = nil
     assert_not @request_distribution.valid?
-    assert_includes @request_distribution.errors[:positions_on_bench], 'doit être rempli(e)'
+    assert_includes @request_distribution.errors[:standardized_positions], 'doit être rempli(e)'
   end
 
   test 'invalid with wrong number of positions_on_bench' do
     @request_distribution.positions_on_bench = [10]
     assert_not @request_distribution.valid?
-    assert_includes @request_distribution.errors[:positions_on_bench], 'doit contenir exactement deux éléments : x et y'
+    assert_includes @request_distribution.errors[:standardized_positions],
+                    'doit contenir exactement deux éléments : x et y'
 
     @request_distribution.positions_on_bench = [10, 20, 30]
     assert_not @request_distribution.valid?
-    assert_includes @request_distribution.errors[:positions_on_bench], 'doit contenir exactement deux éléments : x et y'
+    assert_includes @request_distribution.errors[:standardized_positions],
+                    'doit contenir exactement deux éléments : x et y'
   end
 
   test 'invalid with non-positive positions_on_bench' do
     @request_distribution.positions_on_bench = [10, -20]
     assert_not @request_distribution.valid?
-    assert_includes @request_distribution.errors[:positions_on_bench], 'each position must be positive'
+    assert_includes @request_distribution.errors[:standardized_positions], 'chaque position doit être positive'
 
     @request_distribution.positions_on_bench = [-1, 30]
     assert_not @request_distribution.valid?
-    assert_includes @request_distribution.errors[:positions_on_bench], 'each position must be positive'
+    assert_includes @request_distribution.errors[:standardized_positions], 'chaque position doit être positive'
   end
 
   test 'invalid when overlapping with another distribution in the same bench' do
